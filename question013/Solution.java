@@ -1,7 +1,7 @@
 package question013;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82141791
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82141791
  */
 public class Solution {
 	
@@ -51,8 +51,4 @@ public class Solution {
 		}
         return result;
     }
-	
-	public static void main(String[] args) {
-		System.out.println(new Solution().romanToInt("I"));
-	}
 }

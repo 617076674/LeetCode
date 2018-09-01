@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82177357
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177357
  */
 public class Solution {
 	
@@ -31,7 +31,6 @@ public class Solution {
 		return list;
 	}
 	
-	//stringBuilder中存储了考虑digits中前index - 1个元素所得到的字符串，接下来我们要考虑的是digits中第index个字符
 	private void letterCombinations(String digits, int index, StringBuilder stringBuilder) {
 		if(index == digits.length()) {
 			list.add(stringBuilder.toString());

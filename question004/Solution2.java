@@ -1,7 +1,7 @@
 package question004;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81805795
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81805795
  */
 public class Solution2 {
 
@@ -17,18 +17,12 @@ public class Solution2 {
 		}
 	}
 
-	/*
-	 * 寻找两个有序数组nums1数组中[left1, right1]范围内和nums2数组[left2, right2]范围内第k小的数，k从1开始计数
-	 */
 	private int findKthInTwoArrays(int[] nums1, int left1, int right1, int[] nums2, int left2, int right2, int k) {
 		int n1 = right1 - left1 + 1;
 		int n2 = right2 - left2 + 1;
 		if(k > n1 + n2) {
 			throw new IllegalArgumentException("The input k is too big!");
 		}
-		/*if(n1 > n2) {
-			return findKthInTwoArrays(nums2, left2, right2, nums1, left1, right1, k);
-		}*/
 		if(n1 == 0) {
 			return nums2[left2 + k - 1];
 		}

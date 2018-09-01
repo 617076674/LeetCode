@@ -1,7 +1,7 @@
 package question003;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81784418
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
  */
 public class Solution1 {
 	
@@ -12,7 +12,6 @@ public class Solution1 {
 		int result = 1;
 		for (int i = 0; i < s.length(); i++) {
 			for (int j = i + 1; j < s.length(); j++) {
-				//判断[i, j]区间内是否有重复元素
 				boolean flag = false;
 				for(int k = i; k < j; k++) {
 					if(s.charAt(k) == s.charAt(j)) {

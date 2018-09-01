@@ -1,7 +1,7 @@
 package question019;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82250538
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82250538
  */
 public class Solution1 {
 	
@@ -15,7 +15,6 @@ public class Solution1 {
 			cur1 = cur1.next;
 		}
 		int delIndex = count + 1 - n;
-		//删除节点的关键是找到待删除节点的前一个节点
 		int preDelIndex = delIndex - 1; 
 		int index = 0;
 		ListNode cur2 = dummyHead;

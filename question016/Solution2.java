@@ -3,7 +3,7 @@ package question016;
 import java.util.Arrays;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82177199
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177199
  */
 public class Solution2 {
 	

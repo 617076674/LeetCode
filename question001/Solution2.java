@@ -3,7 +3,7 @@ package question001;
 import java.util.HashMap;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81501389
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
  */
 public class Solution2 {
 	
@@ -43,9 +43,9 @@ public class Solution2 {
 			return;
 		}
 		swap(arr, left, (int)(Math.random() * (right - left + 1)) + left);
-		int lessThan = left;			//[left + 1, lessThan]小于left
-		int greaterThan = right + 1;	//[greaterThan, right]中的元素大于left
-		int i = left + 1;				//[lessThan + 1, i)中的元素等于left
+		int lessThan = left;			//[left + 1, lessThan]
+		int greaterThan = right + 1;	//[greaterThan, right]
+		int i = left + 1;				//[lessThan + 1, i)
 		while(i < greaterThan) {
 			if(hashMap.get(arr[i]).compareTo(hashMap.get(arr[left])) == 0 && arr[i] - arr[left] == 0) {
 				i++;
@@ -67,14 +67,5 @@ public class Solution2 {
 		Integer temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
-	}
-	
-	public static void main(String[] args) {
-		int[] nums = {3, 2, 4};
-		int target = 6;
-		int[] result = new Solution2().twoSum(nums, target);
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]);
-		}
 	}
 }

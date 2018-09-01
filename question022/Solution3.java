@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82259034
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82259034
  */
 public class Solution3 {
 	public List<String> generateParenthesis(int n) {

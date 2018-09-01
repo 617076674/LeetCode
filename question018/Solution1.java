@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82177660
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
  */
 public class Solution1 {
 	

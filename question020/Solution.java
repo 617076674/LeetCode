@@ -3,7 +3,7 @@ package question020;
 import java.util.Stack;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82250673
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82250673
  */
 public class Solution {
 	

@@ -3,7 +3,7 @@ package question023;
 import java.util.PriorityQueue;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/82263333
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82263333
  */
 public class Solution2 {
 	public ListNode mergeKLists(ListNode[] lists) {

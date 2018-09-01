@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82263333
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82263333
  */
 public class Solution3 {
 
@@ -12,7 +12,6 @@ public class Solution3 {
 		if(lists.length == 0) {
 			return null;
 		}
-		//该构造方法要求lists.length大于等于1
 		PriorityQueue<ListNode> priorityQueue = new PriorityQueue<>(lists.length, new Comparator<ListNode>() {
 
 			@Override

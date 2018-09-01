@@ -1,7 +1,7 @@
 package question008;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81937330
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81937330
  */
 public class Solution {
 	

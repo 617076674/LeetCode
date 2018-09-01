@@ -1,7 +1,7 @@
 package question023;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82263333
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82263333
  */
 public class Solution1 {
 	
@@ -21,7 +21,6 @@ public class Solution1 {
 				}
 				index++;
 			}
-			//如果输入的lists数组中没有元素，或者有元素但是每一个元素都是null，直接返回null
             if(index == curs.length) {
 				return null;
 			}

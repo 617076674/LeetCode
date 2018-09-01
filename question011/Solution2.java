@@ -1,7 +1,7 @@
 package question011;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/81407474
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81407474
  */
 public class Solution2 {
 	

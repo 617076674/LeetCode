@@ -1,14 +1,13 @@
 package question003;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81784418
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
  */
 public class Solution4 {
+	
 	public int lengthOfLongestSubstring(String s) {
-
         int[] freq = new int[256];
-
-        int left = 0, right = -1; //滑动窗口为s[left...right]
+        int left = 0, right = -1; 
         int res = 0;
         if(s.length() == 1) {
         	return res + 1;

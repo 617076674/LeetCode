@@ -1,7 +1,7 @@
 package question006;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81901208
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81901208
  */
 public class Solution3 {
 
@@ -16,11 +16,9 @@ public class Solution3 {
 		}
 		int interval = 2 * numRows - 2;
 		int row = 0;
-		//处理第一行
 		for (int i = 0; i < n; i += interval) {
 			stringBuilders[row].append(s.charAt(i));
 		}
-		//处理剩下的所有行
 		for (row = 1; row < numRows; row++) {
 			for (int i = row; i < n; i++) {
 				if(row != numRows - 1) {

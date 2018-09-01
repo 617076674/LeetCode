@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
- * ½âÎöÇë¼û£ºhttps://blog.csdn.net/qq_41231926/article/details/81449878
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81449878
  */
 public class Solution1 {
 	public List<List<Integer>> threeSum(int[] nums) {

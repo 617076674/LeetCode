@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82259034
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82259034
  */
 public class Solution2 {
 	
@@ -20,7 +20,6 @@ public class Solution2 {
         return list;
     }
 	
-	//stringBuilder中存放了leftCount个左括号，rightCount个右括号
 	private void generateParenthesis(StringBuilder stringBuilder, int leftCount, int rightCount, int n) {
 		if(leftCount + rightCount == 2 * n) {
 			list.add(stringBuilder.toString());

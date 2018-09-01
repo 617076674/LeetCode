@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82177660
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
  */
 public class Solution2 {
 	
@@ -21,7 +21,6 @@ public class Solution2 {
 				hashMap.put(nums[i], 1);
 			}
 		}
-		//有4个相同的数的情况
 		if(target % 4 == 0 && hashMap.containsKey(target / 4) && hashMap.get(target / 4) >= 4) {
 			addToListList(target / 4, target / 4, target / 4, target / 4, listList);
 		}
@@ -30,7 +29,6 @@ public class Solution2 {
 			arrayList.add(integer);
 		}
 		Collections.sort(arrayList);
-		//有3个相同的数的情况
 		for(int i = 0; i < arrayList.size(); i++) {
 			for(int j = i + 1; j < arrayList.size(); j++) {
 				if(arrayList.get(i) * 3 + arrayList.get(j) == target && hashMap.get(arrayList.get(i)) >= 3) {
@@ -41,7 +39,6 @@ public class Solution2 {
 				}
 			}
 		}
-		//2个数两两相同的情况
 		for(int i = 0; i < arrayList.size(); i++) {
 			for(int j = i + 1; j < arrayList.size(); j++) {
 				if(arrayList.get(i) * 2 + arrayList.get(j) * 2 == target && hashMap.get(arrayList.get(i)) >= 2 && hashMap.get(arrayList.get(j)) >= 2) {
@@ -52,7 +49,6 @@ public class Solution2 {
 		for(int i = 0; i < arrayList.size(); i++) {
 			for(int j = i + 1; j < arrayList.size(); j++) {
 				for(int k = j + 1; k < arrayList.size(); k++) {
-					//有2个数相同，另外两个数不相同的情况
 					if(arrayList.get(i) * 2 + arrayList.get(j) + arrayList.get(k) == target && hashMap.get(arrayList.get(i)) >= 2) {
 						addToListList(arrayList.get(i), arrayList.get(i), arrayList.get(j), arrayList.get(k), listList);
 					}
@@ -62,7 +58,6 @@ public class Solution2 {
 					if(arrayList.get(i) + arrayList.get(j) + arrayList.get(k) * 2 == target && hashMap.get(arrayList.get(k)) >= 2) {
 						addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(k), arrayList.get(k), listList);
 					}
-					//没有相同数的情况
 					int num = target - arrayList.get(i) - arrayList.get(j) - arrayList.get(k);
 					if(num > arrayList.get(k) && hashMap.containsKey(num)) {
 						addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(k), num, listList);

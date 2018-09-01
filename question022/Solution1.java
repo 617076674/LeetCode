@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/82259034
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82259034
  */
 public class Solution1 {
 	
@@ -20,7 +20,6 @@ public class Solution1 {
         return list;
 	}
 	
-	//stringBuilder中存储了索引为0 ~ (index - 1)的字符，现在考虑第index索引位置的字符
 	private void generateParenthesis(StringBuilder stringBuilder, int index, int n) {
 		if(index == 2 * n) {
 			if(isValidString(stringBuilder.toString())) {

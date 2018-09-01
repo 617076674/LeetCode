@@ -1,7 +1,7 @@
 package question003;
 
 /*
- * 解析请见：https://blog.csdn.net/qq_41231926/article/details/81784418
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
  */
 public class Solution2 {
 	
@@ -10,7 +10,7 @@ public class Solution2 {
         int n = arr.length;
         int[] freq = new int[256];
         int left = 0;
-        int right = -1;			//设置[left, right]为滑动窗口
+        int right = -1;			//[left, right] is our overflow window
         int len = 0;
         while(left < n) {
         	if(right + 1 < n && freq[arr[right + 1] - 'a' + 'a'] == 0) {
