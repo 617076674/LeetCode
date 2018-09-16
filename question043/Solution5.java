@@ -31,8 +31,4 @@ public class Solution5 {
         }
         return result;
     }
-	
-	public static void main(String[] args) {
-		System.out.println(new Solution5().multiply("123", "456"));
-	}
 }

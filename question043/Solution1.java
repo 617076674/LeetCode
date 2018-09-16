@@ -58,8 +58,4 @@ public class Solution1 {
         }
         return result.reverse().toString();
     }
-	
-	public static void main(String[] args) {
-		System.out.println(new Solution1().multiply("123", "456"));
-	}
 }
