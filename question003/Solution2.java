@@ -6,22 +6,21 @@ package question003;
 public class Solution2 {
 	
 	public int lengthOfLongestSubstring(String s) {
-        char[] arr = s.toCharArray();
-        int n = arr.length;
+        int n = s.length();
         int[] freq = new int[256];
         int left = 0;
         int right = -1;			//[left, right] is our overflow window
-        int len = 0;
+        int result = 0;
         while(left < n) {
-        	if(right + 1 < n && freq[arr[right + 1] - 'a' + 'a'] == 0) {
+        	if(right + 1 < n && freq[s.charAt(right + 1)] == 0) {
         		right++;
-        		freq[arr[right] - 'a' + 'a'] = 1;
+        		freq[s.charAt(right)] = 1;
         	}else {
-        		freq[arr[left] - 'a' + 'a'] = 0;
+        		freq[s.charAt(left)] = 0;
         		left++;
         	}
-        	len = Math.max(len, right - left + 1);
+        	result = Math.max(result, right - left + 1);
         }
-        return len;
+        return result;
     }
 }

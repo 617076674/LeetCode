@@ -6,19 +6,20 @@ package question003;
 public class Solution3 {
 	
 	public int lengthOfLongestSubstring(String s) {
-
 		int[] freq = new int[256];
-		int l = 0, r = -1; 
-		int res = 0;
-		while( r + 1 < s.length() ){
-
-			if( r + 1 < s.length() && freq[s.charAt(r+1)] == 0 )
-				freq[s.charAt(++r)] ++;
-			else    
-				freq[s.charAt(l++)] --;
-
-			res = Math.max(res, r-l+1);
+		int left = 0, right = -1; 
+		int result = 0;
+		while(right + 1 < s.length()){
+			if(freq[s.charAt(right + 1)] == 0 ) {
+				right++;
+				freq[s.charAt(right)] = 1;
+			}
+			else {
+				freq[s.charAt(left)] = 0;
+				left++;
+			}
+			result = Math.max(result, right - left + 1);
 		}
-		return res;
+		return result;
 	}
 }

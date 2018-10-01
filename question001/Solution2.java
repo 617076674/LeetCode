@@ -43,11 +43,11 @@ public class Solution2 {
 			return;
 		}
 		swap(arr, left, (int)(Math.random() * (right - left + 1)) + left);
-		int lessThan = left;			//[left + 1, lessThan]
-		int greaterThan = right + 1;	//[greaterThan, right]
-		int i = left + 1;				//[lessThan + 1, i)
+		int lessThan = left;			//[left + 1, lessThan] is less than left
+		int greaterThan = right + 1;	//[greaterThan, right] is greater than left
+		int i = left + 1;				//[lessThan + 1, i) is the same as left
 		while(i < greaterThan) {
-			if(hashMap.get(arr[i]).compareTo(hashMap.get(arr[left])) == 0 && arr[i] - arr[left] == 0) {
+			if(hashMap.get(arr[i]).compareTo(hashMap.get(arr[left])) == 0) {
 				i++;
 			}else if(hashMap.get(arr[i]).compareTo(hashMap.get(arr[left])) > 0) {
 				swap(arr, i, greaterThan - 1);

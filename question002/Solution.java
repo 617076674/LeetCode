@@ -26,6 +26,7 @@ public class Solution {
 		if(cur1.next == null && cur2.next == null && flag == 1) {
 			cur1.next = new ListNode(flag);
 		}else if(cur1.next == null && cur2.next != null) {
+			//we are to return l1 at last, so we need to make cur1.next refer to cur2.next
 			cur1.next = cur2.next;
 			cur1.next.val = flag + cur2.next.val;
 			ListNode cur = cur1.next;
