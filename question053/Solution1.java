@@ -1,5 +1,8 @@
 package question053;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82796047
+ */
 public class Solution1 {
 
 	public int maxSubArray(int[] nums) {

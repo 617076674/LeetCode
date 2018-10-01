@@ -1,5 +1,8 @@
 package question050;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82780997
+ */
 public class Solution {
 
 	public double myPow(double x, int n) {

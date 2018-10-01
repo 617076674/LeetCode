@@ -1,5 +1,8 @@
 package question061;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82834157
+ */
 public class Solution {
 	
 	public ListNode rotateRight(ListNode head, int k) {

@@ -1,5 +1,8 @@
 package question060;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82834088
+ */
 public class Solution2 {
 
 	public String getPermutation(int n, int k) {

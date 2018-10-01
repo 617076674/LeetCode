@@ -1,5 +1,8 @@
 package question058;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82820156
+ */
 public class Solution {
 
 	public int lengthOfLastWord(String s) {

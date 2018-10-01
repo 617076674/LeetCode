@@ -1,5 +1,8 @@
 package question067;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82847863
+ */
 public class Solution {
 
     public String addBinary(String a, String b) {

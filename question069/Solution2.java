@@ -1,5 +1,8 @@
 package question069;
 
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/82861877
+ */
 public class Solution2 {
 
 	public int mySqrt(int x) {
