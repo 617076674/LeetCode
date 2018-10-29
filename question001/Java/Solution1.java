@@ -1,5 +1,3 @@
-package question001;
-
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
  */

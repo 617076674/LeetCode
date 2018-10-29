@@ -1,10 +1,8 @@
-package question001;
-
-import java.util.HashMap;
-
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
  */
+import java.util.HashMap;
+
 public class Solution3 {
 	
 	public int[] twoSum(int[] nums, int target) {

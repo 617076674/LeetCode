@@ -1,10 +1,7 @@
-bool compare(pair<int, int> pair1, pair<int, int> pair2){
-	if(pair1.second >= pair2.second){
-		return true;
-	}else{
-		return false;
-	}
-}
+/*
+ * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
+ */
+bool compare(pair<int, int> pair1, pair<int, int> pair2); 
 
 class Solution {
 public:
@@ -37,4 +34,10 @@ public:
     }
 };
 
-
+bool compare(pair<int, int> pair1, pair<int, int> pair2){
+	if(pair1.second >= pair2.second){
+		return true;
+	}else{
+		return false;
+	}
+}
