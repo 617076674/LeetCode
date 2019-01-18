@@ -1,0 +1,1 @@
+SELECT Score, (SELECT count(DISTINCT Score) FROM Scores WHERE Score >= s.Score) AS Rank FROM Scores AS s ORDER BY Score DESC

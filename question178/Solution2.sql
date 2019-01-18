@@ -1,0 +1,1 @@
+SELECT s.Score, COUNT(DISTINCT t.Score) AS Rank FROM Scores AS s JOIN Scores AS t ON s.Score <= t.Score GROUP BY s.Id ORDER BY s.Score DESC
