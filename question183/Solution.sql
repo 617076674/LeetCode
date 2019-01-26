@@ -1,0 +1,1 @@
+SELECT Name AS Customers FROM Customers WHERE (SELECT COUNT(1) FROM Orders WHERE Orders.CustomerId = Customers.Id) = 0;
