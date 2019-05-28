@@ -6,20 +6,17 @@ package question069;
 public class Solution2 {
 
 	public int mySqrt(int x) {
-		int left = 1;
-		int right = x;
-		int mid = left + (right - left) / 2;
-		while(left < right) {
-			if((long)mid * (long)mid == x) {
-				break;
-			}else if((long)mid * (long)mid > x) {
-				right = mid - 1;
-				mid = left + (right - left) / 2;
-			}else if((long)mid * (long)mid < x) {
-				left = mid + 1;
-				mid = left + (right - left) / 2;
+		int left = 0, right = x / 2 + 1;
+		while (left <= right) {
+			long mid = left + (right - left) / 2;
+			if (mid * mid == x) {
+				return (int) mid;
+			} else if (mid * mid < x) {
+				left = (int) (mid + 1);
+			} else {
+				right = (int) (mid - 1);
 			}
 		}
-        return (long)mid * (long)mid > x ? mid - 1 : mid;
+		return right;
 	}
 }
