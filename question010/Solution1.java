@@ -33,7 +33,7 @@ public class Solution1 {
 		}
 		if(p.charAt(np - 1) == '*') {
 			if(s.charAt(ns - 1) != p.charAt(np - 2) && p.charAt(np - 2) != '.') {
-				return isMatch(s.substring(0, ns), p.substring(0, np - 2));
+				return isMatch(s, p.substring(0, np - 2));
 			}else {
 				return isMatch(s.substring(0, ns - 1), p) || isMatch(s.substring(0, ns), p.substring(0, np - 1)) || isMatch(s.substring(0, ns), p.substring(0, np - 2));
 			}
