@@ -23,6 +23,9 @@ public class Solution2 {
 		if(k > n1 + n2) {
 			throw new IllegalArgumentException("The input k is too big!");
 		}
+		if (n1 > n2) {
+			return findKthInTwoArrays(nums2, left2, right2, nums1, left1, right1, k);
+		}
 		if(n1 == 0) {
 			return nums2[left2 + k - 1];
 		}
@@ -37,4 +40,5 @@ public class Solution2 {
 			return findKthInTwoArrays(nums1, left1 + i, right1, nums2, left2, right2, k - i);
 		}
 	}
+
 }
