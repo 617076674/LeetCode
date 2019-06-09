@@ -11,5 +11,6 @@ public class Solution1 {
         head.next = null;
         return newHead;
     }
+
 }
 

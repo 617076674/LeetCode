@@ -3,7 +3,7 @@ package question074;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82904673
  */
-public class Solution {
+public class Solution1 {
 
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length;
@@ -22,13 +22,11 @@ public class Solution {
         if(row == -1){
             return false;
         }
-        System.out.println("row = " + row);
         return binarySearch(matrix[row],target);
     }
 
     private boolean binarySearch(int[] array, int target){
-        int left = 0;
-        int right = array.length - 1;
+        int left = 0, right = array.length - 1;
         while(left <= right){
             int mid = left + (right - left) / 2;
             if(array[mid] == target){
@@ -59,4 +57,5 @@ public class Solution {
             return left;
         }
     }
+
 }
