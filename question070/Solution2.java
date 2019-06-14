@@ -1,9 +1,15 @@
 package question070;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82862289
+ *
+ * 用一个数组来保存前面的所有值。
+ *
+ * 时间复杂度和空间复杂度均是O(n)。
+ *
+ * 执行用时：0ms，击败100.00%。消耗内存：32.6MB，击败78.62%。
  */
-public class Solution {
+public class Solution2 {
 
     public int climbStairs(int n) {
         int[] path = new int[n];
@@ -17,4 +23,5 @@ public class Solution {
         }
         return path[n - 1];
     }
+
 }
