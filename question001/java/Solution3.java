@@ -1,8 +1,16 @@
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
- */
+package question001.java;
+
 import java.util.HashMap;
 
+/**
+ * 依然用哈希表记录数组中的值对应的索引，但是整个过程只遍历一次nums数组。
+ *
+ * 边遍历边往哈希表中存键值对。
+ *
+ * 时间复杂度是O(n)，其中n是nums数组的长度。空间复杂度是O(m)，其中m为nums数组中不同元素的数量。
+ *
+ * 执行用时：6ms，击败94.35%。消耗内存：39MB，击败48.78%。
+ */
 public class Solution3 {
 	
 	public int[] twoSum(int[] nums, int target) {
@@ -20,13 +28,5 @@ public class Solution3 {
 		}
         return result;
     }
-	
-	public static void main(String[] args) {
-		int[] nums = {3, 2, 4};
-		int target = 6;
-		int[] result = new Solution3().twoSum(nums, target);
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]);
-		}
-	}
+
 }

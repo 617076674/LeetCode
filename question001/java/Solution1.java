@@ -1,5 +1,11 @@
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81501389
+package question001.java;
+
+/**
+ * 暴力破解法。
+ *
+ * 时间复杂度O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：54ms，击败33.60%。消耗内存：37.6MB，击败85.83%。
  */
 public class Solution1 {
 	
@@ -16,4 +22,5 @@ public class Solution1 {
 		}
         return result;
     }
+
 }
