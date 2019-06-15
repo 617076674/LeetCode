@@ -1,7 +1,11 @@
 package question081;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82955777
+/**
+ * 二分法。
+ *
+ * 时间复杂度是O(nlogn)。空间复杂度是O(1)。
+ *
+ * 执行用时：2ms，击败96.98%。消耗内存：36.4MB，击败75.30%。
  */
 public class Solution {
 
@@ -16,7 +20,11 @@ public class Solution {
                 if(target == nums[mid]){
                     return true;
                 }else if(target < nums[mid]){
-                    int[] leftRight = search(nums, left, mid, right, target);
+                    //target < nums[mid] && target < nums[left]
+                    //接下来我们的寻找范围是哪里呢？是[left, mid - 1]，还是[mid + 1, right]呢？
+                    //假如[left, mid]中的元素均相等，我们的寻找范围就是[mid + 1, right]。
+                    //否则，我们的寻找范围就是[left, mid - 1]。
+                    int[] leftRight = search(nums, left, mid, right);
                     left = leftRight[0];
                     right = leftRight[1];
                 }else{
@@ -28,7 +36,7 @@ public class Solution {
                 }else if(target < nums[mid]){
                     right = mid - 1;
                 }else{
-                    int[] leftRight = search(nums, left, mid, right, target);
+                    int[] leftRight = search(nums, left, mid, right);
                     left = leftRight[0];
                     right = leftRight[1];
                 }
@@ -37,7 +45,13 @@ public class Solution {
         return false;
     }
 
-    private int[] search(int[] nums, int left, int mid, int right, int target){
+    /**
+     * 当target < nums[mid] && target < nums[left]或target > nums[left] && target > nums[mid]时，
+     * 我们下一步查找的范围是什么呢？
+     *
+     * 这就是这个函数的作用。
+     */
+    private int[] search(int[] nums, int left, int mid, int right){
         if(nums[mid] > nums[left]) {
             left = mid + 1;
         }else if(nums[mid] < nums[left]){
@@ -60,4 +74,5 @@ public class Solution {
         result[1] = right;
         return result;
     }
+
 }
