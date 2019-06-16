@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Solution2 {
 
-    List<String> result = new ArrayList<>();
+    private List<String> result = new ArrayList<>();
 
     public List<String> findWords(char[][] board, String[] words) {
         TrieNode trieNode = buildTrie(words);
