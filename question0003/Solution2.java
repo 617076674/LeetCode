@@ -1,16 +1,19 @@
-package question003;
+package question0003;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
+/**
+ * 滑动窗口法。
+ *
+ * 将一个数组当作哈希表。
+ *
+ * 时间复杂度是O(n)，其中n为字符串s的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：9ms，击败97.28%。消耗内存：36.5MB，击败97.26%。
  */
 public class Solution2 {
-	
 	public int lengthOfLongestSubstring(String s) {
         int n = s.length();
         int[] freq = new int[256];
-        int left = 0;
-        int right = -1;			//[left, right] is our overflow window
-        int result = 0;
+        int left = 0, right = -1, result = 0; //滑动窗口范围是[left, right]
         while(left < n) {
         	if(right + 1 < n && freq[s.charAt(right + 1)] == 0) {
         		right++;

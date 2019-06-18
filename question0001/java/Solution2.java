@@ -15,11 +15,10 @@ import java.util.List;
  * 执行用时：16ms，击败58.84%。消耗内存：40.2MB，击败33.23%。
  */
 public class Solution2 {
-	
 	public int[] twoSum(int[] nums, int target) {
-		int[] result = new int[2];
+		int n = nums.length;
 		HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
-		for (int i = 0; i < nums.length; i++) {
+		for (int i = 0; i < n; i++) {
 			if (hashMap.containsKey(nums[i])) {
 				hashMap.get(nums[i]).add(i);
 			} else {
@@ -29,9 +28,11 @@ public class Solution2 {
 			}
 		}
 		Arrays.sort(nums);
-		int left = 0, right = nums.length - 1;
+		int left = 0;
+		int right = n - 1;
 		while(left < right) {
 			if(nums[left] + nums[right] == target) {
+				int[] result = new int[2];
 				result[0] = hashMap.get(nums[left]).get(0);
 				if (nums[left] == nums[right]) {
 					result[1] = hashMap.get(nums[right]).get(1);
@@ -45,7 +46,6 @@ public class Solution2 {
 				left++;
 			}
 		}
-        return result;
+        return null;
     }
-
 }

@@ -12,13 +12,12 @@ import java.util.HashMap;
  * 执行用时：6ms，击败94.35%。消耗内存：39MB，击败48.78%。
  */
 public class Solution3 {
-	
 	public int[] twoSum(int[] nums, int target) {
 		HashMap<Integer, Integer> hashMap = new HashMap<>();
-		int[] result = new int[2];
 		for (int i = 0; i < nums.length; i++) {
 			int anotherNum = target - nums[i];
 			if(hashMap.containsKey(anotherNum)) {
+				int[] result = new int[2];
 				result[0] = hashMap.get(anotherNum);
 				result[1] = i;
 				return result;
@@ -26,7 +25,6 @@ public class Solution3 {
 				hashMap.put(nums[i], i);
 			}
 		}
-        return result;
+        return null;
     }
-
 }

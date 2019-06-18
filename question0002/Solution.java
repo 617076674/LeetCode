@@ -1,16 +1,18 @@
-package question002;
+package question0002;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784208
+/**
+ * 链表的操作，多设指针。
+ *
+ * 时间复杂度是O(n1 + n2)，其中n1为链表l1的长度，n2位链表l2的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：10ms，击败80.37%。消耗内存：44.7MB，击败84.76%。
  */
 public class Solution {
-
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode cur1 = l1;
-		ListNode cur2 = l2;
+		ListNode cur1 = l1, cur2 = l2;
 		int flag = 0;
 		while(true) {
-			cur1.val = cur1.val + cur2.val + flag;
+			cur1.val += cur2.val + flag;
 			if(cur1.val >= 10) {
 				cur1.val -= 10;
 				flag = 1;
@@ -39,8 +41,8 @@ public class Solution {
 					cur = cur.next;
 				}
 			}
-		}else if(cur1.next != null && cur2.next == null) {
-			cur1.next.val = flag + cur1.next.val;
+		}else if(cur1.next != null) {
+			cur1.next.val += flag;
 			ListNode cur = cur1.next;
 			while(cur.val >= 10) {
 				cur.val -= 10;

@@ -1,20 +1,17 @@
-package question003;
+package question0003;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
+/**
+ * 滑动窗口法。
  */
 public class Solution3 {
-	
 	public int lengthOfLongestSubstring(String s) {
 		int[] freq = new int[256];
-		int left = 0, right = -1; 
-		int result = 0;
+		int left = 0, right = -1, result = 0;
 		while(right + 1 < s.length()){
 			if(freq[s.charAt(right + 1)] == 0 ) {
 				right++;
 				freq[s.charAt(right)] = 1;
-			}
-			else {
+			} else {
 				freq[s.charAt(left)] = 0;
 				left++;
 			}
