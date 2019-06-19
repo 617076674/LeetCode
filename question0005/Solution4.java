@@ -1,10 +1,9 @@
-package question005;
+package question0005;
 
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81865177
  */
 public class Solution4 {
-
 	public String longestPalindrome(String s) {
 		if(s.length() < 2) {
 			return s;
@@ -16,8 +15,7 @@ public class Solution4 {
 		}
 		for (int i = n - 2; i >= 0; i--) {
 			for (int j = i + 1; j < n; j++) {
-				int left = i;
-				int right = j;
+				int left = i, right = j;
 				while(left <= right) {
 					if(s.charAt(left) != s.charAt(right)) {
 						break;

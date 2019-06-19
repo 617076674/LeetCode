@@ -1,10 +1,9 @@
-package question005;
+package question0005;
 
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81865177
  */
 public class Solution5 {
-	
 	public String longestPalindrome(String s) {
 		if(s.length() < 2) {
 			return s;
