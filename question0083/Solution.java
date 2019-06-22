@@ -1,16 +1,18 @@
-package question083;
+package question0083;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82976808
+/**
+ * 与question0082同样的思路。
+ *
+ * 时间复杂度是O(n)，其中n为链表中的节点个数。空间复杂度是O(1)。
+ *
+ * 执行用时：2ms，击败84.85%。消耗内存：37.2MB，击败51.54%。
  */
 public class Solution {
-
     public ListNode deleteDuplicates(ListNode head) {
         if(null == head || null == head.next){
             return head;
         }
-        ListNode cur1 = head;
-        ListNode cur2 = head.next;
+        ListNode cur1 = head, cur2 = head.next;
         while(null != cur2){
             if(cur1.val != cur2.val){
                 cur1 = cur2;
