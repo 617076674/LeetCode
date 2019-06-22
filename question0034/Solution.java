@@ -1,4 +1,4 @@
-package question034;
+package question0034;
 
 /**
  * floor()函数：寻找nums数组中值小于target的最大值所在的索引。
