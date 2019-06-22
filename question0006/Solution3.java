@@ -1,4 +1,4 @@
-package question006;
+package question0006;
 
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81901208
