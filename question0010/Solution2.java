@@ -1,13 +1,17 @@
-package question010;
+package question0010;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82010888
+ *
+ * 动态规划。
+ *
+ * 时间复杂度是O(ns * np)，其中ns是字符串s的长度，np是字符串p的长度。
+ *
+ * 执行用时：8ms，击败87.43%。消耗内存：35.8MB，击败89.46%。
  */
 public class Solution2 {
-
 	public boolean isMatch(String s, String p) {
-		int ns = s.length() + 1;
-		int np = p.length() + 1;
+		int ns = s.length() + 1, np = p.length() + 1;
 		boolean[][] matched = new boolean[ns][np];
 		matched[0][0] = true;
 		for (int i = 0; i < ns; i++) {
