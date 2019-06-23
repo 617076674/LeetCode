@@ -1,10 +1,9 @@
-package question009;
+package question0009;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81937355
+/**
+ * 执行用时：61ms，击败33.72%。消耗内存：37.6MB，击败86.64%。
  */
 public class Solution3 {
-	
 	public boolean isPalindrome(int x) {
 		if(x < 0) {
 			return false;
@@ -12,8 +11,7 @@ public class Solution3 {
 		if(x <= 9) {
 			return true;
 		}
-		int num = 0;
-		int temp = x;
+		int num = 0, temp = x;
         while(temp > 0) {
         	temp /= 10;
         	num++;
