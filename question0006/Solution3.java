@@ -1,10 +1,13 @@
 package question0006;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81901208
+/**
+ * 找规律填充数字。
+ *
+ * 时间复杂度是O(n * numRows)，其中n为字符串s的长度。空间复杂度是O(numRows * n)。
+ *
+ * 执行用时：224ms，击败5.02%。消耗内存：48.4MB，击败64.23%。
  */
 public class Solution3 {
-
 	public String convert(String s, int numRows) {
 		int n = s.length();
 		if(n <= numRows || numRows == 1 || numRows == 0) {
@@ -35,7 +38,6 @@ public class Solution3 {
 				}
 			}
 		}
-		
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < stringBuilders.length; i++) {
 			result.append(stringBuilders[i]);

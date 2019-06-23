@@ -1,10 +1,13 @@
 package question0006;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81901208
+/**
+ * 增加一个zigZag标记位。
+ *
+ * 时间复杂度是O(n)，其中n为字符串s的长度。空间复杂度是O(numRows * n)。
+ *
+ * 执行用时：24ms，击败62.22%。消耗内存：44.8MB，击败70.46%。
  */
 public class Solution2 {
-	
 	public String convert(String s, int numRows) {
 		int n = s.length();
 		if(n <= numRows || numRows == 1 || numRows == 0) {
