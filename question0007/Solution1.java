@@ -1,10 +1,13 @@
-package question007;
+package question0007;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81915741
+/**
+ * 利用异常来处理溢出的情况。
+ *
+ * 时间复杂度是O(x)。空间复杂度是O(1)。
+ *
+ * 执行用时：9ms，击败49.97%。消耗内存：34.2MB，击败78.22%。
  */
 public class Solution1 {
-	
 	public int reverse(int x) {
         StringBuilder stringBuilder = new StringBuilder();
         if(x < 0) {
