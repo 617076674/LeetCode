@@ -1,11 +1,15 @@
-package question015;
+package question0015;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81449878
+/**
+ * 三重循环，暴力破解法。
+ *
+ * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 在LeetCode中提交会超时。
  */
 public class Solution1 {
 	public List<List<Integer>> threeSum(int[] nums) {
