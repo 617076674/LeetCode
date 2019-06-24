@@ -1,17 +1,17 @@
-package question014;
+package question0014;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82141995
+/**
+ * 分治算法，递归实现。
+ *
+ * 执行用时：3ms，击败71.31%。消耗内存：35.4MB，击败90.87%。
  */
 public class Solution2 {
-	
 	public String longestCommonPrefix(String[] strs) {
 		if(strs.length == 0) {
 			return "";
 		}
 		return longestCommonPrefix(strs, 0, strs.length - 1);
 	}
-	
 	private String longestCommonPrefix(String[] strs, int left, int right) {
 		if(left == right) {
 			return strs[left];

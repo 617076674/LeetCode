@@ -1,10 +1,11 @@
-package question014;
+package question0014;
 
-/*
- * ��See analysis: https://blog.csdn.net/qq_41231926/article/details/82141995
+/**
+ * 暴力破解法。
+ *
+ * 执行用时：3ms，击败71.31%。消耗内存：36MB，击败87.70%。
  */
 public class Solution1 {
-	
 	public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0 || strs[0].length() == 0) {
 			return "";
