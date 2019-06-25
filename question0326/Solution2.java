@@ -14,7 +14,7 @@ public class Solution2 {
     public boolean isPowerOfThree(int n) {
         if (n == 1) {
             return true;
-        } else if (n <= 0 || n % 3 != 0) {
+        } else if (n <= 0 || n % 3 != 0) {  //考虑输入n是负数或0的情况
             return false;
         }
         return isPowerOfThree(n / 3);
