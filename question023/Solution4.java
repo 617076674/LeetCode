@@ -1,7 +1,5 @@
 package question023;
 
-import question0021.ListNode;
-
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82263333
  */
