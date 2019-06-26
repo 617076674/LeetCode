@@ -1,4 +1,4 @@
-package question206;
+package question0206;
 
 public class ListNode {
     int val;
