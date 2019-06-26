@@ -6,7 +6,7 @@ package question086;
 public class Solution {
 
     public ListNode partition(ListNode head, int x) {
-        if(null == head || null == head.next){
+        if (null == head || null == head.next) {
             return head;
         }
         ListNode lessNode = new ListNode(-1);
@@ -14,12 +14,12 @@ public class Solution {
         ListNode cur = head;
         ListNode cur1 = lessNode;
         ListNode cur2 = greaterNode;
-        while(null != cur){
+        while (null != cur) {
             ListNode temp = new ListNode(cur.val);
-            if(cur.val < x){
+            if (cur.val < x) {
                 cur1.next = temp;
                 cur1 = cur1.next;
-            }else{
+            } else {
                 cur2.next = temp;
                 cur2 = cur2.next;
             }

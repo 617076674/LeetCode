@@ -4,9 +4,9 @@ public class Solution1 {
 
     public int[] countBits(int num) {
         if (num == 0) {
-            return new int[] {0};
+            return new int[]{0};
         } else if (num == 1) {
-            return new int[] {0, 1};
+            return new int[]{0, 1};
         }
         int[] result = new int[num + 1];
         result[0] = 0;

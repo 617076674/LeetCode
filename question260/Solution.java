@@ -10,9 +10,9 @@ public class Solution {
         int[] result = new int[2];
         result[0] = result[1] = 0;
         for (int i = 0; i < nums.length; i++) {
-            if(0 == (nums[i] & num1XORNum2)){
+            if (0 == (nums[i] & num1XORNum2)) {
                 result[0] ^= nums[i];
-            }else{
+            } else {
                 result[1] ^= nums[i];
             }
         }

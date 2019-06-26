@@ -9,8 +9,9 @@ public class Solution1 {
         postorderTraversal(root, list);
         return list;
     }
+
     private void postorderTraversal(TreeNode treeNode, List<Integer> list) {
-        if(treeNode == null) {
+        if (treeNode == null) {
             return;
         }
         postorderTraversal(treeNode.left, list);

@@ -7,13 +7,13 @@ import java.util.TreeMap;
 
 /**
  * 首先建立一个TreeMap<Integer, TreeMap<Integer, List<Integer>>>类型的变量treeMap，层次比较多，需搞清楚各个分层的依据。
- *
+ * <p>
  * 首先根据x分，再根据y分，x与y均相同的点后期通过Collections工具类提供的排序函数排序。
- *
+ * <p>
  * 递归地遍历整颗二叉树，将节点根据x与y分类填充进treeMap中。遍历过程既可以中序遍历也可以前序遍历，也可以后序遍历，甚至可以层序遍历。
- *
+ * <p>
  * 由于有对x与y均相同的点的排序操作，时间复杂度和树的结构有关，但一定高于O(n)，其中n为树中的节点个数。空间复杂度是O(1)。
- *
+ * <p>
  * 执行用时：6ms，击败93.88%。内存消耗：35.5MB，击败95.65%。
  */
 public class Solution {

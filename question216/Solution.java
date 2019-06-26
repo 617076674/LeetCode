@@ -5,10 +5,12 @@ import java.util.List;
 
 public class Solution {
     private List<List<Integer>> retListList = new ArrayList<>();
+
     public List<List<Integer>> combinationSum3(int k, int n) {
         generateCombination(new ArrayList<>(), 0, k, n);
         return retListList;
     }
+
     private void generateCombination(List<Integer> list, int sum, int k, int n) {
         if (list.size() == k && sum == n) {
             retListList.add(new ArrayList<>(list));

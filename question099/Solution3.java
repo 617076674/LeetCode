@@ -17,14 +17,14 @@ public class Solution3 {
         wrongTreeNode2.val = temp;
     }
 
-    private void inorderTraversal(TreeNode root){
-        if(root == null){
+    private void inorderTraversal(TreeNode root) {
+        if (root == null) {
             return;
         }
         inorderTraversal(root.left);
-        if(pre != null){
-            if(root.val < pre.val){
-                if(countDown == 0) {
+        if (pre != null) {
+            if (root.val < pre.val) {
+                if (countDown == 0) {
                     wrongTreeNode1 = pre;
                 }
                 wrongTreeNode2 = root;

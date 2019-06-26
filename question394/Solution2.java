@@ -2,9 +2,11 @@ package question394;
 
 public class Solution2 {
     private int i = 0;
+
     public String decodeString(String s) {
         return decode(s).toString();
     }
+
     private StringBuilder decode(String s) {
         StringBuilder result = new StringBuilder();
         int count = 0;

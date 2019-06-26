@@ -9,7 +9,7 @@ public class Solution2 {
             dp[i][i] = true;
             count++;
         }
-        for (int i = -1; i > -len ; i--) {
+        for (int i = -1; i > -len; i--) {
             for (int j = 0; j < len + i; j++) {
                 if (s.charAt(j) == s.charAt(j - i)) {
                     if (i == -1 || dp[j + 1][j - i - 1]) {

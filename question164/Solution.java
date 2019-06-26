@@ -17,7 +17,7 @@ public class Solution {
                 min = nums[i];
             }
         }
-        if(min == max){
+        if (min == max) {
             return 0;
         }
         int[] maxBuckets = new int[nums.length + 1];

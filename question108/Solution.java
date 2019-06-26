@@ -3,7 +3,7 @@ package question108;
 public class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
         TreeNode treeNode = null;
-        if(nums.length == 0) {
+        if (nums.length == 0) {
             return treeNode;
         }
         int mid = nums.length / 2;
@@ -12,7 +12,7 @@ public class Solution {
         for (int i = 0; i < leftNums.length; i++) {
             leftNums[i] = nums[i];
         }
-        int[] rightNums = new int[nums.length- mid - 1];
+        int[] rightNums = new int[nums.length - mid - 1];
         for (int i = 0; i < rightNums.length; i++) {
             rightNums[i] = nums[i + mid + 1];
         }

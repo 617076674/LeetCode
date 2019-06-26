@@ -5,8 +5,8 @@ import java.util.LinkedList;
 public class Solution {
     public int evalRPN(String[] tokens) {
         LinkedList<Integer> stack = new LinkedList<>();
-        for(String string : tokens){
-            switch (string){
+        for (String string : tokens) {
+            switch (string) {
                 case "+":
                     stack.push(stack.pop() + stack.pop());
                     break;

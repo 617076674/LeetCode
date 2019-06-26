@@ -8,23 +8,23 @@ public class Solution6 {
 
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         TreeNode pre = null;
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             TreeNode treeNode = stack.pop();
-            if((treeNode.left == null && treeNode.right ==null) || (pre != null && pre == treeNode.left && treeNode.right == null) || (pre != null && pre == treeNode.right)) {
+            if ((treeNode.left == null && treeNode.right == null) || (pre != null && pre == treeNode.left && treeNode.right == null) || (pre != null && pre == treeNode.right)) {
                 list.add(treeNode.val);
                 pre = treeNode;
-            }else {
+            } else {
                 stack.push(treeNode);
-                if(treeNode.right != null) {
+                if (treeNode.right != null) {
                     stack.push(treeNode.right);
                 }
-                if(treeNode.left != null) {
+                if (treeNode.left != null) {
                     stack.push(treeNode.left);
                 }
             }

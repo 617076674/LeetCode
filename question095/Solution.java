@@ -3,6 +3,7 @@ package question095;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/83238993
  */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class Solution {
                         treeNodeList.add(tempNode);
                     }
                 }
-            }else if(less.size() == 0 && greater.size() != 0){
+            } else if (less.size() == 0 && greater.size() != 0) {
                 List<TreeNode> rightTreeNodeList = generateTrees(greater);
                 for (TreeNode rightTreeNode : rightTreeNodeList) {
                     TreeNode tempNode = new TreeNode(arrayList.get(i));
@@ -56,7 +57,7 @@ public class Solution {
                     tempNode.right = rightTreeNode;
                     treeNodeList.add(tempNode);
                 }
-            }else if(less.size() != 0 && greater.size() == 0){
+            } else if (less.size() != 0 && greater.size() == 0) {
                 List<TreeNode> leftTreeNodeList = generateTrees(less);
                 for (TreeNode leftTreeNode : leftTreeNodeList) {
                     TreeNode tempNode = new TreeNode(arrayList.get(i));

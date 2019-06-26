@@ -9,7 +9,7 @@ public class Solution1 {
             char c = s.charAt(i);
             if (']' == c) {
                 StringBuilder stringBuilder = new StringBuilder();
-                while(!stack.peek().equals("[")) {
+                while (!stack.peek().equals("[")) {
                     stringBuilder.insert(0, stack.pop());
                 }
                 stack.pop();
@@ -19,7 +19,7 @@ public class Solution1 {
                     temp.append(stringBuilder);
                 }
                 stack.push(temp.toString());
-            } else if (c >= '0' && c <= '9'){
+            } else if (c >= '0' && c <= '9') {
                 StringBuilder stringBuilder = new StringBuilder();
                 while (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
                     stringBuilder.append(s.charAt(i));

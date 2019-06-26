@@ -3,13 +3,14 @@ package question085;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/83006351
  */
+
 import java.util.Stack;
 
 public class Solution {
 
     public int maximalRectangle(char[][] matrix) {
         int m = matrix.length;
-        if(m == 0){
+        if (m == 0) {
             return 0;
         }
         int n = matrix[0].length;
@@ -19,9 +20,9 @@ public class Solution {
         }
         for (int i = 1; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(matrix[i][j] == '0'){
+                if (matrix[i][j] == '0') {
                     heights[i][j] = 0;
-                }else{
+                } else {
                     heights[i][j] = heights[i - 1][j] + 1;
                 }
             }
@@ -34,7 +35,7 @@ public class Solution {
     }
 
     //LeetCode084
-    private int maximalRectangle(int[] heights){
+    private int maximalRectangle(int[] heights) {
         int n = heights.length;
         int[] newHeights = new int[n + 1];
         for (int i = 0; i < n; i++) {
@@ -44,7 +45,7 @@ public class Solution {
         int result = 0;
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n + 1; i++) {
-            while(!stack.isEmpty() && newHeights[stack.peek()] >= newHeights[i]){
+            while (!stack.isEmpty() && newHeights[stack.peek()] >= newHeights[i]) {
                 int index = stack.pop();
                 int left = stack.isEmpty() ? -1 : stack.peek();
                 result = Math.max(result, (i - left - 1) * newHeights[index]);

@@ -7,7 +7,7 @@ public class Solution {
     public TreeNode sortedListToBST(ListNode head) {
         List<Integer> list = new ArrayList<>();
         ListNode cur = head;
-        while(null != cur){
+        while (null != cur) {
             list.add(cur.val);
             cur = cur.next;
         }
@@ -16,7 +16,7 @@ public class Solution {
 
     private TreeNode sortedArrayToBST(List<Integer> list) {
         TreeNode treeNode = null;
-        if(list.size() == 0) {
+        if (list.size() == 0) {
             return treeNode;
         }
         int mid = list.size() / 2;

@@ -10,15 +10,15 @@ public class Solution {
         preOrder = new ArrayList<>();
         preOrderTraversal(root);
         TreeNode cur = root;
-        for(int i = 0; i < preOrder.size() - 1; i++){
+        for (int i = 0; i < preOrder.size() - 1; i++) {
             cur.left = null;
             cur.right = new TreeNode(preOrder.get(i + 1));
             cur = cur.right;
         }
     }
 
-    private void preOrderTraversal(TreeNode root){
-        if(null == root){
+    private void preOrderTraversal(TreeNode root) {
+        if (null == root) {
             return;
         }
         preOrder.add(root.val);

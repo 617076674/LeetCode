@@ -4,6 +4,7 @@ public class NumArray2 {
     private class SegmentTree {
         private Integer[] tree;
         private Integer[] data;
+
         public SegmentTree(Integer[] arr) {
             data = new Integer[arr.length];
             for (int i = 0; i < arr.length; i++) {
@@ -12,6 +13,7 @@ public class NumArray2 {
             tree = new Integer[4 * arr.length];
             buildSegmentTree(0, 0, data.length - 1);
         }
+
         /*
          * 在treeIndex的位置创建表示区间[left, right]的线段树
          */
@@ -27,18 +29,21 @@ public class NumArray2 {
             buildSegmentTree(rightTreeIndex, mid + 1, right);
             tree[treeIndex] = tree[leftTreeIndex] + tree[rightTreeIndex];
         }
+
         /*
          * 返回满二叉树的数组表示中，一个索引所表示的元素的左孩子节点的索引
          */
         private int leftChild(int index) {
             return 2 * index + 1;
         }
+
         /*
          * 返回满二叉树的数组表示中，一个索引所表示的元素的左孩子节点的索引
          */
         private int rightChild(int index) {
             return 2 * index + 2;
         }
+
         /*
          * 在线段树中所涉及的操作不需要通过一个节点去寻找它的父亲节点，因此不需要parent()这个函数
          */
@@ -48,6 +53,7 @@ public class NumArray2 {
         public Integer query(int queryL, int queryR) {
             return query(0, 0, data.length - 1, queryL, queryR);
         }
+
         /*
          * 在以treeID为根的线段树中[left...right]的范围里，搜索区间[queryL...queryR]的值
          */
@@ -69,7 +75,9 @@ public class NumArray2 {
             }
         }
     }
+
     private SegmentTree segmentTree;
+
     public NumArray2(int[] nums) {
         if (nums.length > 0) {
             Integer[] data = new Integer[nums.length];    //int[]是不能自动包装转换为Integer[]的！！！
@@ -79,6 +87,7 @@ public class NumArray2 {
             segmentTree = new SegmentTree(data);
         }
     }
+
     public int sumRange(int i, int j) {
         return segmentTree.query(i, j);
     }

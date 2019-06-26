@@ -8,11 +8,11 @@ public class Solution5 {
         }
         int[] dp = new int[3];
         int[] min = new int[3];
-        for(int i = 1; i < 3; i++){
+        for (int i = 1; i < 3; i++) {
             min[i] = prices[0];
         }
-        for(int i = 1; i < prices.length; i++){
-            for(int k = 1; k <= 2; k++){
+        for (int i = 1; i < prices.length; i++) {
+            for (int k = 1; k <= 2; k++) {
                 dp[k] = Math.max(dp[k], prices[i] - min[k]);
                 min[k] = Math.min(min[k], prices[i] - dp[k - 1]);
             }

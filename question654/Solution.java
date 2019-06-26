@@ -3,19 +3,19 @@ package question654;
 /**
  * @author qianyihui
  * @date 2019-06-12
- *
+ * <p>
  * 递归实现即可。递归函数的定义：TreeNode constructMaximumBinaryTree(int[] nums, int left, int right)
- *
+ * <p>
  * 将数组nums中[left, right]范围内的数据构造成一棵最大二叉树。
- *
+ * <p>
  * 首先遍历nums数组中[left, right]范围内的数据，获得最大值的索引max，那么nums[max]就是该最大二叉树的根节点。
- *
+ * <p>
  * 再依次递归求解左子树和右子树。
- *
+ * <p>
  * 递归出口是，当left > right时返回null。
- *
+ * <p>
  * 时间复杂度是O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(n)。
- *
+ * <p>
  * 执行用时：7ms，击败72.08%。消耗内存：48.1MB，击败41.98%。
  */
 public class Solution {

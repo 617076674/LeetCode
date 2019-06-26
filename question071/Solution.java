@@ -3,6 +3,7 @@ package question071;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82862721
  */
+
 import java.util.Stack;
 
 public class Solution {
@@ -22,7 +23,7 @@ public class Solution {
             }
         }
         String result = "";
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             result = "/" + stack.pop() + result;
         }
         return result.equals("") ? "/" : result;

@@ -12,7 +12,7 @@ public class Solution {
                     judge[i][j] = true;
                     if (j + 1 < n) {
                         dp[i] = Math.min(dp[i], 1 + dp[j + 1]);
-                    }else{
+                    } else {
                         dp[i] = 0;
                     }
                 }

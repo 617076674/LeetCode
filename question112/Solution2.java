@@ -4,7 +4,7 @@ public class Solution2 {
     boolean flag = false;
 
     public boolean hasPathSum(TreeNode root, int sum) {
-        if(null == root){
+        if (null == root) {
             return flag;
         }
         dfs(root, sum);
@@ -12,17 +12,17 @@ public class Solution2 {
     }
 
     private void dfs(TreeNode root, int sum) {
-        if(null == root.left && null == root.right){
+        if (null == root.left && null == root.right) {
             sum -= root.val;
-            if(sum == 0){
+            if (sum == 0) {
                 flag = true;
             }
             return;
         }
-        if(null != root.left){
+        if (null != root.left) {
             dfs(root.left, sum - root.val);
         }
-        if(null != root.right){
+        if (null != root.right) {
             dfs(root.right, sum - root.val);
         }
     }

@@ -11,13 +11,13 @@ public class Solution1 {
         for (int i = 0; i < n; i++) {
             int left = i;
             for (; left >= 0; left--) {
-                if(heights[left] < heights[i]){
+                if (heights[left] < heights[i]) {
                     break;
                 }
             }
             int right = i;
             for (; right < n; right++) {
-                if(heights[right] < heights[i]){
+                if (heights[right] < heights[i]) {
                     break;
                 }
             }

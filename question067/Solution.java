@@ -13,42 +13,42 @@ public class Solution {
         int i = na - 1;
         int j = nb - 1;
         for (; i >= 0 && j >= 0; i--, j--) {
-			int num = a.charAt(i) - '0' + b.charAt(j) - '0' + flag;
-			if(num >= 2) {
-				num -= 2;
-				flag = 1;
-			}else {
-				flag = 0;
-			}
-			result = num + result;
-		}
-        if(i != -1) {
-        	for (; i >= 0; i--) {
-				int num = a.charAt(i) - '0' + flag;
-				if(num >= 2) {
-					num -= 2;
-					flag = 1;
-				}else {
-					flag = 0;
-				}
-				result = num + result;
-			}
-        }else if(j != -1) {
-        	for (; j >= 0; j--) {
-				int num = b.charAt(j) - '0' + flag;
-				if(num >= 2) {
-					num -= 2;
-					flag = 1;
-				}else {
-					flag = 0;
-				}
-				result = num + result;
-			}
+            int num = a.charAt(i) - '0' + b.charAt(j) - '0' + flag;
+            if (num >= 2) {
+                num -= 2;
+                flag = 1;
+            } else {
+                flag = 0;
+            }
+            result = num + result;
         }
-        if(flag == 1) {
-        	return 1 + result;
-        }else {
-        	return result;
+        if (i != -1) {
+            for (; i >= 0; i--) {
+                int num = a.charAt(i) - '0' + flag;
+                if (num >= 2) {
+                    num -= 2;
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
+                result = num + result;
+            }
+        } else if (j != -1) {
+            for (; j >= 0; j--) {
+                int num = b.charAt(j) - '0' + flag;
+                if (num >= 2) {
+                    num -= 2;
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
+                result = num + result;
+            }
+        }
+        if (flag == 1) {
+            return 1 + result;
+        } else {
+            return result;
         }
     }
 }

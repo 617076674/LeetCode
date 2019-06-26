@@ -5,10 +5,10 @@ import java.util.List;
 
 /**
  * 构建前缀树，再回溯法。
- *
+ * <p>
  * 时间复杂度是O(mnk)，其中m为board的行数，n为board的列数，k是words数组中最长字符串的长度。
  * 空间复杂度是O(p)，其中p是words中的字符数量。
- *
+ * <p>
  * 执行用时：33ms，击败80.53%。消耗内存：56.6MB，击败58.11%。
  */
 public class Solution2 {
@@ -19,7 +19,7 @@ public class Solution2 {
         TrieNode trieNode = buildTrie(words);
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                dfs (board, i, j, trieNode);
+                dfs(board, i, j, trieNode);
             }
         }
         return result;
@@ -41,7 +41,7 @@ public class Solution2 {
         }
         board[i][j] = '#';
         if (i > 0) {
-            dfs(board, i - 1, j ,trieNode);
+            dfs(board, i - 1, j, trieNode);
         }
         if (j > 0) {
             dfs(board, i, j - 1, trieNode);

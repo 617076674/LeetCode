@@ -8,11 +8,11 @@ public class Solution5 {
             for (int j = 0; j < num.length; j++) {
                 if ((num[j] & (1 << i)) != 0) {
                     ones++;
-                }else{
+                } else {
                     zeros++;
                 }
             }
-            if (ones > zeros){
+            if (ones > zeros) {
                 result |= (1 << i);
             }
         }

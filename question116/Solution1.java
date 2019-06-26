@@ -9,13 +9,13 @@ public class Solution1 {
         dfs(root, 0, linkedList);
     }
 
-    private void dfs(TreeLinkNode root, int level, LinkedList<TreeLinkNode> linkedList){
-        if(null == root){   //如果root为null，直接返回
+    private void dfs(TreeLinkNode root, int level, LinkedList<TreeLinkNode> linkedList) {
+        if (null == root) {   //如果root为null，直接返回
             return;
         }
-        if(linkedList.size() <= level){
+        if (linkedList.size() <= level) {
             linkedList.add(root);
-        }else{
+        } else {
             TreeLinkNode treeLinkNode = linkedList.get(level);
             treeLinkNode.next = root;
             linkedList.remove(level);

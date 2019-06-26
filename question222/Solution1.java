@@ -6,19 +6,19 @@ import java.util.Queue;
 public class Solution1 {
     public int countNodes(TreeNode root) {
         int result = 0;
-        if(null == root){
+        if (null == root) {
             return result;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode cur = root;
         queue.add(cur);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode treeNode = queue.poll();
             result++;
-            if(null != treeNode.left){
+            if (null != treeNode.left) {
                 queue.add(treeNode.left);
             }
-            if(null != treeNode.right){
+            if (null != treeNode.right) {
                 queue.add(treeNode.right);
             }
         }

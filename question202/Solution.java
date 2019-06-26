@@ -7,9 +7,9 @@ public class Solution {
     public boolean isHappy(int n) {
         HashSet<Integer> hashSet = new HashSet<>();
         hashSet.add(n);
-        while(n > 1) {
+        while (n > 1) {
             ArrayList<Integer> arrayList = new ArrayList<>();
-            while(n > 0) {
+            while (n > 0) {
                 arrayList.add(n % 10);
                 n /= 10;
             }
@@ -17,9 +17,9 @@ public class Solution {
             for (int integer : arrayList) {
                 n += integer * integer;
             }
-            if(hashSet.contains(n)) {
+            if (hashSet.contains(n)) {
                 return false;
-            }else {
+            } else {
                 hashSet.add(n);
             }
         }

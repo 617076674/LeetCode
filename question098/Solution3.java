@@ -11,18 +11,18 @@ public class Solution3 {
         return inorderTraversal(root);
     }
 
-    private boolean inorderTraversal(TreeNode root){
-        if(root == null){
+    private boolean inorderTraversal(TreeNode root) {
+        if (root == null) {
             return true;
         }
-        if(!inorderTraversal(root.left)){
+        if (!inorderTraversal(root.left)) {
             return false;
         }
-        if(pre != null && root.val <= pre){
+        if (pre != null && root.val <= pre) {
             return false;
         }
         pre = root.val;
-        if(!inorderTraversal(root.right)){
+        if (!inorderTraversal(root.right)) {
             return false;
         }
         return true;

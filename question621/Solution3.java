@@ -12,7 +12,7 @@ public class Solution3 {
         }
         Arrays.sort(count);
         int maxVal = count[25] - 1, idleSlots = maxVal * n;
-        for (int i = 24; i >= 0 && count[i] > 0 ; i--) {
+        for (int i = 24; i >= 0 && count[i] > 0; i--) {
             idleSlots -= Math.min(count[i], maxVal);
         }
         if (idleSlots > 0) {

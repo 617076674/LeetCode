@@ -7,10 +7,10 @@ public class Solution3 {
             return result;
         }
         int[][] dp = new int[3][prices.length];
-        for(int k = 1; k <= 2; k++){
+        for (int k = 1; k <= 2; k++) {
             dp[k][0] = 0;
             int min = prices[0];
-            for(int i = 1; i < prices.length; i++){
+            for (int i = 1; i < prices.length; i++) {
                 dp[k][i] = Math.max(dp[k][i - 1], prices[i] - min);
                 min = Math.min(min, prices[i] - dp[k - 1][i - 1]);
             }

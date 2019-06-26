@@ -3,10 +3,10 @@ package question213;
 public class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
-        if(n == 0) {
+        if (n == 0) {
             return 0;
         }
-        if(n == 1) {
+        if (n == 1) {
             return nums[0];
         }
         //sum[i]：考虑偷取[0, i]范围内的房子
@@ -16,9 +16,9 @@ public class Solution {
         for (int i = 1; i < n - 1; i++) {
             sum[i] = 0;
             for (int j = 0; j <= i; j++) {
-                if(j >= 2) {
+                if (j >= 2) {
                     sum[i] = Math.max(sum[i], sum[j - 2] + nums[j]);
-                }else {
+                } else {
                     sum[i] = Math.max(sum[i], nums[j]);
                 }
             }
@@ -30,9 +30,9 @@ public class Solution {
         for (int i = 2; i < n; i++) {
             sum2[i] = 0;
             for (int j = 1; j <= i; j++) {
-                if(j >= 3) {
+                if (j >= 3) {
                     sum2[i] = Math.max(sum2[i], sum2[j - 2] + nums[j]);
-                }else {
+                } else {
                     sum2[i] = Math.max(sum2[i], nums[j]);
                 }
             }

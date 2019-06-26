@@ -3,21 +3,21 @@ package question304;
 /**
  * @author qianyihui
  * @date 2019-06-17
- *
+ * <p>
  * 动态规划。
- *
+ * <p>
  * 存储一个sum数组，其中sum[i][j]中存储[0, 0] - [i, j]范围内的区域和。（状态定义）
- *
+ * <p>
  * sum数组的计算公式如下：（状态转移）
- *
+ * <p>
  * （1）首先分别计算sum数组中第一行和第一列的值
- *
+ * <p>
  * （2）sum[i][j] = matrix[i][j] + sum[i][j - 1] + sum[i - 1][j] - sum[i - 1][j - 1]。
- *
+ * <p>
  * 同理，对于sumRegion函数的计算也遵循上述原则。
- *
+ * <p>
  * 时间复杂度和空间复杂度均是O(mn)，其中m为matrix数组的行数，n为matrix数组的列数。
- *
+ * <p>
  * 执行用时：132ms，击败48.16%。消耗内存：46.5MB，击败87.50%。
  */
 public class NumMatrix {

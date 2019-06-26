@@ -3,6 +3,7 @@ package question090;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/83021650
  */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,16 +24,16 @@ public class Solution {
         return listList;
     }
 
-    private void subsetsWithDup(List<Integer> list, int n, HashMap<Integer, Integer> hashMap){
-        if(list.size() == n){
-            if(!listList.contains(list)) {
+    private void subsetsWithDup(List<Integer> list, int n, HashMap<Integer, Integer> hashMap) {
+        if (list.size() == n) {
+            if (!listList.contains(list)) {
                 listList.add(new ArrayList<>(list));
             }
             return;
         }
         HashMap<Integer, Integer> tempHashMap = new HashMap<>(hashMap);
-        for(Integer temp : tempHashMap.keySet()){
-            if(!list.isEmpty() && list.get(list.size() - 1) > temp){
+        for (Integer temp : tempHashMap.keySet()) {
+            if (!list.isEmpty() && list.get(list.size() - 1) > temp) {
                 continue;
             }
             list.add(temp);
@@ -43,17 +44,17 @@ public class Solution {
         }
     }
 
-    private void addToHashMap(HashMap<Integer, Integer> hashMap, Integer temp){
-        if(hashMap.containsKey(temp)){
+    private void addToHashMap(HashMap<Integer, Integer> hashMap, Integer temp) {
+        if (hashMap.containsKey(temp)) {
             hashMap.put(temp, hashMap.get(temp) + 1);
-        }else{
+        } else {
             hashMap.put(temp, 1);
         }
     }
 
-    private void delFromHashMap(HashMap<Integer, Integer> hashMap, Integer temp){
+    private void delFromHashMap(HashMap<Integer, Integer> hashMap, Integer temp) {
         hashMap.put(temp, hashMap.get(temp) - 1);
-        if(hashMap.get(temp) == 0){
+        if (hashMap.get(temp) == 0) {
             hashMap.remove(temp);
         }
     }

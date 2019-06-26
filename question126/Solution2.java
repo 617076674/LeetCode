@@ -7,12 +7,12 @@ public class Solution2 {
         List<List<String>> retListList = new ArrayList<>();
 
         int end = wordList.indexOf(endWord);
-        if(end == -1) {
+        if (end == -1) {
             return retListList;
         }
 
         int begin = wordList.indexOf(beginWord);
-        if(begin == -1) {
+        if (begin == -1) {
             wordList.add(beginWord);
             begin = wordList.indexOf(beginWord);
         }
@@ -26,7 +26,7 @@ public class Solution2 {
         }
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
-                if(hasPath(wordList.get(i), wordList.get(j))) {
+                if (hasPath(wordList.get(i), wordList.get(j))) {
                     nextWords.get(i).add(j);
                     nextWords.get(j).add(i);
                 }
@@ -38,11 +38,11 @@ public class Solution2 {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(begin);
         distance.put(begin, 0);
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             Integer temp = queue.poll();
 
             for (int i = 0; i < nextWords.get(temp).size(); i++) {
-                if(!distance.containsKey(nextWords.get(temp).get(i))) {
+                if (!distance.containsKey(nextWords.get(temp).get(i))) {
                     distance.put(nextWords.get(temp).get(i), distance.get(temp) + 1);
                     queue.add(nextWords.get(temp).get(i));
                 }
@@ -60,13 +60,13 @@ public class Solution2 {
 
     private void dfs(HashMap<Integer, List<Integer>> nextWords, Integer temp, Integer end,
                      HashMap<Integer, Integer> distance, List<String> wordList, List<Integer> list, List<List<String>> retListList) {
-        if(list.size() > 0 && list.get(list.size() - 1).equals(end)) {
+        if (list.size() > 0 && list.get(list.size() - 1).equals(end)) {
             retListList.add(getPath(list, wordList));
             return;
         }
 
         for (int i = 0; i < nextWords.get(temp).size(); i++) {
-            if(distance.get(nextWords.get(temp).get(i)).equals(distance.get(temp) + 1)) {
+            if (distance.get(nextWords.get(temp).get(i)).equals(distance.get(temp) + 1)) {
                 list.add(nextWords.get(temp).get(i));
                 dfs(nextWords, nextWords.get(temp).get(i), end, distance, wordList, list, retListList);
                 int index = list.size() - 1;
@@ -89,9 +89,9 @@ public class Solution2 {
         char[] arr1 = s1.toCharArray();
         char[] arr2 = s2.toCharArray();
         for (int i = 0; i < arr1.length; i++) {
-            if(arr1[i] != arr2[i]) {
+            if (arr1[i] != arr2[i]) {
                 diff++;
-                if(diff > 1) {
+                if (diff > 1) {
                     return false;
                 }
             }

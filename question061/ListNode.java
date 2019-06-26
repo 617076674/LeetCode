@@ -1,36 +1,36 @@
 package question061;
 
 public class ListNode {
-	
-	public int val;
+
+    public int val;
     public ListNode next = null;
 
     public ListNode(int x) {
         val = x;
     }
 
-    // ¸ù¾Ýn¸öÔªËØµÄÊý×éarr´´½¨Ò»¸öÁ´±í
-    // Ê¹ÓÃarrÎª²ÎÊý£¬´´½¨ÁíÍâÒ»¸öListNodeµÄ¹¹Ôìº¯Êý
-    public ListNode (int[] arr){
+    // ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½arrï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // Ê¹ï¿½ï¿½arrÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ListNodeï¿½Ä¹ï¿½ï¿½ìº¯ï¿½ï¿½
+    public ListNode(int[] arr) {
 
-        if(arr == null || arr.length == 0)
+        if (arr == null || arr.length == 0)
             throw new IllegalArgumentException("arr can not be empty");
 
         this.val = arr[0];
         ListNode curNode = this;
-        for(int i = 1 ; i < arr.length ; i ++){
+        for (int i = 1; i < arr.length; i++) {
             curNode.next = new ListNode(arr[i]);
             curNode = curNode.next;
         }
     }
 
-    // ·µ»ØÒÔµ±Ç°ListNodeÎªÍ·½áµãµÄÁ´±íÐÅÏ¢×Ö·û´®
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½Ç°ListNodeÎªÍ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ö·ï¿½ï¿½ï¿½
     @Override
-    public String toString(){
+    public String toString() {
 
         StringBuilder s = new StringBuilder("");
         ListNode curNode = this;
-        while(curNode != null){
+        while (curNode != null) {
             s.append(Integer.toString(curNode.val));
             s.append(" -> ");
             curNode = curNode.next;

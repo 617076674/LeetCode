@@ -5,21 +5,21 @@ package question101;
  */
 public class Solution1 {
     public boolean isSymmetric(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return true;
-        }else if(root.left == null && root.right == null) {
+        } else if (root.left == null && root.right == null) {
             return true;
-        }else if(root.left != null && root.right == null) {
+        } else if (root.left != null && root.right == null) {
             return false;
-        }else if(root.left == null && root.right != null) {
+        } else if (root.left == null && root.right != null) {
             return false;
-        }else {
+        } else {
             return isSameTree(root.left, inverseTree(root.right));
         }
     }
 
     private TreeNode inverseTree(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return null;
         }
         inverseTree(root.left);
@@ -31,13 +31,13 @@ public class Solution1 {
     }
 
     private boolean isSameTree(TreeNode p, TreeNode q) {
-        if(p == null && q == null) {
+        if (p == null && q == null) {
             return true;
-        }else if(p == null && q != null) {
+        } else if (p == null && q != null) {
             return false;
-        }else if(p != null && q == null) {
+        } else if (p != null && q == null) {
             return false;
-        }else if(p.val != q.val) {
+        } else if (p.val != q.val) {
             return false;
         }
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);

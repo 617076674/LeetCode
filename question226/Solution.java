@@ -2,7 +2,7 @@ package question226;
 
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
-        if(null == root){
+        if (null == root) {
             return root;
         }
         TreeNode leftChild = invertTree(root.right);

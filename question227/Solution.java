@@ -8,14 +8,14 @@ public class Solution {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); ) {
             Character temp = s.charAt(i);
-            if(temp >= '0' && temp <= '9'){
+            if (temp >= '0' && temp <= '9') {
                 int[] result = findNextNumAndIndex(s, i);
                 stringBuilder.append(result[0]);
                 stringBuilder.append(" ");
                 i = result[1];
-            }else if(temp == '+' || temp == '-'){
-                if(!stack.isEmpty()){
-                    while(!stack.isEmpty()){
+            } else if (temp == '+' || temp == '-') {
+                if (!stack.isEmpty()) {
+                    while (!stack.isEmpty()) {
                         Character item = stack.pop();
                         stringBuilder.append(item);
                         stringBuilder.append(" ");
@@ -23,14 +23,14 @@ public class Solution {
                 }
                 stack.push(temp);
                 i++;
-            }else if(temp == '*' || temp == '/'){
-                if(!stack.isEmpty()){
-                    while(!stack.isEmpty()){
+            } else if (temp == '*' || temp == '/') {
+                if (!stack.isEmpty()) {
+                    while (!stack.isEmpty()) {
                         Character item = stack.pop();
-                        if(item == '+' || item == '-'){
+                        if (item == '+' || item == '-') {
                             stack.push(item);
                             break;
-                        }else{
+                        } else {
                             stringBuilder.append(item);
                             stringBuilder.append(" ");
                         }
@@ -38,46 +38,47 @@ public class Solution {
                 }
                 stack.push(temp);
                 i++;
-            }else{
+            } else {
                 i++;
             }
         }
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             stringBuilder.append(stack.pop());
             stringBuilder.append(" ");
         }
         String[] strings = stringBuilder.toString().split(" ");
         Stack<Integer> numStack = new Stack<>();
         for (int i = 0; i < strings.length; i++) {
-            if(strings[i].charAt(0) == '+'){
+            if (strings[i].charAt(0) == '+') {
                 int num1 = numStack.pop();
                 int num2 = numStack.pop();
                 numStack.push(num2 + num1);
-            }else if(strings[i].charAt(0) == '-'){
+            } else if (strings[i].charAt(0) == '-') {
                 int num1 = numStack.pop();
                 int num2 = numStack.pop();
                 numStack.push(num2 - num1);
-            }else if(strings[i].charAt(0) == '*'){
+            } else if (strings[i].charAt(0) == '*') {
                 int num1 = numStack.pop();
                 int num2 = numStack.pop();
                 numStack.push(num2 * num1);
-            }else if(strings[i].charAt(0) == '/'){
+            } else if (strings[i].charAt(0) == '/') {
                 int num1 = numStack.pop();
                 int num2 = numStack.pop();
                 numStack.push(num2 / num1);
-            }else{
+            } else {
                 numStack.push(Integer.parseInt(strings[i]));
             }
         }
         return numStack.pop();
     }
-    private int[] findNextNumAndIndex(String s, int index){
+
+    private int[] findNextNumAndIndex(String s, int index) {
         int num = 0;
         int i = index;
         for (; i < s.length(); i++) {
-            if(s.charAt(i) >= '0' && s.charAt(i) <= '9'){
+            if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
                 num = num * 10 + s.charAt(i) - '0';
-            }else{
+            } else {
                 break;
             }
         }

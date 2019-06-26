@@ -7,7 +7,7 @@ public class Solution6 {
         int sell1 = 0;
         int buy2 = Integer.MAX_VALUE;
         int sell2 = 0;
-        for(int i = 0; i < prices.length; i++){
+        for (int i = 0; i < prices.length; i++) {
             sell1 = Math.max(sell1, prices[i] - buy1);
             buy1 = Math.min(buy1, prices[i]);
             sell2 = Math.max(sell2, prices[i] - buy2);

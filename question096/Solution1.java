@@ -3,6 +3,7 @@ package question096;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/83276409
  */
+
 import java.util.ArrayList;
 
 public class Solution1 {
@@ -15,8 +16,8 @@ public class Solution1 {
         return numTrees(arrayList);
     }
 
-    private int numTrees(ArrayList<Integer> arrayList){
-        if(arrayList.size() == 1){
+    private int numTrees(ArrayList<Integer> arrayList) {
+        if (arrayList.size() == 1) {
             return 1;
         }
         int count = 0;
@@ -25,20 +26,20 @@ public class Solution1 {
             ArrayList<Integer> less = new ArrayList<>();
             ArrayList<Integer> greater = new ArrayList<>();
             for (int j = 0; j < arrayList.size(); j++) {
-                if(j == i){
+                if (j == i) {
                     continue;
                 }
-                if(arrayList.get(j) < arrayList.get(i)){
+                if (arrayList.get(j) < arrayList.get(i)) {
                     less.add(arrayList.get(j));
-                }else{
+                } else {
                     greater.add(arrayList.get(j));
                 }
             }
-            if(less.size() == 0 && greater.size() != 0){
+            if (less.size() == 0 && greater.size() != 0) {
                 count += numTrees(greater);
-            }else if(less.size() != 0 && greater.size() == 0){
+            } else if (less.size() != 0 && greater.size() == 0) {
                 count += numTrees(less);
-            }else{
+            } else {
                 count += numTrees(less) * numTrees(greater);
             }
         }

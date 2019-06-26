@@ -3,6 +3,7 @@ package question087;
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/83035336
  */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +22,12 @@ public class Solution1 {
                 for (int k = i; k <= i - gap - 1; k++) {
                     List<String> list1 = lists[i][k];
                     List<String> list2 = lists[k + 1][i - gap];
-                    for(String string1 : list1){
-                        for(String string2 : list2){
-                            if(!lists[i][i - gap].contains(string1 + string2)) {
+                    for (String string1 : list1) {
+                        for (String string2 : list2) {
+                            if (!lists[i][i - gap].contains(string1 + string2)) {
                                 lists[i][i - gap].add(string1 + string2);
                             }
-                            if(!lists[i][i - gap].contains(string2 + string1)) {
+                            if (!lists[i][i - gap].contains(string2 + string1)) {
                                 lists[i][i - gap].add(string2 + string1);
                             }
                         }
@@ -34,7 +35,7 @@ public class Solution1 {
                 }
             }
         }
-        if(lists[0][n1 - 1].contains(s2)){
+        if (lists[0][n1 - 1].contains(s2)) {
             return true;
         }
         return false;

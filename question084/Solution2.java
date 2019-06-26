@@ -17,7 +17,7 @@ public class Solution2 {
         int result = 0;
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n + 1; i++) {
-            while(!stack.isEmpty() && newHeights[stack.peek()] >= newHeights[i]){
+            while (!stack.isEmpty() && newHeights[stack.peek()] >= newHeights[i]) {
                 int index = stack.pop();
                 int left = stack.isEmpty() ? -1 : stack.peek();
                 result = Math.max(result, newHeights[index] * (i - left - 1));

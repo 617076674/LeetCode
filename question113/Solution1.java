@@ -6,12 +6,12 @@ import java.util.List;
 public class Solution1 {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> listList = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return listList;
         }
         List<Integer> list = new ArrayList<>();
         list.add(root.val);
-        if(root.val == sum && root.left == null && root.right == null) {
+        if (root.val == sum && root.left == null && root.right == null) {
             listList.add(list);
             return listList;
         }

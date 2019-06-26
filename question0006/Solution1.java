@@ -2,9 +2,9 @@ package question0006;
 
 /**
  * 找规律。
- *
+ * <p>
  * 时间复杂度和空间复杂度均是O(n * numRows)。
- *
+ * <p>
  * 执行用时：45ms，击败42.10%。消耗内存：49.5MB，击败59.26%。
  */
 public class Solution1 {

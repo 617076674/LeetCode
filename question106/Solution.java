@@ -7,13 +7,13 @@ public class Solution {
     }
 
     private TreeNode create(int[] inorder, int[] postorder, int inLeft, int inRight, int postLeft, int postRight) {
-        if(postLeft > postRight){
+        if (postLeft > postRight) {
             return null;
         }
         TreeNode treeNode = new TreeNode(postorder[postRight]);
         int k = 0;
-        for(int i = inLeft; i <= inRight; i++){
-            if(inorder[i] == postorder[postRight]){
+        for (int i = inLeft; i <= inRight; i++) {
+            if (inorder[i] == postorder[postRight]) {
                 k = i;
                 break;
             }

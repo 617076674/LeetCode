@@ -5,9 +5,9 @@ import java.util.Set;
 
 /**
  * 用一个HashSet记录遍历过的节点，若出现重复，则说明有环。否则，无环。
- *
+ * <p>
  * 时间复杂度和空间复杂度均是O(n)，其中n为链表中的结点数目。
- *
+ * <p>
  * 执行用时：15ms，击败9.05%。消耗内存：41.3MB，击败8.17%。
  */
 public class Solution1 {
@@ -16,8 +16,8 @@ public class Solution1 {
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode cur = dummyHead;
-        while(null != cur.next){
-            if(set.contains(cur.next)){
+        while (null != cur.next) {
+            if (set.contains(cur.next)) {
                 return true;
             }
             cur = cur.next;

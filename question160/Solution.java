@@ -8,16 +8,16 @@ public class Solution {
         ListNode curB = headB;
         int gap = Math.abs(lenA - lenB);
         if (lenA >= lenB) {
-            while(gap-- > 0){
+            while (gap-- > 0) {
                 curA = curA.next;
             }
         } else {
-            while(gap-- > 0){
+            while (gap-- > 0) {
                 curB = curB.next;
             }
         }
-        while(null != curA){
-            if(curA == curB){
+        while (null != curA) {
+            if (curA == curB) {
                 return curA;
             }
             curA = curA.next;
@@ -25,6 +25,7 @@ public class Solution {
         }
         return null;
     }
+
     private int getLength(ListNode head) {
         int len = 0;
         ListNode cur = head;

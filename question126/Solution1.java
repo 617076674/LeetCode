@@ -5,10 +5,10 @@ import java.util.*;
 public class Solution1 {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> retListList = new ArrayList<>();
-        if(!wordList.contains(endWord)) {
+        if (!wordList.contains(endWord)) {
             return retListList;
         }
-        if(!wordList.contains(beginWord)) {
+        if (!wordList.contains(beginWord)) {
             wordList.add(beginWord);
         }
         HashMap<String, List<String>> from = new HashMap<>();
@@ -19,7 +19,7 @@ public class Solution1 {
         }
         for (int i = 0; i < wordList.size(); i++) {
             for (int j = i + 1; j < wordList.size(); j++) {
-                if(hasPath(wordList.get(i).toCharArray(), wordList.get(j).toCharArray())) {
+                if (hasPath(wordList.get(i).toCharArray(), wordList.get(j).toCharArray())) {
                     nextWords.get(i).add(j);
                     nextWords.get(j).add(i);
                 }
@@ -28,25 +28,25 @@ public class Solution1 {
         Queue<String> queue = new LinkedList<>();
         queue.add(beginWord);
         visited.add(beginWord);
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int levelCount = queue.size();
             List<String> tempVisited = new ArrayList<>();
-            while(levelCount-- > 0) {
+            while (levelCount-- > 0) {
                 String temp = queue.poll();
                 int n = wordList.indexOf(temp);
                 List<Integer> nextWord = nextWords.get(n);
                 for (int i = 0; i < nextWord.size(); i++) {
                     String string = wordList.get(nextWord.get(i));
-                    if(!visited.contains(string)) {
-                        if(!from.containsKey(string)) {
+                    if (!visited.contains(string)) {
+                        if (!from.containsKey(string)) {
                             tempVisited.add(string);
                             queue.add(string);
                         }
-                        if(from.containsKey(string)) {
+                        if (from.containsKey(string)) {
                             List<String> tempList = from.get(string);
                             tempList.add(temp);
                             from.put(string, tempList);
-                        }else {
+                        } else {
                             List<String> tempList = new ArrayList<>();
                             tempList.add(temp);
                             from.put(string, tempList);
@@ -57,7 +57,7 @@ public class Solution1 {
             for (String string : tempVisited) {
                 visited.add(string);
             }
-            if(visited.contains(endWord)) {
+            if (visited.contains(endWord)) {
                 break;
             }
         }
@@ -67,14 +67,14 @@ public class Solution1 {
     }
 
     private void dfs(String beginWord, String curWord, List<String> tempList, HashMap<String, List<String>> from, List<List<String>> templistList) {
-        if(curWord.equals(beginWord)) {
+        if (curWord.equals(beginWord)) {
             tempList.add(curWord);
             Collections.reverse(tempList);
             templistList.add(tempList);
             return;
         }
         tempList.add(curWord);
-        if(from.get(curWord) != null) {
+        if (from.get(curWord) != null) {
             for (String string : from.get(curWord)) {
                 dfs(beginWord, string, new ArrayList<>(tempList), from, templistList);
             }
@@ -84,11 +84,11 @@ public class Solution1 {
     private boolean hasPath(char[] arr1, char[] arr2) {
         int diff = 0;
         for (int i = 0; i < arr1.length; i++) {
-            if(arr1[i] != arr2[i]) {
+            if (arr1[i] != arr2[i]) {
                 diff++;
             }
         }
-        if(diff == 1) {
+        if (diff == 1) {
             return true;
         }
         return false;

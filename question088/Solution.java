@@ -13,20 +13,20 @@ public class Solution {
         int cur1 = 0;
         int cur2 = 0;
         int cur = 0;
-        while(cur1 < m || cur2 < n){
-            if(cur1 >= m){
+        while (cur1 < m || cur2 < n) {
+            if (cur1 >= m) {
                 nums1[cur] = nums2[cur2];
                 cur2++;
                 cur++;
-            }else if(cur2 >= n){
+            } else if (cur2 >= n) {
                 nums1[cur] = temp[cur1];
                 cur1++;
                 cur++;
-            }else if(temp[cur1] > nums2[cur2]){
+            } else if (temp[cur1] > nums2[cur2]) {
                 nums1[cur] = nums2[cur2];
                 cur2++;
                 cur++;
-            }else{
+            } else {
                 nums1[cur] = temp[cur1];
                 cur1++;
                 cur++;

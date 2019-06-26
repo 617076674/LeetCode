@@ -8,21 +8,21 @@ import java.util.Queue;
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        if(null == root){
+        if (null == root) {
             return result;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
-            for(int i = 0; i < size; i++){
+            for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
                 list.add(cur.val);
-                if(null != cur.left){
+                if (null != cur.left) {
                     queue.add(cur.left);
                 }
-                if(null != cur.right){
+                if (null != cur.right) {
                     queue.add(cur.right);
                 }
             }

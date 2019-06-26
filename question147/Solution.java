@@ -8,18 +8,18 @@ public class Solution {
         ListNode cur = dummyHead.next;
         ListNode newPre = dummyHead;
         ListNode newCur = dummyHead.next;
-        while(cur != null) {
-            while(newCur != cur && newCur.val < cur.val) {
+        while (cur != null) {
+            while (newCur != cur && newCur.val < cur.val) {
                 newPre = newPre.next;
                 newCur = newCur.next;
             }
-            if(newCur != cur) {
+            if (newCur != cur) {
                 ListNode nextCur = cur.next;
                 newPre.next = cur;
                 cur.next = newCur;
                 pre.next = nextCur;
                 cur = nextCur;
-            }else {
+            } else {
                 pre = pre.next;
                 cur = cur.next;
             }

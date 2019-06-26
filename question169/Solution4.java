@@ -5,12 +5,12 @@ public class Solution4 {
         int result = nums[0];
         int count = 1;
         for (int i = 1; i < nums.length; i++) {
-            if(0 == count){
+            if (0 == count) {
                 count = 1;
                 result = nums[i];
-            }else if(nums[i] == result){
+            } else if (nums[i] == result) {
                 count++;
-            }else{
+            } else {
                 count--;
             }
         }
