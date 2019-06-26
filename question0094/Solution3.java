@@ -1,13 +1,16 @@
-package question094;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82056504
- */
+package question0094;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 循环实现。
+ *
+ * 时间复杂度是O(n)，其中n为二叉树中的节点个数。空间复杂度是O(h)，其中h为二叉树的高度。
+ *
+ * 执行用时：2ms，击败55.16%。消耗内存：35.6MB，击败39.23%。
+ */
 public class Solution3 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
