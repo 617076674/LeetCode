@@ -1,10 +1,9 @@
-package question144;
+package question0144;
 
 public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-
     TreeNode(int x) {
         val = x;
     }
