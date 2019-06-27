@@ -2,14 +2,12 @@ package question0145;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
-
 /**
  * Morris后序遍历算法。
  *
  * 时间复杂度是O(n)，其中n为二叉树中的节点个数。空间复杂度是O(1)。
  *
- * 执行用时：3ms，击败12.22%。消耗内存35.8MB，击败35.83%。
+ * 执行用时：1ms，击败99.28%。消耗内存35.1MB，击败37.05%。
  */
 public class Solution6 {
     public List<Integer> postorderTraversal(TreeNode root) {
@@ -44,13 +42,18 @@ public class Solution6 {
     }
 
     private void reverseOrder(TreeNode treeNode, List<Integer> list) {
-        Stack<Integer> stack = new Stack<>();
+        int i = list.size();
         while (treeNode != null) {
-            stack.add(treeNode.val);
+            list.add(treeNode.val);
             treeNode = treeNode.right;
         }
-        while (!stack.isEmpty()) {
-            list.add(stack.pop());
+        int j = list.size() - 1;
+        while (i < j) {
+            int temp = list.get(i);
+            list.set(i, list.get(j));
+            list.set(j, temp);
+            i++;
+            j--;
         }
     }
 }
