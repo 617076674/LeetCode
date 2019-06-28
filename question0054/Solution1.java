@@ -1,14 +1,16 @@
-package question054;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82809785
- */
+package question0054;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 先计算要绕的圈数，再一圈一圈绕。
+ *
+ * 时间复杂度和空间复杂度均是O(p)，其中p是矩阵中的元素个数。
+ *
+ * 执行用时：1ms，击败91.31%。消耗内存：35.3MB，击败41.97%。
+ */
 public class Solution1 {
-
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         int m = matrix.length;

@@ -1,14 +1,16 @@
-package question054;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82809785
- */
+package question0054;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 用top、bottom、left、right这4个变量来控制旋转。
+ *
+ * 时间复杂度是O(p)，其中p为矩阵中的元素个数。空间复杂度是O(1)。
+ *
+ * 执行用时：0ms，击败100%。消耗内存：35.4MB，击败41.86%。
+ */
 public class Solution2 {
-
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         int m = matrix.length;
@@ -16,13 +18,7 @@ public class Solution2 {
             return list;
         }
         int n = matrix[0].length;
-        if (n == 0) {
-            return list;
-        }
-        int top = 0;
-        int bottom = m - 1;
-        int left = 0;
-        int right = n - 1;
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
         while (top <= bottom && left <= right) {
             for (int i = left; i <= right; i++) {
                 list.add(matrix[top][i]);
@@ -45,7 +41,6 @@ public class Solution2 {
                 left++;
             }
         }
-
         return list;
     }
 }
