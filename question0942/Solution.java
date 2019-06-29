@@ -24,7 +24,6 @@ public class Solution {
         while (index2 < n2) {
             if (!stack.isEmpty() && stack.peek() == popped[index2]) {
                 stack.pop();
-                index2++;
             } else {
                 int i = index1;
                 boolean flag = false;
@@ -40,8 +39,8 @@ public class Solution {
                 if (!flag) {
                     return false;
                 }
-                index2++;
             }
+            index2++;
         }
         return true;
     }

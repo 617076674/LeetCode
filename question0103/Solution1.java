@@ -1,9 +1,15 @@
-package question103;
+package question0103;
 
 import java.util.*;
 
-public class Solution {
-
+/**
+ * 借鉴层序遍历的思路，对一些层进行反转即可。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n是二叉树中的节点个数。
+ *
+ * 执行用时：3ms，击败61.52%。消耗内存：36.3MB，击败40.11%。
+ */
+public class Solution1 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> listList = new ArrayList<>();
         if (root == null) {
@@ -25,7 +31,7 @@ public class Solution {
                     queue.add(treeNode.right);
                 }
             }
-            if (index % 2 == 1) {
+            if ((index & 1) == 1) {
                 Collections.reverse(list);
             }
             listList.add(list);
