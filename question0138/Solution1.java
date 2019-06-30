@@ -1,4 +1,4 @@
-package question138;
+package question0138;
 
 /**
  * 暴力破解法。
