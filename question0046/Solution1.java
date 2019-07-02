@@ -1,18 +1,20 @@
-package question046;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82766757
- */
+package question0046;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
+/**
+ * 回溯法。
+ *
+ * 时间复杂度是O(n!)，其中n是nums数组的长度。空间复杂度是O(n)。
+ *
+ * 执行用时：7ms，击败20.21%。消耗内存：39.7MB，击败36.93%。
+ */
+public class Solution1 {
 
-    List<List<Integer>> listList;
+    private List<List<Integer>> listList = new ArrayList<>();
 
     public List<List<Integer>> permute(int[] nums) {
-        listList = new ArrayList<>();
         permute(nums, new ArrayList<>());
         return listList;
     }
