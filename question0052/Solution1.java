@@ -1,34 +1,33 @@
-package question052;
+package question0052;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82796011
+/**
+ * 回溯法。
+ *
+ * 时间复杂度是O(n ^ n)。空间复杂度是O(n ^ 2)。
+ *
+ * 执行用时：38ms，击败5.22%。消耗内存：38.3MB，击败5.00%。
  */
+public class Solution1 {
 
-import java.util.HashMap;
+    private int result = 0;
 
-public class Solution {
-
-    int result;
+    private int[] position;
 
     public int totalNQueens(int n) {
         boolean[][] visited = new boolean[n][n];
-        totalNQueens(new HashMap<>(), 0, n, visited);
+        position = new int[n];    //第i行的皇后放在第position[i]列
+        totalNQueens(0, n, visited);
         return result;
     }
 
-    /*
-     * hashMap-------The queen in row key is in column value
-     * we are going to put the mth queen
-     * n represents the total quantity of the queen
-     */
-    private void totalNQueens(HashMap<Integer, Integer> hashMap, int m, int n, boolean[][] visited) {
+    private void totalNQueens(int m, int n, boolean[][] visited) {
         if (m == n) {
             result++;
             return;
         }
         for (int i = 0; i < n; i++) {
             if (!visited[m][i]) {
-                hashMap.put(m, i);
+                position[m] = i;
                 boolean[][] tempVisited = new boolean[n][n];
                 for (int j = 0; j < n; j++) {
                     for (int k = 0; k < n; k++) {
@@ -36,16 +35,15 @@ public class Solution {
                     }
                 }
                 for (int j = 0; j < n; j++) {
-                    tempVisited[j][hashMap.get(m)] = true;
+                    tempVisited[j][i] = true;
                     tempVisited[m][j] = true;
                     for (int k = 0; k < n; k++) {
-                        if ((Math.abs(j - m) == Math.abs(k - hashMap.get(m)))) {
+                        if ((Math.abs(j - m) == Math.abs(k - i))) {
                             tempVisited[j][k] = true;
                         }
                     }
                 }
-                totalNQueens(hashMap, m + 1, n, tempVisited);
-                hashMap.remove(m);
+                totalNQueens(m + 1, n, tempVisited);
             }
         }
     }
