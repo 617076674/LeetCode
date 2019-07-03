@@ -1,5 +1,12 @@
-package question169;
+package question0169;
 
+/**
+ * 摩尔投票法。
+ *
+ * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：2ms，击败99.76%。消耗内存：41.5MB，击败84.05%。
+ */
 public class Solution4 {
     public int majorityElement(int[] nums) {
         int result = nums[0];
