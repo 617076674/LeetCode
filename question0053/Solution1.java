@@ -1,13 +1,15 @@
-package question053;
+package question0053;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82796047
+/**
+ * 暴力破解法。
+ *
+ * 时间复杂度是O(n ^ 3)，其中n是数组的长度。空间复杂度是O(1)。
+ *
+ * 在LeetCode中提交会超时。
  */
 public class Solution1 {
-
     public int maxSubArray(int[] nums) {
-        int n = nums.length;
-        int result = Integer.MIN_VALUE;
+        int n = nums.length, result = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 int sum = 0;
