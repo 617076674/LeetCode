@@ -1,5 +1,12 @@
-package question233;
+package question0233;
 
+/**
+ * 累加每位上1出现的次数。
+ *
+ * 时间复杂度是O(logn)。空间复杂度是O(1)。
+ *
+ * 执行用时：0ms，击败100.00%。消耗内存：32.9MB，击败16.28%。
+ */
 public class Solution {
     public int countDigitOne(int n) {
         int result = 0;
@@ -8,7 +15,7 @@ public class Solution {
         }
         String number = Integer.toString(n);
         for (int i = 0; i < number.length(); i++) {
-            if (i == 0) {
+            if (i == 0) {   //首位特殊处理
                 if (number.charAt(i) == '1') {
                     int right = 0;
                     for (int j = 1; j < number.length(); j++) {
