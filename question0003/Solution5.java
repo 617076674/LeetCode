@@ -2,9 +2,6 @@ package question0003;
 
 import java.util.Arrays;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
- */
 public class Solution5 {
     public int lengthOfLongestSubstring(String s) {
         int[] last = new int[256];

@@ -1,8 +1,5 @@
 package question0003;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/81784418
- */
 public class Solution4 {
     public int lengthOfLongestSubstring(String s) {
         int left = 0, right = 0, result = 0;
