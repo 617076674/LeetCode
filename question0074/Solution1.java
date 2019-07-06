@@ -34,7 +34,7 @@ public class Solution1 {
     private boolean binarySearch(int[] array, int target) {
         int left = 0, right = array.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + ((right - left) >> 2);
             if (array[mid] == target) {
                 return true;
             } else if (array[mid] < target) {
@@ -49,7 +49,7 @@ public class Solution1 {
     private int floor(int[] array, int target) {
         int left = -1, right = array.length - 1;
         while (left < right) {
-            int mid = left + (right - left + 1) / 2;
+            int mid = left + ((right - left + 1) >> 1);
             if (array[mid] < target) {
                 left = mid;
             } else {
