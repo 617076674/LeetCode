@@ -1,11 +1,16 @@
 package question160;
 
-public class Solution {
+/**
+ * 让长链表先走几步。
+ *
+ * 时间复杂度是O(m + n)，其中m为链表headA的长度，n为链表headBand的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：3ms，击败35.34%。消耗内存：47.5MB，击败16.72%。
+ */
+public class Solution2 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int lenA = getLength(headA);
-        int lenB = getLength(headB);
-        ListNode curA = headA;
-        ListNode curB = headB;
+        int lenA = getLength(headA), lenB = getLength(headB);
+        ListNode curA = headA, curB = headB;
         int gap = Math.abs(lenA - lenB);
         if (lenA >= lenB) {
             while (gap-- > 0) {
