@@ -1,4 +1,4 @@
-package question160;
+package question0160;
 
 /**
  * 让长链表先走几步。
