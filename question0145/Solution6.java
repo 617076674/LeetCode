@@ -33,7 +33,7 @@ public class Solution6 {
                     cur = cur.left;
                 } else {
                     pre.right = null;
-                    reverseOrder(cur.left, list);
+                    reverseOrder(cur.left, list);   //必须在把pre.right置为null之后再反转
                     cur = cur.right;
                 }
             }
