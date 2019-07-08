@@ -1,9 +1,16 @@
-package question110;
+package question0110;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution {
+/**
+ * 记忆化搜索。
+ *
+ * 时间复杂度是O(n ^ 2)，其中n是树中的节点个数。空间复杂度是O(n)。
+ *
+ * 执行用时：4ms，击败40.04%。消耗内存：36.4MB，击败96.68%。
+ */
+public class Solution1 {
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
