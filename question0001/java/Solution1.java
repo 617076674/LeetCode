@@ -2,9 +2,9 @@ package question0001.java;
 
 /**
  * 暴力破解法。
- * <p>
+ *
  * 时间复杂度O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(1)。
- * <p>
+ *
  * 执行用时：54ms，击败33.60%。消耗内存：37.6MB，击败85.83%。
  */
 public class Solution1 {
