@@ -1,8 +1,17 @@
-package question146;
+package question0146;
 
 import java.util.*;
 
-class LRUCache {
+/**
+ * 哈希表加双向链表。
+ *
+ * 每次新增节点时，往链表头部放入。需要删除时，删除链表尾节点。
+ *
+ * get()和put()的时间复杂度均是O(1)。空间复杂度是O(n)，其中n为缓存的键数。
+ *
+ * 执行用时：141ms，击败79.91%。消耗内存：55.7MB，击败96.89%。
+ */
+class LRUCache1 {
     private class Node {
         private int key;
         private int value;
@@ -43,7 +52,7 @@ class LRUCache {
         node.next = null;
     }
 
-    public LRUCache(int capacity) {
+    public LRUCache1(int capacity) {
         dummyHead.next = dummyTail;
         dummyTail.pre = dummyHead;
         this.capacity = capacity;
@@ -70,6 +79,7 @@ class LRUCache {
             if (size < capacity) {
                 size++;
             } else {
+                //删除链表尾节点
                 Node delNode = dummyTail.pre;
                 hashMap.remove(delNode.key);
                 del(delNode);
