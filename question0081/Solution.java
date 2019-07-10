@@ -1,17 +1,16 @@
-package question081;
+package question0081;
 
 /**
  * 二分法。
- * <p>
+ *
  * 时间复杂度是O(nlogn)。空间复杂度是O(1)。
- * <p>
+ *
  * 执行用时：2ms，击败96.98%。消耗内存：36.4MB，击败75.30%。
  */
 public class Solution {
 
     public boolean search(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (target == nums[left]) {
@@ -48,7 +47,7 @@ public class Solution {
     /**
      * 当target < nums[mid] && target < nums[left]或target > nums[left] && target > nums[mid]时，
      * 我们下一步查找的范围是什么呢？
-     * <p>
+     *
      * 这就是这个函数的作用。
      */
     private int[] search(int[] nums, int left, int mid, int right) {
