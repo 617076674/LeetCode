@@ -8,7 +8,6 @@ import java.util.List;
  * @date 2019-06-17
  */
 public class Solution {
-
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
