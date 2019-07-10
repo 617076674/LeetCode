@@ -1,14 +1,13 @@
-package question033;
+package question0033;
 
 /**
  * 二分法。
- * <p>
+ *
  * 时间复杂度是O(logn)，其中n是nums数组的长度。空间复杂度是O(1)。
- * <p>
+ *
  * 执行用时：2ms，击败90.20%。消耗内存：35.4MB，击败88.68%。
  */
 public class Solution {
-
     public int search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {

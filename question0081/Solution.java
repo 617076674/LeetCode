@@ -3,12 +3,11 @@ package question0081;
 /**
  * 二分法。
  *
- * 时间复杂度是O(nlogn)。空间复杂度是O(1)。
+ * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
  *
  * 执行用时：2ms，击败96.98%。消耗内存：36.4MB，击败75.30%。
  */
 public class Solution {
-
     public boolean search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
