@@ -1,5 +1,12 @@
-package question134;
+package question0134;
 
+/**
+ * 一次遍历解决。
+ *
+ * 时间复杂度是O(n)，其中n为站点数。空间复杂度是O(1)。
+ *
+ * 执行用时：1ms，击败98.83%。消耗内存：38.5MB，击败40.63%。
+ */
 public class Solution2 {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int start = 0;
