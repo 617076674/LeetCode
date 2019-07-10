@@ -1,28 +1,33 @@
-package question202;
+package question0202;
 
-import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Solution {
+    private Set<Integer> set = new HashSet<>();
+
     public boolean isHappy(int n) {
-        HashSet<Integer> hashSet = new HashSet<>();
-        hashSet.add(n);
-        while (n > 1) {
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            while (n > 0) {
-                arrayList.add(n % 10);
-                n /= 10;
-            }
-            n = 0;
-            for (int integer : arrayList) {
-                n += integer * integer;
-            }
-            if (hashSet.contains(n)) {
+        if (n <= 0) {
+            return false;
+        }
+        while (n != 1) {
+            int num = next(n);
+            if (set.contains(num)) {
                 return false;
-            } else {
-                hashSet.add(n);
             }
+            set.add(n);
+            n = num;
         }
         return true;
+    }
+
+    private int next(int n) {
+        int result = 0;
+        while (n > 0) {
+            int num = n % 10;
+            result += num * num;
+            n /= 10;
+        }
+        return result;
     }
 }
