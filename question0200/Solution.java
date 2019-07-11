@@ -1,7 +1,15 @@
-package question200;
+package question0200;
 
+/**
+ * 图的深度优先遍历求连通分量。
+ *
+ * 时间复杂度是O(nm)，其中n为grid数组的行数，m是grid数组的列数。
+ *
+ * 执行用时：4ms，击败65.59%。消耗内存：40.5MB，击败92.66%。
+ */
 public class Solution {
     private int[][] direction = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
     private boolean[][] visited;
 
     public int numIslands(char[][] grid) {
@@ -30,7 +38,6 @@ public class Solution {
                 dfs(grid, newi, newj);
             }
         }
-        return;
     }
 
     private boolean isValid(char[][] grid, int i, int j) {
@@ -40,4 +47,3 @@ public class Solution {
         return false;
     }
 }
-
