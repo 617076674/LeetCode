@@ -50,7 +50,7 @@ public class Solution2 {
         int left = 0, right = array.length;
         while (left < right) {
             int mid = left + ((right - left) >> 1);
-            if (array[mid] < target) {
+            if (array[mid] <= target) {
                 left = mid + 1;
             } else {
                 right = mid;
