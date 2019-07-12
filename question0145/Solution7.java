@@ -9,7 +9,7 @@ import java.util.List;
  *
  * 执行用时：1ms，击败99.28%。消耗内存35.1MB，击败37.05%。
  */
-public class Solution6 {
+public class Solution7 {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) {

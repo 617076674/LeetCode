@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 新增一个指针pre，执行前一个访问的节点。
+ * 新增一个指针pre，记录前一个访问的节点。
  *
  * 时间复杂度是O(n)，其中n为二叉树中的节点个数。空间复杂度是O(h)，其中h为二叉树的高度。
  *
