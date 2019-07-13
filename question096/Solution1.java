@@ -1,46 +1,29 @@
 package question096;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/83276409
+/**
+ * 和question0095同样的思路。递归解法。
+ *
+ * 时间复杂度和空间复杂度均是O(n!)，其中n为树中的节点个数。
+ *
+ * 在LeetCode中提交会超时。
  */
-
-import java.util.ArrayList;
-
 public class Solution1 {
-
     public int numTrees(int n) {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {
-            arrayList.add(i);
-        }
-        return numTrees(arrayList);
+        return numTrees(1, n);
     }
 
-    private int numTrees(ArrayList<Integer> arrayList) {
-        if (arrayList.size() == 1) {
+    private int numTrees(int left, int right) {
+        if (left == right) {
             return 1;
         }
         int count = 0;
-        for (int i = 0; i < arrayList.size(); i++) {
-            int tempRoot = arrayList.get(i);
-            ArrayList<Integer> less = new ArrayList<>();
-            ArrayList<Integer> greater = new ArrayList<>();
-            for (int j = 0; j < arrayList.size(); j++) {
-                if (j == i) {
-                    continue;
-                }
-                if (arrayList.get(j) < arrayList.get(i)) {
-                    less.add(arrayList.get(j));
-                } else {
-                    greater.add(arrayList.get(j));
-                }
-            }
-            if (less.size() == 0 && greater.size() != 0) {
-                count += numTrees(greater);
-            } else if (less.size() != 0 && greater.size() == 0) {
-                count += numTrees(less);
+        for (int i = left; i <= right; i++) {
+            if (i == left) {
+                count += numTrees(i + 1, right);
+            } else if (i == right) {
+                count += numTrees(left, i - 1);
             } else {
-                count += numTrees(less) * numTrees(greater);
+                count += numTrees(left, i - 1) * numTrees(i + 1, right);
             }
         }
         return count;

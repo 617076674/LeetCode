@@ -1,10 +1,13 @@
 package question096;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/83276409
+/**
+ * 递归实现。
+ *
+ * 时间复杂度和空间复杂度均是O(n!)，其中n为树中的节点个数。
+ *
+ * 在LeetCode中提交会超时。
  */
 public class Solution2 {
-
     public int numTrees(int n) {
         if (n == 1) {
             return 1;
