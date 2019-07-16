@@ -15,8 +15,7 @@ public class Solution2 {
         if (root == null) {
             return listList;
         }
-        Stack<TreeNode> stack1 = new Stack<>();
-        Stack<TreeNode> stack2 = new Stack<>();
+        Stack<TreeNode> stack1 = new Stack<>(), stack2 = new Stack<>();
         stack1.push(root);
         while (!stack1.isEmpty() || !stack2.isEmpty()) {
             List<Integer> list = new ArrayList<>();
