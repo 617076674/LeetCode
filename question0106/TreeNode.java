@@ -1,4 +1,4 @@
-package question106;
+package question0106;
 
 public class TreeNode {
     int val;
