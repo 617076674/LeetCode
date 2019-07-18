@@ -1,13 +1,21 @@
-package question107;
+package question0107;
 
 import java.util.*;
 
+/**
+ * 用栈来逆序输出层序遍历结果。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为树中的节点个数。
+ *
+ * 执行用时：5ms，击败10.75%。消耗内存：36.6MB，击败38.87%。
+ */
 public class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> listList = new ArrayList<>();
         if (null == root) {
             return listList;
         }
+        Stack<List<Integer>> stack = new Stack<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
@@ -23,9 +31,11 @@ public class Solution {
                     queue.add(treeNode.right);
                 }
             }
-            listList.add(list);
+            stack.add(list);
         }
-        Collections.reverse(listList);
+        while (!stack.isEmpty()) {
+            listList.add(stack.pop());
+        }
         return listList;
     }
 }
