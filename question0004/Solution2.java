@@ -2,9 +2,9 @@ package question0004;
 
 /**
  * 二分查找法。
- * <p>
+ *
  * 时间复杂度和空间复杂度均是O(log(n1 + n2))，其中n1是nums1数组的长度，n2是nums2数组的长度。
- * <p>
+ *
  * 执行用时：13ms，击败71.43%。消耗内存：50.3MB，击败78.50%。
  */
 public class Solution2 {
