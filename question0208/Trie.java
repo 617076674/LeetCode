@@ -1,18 +1,21 @@
-package question208;
+package question0208;
 
 import java.util.HashMap;
 
-class Trie {
+/**
+ * 执行用时：140ms，击败92.77%。消耗内存：52.5MB，击败91.61%。
+ */
+public class Trie {
     private class Node {
-        private boolean isWord;
-        private HashMap<Character, Node> next;
+        private boolean isWord; //判断是否是一个单词
+        private HashMap<Character, Node> next;  //指向next节点
 
-        public Node(boolean isWord) {
+        Node(boolean isWord) {
             this.isWord = isWord;
             this.next = new HashMap<>();
         }
 
-        public Node() {
+        Node() {
             this(false);
         }
     }
@@ -29,7 +32,8 @@ class Trie {
         Node cur = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (cur.next.get(c) == null) {
+            Node node = cur.next.get(c);
+            if (node == null) {
                 cur.next.put(c, new Node());
             }
             cur = cur.next.get(c);
@@ -41,26 +45,27 @@ class Trie {
     }
 
     public boolean search(String word) {
-        Node cur = root;
-        for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
-            if (cur.next.get(c) == null) {
-                return false;
-            }
-            cur = cur.next.get(c);
+        Node node = find(word);
+        if (node == null) {
+            return false;
         }
-        return cur.isWord;
+        return find(word).isWord;
     }
 
     public boolean startsWith(String prefix) {
+        return find(prefix) != null;
+    }
+
+    private Node find(String string) {
         Node cur = root;
-        for (int i = 0; i < prefix.length(); i++) {
-            char c = prefix.charAt(i);
-            if (cur.next.get(c) == null) {
-                return false;
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            Node node = cur.next.get(c);
+            if (node == null) {
+                return null;
             }
             cur = cur.next.get(c);
         }
-        return true;
+        return cur;
     }
 }
