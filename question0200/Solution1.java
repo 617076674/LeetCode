@@ -7,7 +7,7 @@ package question0200;
  *
  * 执行用时：4ms，击败65.59%。消耗内存：40.5MB，击败92.66%。
  */
-public class Solution {
+public class Solution1 {
     private int[][] direction = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private boolean[][] visited;
