@@ -11,7 +11,7 @@ public class Solution {
     public boolean search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + ((right - left) >> 1);
             if (target == nums[mid]) {
                 return true;
             } else if (target < nums[mid]) {
@@ -26,16 +26,9 @@ public class Solution {
                         left = mid + 1;
                     }
                 } else if (nums[mid] < nums[left]) {
-                    if (target == nums[left]) {
-                        return true;
-                    } else {
-                        //target < nums[left] && target < nums[mid] && nums[mid] < nums[left]
-                        right = mid - 1;
-                    }
+                    //target < nums[left] && target < nums[mid] && nums[mid] < nums[left]
+                    right = mid - 1;
                 } else {
-                    if (target == nums[left]) {
-                        return true;
-                    }
                     boolean flag = true;
                     for (int i = left; i <= mid; i++) {
                         if (nums[i] != nums[mid]) {
@@ -51,12 +44,8 @@ public class Solution {
                 }
             } else {
                 if (nums[mid] > nums[left]) {
-                    if (target > nums[left]) {
-                        //target > nums[left] && target > nums[mid] && nums[mid] > nums[left]
-                        left = mid + 1;
-                    } else {
-                        return true;
-                    }
+                    //target > nums[left] && target > nums[mid] && nums[mid] > nums[left]
+                    left = mid + 1;
                 } else if (nums[mid] < nums[left]) {
                     if (target > nums[left]) {
                         //target > nums[left] && target > nums[mid] && nums[mid] < nums[left]
@@ -68,9 +57,6 @@ public class Solution {
                         left = mid + 1;
                     }
                 } else {
-                    if (target == nums[left]) {
-                        return true;
-                    }
                     boolean flag = true;
                     for (int i = left; i <= mid; i++) {
                         if (nums[i] != nums[mid]) {
@@ -88,5 +74,4 @@ public class Solution {
         }
         return false;
     }
-
 }
