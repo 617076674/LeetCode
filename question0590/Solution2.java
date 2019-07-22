@@ -15,20 +15,20 @@ import java.util.*;
 public class Solution2 {
     public List<Integer> postorder(Node root) {
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null) {
+        if (root == null) {
             return result;
         }
         Stack<Node> stack = new Stack<>();
         Node pre = null;
         stack.push(root);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             Node cur = stack.peek();
-            if(cur.children.size() == 0 || pre == cur.children.get(cur.children.size() - 1)){
+            if (cur.children.size() == 0 || pre == cur.children.get(cur.children.size() - 1)) {
                 result.add(cur.val);
                 pre = cur;
                 stack.pop();
-            }else{
-                for(int i = cur.children.size() - 1; i >= 0; i--){
+            } else {
+                for (int i = cur.children.size() - 1; i >= 0; i--) {
                     stack.push(cur.children.get(i));
                 }
             }
