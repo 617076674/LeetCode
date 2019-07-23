@@ -1,9 +1,6 @@
-package question0309;
+package question0122;
 
 /**
- * @author qianyihui
- * @date 2019-07-23
- *
  * 动态规划。
  *
  * 状态定义：
@@ -13,34 +10,29 @@ package question0309;
  * 状态转移：
  * dp[0][0] = 0
  * dp[0][1] = -prices[0]
- * dp[1][1] = Math.max(-prices[0], -prices[1])
  *
  * 当i大于0且j == 0时
  * dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i])
  *
- * 当i大于1且j == 1时
- * dp[i][1] = Math.max(dp[i - 1][1], dp[i - 2][0] - prices[i])
+ * 当i大于0且j == 1时
+ * dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i])
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为prices数组的长度。
  *
- * 执行用时：3ms，击败62.58%。消耗内存：35.4MB，击败82.73%。
+ * 执行用时：7ms，击败8.49%。消耗内存：39.6MB，击败17.14%
  */
-public class Solution {
+public class Solution2 {
     public int maxProfit(int[] prices) {
-        int n = prices.length;
-        if (n == 0) {
-            return 0;
+        int result = 0, n = prices.length;
+        if (0 == n) {
+            return result;
         }
         int[][] dp = new int[n][2];
         dp[0][0] = 0;
         dp[0][1] = -prices[0];
         for (int i = 1; i < n; i++) {
             dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
-            if (i == 1) {
-                dp[i][1] = Math.max(-prices[0], -prices[1]);
-            } else {
-                dp[i][1] = Math.max(dp[i - 1][1], dp[i - 2][0] - prices[i]);
-            }
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
         }
         return dp[n - 1][0];
     }

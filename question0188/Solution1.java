@@ -9,7 +9,7 @@ package question0188;
  *
  * 执行用时：6ms，击败91.26%。消耗内存：37.1MB，击败44.18%。
  */
-public class Solution {
+public class Solution1 {
     public int maxProfit(int k, int[] prices) {
         int result = 0, n = prices.length;
         if (0 == n || k == 0) {
