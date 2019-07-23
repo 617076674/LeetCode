@@ -11,12 +11,12 @@ package question0121;
  */
 public class Solution2 {
     public int maxProfit(int[] prices) {
-        int result = 0;
-        if (0 == prices.length) {
+        int result = 0, n = prices.length;
+        if (0 == n) {
             return result;
         }
         int minPrice = prices[0];
-        for (int i = 1; i < prices.length; i++) {
+        for (int i = 1; i < n; i++) {
             result = Math.max(result, prices[i] - minPrice);
             minPrice = Math.min(minPrice, prices[i]);
         }
