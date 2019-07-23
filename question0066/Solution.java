@@ -1,13 +1,15 @@
-package question066;
+package question0066;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82847855
+/**
+ * 字符串加法。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为digits数组的长度。
+ *
+ * 执行用时：1ms，击败97.63%。消耗内存：35.6MB，击败36.83%。
  */
 public class Solution {
-
     public int[] plusOne(int[] digits) {
-        int n = digits.length;
-        int flag = 1;
+        int n = digits.length, flag = 1;
         for (int i = n - 1; i >= 0; i--) {
             digits[i] = digits[i] + flag;
             if (digits[i] >= 10) {
@@ -20,8 +22,7 @@ public class Solution {
             int[] result = new int[n + 1];
             result[0] = 1;
             return result;
-        } else {
-            return digits;
         }
+        return digits;
     }
 }
