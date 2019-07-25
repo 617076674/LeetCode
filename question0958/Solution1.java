@@ -15,7 +15,7 @@ import java.util.Queue;
  *
  * 执行用时：5ms，击败6.79%。消耗内存：36.3MB，击败84.06%。
  */
-public class Solution {
+public class Solution1 {
     public boolean isCompleteTree(TreeNode root) {
         if (null == root) {
             return true;
