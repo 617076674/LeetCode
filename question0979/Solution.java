@@ -28,7 +28,7 @@ public class Solution {
         }
         int leftResult = dfs(node.left);
         int rightResult = dfs(node.right);
-        result += Math.abs(leftResult) + Math.abs(rightResult);
+        result += Math.abs(leftResult) + Math.abs(rightResult); //一个子树会移出，一个子树会移入
         return node.val + leftResult + rightResult - 1;
     }
 }
