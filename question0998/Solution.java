@@ -1,4 +1,4 @@
-package queston0998;
+package question0998;
 
 /**
  * @author qianyihui
