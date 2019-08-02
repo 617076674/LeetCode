@@ -1,10 +1,16 @@
-package question207.Java;
+package question0207.Java;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 拓扑排序。
+ *
+ * 时间复杂度是O(n + e)，其中n为图中的点数，即课程数numCourses，e为图中的边数，即prerequisites数组的长度。
+ *
+ * 执行用时：220ms，击败9.19%。消耗内存：81MB，击败5.11%。
+ */
 public class Solution {
-
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] inDegree = new int[numCourses];
         int[][] graph = new int[numCourses][numCourses];
