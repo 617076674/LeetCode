@@ -1,10 +1,16 @@
-package question210.Java;
+package question0210.Java;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 拓扑排序。和question0207同样的解法。
+ *
+ * 时间复杂度是O(n + e)，其中n为图中的点数，即课程数numCourses，e为图中的边数，即prerequisites数组的长度。
+ *
+ * 执行用时：101ms，击败12.31%。消耗内存：81.4MB，击败5.13%。
+ */
 public class Solution {
-
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         int[] inDegree = new int[numCourses];
         int[][] graph = new int[numCourses][numCourses];
@@ -19,8 +25,7 @@ public class Solution {
             }
         }
         int[] result = new int[numCourses];
-        int index = 0;
-        int num = 0;
+        int index = 0, num = 0;
         while (!queue.isEmpty()) {
             int u = queue.poll();
             result[index++] = u;
