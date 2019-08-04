@@ -1,9 +1,6 @@
-package question0001.java;
+package question0001;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * 用哈希表记录nums[i]元素对应的索引。
@@ -17,26 +14,26 @@ import java.util.List;
 public class Solution2 {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
-        HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (hashMap.containsKey(nums[i])) {
-                hashMap.get(nums[i]).add(i);
+            if (map.containsKey(nums[i])) {
+                map.get(nums[i]).add(i);
             } else {
                 List<Integer> list = new ArrayList<>();
                 list.add(i);
-                hashMap.put(nums[i], list);
+                map.put(nums[i], list);
             }
         }
-        Arrays.sort(nums);
+        Arrays.sort(nums);  //排序，为双指针查找做准备
         int left = 0, right = n - 1;
         while (left < right) {
             if (nums[left] + nums[right] == target) {
                 int[] result = new int[2];
-                result[0] = hashMap.get(nums[left]).get(0);
-                if (nums[left] == nums[right]) {
-                    result[1] = hashMap.get(nums[right]).get(1);
+                result[0] = map.get(nums[left]).get(0);
+                if (nums[left] == nums[right]) {    //如果两个数相等，显然不能取同一个索引，需要取对应list中的第二个索引
+                    result[1] = map.get(nums[right]).get(1);
                 } else {
-                    result[1] = hashMap.get(nums[right]).get(0);
+                    result[1] = map.get(nums[right]).get(0);
                 }
                 return result;
             } else if (nums[left] + nums[right] > target) {

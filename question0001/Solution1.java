@@ -1,4 +1,4 @@
-package question0001.java;
+package question0001;
 
 /**
  * 暴力破解法。

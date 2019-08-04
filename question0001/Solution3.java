@@ -1,6 +1,7 @@
-package question0001.java;
+package question0001;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 依然用哈希表记录数组中的值对应的索引，但是整个过程只遍历一次nums数组。
@@ -13,16 +14,16 @@ import java.util.HashMap;
  */
 public class Solution3 {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int anotherNum = target - nums[i];
-            if (hashMap.containsKey(anotherNum)) {
+            if (map.containsKey(anotherNum)) {
                 int[] result = new int[2];
-                result[0] = hashMap.get(anotherNum);
+                result[0] = map.get(anotherNum);
                 result[1] = i;
                 return result;
             } else {
-                hashMap.put(nums[i], i);
+                map.put(nums[i], i);
             }
         }
         return null;
