@@ -1,28 +1,36 @@
-package question018;
+package question0018;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
+/**
+ * 和question0015的Solution3、question0016的Solution2同样的思路，内层循环采用双指针遍历的形式。
+ *
+ * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：54ms，击败73.50%。消耗内存：40.3MB，击败77.12%。
  */
 public class Solution3 {
-
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> listList = new ArrayList<>();
         int n = nums.length;
         Arrays.sort(nums);
         for (int i = 0; i < n - 3; i++) {
+            if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {   //这个判断很重要，不然会很慢
+                break;
+            }
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
             for (int j = i + 1; j < n - 2; j++) {
+                if (nums[i] + nums[j] + nums[j + 1] + nums[j + 1] > target) {   //这个判断很重要，不然会很慢
+                    break;
+                }
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                int left = j + 1;
-                int right = n - 1;
+                int left = j + 1, right = n - 1;
                 while (left < right) {
                     if (nums[i] + nums[j] + nums[left] + nums[right] == target) {
                         List<Integer> list = new ArrayList<>();

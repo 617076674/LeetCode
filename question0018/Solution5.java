@@ -1,4 +1,4 @@
-package question018;
+package question0018;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,11 +7,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
+/**
+ * 时间复杂度是O(n ^ 4)，其中n是nums数组的长度。空间复杂度是O(n ^ 2)。
+ *
+ * 执行用时：98ms，击败19.51%。消耗内存：53.5MB，击败11.70%。
  */
 public class Solution5 {
-
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Set<List<Integer>> listSet = new HashSet<>();
         int n = nums.length;

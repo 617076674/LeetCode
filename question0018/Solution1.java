@@ -1,14 +1,17 @@
-package question018;
+package question0018;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
+/**
+ * 暴力破解法。
+ *
+ * 时间复杂度是O(n ^ 4)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 在LeetCode中提交会超时。
  */
 public class Solution1 {
-
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> listList = new ArrayList<>();
         int n = nums.length;
