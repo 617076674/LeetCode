@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * 三重循环，暴力破解法。
- * <p>
+ *
  * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(1)。
- * <p>
+ *
  * 在LeetCode中提交会超时。
  */
 public class Solution1 {

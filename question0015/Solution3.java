@@ -6,15 +6,15 @@ import java.util.List;
 
 /**
  * 内层循环采用双指针遍历的形式。
- * <p>
+ *
  * 时间复杂度是O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(1)。
- * <p>
+ *
  * 执行用时：79ms，击败62.77%。消耗内存：55.8MB，击败71.63%。
  */
 public class Solution3 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> listList = new ArrayList<>();
-        Arrays.sort(nums);
+        Arrays.sort(nums);  //排序是前提
         for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] > 0) {
                 break;

@@ -7,9 +7,9 @@ import java.util.List;
 
 /**
  * 利用哈希表记录每个数字出现的次数。
- * <p>
+ *
  * 时间复杂度是O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(n)。
- * <p>
+ *
  * 执行用时：268ms，击败10.12%。消耗内存：49.2MB，击败85.36%。
  */
 public class Solution2 {
