@@ -1,10 +1,13 @@
-package question026;
+package question0026;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82378663
+/**
+ * 双指针遍历原数组。
+ *
+ * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：1ms，击败99.99%。消耗内存：44.6MB，击败71.12%。
  */
 public class Solution {
-
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
         if (n == 0) {
@@ -15,7 +18,7 @@ public class Solution {
             if (nums[i] == nums[i - 1]) {
                 continue;
             }
-            nums[index] = nums[i];
+            nums[index] = nums[i];  //由于可能存在重复的元素，所以index指针一定是比i小的
             index++;
         }
         return index;
