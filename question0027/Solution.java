@@ -1,10 +1,13 @@
-package question027;
+package question0027;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82413748
+/**
+ * 和question0026同样的思路。
+ *
+ * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：1ms，击败96.62%。消耗内存：35.5MB，击败84.23%。
  */
 public class Solution {
-
     public static int removeElement(int[] nums, int val) {
         int index = 0;
         for (int i = 0; i < nums.length; i++) {
