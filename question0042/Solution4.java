@@ -1,13 +1,17 @@
-package question042;
+package question0042;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82682179
+ *
+ * Solution3的改进，空间换时间。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为height数组的长度。
+ *
+ * 执行用时：3ms，击败88.60%。消耗内存：38.1MB，击败78.65%。
  */
-public class Solution5 {
-
+public class Solution4 {
     public int trap(int[] height) {
-        int n = height.length;
-        int result = 0;
+        int n = height.length, result = 0;
         if (n == 0 || n == 1) {
             return result;
         }
