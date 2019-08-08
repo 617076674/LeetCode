@@ -1,24 +1,22 @@
-package question045;
+package question0045;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82751536
+/**
+ * 回溯法。
+ *
+ * 时间复杂度是O(2 ^ n)，其中n为nums数组的长度。空间复杂度是O(n)。
+ *
+ * 在LeetCode中提交会超时。
  */
-//backtracking
 public class Solution1 {
-
-    int steps;
+    private int steps = Integer.MAX_VALUE;
 
     public int jump(int[] nums) {
-        int n = nums.length;
-        steps = n - 1;
-
         jump(nums, 0, 0);
-
         return steps;
     }
 
-    /*
-     * Now I'm in the indexth position of nums, I have take tempSteps steps
+    /**
+     * 现在在索引index处，从索引0到索引index已经跳了tempSteps步，求跳到数组末尾的最少步数
      */
     private void jump(int[] nums, int index, int tempSteps) {
         if (index >= nums.length - 1) {
