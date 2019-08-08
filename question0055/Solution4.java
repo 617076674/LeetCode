@@ -35,7 +35,7 @@ package question0055;
  *
  * 执行用时：4ms，击败41.22%。消耗内存：42.2MB，击败68.73%。
  */
-public class Solution {
+public class Solution4 {
     public boolean canJump(int[] nums) {
         int n = nums.length;
         if (n == 1) {   //如果数组中只有一个元素，返回true
