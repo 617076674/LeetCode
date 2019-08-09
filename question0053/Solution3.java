@@ -18,7 +18,7 @@ public class Solution3 {
         if (left == right) {
             return nums[left];
         }
-        int mid = left + (right - left) / 2;
+        int mid = left + ((right - left) >> 1);
         int leftResult = maxSubArray(nums, left, mid);
         int rightResult = maxSubArray(nums, mid + 1, right);
         int leftSum = 0;
