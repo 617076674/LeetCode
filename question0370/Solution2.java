@@ -1,7 +1,5 @@
 package question0370;
 
-import java.util.Arrays;
-
 /**
  * @author qianyihui
  * @date 2019-08-08
@@ -27,16 +25,18 @@ import java.util.Arrays;
  */
 public class Solution2 {
     public int[] getModifiedArray(int length, int[][] updates) {
-        int[] result = new int[length + 1]; //防止end+1越界
+        int[] result = new int[length]; //防止end+1越界
         for (int i = 0; i < updates.length; i++) {
             result[updates[i][0]] += updates[i][2];
-            result[updates[i][1] + 1] -= updates[i][2];
+            if (updates[i][1] + 1 < length) {
+                result[updates[i][1] + 1] -= updates[i][2];
+            }
         }
         int num = 0;
         for (int i = 0; i < length; i++) {
             num += result[i];
             result[i] = num;
         }
-        return Arrays.copyOfRange(result, 0, length + 1);
+        return result;
     }
 }
