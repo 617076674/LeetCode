@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * 执行用时：286ms，击败7.37%。消耗内存：62.9MB，击败13.51%。
  */
-public class Solution {
+public class Solution1 {
     public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
