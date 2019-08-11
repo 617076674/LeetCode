@@ -17,7 +17,7 @@ package question0300;
  *
  * 执行用时：22ms，击败65.26%。消耗内存：36.6MB，击败31.51%。
  */
-public class Solution {
+public class Solution1 {
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
         if (n == 0) {
