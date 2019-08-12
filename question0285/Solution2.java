@@ -19,7 +19,7 @@ public class Solution2 {
             return next;
         } else if (p.val < root.val) {
             TreeNode result = inorderSuccessor(root.left, p);
-            //如果左子树中没有找到，那么说明root节点就是p的后继
+            //如果左子树中没有找到，那么说明root节点就是p的后继，这一点很重要！
             return result == null ? root : result;
         }
         return inorderSuccessor(root.right, p);
