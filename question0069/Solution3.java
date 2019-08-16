@@ -1,5 +1,10 @@
-package question069;
+package question0069;
 
+/**
+ * 牛顿迭代法。
+ *
+ * 执行用时：3ms，击败95.13%。消耗内存：34MB，击败75.02%。
+ */
 public class Solution3 {
     public int mySqrt(int x) {
         double pre = 0, cur = 1;
@@ -9,5 +14,4 @@ public class Solution3 {
         }
         return (int) pre;
     }
-
 }
