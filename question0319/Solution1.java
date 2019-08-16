@@ -1,7 +1,14 @@
-package question319;
+package question0319;
 
 import java.util.Arrays;
 
+/**
+ * 暴力破解法。
+ *
+ * 时间复杂度是O(n ^ 2)。空间复杂度是O(n)。
+ *
+ * 在LeetCode中提交会超时。
+ */
 public class Solution1 {
     public int bulbSwitch(int n) {
         int[] bulbs = new int[n];
