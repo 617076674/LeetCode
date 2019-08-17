@@ -2,9 +2,9 @@ package question0005;
 
 /**
  * 暴力破解法。
- * <p>
+ *
  * 时间复杂度O(n ^ 3)，其中n为输入字符串s的长度。空间复杂度O(1)。
- * <p>
+ *
  * 在LeetCode中提交会超时。
  */
 public class Solution1 {
