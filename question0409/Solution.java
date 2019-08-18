@@ -1,8 +1,5 @@
 package question0409;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author qianyihui
  * @date 2019-08-17
@@ -15,27 +12,27 @@ import java.util.Map;
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为字符串s的长度。
  *
- * 执行用时：18ms，击败14.49%。消耗内存：35.3MB，击败80.56%。
+ * 执行用时：5ms，击败44.83%。消耗内存：35.9MB，击败80.56%。
  */
 public class Solution {
     public int longestPalindrome(String s) {
-        Map<Character, Integer> map = new HashMap<>();
+        int[] map = new int[52];
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
+            if (c >= 'a' && c <= 'z') {
+                map[c - 'a']++;
             } else {
-                map.put(c, 1);
+                map[c - 'A' + 26]++;
             }
         }
-        int result = 0, max = 0;
+        int result = 0;
         boolean hasOdd = false;
-        for (Integer tmp : map.values()) {
-            if ((tmp & 1) == 0) {
-                result += tmp;
+        for (int i = 0; i < map.length; i++) {
+            if ((map[i] & 1) == 0) {
+                result += map[i];
             } else {
                 hasOdd = true;
-                result += tmp - 1;
+                result += map[i] - 1;
             }
         }
         if (hasOdd) {
