@@ -7,7 +7,7 @@ import java.util.Comparator;
  * @author qianyihui
  * @date 2019-08-19
  *
- * 首先对区间按左值由小到大进行排序
+ * 首先对区间按左值由小到大进行排序。
  *
  * 动态规划。
  *
