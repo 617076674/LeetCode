@@ -10,7 +10,7 @@ package question0795;
  *
  * 执行用时：8ms，击败53.49%。消耗内存：51.8MB，击败74.36%。
  */
-public class Solution {
+public class Solution1 {
     public int numSubarrayBoundedMax(int[] A, int L, int R) {
         int n;
         if (null == A || (n = A.length) == 0) {
