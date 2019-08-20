@@ -4,20 +4,38 @@ package question0877;
  * @author qianyihui
  * @date 2019-08-19
  *
- * 找规律。
+ * 对Solution2的空间复杂度优化。
  *
- * 当只有2堆石头时，先手必赢。
+ * 时间复杂度是O(n ^ 2)，其中n为piles数组的长度。空间复杂度是O(n)。
  *
- * 当有4堆石头时，先手可以拿到第1堆和第3堆或第2堆加第4堆，因此先手只需要拿 第1堆 + 第3堆 或 第2堆 + 第4堆中的较大值即可，必赢。
- *
- * 既然题目假设了两人都足够聪明，而结果又是非数即赢，那么先手必赢。
- *
- * 时间复杂度和空间复杂度均是O(1)。
- *
- * 执行用时：1ms，击败78.50%。消耗内存：34.9MB，击败82.56%。
+ * 执行用时：20ms，击败29.17%。消耗内存：41.5MB，击败14.73%。
  */
 public class Solution3 {
     public boolean stoneGame(int[] piles) {
-        return true;
+        int n = piles.length;
+        int[] dp = new int[n];
+        int[] sum = new int[n];
+        sum[0] = piles[0];
+        for (int i = 1; i < n; i++) {
+            sum[i] = sum[i - 1] + piles[i];
+        }
+        for (int i = 0; i < n; i++) {
+            dp[i] = piles[i];
+        }
+        for (int gap = -1; gap >= 1 - n; gap--) {
+            for (int i = 0; i < n + gap; i++) {
+                int j = i - gap, total = sum[j];
+                if (i > 0) {
+                    total -= sum[i - 1];
+                }
+                dp[i] = Math.max(total - dp[i + 1], total - dp[i]);
+            }
+        }
+        int first = dp[0];
+        int second = sum[n - 1] - first;
+        if (first > second) {
+            return true;
+        }
+        return false;
     }
 }
