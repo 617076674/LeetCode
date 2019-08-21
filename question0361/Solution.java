@@ -12,8 +12,7 @@ package question0361;
  */
 public class Solution {
     public int maxKilledEnemies(char[][] grid) {
-        int result = 0;
-        int m = grid.length;
+        int result = 0, m = grid.length;
         if (m == 0) {
             return result;
         }
