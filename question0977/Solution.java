@@ -12,7 +12,7 @@ package question0977;
  */
 public class Solution {
     public int[] sortedSquares(int[] A) {
-        int n = A.length, min = n - 1;
+        int n = A.length, min = n - 1;  //可能存在[-3, -2, -1, 0]这样的数组，没有绝对值的上升沿，需要将min初始化为n - 1
         for (int i = 1; i < n; i++) {
             if (Math.abs(A[i]) > Math.abs(A[i - 1])) {
                 min = i - 1;
