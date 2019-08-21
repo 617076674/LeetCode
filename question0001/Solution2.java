@@ -30,7 +30,8 @@ public class Solution2 {
             if (nums[left] + nums[right] == target) {
                 int[] result = new int[2];
                 result[0] = map.get(nums[left]).get(0);
-                if (nums[left] == nums[right]) {    //如果两个数相等，显然不能取同一个索引，需要取对应list中的第二个索引
+                //如果两个数相等，显然不能取同一个索引，需要取对应list中的第二个索引
+                if (nums[left] == nums[right]) {
                     result[1] = map.get(nums[right]).get(1);
                 } else {
                     result[1] = map.get(nums[right]).get(0);
