@@ -9,25 +9,28 @@ package question0003;
  */
 public class Solution1 {
     public int lengthOfLongestSubstring(String s) {
-        int n = s.length();
-        if (n == 0) {
+        int n;
+        if (s == null || (n = s.length()) == 0) {
             return 0;
         }
         int result = 1;
         boolean flag;
-        for (int i = 0; i < n - 1; i++) {
+        //当i为n - result时，最长的字符串也仅仅是[n - result, n - 1]，其长度仅为result，不可能比result更大，故没必要继续判断
+        for (int i = 0; i < n - result; i++) {
             for (int j = i + 1; j < n; j++) {
-                flag = false;
+                //判断[i, j]内的字符串是否是不包含重复字符的字符串
+                flag = true;   //默认[i, j]内的字符串是不包含重复字符的字符串
                 for (int k = i; k < j; k++) {
+                    //遍历[i, j)内的字符，如果存在和j处字符相等的字符，那么该子串就不满足条件
                     if (s.charAt(k) == s.charAt(j)) {
-                        flag = true;
+                        flag = false;
                         break;
                     }
                 }
-                if (!flag) {
-                    result = Math.max(result, j - i + 1);
+                if (flag) {
+                    result = Math.max(result, j - i + 1);   //如果[i, j]内的字符串不包含重复字符，那么更新result的值
                 } else {
-                    break;
+                    break;  //[i, j]已经存在重复字符了，继续增大j已经没有意义，考虑下一个起点i
                 }
             }
         }

@@ -1,23 +1,50 @@
 package question0003;
 
+import java.util.Arrays;
+
+/**
+ * @author qianyihui
+ * @date 2019-07-06
+ *
+ * 动态规划。
+ *
+ * 状态定义：
+ * dp[x]:字符串s中以索引x处字符结尾的最长不含重复字符的子字符串长度。
+ *
+ * 状态转移：
+ * （1）dp(0) = 1
+ * （2）如果第x个字符在之前未出现过，dp[x] = dp[x - 1] + 1
+ * （3）如果第x个字符在之前索引y处出现过，如果(x - y) <= dp[x - 1]，dp[x] = x - y。否则dp[x] = dp[x - 1] + 1
+ *
+ * 时间复杂度是O(n)，其中n为字符串s的长度。空间复杂度是O(1)。
+ *
+ * 执行用时：9ms，击败94.74%。消耗内存：37.9MB，击败90.45%。
+ */
 public class Solution4 {
     public int lengthOfLongestSubstring(String s) {
-        int left = 0, right = 0, result = 0;
-        while (right < s.length()) {
-            int index = isDuplicateChar(s, left, right);
-            if (index != -1) {
-                left = index + 1;
+        int n;
+        if (s == null || (n = s.length()) == 0) {
+            return 0;
+        }
+        int[] last = new int[256];
+        Arrays.fill(last, -1);
+        int dp = 1;
+        last[s.charAt(0)] = 0;
+        int result = dp;
+        for (int i = 1; i < n; i++) {
+            char c = s.charAt(i);
+            if (last[c] == -1) {
+                dp++;
+            } else {
+                if (i - last[c] <= dp) {
+                    dp = i - last[c];
+                } else {
+                    dp++;
+                }
             }
-            result = Math.max(result, right - left + 1);
-            right++;
+            last[c] = i;
+            result = Math.max(result, dp);
         }
         return result;
-    }
-
-    private int isDuplicateChar(String s, int left, int right) {
-        for (int i = left; i < right; i++)
-            if (s.charAt(i) == s.charAt(right))
-                return i;
-        return -1;
     }
 }
