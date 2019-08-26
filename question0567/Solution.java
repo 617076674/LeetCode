@@ -1,16 +1,15 @@
 package question0567;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 /**
  * 滑动窗口法。
  *
- * 时间复杂度是O(n1 + n2)，其中n1为字符串s1的长度，n2为字符串s2的长度。空间复杂度是O(n1)。
+ * 时间复杂度是O(n1 + n2)，其中n1为字符串s1的长度，n2为字符串s2的长度。空间复杂度是O(1)。
  *
- * 执行用时：157ms，击败15.35%。消耗内存：42.9MB，击败37.86%。
+ * 执行用时：22ms，击败37.54%。消耗内存：39.2MB，击败83.30%。
  */
-public class Solution1 {
+public class Solution {
     public boolean checkInclusion(String s1, String s2) {
         int n1 = s1.length(), n2 = s2.length();
         if (n1 == 0) {
@@ -19,41 +18,28 @@ public class Solution1 {
         if (n2 == 0) {
             return false;
         }
-        Map<Character, Integer> map = new HashMap<>();
+        int[] map = new int[26];
         for (int i = 0; i < n1; i++) {
-            char c = s1.charAt(i);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 1);
-            }
+            map[s1.charAt(i) - 'a']++;
         }
         int left = 0, right = -1;
-        Map<Character, Integer> window = new HashMap<>();
+        int[] window = new int[26];
         while (right + 1 < n2) {
             right++;
-            char c = s2.charAt(right);
-            if (window.containsKey(c)) {
-                window.put(c, window.get(c) + 1);
-            } else {
-                window.put(c, 1);
-            }
-            if (!map.containsKey(c)) {
+            window[s2.charAt(right) - 'a']++;
+            if (map[s2.charAt(right) - 'a'] == 0) {
                 left = right + 1;
                 if (left >= n2) {
                     break;
                 }
-                window.clear();
-            } else if (map.get(c) < window.get(c)) {
-                while (map.get(c) < window.get(c)) {
-                    window.put(s2.charAt(left), window.get(s2.charAt(left)) - 1);
-                    if (window.get(s2.charAt(left)) == 0) {
-                        window.remove(s2.charAt(left));
-                    }
+                Arrays.fill(window, 0);
+            } else if (map[s2.charAt(right) - 'a'] < window[s2.charAt(right) - 'a']) {
+                while (map[s2.charAt(right) - 'a'] < window[s2.charAt(right) - 'a']) {
+                    window[s2.charAt(left) - 'a']--;
                     left++;
                 }
             }
-            if (window.equals(map)) {
+            if (Arrays.equals(window, map)) {
                 return true;
             }
         }
