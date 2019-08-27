@@ -2,9 +2,9 @@ package question0007;
 
 /**
  * 利用long型变量来进行这整个计算过程。
- * <p>
- * 时间复杂度是O(x)。空间复杂度是O(1)。
- * <p>
+ *
+ * 时间复杂度是O(log(x))。空间复杂度是O(1)。
+ *
  * 执行用时：6ms，击败90.56%。消耗内存：34.9MB，击败77.66%。
  */
 public class Solution2 {
@@ -17,7 +17,7 @@ public class Solution2 {
         if (x == 0) {
             return 0;
         }
-        while (x % 10 == 0) {
+        while (x % 10 == 0) {   //后缀0反转后成为前缀0，不考虑
             x /= 10;
         }
         long result = 0;
@@ -34,4 +34,3 @@ public class Solution2 {
         return -(int) result;
     }
 }
-
