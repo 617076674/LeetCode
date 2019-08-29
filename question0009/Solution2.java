@@ -14,9 +14,9 @@ public class Solution2 {
         if (x == 0) {
             return true;
         }
-        List<Character> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         while (x > 0) {
-            list.add((char) (x % 10));
+            list.add(x % 10);
             x /= 10;
         }
         for (int i = 0; i <= list.size() / 2; i++) {

@@ -1,7 +1,9 @@
 package question0009;
 
 /**
- * 执行用时：61ms，击败33.72%。消耗内存：37.6MB，击败86.64%。
+ * 将反转后得到的数字和原数字比较是否相等。这里不用考虑数据溢出问题，如果溢出，显然就不相等了。
+ *
+ * 执行用时：50ms，击败66.56%。消耗内存：37.6MB，击败87.01%。
  */
 public class Solution3 {
     public boolean isPalindrome(int x) {
@@ -11,20 +13,11 @@ public class Solution3 {
         if (x <= 9) {
             return true;
         }
-        int num = 0, temp = x;
+        int reverse = 0, temp = x;
         while (temp > 0) {
-            temp /= 10;
-            num++;
+            reverse = reverse * 10 + temp % 10;
+            temp = temp / 10;
         }
-        while (num > 1) {
-            int left = x / (int) (Math.pow(10, num - 1));
-            int right = x % 10;
-            if (left != right) {
-                return false;
-            }
-            x = (x - right - left * (int) (Math.pow(10, num - 1))) / 10;
-            num -= 2;
-        }
-        return true;
+        return reverse == x;
     }
 }
