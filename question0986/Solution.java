@@ -1,7 +1,5 @@
 package question0986;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +14,17 @@ import java.util.List;
  * 执行用时：11ms，击败30.09%。消耗内存：60.3MB，击败7.02%。
  */
 public class Solution {
+    private class Pair {
+        int left;
+        int right;
+        Pair(int left, int right) {
+            this.left = left;
+            this.right = right;
+        }
+    }
+
     public int[][] intervalIntersection(int[][] A, int[][] B) {
-        List<Pair<Integer, Integer>> list = new ArrayList<>();
+        List<Pair> list = new ArrayList<>();
         int index1 = 0, index2 = 0;
         int n1 = A.length, n2 = B.length;
         if (n1 * n2 == 0) {
@@ -26,7 +33,7 @@ public class Solution {
         while (true) {
             int left = Math.max(A[index1][0], B[index2][0]), right = Math.min(A[index1][1], B[index2][1]);
             if (left <= right) {
-                list.add(new Pair<>(left, right));
+                list.add(new Pair(left, right));
             }
             if (index1 == n1 - 1 && index2 == n2 - 1) { //如果所有的区间都已经遍历完毕
                 break;
@@ -46,8 +53,8 @@ public class Solution {
         }
         int[][] result = new int[list.size()][2];
         for (int i = 0; i < result.length; i++) {
-            result[i][0] = list.get(i).getKey();
-            result[i][1] = list.get(i).getValue();
+            result[i][0] = list.get(i).left;
+            result[i][1] = list.get(i).right;
         }
         return result;
     }

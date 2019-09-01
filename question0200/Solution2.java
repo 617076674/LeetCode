@@ -1,7 +1,5 @@
 package question0200;
 
-import javafx.util.Pair;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,6 +11,15 @@ import java.util.Queue;
  * 执行用时：10ms，击败18.60%。消耗内存：40.3MB，击败92.92%。
  */
 public class Solution2 {
+    private class Pair {
+        int x;
+        int y;
+        Pair(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     private int[][] direction = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     public int numIslands(char[][] grid) {
@@ -28,16 +35,16 @@ public class Solution2 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
-                    Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
-                    queue.add(new Pair<>(i, j));
+                    Queue<Pair> queue = new LinkedList<>();
+                    queue.add(new Pair(i, j));
                     grid[i][j] = '0';   //将遍历过的节点标记为'0'，省去了一个visited数组的开销
                     while (!queue.isEmpty()) {
-                        Pair<Integer, Integer> pair = queue.poll();
+                        Pair pair = queue.poll();
                         for (int k = 0; k < 4; k++) {
-                            int newX = pair.getKey() + direction[k][0];
-                            int newY = pair.getValue() + direction[k][1];
+                            int newX = pair.x + direction[k][0];
+                            int newY = pair.y + direction[k][1];
                             if (newX >= 0 && newX < m && newY >= 0 && newY < n && grid[newX][newY] == '1') {
-                                queue.add(new Pair<>(newX, newY));
+                                queue.add(new Pair(newX, newY));
                                 grid[newX][newY] = '0';
                             }
                         }

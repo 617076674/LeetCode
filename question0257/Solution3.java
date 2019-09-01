@@ -1,7 +1,5 @@
 package question0257;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -18,25 +16,34 @@ import java.util.Stack;
  * 执行用时：4ms，击败60.40%。消耗内存：36.5MB，击败97.17%。
  */
 public class Solution3 {
+    private class Pair {
+        TreeNode treeNode;
+        String string;
+        Pair(TreeNode treeNode, String string) {
+            this.treeNode = treeNode;
+            this.string = string;
+        }
+    }
+
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> list = new ArrayList<>();
         if (null == root) {
             return list;
         }
-        Stack<Pair<TreeNode, String>> stack = new Stack<>();
-        stack.push(new Pair<>(root, String.valueOf(root.val)));
+        Stack<Pair> stack = new Stack<>();
+        stack.push(new Pair(root, String.valueOf(root.val)));
         while (!stack.isEmpty()) {
-            Pair<TreeNode, String> pair = stack.pop();
-            TreeNode treeNode = pair.getKey();
-            String s = pair.getValue();
+            Pair pair = stack.pop();
+            TreeNode treeNode = pair.treeNode;
+            String s = pair.string;
             if (treeNode.left == null && treeNode.right == null) {
                 list.add(s);
             }
             if (treeNode.left != null) {
-                stack.push(new Pair<>(treeNode.left, s + "->" + treeNode.left.val));
+                stack.push(new Pair(treeNode.left, s + "->" + treeNode.left.val));
             }
             if (treeNode.right != null) {
-                stack.push(new Pair<>(treeNode.right, s + "->" + treeNode.right.val));
+                stack.push(new Pair(treeNode.right, s + "->" + treeNode.right.val));
             }
         }
         return list;
