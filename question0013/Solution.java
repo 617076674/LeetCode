@@ -2,10 +2,10 @@ package question0013;
 
 /**
  * 繁琐而简单。
- * <p>
+ *
  * 时间复杂度是O(n)，其中n为输入字符串s的长度。空间复杂度是O(1)。
- * <p>
- * 执行用时：21ms，击败86.08%。消耗内存：38.1MB，击败8.34%。
+ *
+ * 执行用时：8ms，击败96.38%。消耗内存：38.7MB，击败87.05%。
  */
 public class Solution {
     public int romanToInt(String s) {
