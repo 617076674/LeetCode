@@ -1,9 +1,6 @@
 package question0015;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * 利用哈希表记录每个数字出现的次数。
@@ -15,30 +12,30 @@ import java.util.List;
 public class Solution2 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> listList = new ArrayList<>();
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (hashMap.containsKey(nums[i])) {
-                hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
+            if (map.containsKey(nums[i])) {
+                map.put(nums[i], map.get(nums[i]) + 1);
             } else {
-                hashMap.put(nums[i], 1);
+                map.put(nums[i], 1);
             }
         }
         //考虑3个0的情况
-        if (hashMap.containsKey(0) && hashMap.get(0) >= 3) {
+        if (map.containsKey(0) && map.get(0) >= 3) {
             addToListList(0, 0, 0, listList);
         }
-        List<Integer> list = new ArrayList<>(hashMap.keySet());
+        List<Integer> list = new ArrayList<>(map.keySet());
         Collections.sort(list);
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i) * 2 + list.get(j) == 0 && hashMap.get(list.get(i)) >= 2) {
+                if (list.get(i) * 2 + list.get(j) == 0 && map.get(list.get(i)) >= 2) {
                     addToListList(list.get(i), list.get(i), list.get(j), listList);
                 }
-                if (list.get(i) + list.get(j) * 2 == 0 && hashMap.get(list.get(j)) >= 2) {
+                if (list.get(i) + list.get(j) * 2 == 0 && map.get(list.get(j)) >= 2) {
                     addToListList(list.get(i), list.get(j), list.get(j), listList);
                 }
                 int num = -list.get(i) - list.get(j);
-                if (num > list.get(j) && hashMap.containsKey(num)) {
+                if (num > list.get(j) && map.containsKey(num)) {
                     addToListList(list.get(i), list.get(j), num, listList);
                 }
             }
