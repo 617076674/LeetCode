@@ -38,6 +38,9 @@ public class Solution {
         return list;
     }
 
+    /**
+     * 我们已经考虑了字符串digits中[0, index - 1]范围内的数字，其结果是sb，现在我们需要考虑字符串digits中索引index处的数字。
+     */
     private void letterCombinations(String digits, int index, StringBuilder sb) {
         if (index == n) {
             list.add(sb.toString());
