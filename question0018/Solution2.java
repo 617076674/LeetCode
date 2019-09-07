@@ -1,72 +1,76 @@
 package question0018;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
+ *
+ * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(n)。
+ *
+ * 执行用时：410ms，击败5.06%。消耗内存：65.1MB，击败6.17%。
  */
 public class Solution2 {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> listList = new ArrayList<>();
-        int n = nums.length;
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        int n;
+        if (null == nums || (n = nums.length) == 0) {
+            return listList;
+        }
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (hashMap.containsKey(nums[i])) {
-                hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
+            if (map.containsKey(nums[i])) {
+                map.put(nums[i], map.get(nums[i]) + 1);
             } else {
-                hashMap.put(nums[i], 1);
+                map.put(nums[i], 1);
             }
         }
         // 4个数相同
-        if (target % 4 == 0 && hashMap.containsKey(target / 4) && hashMap.get(target / 4) >= 4) {
+        if (target % 4 == 0 && map.containsKey(target / 4) && map.get(target / 4) >= 4) {
             addToListList(target / 4, target / 4, target / 4, target / 4, listList);
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (Integer integer : hashMap.keySet()) {
-            arrayList.add(integer);
+        List<Integer> list = new ArrayList<>();
+        for (Integer integer : map.keySet()) {
+            list.add(integer);
         }
-        Collections.sort(arrayList);
+        Collections.sort(list);
         // 3个数相同
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = i + 1; j < arrayList.size(); j++) {
-                if (arrayList.get(i) * 3 + arrayList.get(j) == target && hashMap.get(arrayList.get(i)) >= 3) {
-                    addToListList(arrayList.get(i), arrayList.get(i), arrayList.get(i), arrayList.get(j), listList);
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) * 3 + list.get(j) == target && map.get(list.get(i)) >= 3) {
+                    addToListList(list.get(i), list.get(i), list.get(i), list.get(j), listList);
                 }
-                if (arrayList.get(i) + arrayList.get(j) * 3 == target && hashMap.get(arrayList.get(j)) >= 3) {
-                    addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(j), arrayList.get(j), listList);
+                if (list.get(i) + list.get(j) * 3 == target && map.get(list.get(j)) >= 3) {
+                    addToListList(list.get(i), list.get(j), list.get(j), list.get(j), listList);
                 }
             }
         }
         // 2个数相同+2个数相同
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = i + 1; j < arrayList.size(); j++) {
-                if (arrayList.get(i) * 2 + arrayList.get(j) * 2 == target && hashMap.get(arrayList.get(i)) >= 2 && hashMap.get(arrayList.get(j)) >= 2) {
-                    addToListList(arrayList.get(i), arrayList.get(i), arrayList.get(j), arrayList.get(j), listList);
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) * 2 + list.get(j) * 2 == target && map.get(list.get(i)) >= 2 && map.get(list.get(j)) >= 2) {
+                    addToListList(list.get(i), list.get(i), list.get(j), list.get(j), listList);
                 }
             }
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            for (int j = i + 1; j < arrayList.size(); j++) {
-                for (int k = j + 1; k < arrayList.size(); k++) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                for (int k = j + 1; k < list.size(); k++) {
                     // 2个数相同+2个数不同
-                    if (arrayList.get(i) * 2 + arrayList.get(j) + arrayList.get(k) == target && hashMap.get(arrayList.get(i)) >= 2) {
-                        addToListList(arrayList.get(i), arrayList.get(i), arrayList.get(j), arrayList.get(k), listList);
+                    if (list.get(i) * 2 + list.get(j) + list.get(k) == target && map.get(list.get(i)) >= 2) {
+                        addToListList(list.get(i), list.get(i), list.get(j), list.get(k), listList);
                     }
                     // 2个数相同+2个数不同
-                    if (arrayList.get(i) + arrayList.get(j) * 2 + arrayList.get(k) == target && hashMap.get(arrayList.get(j)) >= 2) {
-                        addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(j), arrayList.get(k), listList);
+                    if (list.get(i) + list.get(j) * 2 + list.get(k) == target && map.get(list.get(j)) >= 2) {
+                        addToListList(list.get(i), list.get(j), list.get(j), list.get(k), listList);
                     }
                     // 2个数相同+2个数不同
-                    if (arrayList.get(i) + arrayList.get(j) + arrayList.get(k) * 2 == target && hashMap.get(arrayList.get(k)) >= 2) {
-                        addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(k), arrayList.get(k), listList);
+                    if (list.get(i) + list.get(j) + list.get(k) * 2 == target && map.get(list.get(k)) >= 2) {
+                        addToListList(list.get(i), list.get(j), list.get(k), list.get(k), listList);
                     }
                     // 4个数均不相同
-                    int num = target - arrayList.get(i) - arrayList.get(j) - arrayList.get(k);
-                    if (num > arrayList.get(k) && hashMap.containsKey(num)) {
-                        addToListList(arrayList.get(i), arrayList.get(j), arrayList.get(k), num, listList);
+                    int num = target - list.get(i) - list.get(j) - list.get(k);
+                    if (num > list.get(k) && map.containsKey(num)) {
+                        addToListList(list.get(i), list.get(j), list.get(k), num, listList);
                     }
                 }
             }

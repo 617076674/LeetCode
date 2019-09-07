@@ -1,11 +1,6 @@
 package question0018;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 时间复杂度是O(n ^ 4)，其中n是nums数组的长度。空间复杂度是O(n ^ 2)。
@@ -15,29 +10,32 @@ import java.util.Set;
 public class Solution5 {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Set<List<Integer>> listSet = new HashSet<>();
-        int n = nums.length;
+        int n;
+        if (null == nums || (n = nums.length) == 0) {
+            return new ArrayList<>();
+        }
         Arrays.sort(nums);
-        HashMap<Integer, List<Integer[]>> hashMap = new HashMap<>();
+        Map<Integer, List<Integer[]>> map = new HashMap<>();
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 int num = nums[i] + nums[j];
                 Integer[] pair = {i, j};
-                if (hashMap.containsKey(num)) {
-                    hashMap.get(num).add(pair);
+                if (map.containsKey(num)) {
+                    map.get(num).add(pair);
                 } else {
                     List<Integer[]> list = new ArrayList<>();
                     list.add(pair);
-                    hashMap.put(num, list);
+                    map.put(num, list);
                 }
             }
         }
         for (int i = 0; i < n - 3; i++) {
             for (int j = i + 1; j < n - 2; j++) {
-                int temp = target - nums[i] - nums[j];
-                if (!hashMap.containsKey(temp)) {
+                int tmp = target - nums[i] - nums[j];
+                if (!map.containsKey(tmp)) {
                     continue;
                 }
-                List<Integer[]> list = hashMap.get(temp);
+                List<Integer[]> list = map.get(tmp);
                 for (Integer[] integers : list) {
                     if (integers[0] > j) {
                         List<Integer> retList = new ArrayList<>();
@@ -48,7 +46,6 @@ public class Solution5 {
                         listSet.add(retList);
                     }
                 }
-
             }
         }
         List<List<Integer>> listList = new ArrayList<>();

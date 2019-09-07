@@ -1,49 +1,48 @@
 package question0018;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
  *
- * 时间复杂度是O(n ^ 4)，其中n是nums数组的长度。空间复杂度是O(n ^ 2)。
+ * 这个思路的时间复杂度分析挺复杂的。首先，排序过程的时间复杂度一定是O(nlogn)，其中n为nums数组的长度。
+ * 而形成哈希表的时间复杂度是O(n ^ 2)级别的。而遍历哈希表形成结果的过程的时间复杂度不好算，这和每两个数的和对应的List的大小有关。
+ * 而空间复杂度还是很明了的，我们存储了一个哈希表，而哈希表的键存的是两个数的和，这两个数的组合可能产生的和是O(n ^ 2)级别的，
+ * 因此空间复杂度是O(n ^ 2)级别的。
  *
  * 执行用时：116ms，击败12.43%。消耗内存：65MB，击败6.17%。
  */
 public class Solution4 {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Set<List<Integer>> listSet = new HashSet<>();
-        int n = nums.length;
+        int n;
+        if (null == nums || (n = nums.length) == 0) {
+            return new ArrayList<>();
+        }
         Arrays.sort(nums);
-        HashMap<Integer, List<Integer[]>> hashMap = new HashMap<>();
+        Map<Integer, List<Integer[]>> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 int num = nums[i] + nums[j];
                 Integer[] pair = {i, j};    //保证了pair数组里i < j
-                if (hashMap.containsKey(num)) {
-                    hashMap.get(num).add(pair);
+                if (map.containsKey(num)) {
+                    map.get(num).add(pair);
                 } else {
                     List<Integer[]> list = new ArrayList<>();
                     list.add(pair);
-                    hashMap.put(num, list);
+                    map.put(num, list);
                 }
             }
         }
         // 寻找组合
-        for (Integer integer : hashMap.keySet()) {
-            if (hashMap.containsKey(target - integer)) {
-                List<Integer[]> list1 = hashMap.get(integer);
-                List<Integer[]> list2 = hashMap.get(target - integer);
+        for (Integer integer : map.keySet()) {
+            if (map.containsKey(target - integer)) {
+                List<Integer[]> list1 = map.get(integer);
+                List<Integer[]> list2 = map.get(target - integer);
                 for (Integer[] pair1 : list1) {
-                    int index1 = pair1[0];
-                    int index2 = pair1[1];
+                    int index1 = pair1[0], index2 = pair1[1];
                     for (Integer[] pair2 : list2) {
-                        int index3 = pair2[0];
-                        int index4 = pair2[1];
+                        int index3 = pair2[0], index4 = pair2[1];
                         if (index2 < index3) {  //防重复
                             List<Integer> list = new ArrayList<>();
                             list.add(nums[index1]);

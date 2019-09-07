@@ -14,7 +14,10 @@ import java.util.List;
 public class Solution3 {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> listList = new ArrayList<>();
-        int n = nums.length;
+        int n;
+        if (null == nums || (n = nums.length) == 0) {
+            return listList;
+        }
         Arrays.sort(nums);
         for (int i = 0; i < n - 3; i++) {
             if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {   //这个判断很重要，不然会很慢
@@ -33,12 +36,7 @@ public class Solution3 {
                 int left = j + 1, right = n - 1;
                 while (left < right) {
                     if (nums[i] + nums[j] + nums[left] + nums[right] == target) {
-                        List<Integer> list = new ArrayList<>();
-                        list.add(nums[i]);
-                        list.add(nums[j]);
-                        list.add(nums[left]);
-                        list.add(nums[right]);
-                        listList.add(list);
+                        addToListList(nums[i], nums[j], nums[left], nums[right], listList);
                         left++;
                         right--;
                         while (left < right && nums[left] == nums[left - 1]) {
@@ -62,5 +60,14 @@ public class Solution3 {
             }
         }
         return listList;
+    }
+
+    private void addToListList(int num1, int num2, int num3, int num4, List<List<Integer>> listList) {
+        List<Integer> list = new ArrayList<>();
+        list.add(num1);
+        list.add(num2);
+        list.add(num3);
+        list.add(num4);
+        listList.add(list);
     }
 }
