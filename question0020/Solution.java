@@ -1,40 +1,40 @@
-package question020;
+package question0020;
 
 import java.util.Stack;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82250673
+/**
+ * 栈的应用。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为字符串s的长度。
+ *
+ * 执行用时：6ms，击败68.58%。消耗内存：35.3MB，击败79.64%。
  */
 public class Solution {
-
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
-            Character character1 = s.charAt(i);
-            if (character1 == '(' || character1 == '[' || character1 == '{') {
-                stack.push(character1);
-            } else if (character1 == ')') {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else if (c == ')') {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                Character character2 = stack.pop();
-                if (character2 != '(') {
+                if (stack.pop() != '(') {
                     return false;
                 }
-            } else if (character1 == ']') {
+            } else if (c == ']') {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                Character character2 = stack.pop();
-                if (character2 != '[') {
+                if (stack.pop() != '[') {
                     return false;
                 }
-            } else if (character1 == '}') {
+            } else if (c == '}') {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                Character character2 = stack.pop();
-                if (character2 != '{') {
+                if (stack.pop() != '{') {
                     return false;
                 }
             }
