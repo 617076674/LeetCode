@@ -2,28 +2,28 @@ package question0019;
 
 /**
  * 两次扫描。第一趟扫描目的是得到链表的总节点个数。第二趟扫描的目的是找到待删除节点的前一个节点。
- * <p>
+ *
  * 时间复杂度是O(m)，其中m为链表的长度。空间复杂度是O(1)。
- * <p>
- * 执行用时：2ms，击败90.99%。消耗内存：35.2MB，击败86.24%。
+ *
+ * 执行用时：1ms，击败99.80%。消耗内存：35.2MB，击败86.24%。
  */
 public class Solution1 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int count = 0;
+        int count = 0;  //记录链表中的节点总数
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
-        ListNode cur1 = dummyHead;
-        while (cur1.next != null) {
+        ListNode cur = dummyHead;
+        while (cur.next != null) {
             count++;
-            cur1 = cur1.next;
+            cur = cur.next;
         }
-        int preDelIndex = count - n, index = 0;
-        ListNode cur2 = dummyHead;
-        while (index != preDelIndex) {
-            index++;
-            cur2 = cur2.next;
+        int preDelIndex = count - n;
+        cur = dummyHead;
+        while (0 != preDelIndex) {
+            cur = cur.next;
+            preDelIndex--;
         }
-        cur2.next = cur2.next.next;
+        cur.next = cur.next.next;
         return dummyHead.next;
     }
 }

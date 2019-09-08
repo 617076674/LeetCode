@@ -2,10 +2,10 @@ package question0019;
 
 /**
  * 一趟扫描，双指针，让一个指针先走n步。
- * <p>
+ *
  * 时间复杂度是O(m)，其中m为链表的长度。空间复杂度是O(1)。
- * <p>
- * 执行用时：2ms，击败90.99%。消耗内存：35.4MB，击败83.59%。
+ *
+ * 执行用时：1ms，击败99.80%。消耗内存：35.3MB，击败85.01%。
  */
 public class Solution2 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
