@@ -1,42 +1,42 @@
-package question022;
+package question0022;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82259034
+/**
+ * 回溯法。
+ *
+ * 先生成出所有可能的括号组合，再筛选出有效的括号组合。
+ *
+ * 时间复杂度是O(n * (2 ^ n))。空间复杂度是O(n)。
+ *
+ * 执行用时：23ms，击败5.86%。消耗内存：44.9MB，击败5.02%。
  */
 public class Solution1 {
-
-    private List<String> list;
-    List<Character> brackets;
+    private List<String> result = new ArrayList<>();
 
     public List<String> generateParenthesis(int n) {
-        list = new ArrayList<>();
-        brackets = new ArrayList<>();
-        brackets.add('(');
-        brackets.add(')');
         generateParenthesis(new StringBuilder(), 0, n);
-        return list;
+        return result;
     }
 
     private void generateParenthesis(StringBuilder stringBuilder, int index, int n) {
         if (index == 2 * n) {
             if (isValidString(stringBuilder.toString())) {
-                list.add(stringBuilder.toString());
+                result.add(stringBuilder.toString());
             }
             return;
         }
-        for (int i = 0; i < brackets.size(); i++) {
-            stringBuilder.append(brackets.get(i));
-            generateParenthesis(stringBuilder, index + 1, n);
-            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        }
+        stringBuilder.append('(');
+        generateParenthesis(stringBuilder, index + 1, n);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        stringBuilder.append(')');
+        generateParenthesis(stringBuilder, index + 1, n);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
     }
 
     private boolean isValidString(String string) {
-        int leftCount = 0;
-        int rightCount = 0;
+        int leftCount = 0, rightCount = 0;
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == '(') {
                 leftCount++;
