@@ -11,7 +11,6 @@ import java.util.List;
  * 执行用时：2ms，击败93.31%。消耗内存：37.5MB，击败85.61%。
  */
 public class Solution2 {
-
     private List<String> result = new ArrayList<>();
 
     public List<String> generateParenthesis(int n) {
