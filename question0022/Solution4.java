@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * 时间复杂度和空间复杂度的计算比较复杂，略。
  *
- * 执行用时：3ms，击败87.02%。消耗内存：37.4MB，击败86.88;
+ * 执行用时：3ms，击败87.02%。消耗内存：37.4MB，击败86.88。
  */
 public class Solution4 {
     public List<String> generateParenthesis(int n) {
