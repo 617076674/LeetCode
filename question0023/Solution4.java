@@ -1,29 +1,27 @@
-package question023;
+package question0023;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82263333
+/**
+ * 两两合并链表。
+ *
+ * 时间复杂度是O(n * m)，其中n为lists数组的长度，m为lists数组中链表总节点个数。空间复杂度是O(1)。
+ *
+ * 执行用时：374ms，击败14.23%。消耗内存：53.7MB，击败20.79%。
  */
-public class Solution5 {
-
+public class Solution4 {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) {
+        int n;
+        if (null == lists || (n = lists.length) == 0) {
             return null;
         }
-        if (lists.length == 1) {
-            return lists[0];
+        ListNode result = lists[0];
+        for (int i = 1; i < n; i++) {
+            result = mergeTwoLists(result, lists[i]);
         }
-        ListNode temp = mergeTwoLists(lists[0], lists[1]);
-        for (int i = 2; i < lists.length; i++) {
-            temp = mergeTwoLists(temp, lists[i]);
-        }
-        return temp;
+        return result;
     }
 
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode cur1 = l1;
-        ListNode cur2 = l2;
-        ListNode dummyHead = new ListNode(-1);
-        ListNode cur = dummyHead;
+        ListNode cur1 = l1, cur2 = l2, dummyHead = new ListNode(-1), cur = dummyHead;
         while (cur1 != null || cur2 != null) {
             if (cur1 == null) {
                 cur.next = cur2;
