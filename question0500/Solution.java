@@ -14,34 +14,34 @@ public class Solution {
     private int[] map = new int[26];
 
     {
-        map['Q' - 'A'] = 1;
-        map['W' - 'A'] = 1;
-        map['E' - 'A'] = 1;
-        map['R' - 'A'] = 1;
-        map['T' - 'A'] = 1;
-        map['Y' - 'A'] = 1;
-        map['U' - 'A'] = 1;
-        map['I' - 'A'] = 1;
-        map['O' - 'A'] = 1;
-        map['P' - 'A'] = 1;
+        map[16] = 1;
+        map[22] = 1;
+        map[4] = 1;
+        map[17] = 1;
+        map[19] = 1;
+        map[24] = 1;
+        map[20] = 1;
+        map[8] = 1;
+        map[14] = 1;
+        map[15] = 1;
 
         map[0] = 2;
-        map['S' - 'A'] = 2;
-        map['D' - 'A'] = 2;
-        map['F' - 'A'] = 2;
-        map['G' - 'A'] = 2;
-        map['H' - 'A'] = 2;
-        map['J' - 'A'] = 2;
-        map['K' - 'A'] = 2;
-        map['L' - 'A'] = 2;
+        map[18] = 2;
+        map[3] = 2;
+        map[5] = 2;
+        map[6] = 2;
+        map[7] = 2;
+        map[9] = 2;
+        map[10] = 2;
+        map[11] = 2;
 
-        map['Z' - 'A'] = 3;
-        map['X' - 'A'] = 3;
-        map['C' - 'A'] = 3;
-        map['V' - 'A'] = 3;
-        map['B' - 'A'] = 3;
-        map['N' - 'A'] = 3;
-        map['M' - 'A'] = 3;
+        map[25] = 3;
+        map[23] = 3;
+        map[2] = 3;
+        map[21] = 3;
+        map[1] = 3;
+        map[13] = 3;
+        map[12] = 3;
     }
 
     public String[] findWords(String[] words) {
