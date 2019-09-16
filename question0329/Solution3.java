@@ -13,19 +13,16 @@ import java.util.List;
  * 执行用时：57ms，击败14.08%。消耗内存：57.5MB，击败6.28%。
  */
 public class Solution3 {
-    private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-    private int m;
-
-    private int n;
-
     public int longestIncreasingPath(int[][] matrix) {
+        int m;
         if (null == matrix || (m = matrix.length) == 0) {
             return 0;
         }
+        int n;
         if (null == matrix[0] || (n = matrix[0].length) == 0) {
             return 0;
         }
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         int[][] outdegree = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
