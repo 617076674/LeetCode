@@ -1,13 +1,15 @@
-package question028;
+package question0028;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82413774
+/**
+ * 暴力破解法。
+ *
+ * 时间复杂度是O(n1 * n2)，其中n1为字符串haystack的长度，n2为字符串needle的长度。空间复杂度是O(1)。
+ *
+ * 执行用时；4ms，击败40.43%。消耗内存：37.2MB，击败61.27%。
  */
-public class Solution {
-
+public class Solution1 {
     public int strStr(String haystack, String needle) {
-        int n1 = haystack.length();
-        int n2 = needle.length();
+        int n1 = haystack.length(), n2 = needle.length();
         if (n2 == 0) {
             return 0;
         }
