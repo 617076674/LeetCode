@@ -3,7 +3,7 @@ package question0029;
 /**
  * 将除法改为多次减法运算。
  *
- * 时间复杂度是O(dividend / divisor)，空间复杂度是O(1)。
+ * 时间复杂度是O(dividend / divisor)。空间复杂度是O(1)。
  *
  * 在LeetCode中提交会超时。
  */
