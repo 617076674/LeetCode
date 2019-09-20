@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 双指针+哈希表。
+ * 单指针+哈希表。
  *
  * 时间复杂度是O(m * n * len)，其中m为字符串s的长度，n为words数组的长度，len为words数组中的单词长度。空间复杂度是O(n)。
  *
