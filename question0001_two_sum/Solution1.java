@@ -1,6 +1,10 @@
 package question0001_two_sum;
 
 /**
+ * https://leetcode-cn.com/problems/two-sum/
+ *
+ * https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-3chong-jie-fa-by-617076674/
+ *
  * 暴力破解法。
  *
  * 时间复杂度O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(1)。

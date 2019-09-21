@@ -3,6 +3,10 @@ package question0001_two_sum;
 import java.util.*;
 
 /**
+ * https://leetcode-cn.com/problems/two-sum/
+ *
+ * https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-3chong-jie-fa-by-617076674/
+ *
  * 用哈希表记录nums[i]元素对应的索引。
  *
  * 注意，nums数组中可能有重复元素，即可能有相同的nums[i]对应不同的索引的情况，因此用哈希表的值对应的是一个List。

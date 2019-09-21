@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * https://leetcode-cn.com/problems/two-sum/
+ *
+ * https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-3chong-jie-fa-by-617076674/
+ *
  * 依然用哈希表记录数组中的值对应的索引，但是整个过程只遍历一次nums数组。
  *
  * 边遍历边往哈希表中存键值对。
