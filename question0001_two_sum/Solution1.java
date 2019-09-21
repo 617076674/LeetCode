@@ -1,4 +1,4 @@
-package question0001;
+package question0001_two_sum;
 
 /**
  * 暴力破解法。
