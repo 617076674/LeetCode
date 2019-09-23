@@ -1,4 +1,4 @@
-package question0002;
+package question0002_add_two_numbers;
 
 /**
  * 链表的操作，多设指针。
