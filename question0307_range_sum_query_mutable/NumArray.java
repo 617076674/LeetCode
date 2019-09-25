@@ -11,6 +11,7 @@ package question0307_range_sum_query_mutable;
 public class NumArray {
     private class SegmentTree {
         private int[] tree;
+
         private int[] data;
 
         public SegmentTree(int[] arr) {
