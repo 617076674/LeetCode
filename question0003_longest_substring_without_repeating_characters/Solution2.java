@@ -1,6 +1,10 @@
 package question0003_longest_substring_without_repeating_characters;
 
 /**
+ * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+ *
+ * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-4chong-jie/
+ *
  * 滑动窗口法。
  *
  * 将一个数组当作哈希表。

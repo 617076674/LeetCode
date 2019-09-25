@@ -1,6 +1,10 @@
 package question0002_add_two_numbers;
 
 /**
+ * https://leetcode-cn.com/problems/add-two-numbers/
+ *
+ * https://leetcode-cn.com/problems/add-two-numbers/solution/liang-shu-xiang-jia-kao-lu-jin-wei-duo-she-zhi-zhe/
+ *
  * 链表的操作，多设指针。
  *
  * 时间复杂度是O(n1 + n2)，其中n1为链表l1的长度，n2位链表l2的长度。空间复杂度是O(1)。
