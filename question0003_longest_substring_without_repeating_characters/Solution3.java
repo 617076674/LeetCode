@@ -1,4 +1,4 @@
-package question0003;
+package question0003_longest_substring_without_repeating_characters;
 
 import java.util.Arrays;
 
