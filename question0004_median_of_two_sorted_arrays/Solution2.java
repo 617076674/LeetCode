@@ -1,6 +1,10 @@
-package question0004;
+package question0004_median_of_two_sorted_arrays;
 
 /**
+ * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+ *
+ * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-sh-15/
+ *
  * 二分查找法。
  *
  * 时间复杂度和空间复杂度均是O(log(n1 + n2))，其中n1是nums1数组的长度，n2是nums2数组的长度。
@@ -9,10 +13,10 @@ package question0004;
  */
 public class Solution2 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int n1 = nums1.length, n2 = nums2.length;
-        int target = ((n1 + n2) >> 1) + 1;
+        int n1 = nums1.length, n2 = nums2.length, n = n1 + n2;
+        int target = (n >> 1) + 1;
         int mid1 = findKthInTwoArrays(nums1, 0, n1 - 1, nums2, 0, n2 - 1, target);
-        if (((n1 + n2) & 1) != 0) {
+        if ((n & 1) != 0) {
             return mid1;
         }
         int mid2 = findKthInTwoArrays(nums1, 0, n1 - 1, nums2, 0, n2 - 1, target - 1);
