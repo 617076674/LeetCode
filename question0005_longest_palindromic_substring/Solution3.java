@@ -1,4 +1,4 @@
-package question0005;
+package question0005_longest_palindromic_substring;
 
 /**
  * 动态规划。
