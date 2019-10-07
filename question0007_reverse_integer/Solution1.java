@@ -1,4 +1,4 @@
-package question0007;
+package question0007_reverse_integer;
 
 /**
  * 利用异常来处理溢出的情况。

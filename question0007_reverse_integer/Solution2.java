@@ -1,4 +1,4 @@
-package question0007;
+package question0007_reverse_integer;
 
 /**
  * 利用long型变量来进行这整个计算过程。

@@ -1,4 +1,4 @@
-package question0008;
+package question0008_string_to_integer_atoi;
 
 /**
  * 时间复杂度是O(n)，其中n为字符串str的长度。空间复杂度是O(1)。

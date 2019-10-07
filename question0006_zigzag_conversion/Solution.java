@@ -1,4 +1,4 @@
-package question0006;
+package question0006_zigzag_conversion;
 
 /**
  * 增加一个zigZag标记位。
