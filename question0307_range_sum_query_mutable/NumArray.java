@@ -19,13 +19,10 @@ public class NumArray {
             for (int i = 0; i < arr.length; i++) {
                 data[i] = arr[i];
             }
-            tree = new int[4 * arr.length];
+            tree = new int[arr.length << 2];
             buildSegmentTree(0, 0, data.length - 1);
         }
 
-        /*
-         * 在treeIndex的位置创建表示区间[left, right]的线段树
-         */
         private void buildSegmentTree(int treeIndex, int left, int right) {
             if (left == right) {
                 tree[treeIndex] = data[left];
@@ -37,16 +34,10 @@ public class NumArray {
             tree[treeIndex] = tree[leftTreeIndex] + tree[rightTreeIndex];
         }
 
-        /*
-         * 返回区间[queryL, queryR]的值
-         */
         public int query(int queryL, int queryR) {
             return query(0, 0, data.length - 1, queryL, queryR);
         }
 
-        /*
-         * 在以treeID为根的线段树中[left...right]的范围里，搜索区间[queryL...queryR]的值
-         */
         private int query(int treeIndex, int left, int right, int queryL, int queryR) {
             if (left == queryL && right == queryR) {
                 return tree[treeIndex];
@@ -61,13 +52,11 @@ public class NumArray {
             return query(leftTreeIndex, left, mid, queryL, mid) + query(rightTreeIndex, mid + 1, right, mid + 1, queryR);
         }
 
-        //将index位置的值，更新为e
         public void update(int i, int val) {
             data[i] = val;
             update(0, 0, data.length - 1, i, val);
         }
 
-        //在以treeIndex为根的线段树中更新index的值为e
         private void update(int treeIndex, int left, int right, int index, int e) {
             if (left == right) {
                 tree[treeIndex] = e;
