@@ -1,4 +1,4 @@
-package question0145;
+package question0145_binary_tree_postorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class Solution7 {
         //令原根节点为虚拟根节点的左孩子
         dummyRoot.left = root;
         TreeNode cur = dummyRoot;
-        while (cur != null) {
-            if (cur.left == null) {
+        while (null != cur) {
+            if (null == cur.left) {
                 cur = cur.right;
             } else {
                 TreeNode pre = cur.left;
@@ -57,4 +57,3 @@ public class Solution7 {
         }
     }
 }
-

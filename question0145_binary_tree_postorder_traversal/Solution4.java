@@ -1,4 +1,4 @@
-package question0145;
+package question0145_binary_tree_postorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,7 @@ import java.util.Stack;
 /**
  * 双栈实现。
  *
- * 考虑前序遍历question144中的Solution3解法，前序遍历的顺序是：当前节点->左子树->右子树。
- *
- * 而后序遍历的顺序是：左子树->右子树->当前节点。
+ * 考虑前序遍历question144中的Solution3解法，前序遍历的顺序是：当前节点->左子树->右子树，而后序遍历的顺序是：左子树->右子树->当前节点。
  *
  * 因此只需用另一个栈来倒转前序遍历的结果即可。
  *
@@ -29,10 +27,10 @@ public class Solution4 {
         while (!stack1.isEmpty()) {
             TreeNode treeNode = stack1.pop();
             stack2.push(treeNode.val);
-            if (treeNode.left != null) {
+            if (null != treeNode.left) {
                 stack1.push(treeNode.left);
             }
-            if (treeNode.right != null) {
+            if (null != treeNode.right) {
                 stack1.push(treeNode.right);
             }
         }

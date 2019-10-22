@@ -1,4 +1,4 @@
-package question0144;
+package question0144_binary_tree_preorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.Stack;
 public class Solution3 {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if (root == null) {
+        if (null == root) {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
@@ -23,10 +23,10 @@ public class Solution3 {
             TreeNode treeNode = stack.pop();
             list.add(treeNode.val);
             //在访问本节点后先入栈右孩子，再入栈左孩子
-            if (treeNode.right != null) {
+            if (null != treeNode.right) {
                 stack.push(treeNode.right);
             }
-            if (treeNode.left != null) {
+            if (null != treeNode.left) {
                 stack.push(treeNode.left);
             }
         }

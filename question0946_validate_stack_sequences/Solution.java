@@ -1,4 +1,4 @@
-package question0942;
+package question0946_validate_stack_sequences;
 
 import java.util.Stack;
 

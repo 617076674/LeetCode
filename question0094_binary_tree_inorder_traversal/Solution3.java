@@ -1,4 +1,4 @@
-package question0094;
+package question0094_binary_tree_inorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +14,13 @@ import java.util.Stack;
 public class Solution3 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if (root == null) {
+        if (null == root) {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
-            if (cur != null) {
+        while (null != cur || !stack.isEmpty()) {
+            if (null != cur) {
                 stack.push(cur);
                 cur = cur.left;
             } else {

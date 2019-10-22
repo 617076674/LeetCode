@@ -1,4 +1,4 @@
-package question0144;
+package question0144_binary_tree_preorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +11,15 @@ import java.util.List;
  * 执行用时：1ms，击败99.05%。消耗内存：35.2MB，击败40.72%。
  */
 public class Solution1 {
-    private List<Integer> list;
+    private List<Integer> list = new ArrayList<>();
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        list = new ArrayList<>();
         preorder(root);
         return list;
     }
 
     private void preorder(TreeNode root) {
-        if (root == null) {
+        if (null == root) {
             return;
         }
         list.add(root.val);

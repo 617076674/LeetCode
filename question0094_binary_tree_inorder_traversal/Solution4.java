@@ -1,4 +1,4 @@
-package question0094;
+package question0094_binary_tree_inorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,20 +13,20 @@ import java.util.List;
 public class Solution4 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if (root == null) {
+        if (null == root) {
             return list;
         }
         TreeNode cur = root;
-        while (cur != null) {
-            if (cur.left == null) {
+        while (null != cur) {
+            if (null == cur.left) {
                 list.add(cur.val);
                 cur = cur.right;
             } else {
                 TreeNode prev = cur.left;
-                while (prev.right != null && prev.right != cur) {
+                while (null != prev.right && prev.right != cur) {
                     prev = prev.right;
                 }
-                if (prev.right == null) {
+                if (null == prev.right) {
                     prev.right = cur;
                     cur = cur.left;
                 } else {

@@ -1,4 +1,4 @@
-package question0145;
+package question0145_binary_tree_postorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +25,7 @@ public class Solution6 {
         TreeNode pre = null;
         while (!stack.isEmpty()) {
             TreeNode cur = stack.peek();
-            if ((cur.left == null && cur.right == null) || (cur.right != null && pre == cur.right)
-                    || (cur.right == null && pre == cur.left)) {
+            if ((null == cur.left && null == cur.right) || (null != cur.right && pre == cur.right) || (null == cur.right && pre == cur.left)) {
                 result.add(cur.val);
                 stack.pop();
                 pre = cur;
