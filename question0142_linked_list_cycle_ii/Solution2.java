@@ -1,4 +1,4 @@
-package question0142;
+package question0142_linked_list_cycle_ii;
 
 /**
  * 快慢双指针遍历链表。慢指针每移动1步，快指针就移动2步。
@@ -16,17 +16,17 @@ public class Solution2 {
         if (head == null) {
             return null;
         }
-        ListNode cur1 = head, cur2 = head;
-        do {
-            cur1 = cur1.next;
-            if (cur1 == null || cur2.next == null) {
+        ListNode cur1 = head, cur2 = head;  //这里不能设立虚拟头节点，需要以head为起点
+        while (true) {
+            if (null == cur2.next || null == cur2.next.next) {
                 return null;
             }
-            cur2 = cur2.next.next;
-            if (cur2 == null) {
-                return null;
+            cur1 = cur1.next;   //慢指针cur1一次走一步
+            cur2 = cur2.next.next;  //快指针cur2一次走两步
+            if (cur1 == cur2) {
+                break;
             }
-        } while (cur1 != cur2);
+        }
         cur1 = head;
         while (cur1 != cur2) {
             cur1 = cur1.next;

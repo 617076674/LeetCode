@@ -1,7 +1,8 @@
-package question0092;
+package question0206_reverse_linked_list;
 
 public class ListNode {
     int val;
+
     ListNode next;
 
     ListNode(int x) {

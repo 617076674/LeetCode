@@ -1,28 +1,28 @@
-package question0141;
+package question0142_linked_list_cycle_ii;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 用一个HashSet记录遍历过的节点，若出现重复，则说明有环。否则，无环。
- * <p>
+ * 用一个HashSet记录遍历过的节点。
+ *
  * 时间复杂度和空间复杂度均是O(n)，其中n为链表中的结点数目。
- * <p>
- * 执行用时：15ms，击败9.05%。消耗内存：41.3MB，击败8.17%。
+ *
+ * 执行用时：18ms，击败13.52%。消耗内存：35.9MB，击败7.16%。
  */
 public class Solution1 {
-    public boolean hasCycle(ListNode head) {
+    public ListNode detectCycle(ListNode head) {
         Set<ListNode> set = new HashSet<>();
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode cur = dummyHead;
         while (null != cur.next) {
             if (set.contains(cur.next)) {
-                return true;
+                return cur.next;
             }
             cur = cur.next;
             set.add(cur);
         }
-        return false;
+        return null;
     }
 }
