@@ -17,7 +17,7 @@ package question0005_longest_palindromic_substring;
 public class Solution3 {
     public String longestPalindrome(String s) {
         int n;
-        if (s == null || (n = s.length()) == 0) {
+        if (null == s || (n = s.length()) == 0) {
             return "";
         }
         if (n < 2) {
@@ -26,9 +26,8 @@ public class Solution3 {
         if (n == 2) {
             if (s.charAt(0) == s.charAt(1)) {
                 return s;
-            } else {
-                return s.substring(0, 1);
             }
+            return s.substring(0, 1);
         }
         boolean[][] dp = new boolean[n][n];
         String result = "";

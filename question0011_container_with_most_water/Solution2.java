@@ -1,4 +1,4 @@
-package question0011;
+package question0011_container_with_most_water;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/81407474
@@ -11,8 +11,7 @@ package question0011;
  */
 public class Solution2 {
     public int maxArea(int[] height) {
-        int n = height.length, i = 0, j = n - 1;
-        int area = (n - 1) * Math.min(height[i], height[j]);
+        int n = height.length, i = 0, j = n - 1, area = (n - 1) * Math.min(height[i], height[j]);
         while (i < j) {
             area = Math.max(area, (j - i) * Math.min(height[i], height[j]));
             if (height[i] < height[j]) {

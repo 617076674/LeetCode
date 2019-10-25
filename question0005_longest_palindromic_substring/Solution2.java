@@ -20,7 +20,8 @@ public class Solution2 {
         }
         String result = "";
         for (int i = 1; i < s.length() - 1; i++) {
-            String odd = maxPalindrome(s, i - 1, i + 1), even1 = maxPalindrome(s, i - 1, i), even2 = maxPalindrome(s, i, i + 1);
+            String odd = maxPalindrome(s, i - 1, i + 1);
+            String even1 = maxPalindrome(s, i - 1, i),even2 = maxPalindrome(s, i, i + 1);
             if (odd.length() > result.length()) {
                 result = odd;
             }

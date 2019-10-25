@@ -13,8 +13,7 @@ public class Solution {
         }
         //如果str就是一个只含有空格的串
         //或者str除去前缀空格后的第一个字符不是 '+' 或 '-' 或 数字
-        if (i == n || !((str.charAt(i) == '+') || (str.charAt(i) == '-')
-                || (str.charAt(i) >= '0' && str.charAt(i) <= '9'))) {
+        if (i == n || !((str.charAt(i) == '+') || (str.charAt(i) == '-') || isDigit(str.charAt(i)))) {
             return 0;
         }
         StringBuilder sb = new StringBuilder();
@@ -26,10 +25,10 @@ public class Solution {
         }
         //如果str除去空格之后只包含 '+' 或 '-'
         //或者str除去空格以及'+'或'-'后的第一个字符不是一个数字
-        if (i == n || !(str.charAt(i) >= '0' && str.charAt(i) <= '9')) {
+        if (i == n || !isDigit(str.charAt(i))) {
             return 0;
         }
-        while (i < n && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+        while (i < n && isDigit(str.charAt(i))) {
             sb.append(str.charAt(i));
             i++;
         }
@@ -42,5 +41,9 @@ public class Solution {
             }
             return Integer.MAX_VALUE;
         }
+    }
+
+    private boolean isDigit(char c) {
+        return c >= '0' && c <= '9';
     }
 }

@@ -24,36 +24,36 @@ public class Solution {
             } else {
                 flag = 0;
             }
-            if (cur1.next == null || cur2.next == null) {
+            if (null == cur1.next || null == cur2.next) {
                 break;
             }
             cur1 = cur1.next;
             cur2 = cur2.next;
         }
-        if (cur1.next == null && cur2.next == null && flag == 1) {
+        if (null == cur1.next && null == cur2.next && flag == 1) {
             //如果链表l1和链表l2均遍历结束，且有进位，则在链表l1末尾添加1
             cur1.next = new ListNode(flag);
-        } else if (cur1.next == null && cur2.next != null) {
+        } else if (null == cur1.next && null != cur2.next) {
             //如果链表l1遍历结束，但是链表l2还没有遍历结束，就把链表l2剩余部分添加到链表l1末尾，注意进位flag的影响
             cur1.next = cur2.next;
             cur1.next.val = flag + cur2.next.val;
             ListNode cur = cur1.next;
             while (cur.val >= 10) {
                 cur.val -= 10;
-                if (cur.next == null) {
+                if (null == cur.next) {
                     cur.next = new ListNode(1);
                 } else {
                     cur.next.val += 1;
                     cur = cur.next;
                 }
             }
-        } else if (cur1.next != null) {
+        } else if (null != cur1.next) {
             //如果链表l2遍历结束，但是链表l1还没有遍历结束，就把链表l1剩余部分添加到链表2末尾，注意进位flag的影响
             cur1.next.val += flag;
             ListNode cur = cur1.next;
             while (cur.val >= 10) {
                 cur.val -= 10;
-                if (cur.next == null) {
+                if (null == cur.next) {
                     cur.next = new ListNode(1);
                 } else {
                     cur.next.val += 1;

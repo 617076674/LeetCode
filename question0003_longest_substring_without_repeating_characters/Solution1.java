@@ -14,7 +14,7 @@ package question0003_longest_substring_without_repeating_characters;
 public class Solution1 {
     public int lengthOfLongestSubstring(String s) {
         int n;
-        if (s == null || (n = s.length()) == 0) {
+        if (null == s || (n = s.length()) == 0) {
             return 0;
         }
         int result = 1;

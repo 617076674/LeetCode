@@ -13,8 +13,7 @@ package question0004_median_of_two_sorted_arrays;
  */
 public class Solution2 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int n1 = nums1.length, n2 = nums2.length, n = n1 + n2;
-        int target = (n >> 1) + 1;
+        int n1 = nums1.length, n2 = nums2.length, n = n1 + n2, target = (n >> 1) + 1;
         int mid1 = findKthInTwoArrays(nums1, 0, n1 - 1, nums2, 0, n2 - 1, target);
         if ((n & 1) != 0) {
             return mid1;
