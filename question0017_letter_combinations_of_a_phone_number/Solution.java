@@ -1,4 +1,4 @@
-package question0017;
+package question0017_letter_combinations_of_a_phone_number;
 
 import java.util.ArrayList;
 import java.util.HashMap;

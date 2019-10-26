@@ -1,4 +1,4 @@
-package question0016;
+package question0016_3sum_closest;
 
 /**
  * 暴力破解法。

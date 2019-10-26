@@ -1,4 +1,4 @@
-package question0014;
+package question0014_longest_common_prefix;
 
 /**
  * 暴力破解法二：定义一个函数，求两个字符串s1和s2的最长公共前缀，依次对strs数组中的元素两两调用该函数。
@@ -9,11 +9,12 @@ package question0014;
  */
 public class Solution2 {
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0 || strs[0].length() == 0) {
+        int n = strs.length;
+        if (n == 0 || strs[0].length() == 0) {
             return "";
         }
         String result = strs[0];
-        for (int i = 1; i < strs.length; i++) {
+        for (int i = 1; i < n; i++) {
             result = longestCommonPrefix(result, strs[i]);
         }
         return result;

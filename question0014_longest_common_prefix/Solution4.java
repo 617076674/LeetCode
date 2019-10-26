@@ -1,4 +1,4 @@
-package question0014;
+package question0014_longest_common_prefix;
 
 /**
  * 二分查找法。
@@ -25,7 +25,7 @@ public class Solution4 {
                 right = mid - 1;
             }
         }
-        return strs[0].substring(0, (left + right + 1) >> 1);
+        return strs[0].substring(0, left);
     }
 
     private boolean isCommonPrefix(String[] strs, int len) {

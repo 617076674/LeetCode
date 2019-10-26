@@ -1,4 +1,4 @@
-package question0014;
+package question0014_longest_common_prefix;
 
 /**
  * 分治算法，递归实现。
@@ -9,10 +9,11 @@ package question0014;
  */
 public class Solution3 {
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0) {
+        int n = strs.length;
+        if (n == 0) {
             return "";
         }
-        return longestCommonPrefix(strs, 0, strs.length - 1);
+        return longestCommonPrefix(strs, 0, n - 1);
     }
 
     private String longestCommonPrefix(String[] strs, int left, int right) {
