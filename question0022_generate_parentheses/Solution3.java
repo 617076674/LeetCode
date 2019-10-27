@@ -1,4 +1,4 @@
-package question0022;
+package question0022_generate_parentheses;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package question0019;
+package question0019_remove_nth_node_from_end_of_list;
 
 /**
  * 一趟扫描，双指针，让一个指针先走n步。

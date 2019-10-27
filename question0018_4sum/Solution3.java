@@ -1,4 +1,4 @@
-package question0018;
+package question0018_4sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;

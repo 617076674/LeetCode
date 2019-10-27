@@ -1,4 +1,4 @@
-package question0018;
+package question0018_4sum;
 
 import java.util.*;
 
@@ -25,13 +25,11 @@ public class Solution2 {
             }
         }
         // 4个数相同
-        if (target % 4 == 0 && map.containsKey(target / 4) && map.get(target / 4) >= 4) {
-            addToListList(target / 4, target / 4, target / 4, target / 4, listList);
+        int quarter = target >> 2;
+        if (target % 4 == 0 && map.containsKey(quarter) && map.get(quarter) >= 4) {
+            addToListList(quarter, quarter, quarter, quarter, listList);
         }
-        List<Integer> list = new ArrayList<>();
-        for (Integer integer : map.keySet()) {
-            list.add(integer);
-        }
+        List<Integer> list = new ArrayList<>(map.keySet());
         Collections.sort(list);
         // 3个数相同
         for (int i = 0; i < list.size(); i++) {
@@ -56,15 +54,13 @@ public class Solution2 {
             for (int j = i + 1; j < list.size(); j++) {
                 for (int k = j + 1; k < list.size(); k++) {
                     // 2个数相同+2个数不同
-                    if (list.get(i) * 2 + list.get(j) + list.get(k) == target && map.get(list.get(i)) >= 2) {
+                    if ((list.get(i) << 1) + list.get(j) + list.get(k) == target && map.get(list.get(i)) >= 2) {
                         addToListList(list.get(i), list.get(i), list.get(j), list.get(k), listList);
                     }
-                    // 2个数相同+2个数不同
-                    if (list.get(i) + list.get(j) * 2 + list.get(k) == target && map.get(list.get(j)) >= 2) {
+                    if (list.get(i) + (list.get(j) << 1) + list.get(k) == target && map.get(list.get(j)) >= 2) {
                         addToListList(list.get(i), list.get(j), list.get(j), list.get(k), listList);
                     }
-                    // 2个数相同+2个数不同
-                    if (list.get(i) + list.get(j) + list.get(k) * 2 == target && map.get(list.get(k)) >= 2) {
+                    if (list.get(i) + list.get(j) + (list.get(k) << 1) == target && map.get(list.get(k)) >= 2) {
                         addToListList(list.get(i), list.get(j), list.get(k), list.get(k), listList);
                     }
                     // 4个数均不相同

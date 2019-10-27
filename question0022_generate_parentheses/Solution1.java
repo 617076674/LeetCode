@@ -1,4 +1,4 @@
-package question0022;
+package question0022_generate_parentheses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +20,19 @@ public class Solution1 {
         return result;
     }
 
-    private void generateParenthesis(StringBuilder stringBuilder, int index, int n) {
-        if (index == 2 * n) {
-            if (isValidString(stringBuilder.toString())) {
-                result.add(stringBuilder.toString());
+    private void generateParenthesis(StringBuilder sb, int index, int n) {
+        if (index == (n << 1)) {
+            if (isValidString(sb.toString())) {
+                result.add(sb.toString());
             }
             return;
         }
-        stringBuilder.append('(');
-        generateParenthesis(stringBuilder, index + 1, n);
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(')');
-        generateParenthesis(stringBuilder, index + 1, n);
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        sb.append('(');
+        generateParenthesis(sb, index + 1, n);
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(')');
+        generateParenthesis(sb, index + 1, n);
+        sb.deleteCharAt(sb.length() - 1);
     }
 
     private boolean isValidString(String string) {

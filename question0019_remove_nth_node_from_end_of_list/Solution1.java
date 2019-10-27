@@ -1,4 +1,4 @@
-package question0019;
+package question0019_remove_nth_node_from_end_of_list;
 
 /**
  * 两次扫描。第一趟扫描目的是得到链表的总节点个数。第二趟扫描的目的是找到待删除节点的前一个节点。
@@ -13,7 +13,7 @@ public class Solution1 {
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode cur = dummyHead;
-        while (cur.next != null) {
+        while (null != cur.next) {
             count++;
             cur = cur.next;
         }

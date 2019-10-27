@@ -1,9 +1,7 @@
-package question0022;
+package question0022_generate_parentheses;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 动态规划。
@@ -15,7 +13,7 @@ import java.util.Map;
  * dp[0]中只含有一个空字符串——""。
  *
  * 状态转移：
- * dp[i] = "(" + dp[j]中的字符串 + ")" + dp[i - j - 1]中的字符串
+ * dp[i] = "(" + dp[j]中的字符串 + ")" + dp[i - j - 1]中的字符串，其中j∈[0, i - 1]
  *
  * 时间复杂度和空间复杂度的计算比较复杂，略。
  *

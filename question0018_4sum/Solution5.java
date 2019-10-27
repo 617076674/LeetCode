@@ -1,4 +1,4 @@
-package question0018;
+package question0018_4sum;
 
 import java.util.*;
 
@@ -15,15 +15,15 @@ public class Solution5 {
             return new ArrayList<>();
         }
         Arrays.sort(nums);
-        Map<Integer, List<Integer[]>> map = new HashMap<>();
+        Map<Integer, List<int[]>> map = new HashMap<>();
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 int num = nums[i] + nums[j];
-                Integer[] pair = {i, j};
+                int[] pair = {i, j};
                 if (map.containsKey(num)) {
                     map.get(num).add(pair);
                 } else {
-                    List<Integer[]> list = new ArrayList<>();
+                    List<int[]> list = new ArrayList<>();
                     list.add(pair);
                     map.put(num, list);
                 }
@@ -35,14 +35,14 @@ public class Solution5 {
                 if (!map.containsKey(tmp)) {
                     continue;
                 }
-                List<Integer[]> list = map.get(tmp);
-                for (Integer[] integers : list) {
-                    if (integers[0] > j) {
+                List<int[]> list = map.get(tmp);
+                for (int[] array : list) {
+                    if (array[0] > j) {
                         List<Integer> retList = new ArrayList<>();
                         retList.add(nums[i]);
                         retList.add(nums[j]);
-                        retList.add(nums[integers[0]]);
-                        retList.add(nums[integers[1]]);
+                        retList.add(nums[array[0]]);
+                        retList.add(nums[array[1]]);
                         listSet.add(retList);
                     }
                 }
