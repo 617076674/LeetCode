@@ -1,4 +1,4 @@
-package question0019_remove_nth_node_from_end_of_list;
+package question0023_merge_k_sorted_lists;
 
 public class ListNode {
     public int val;

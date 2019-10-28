@@ -1,4 +1,4 @@
-package question0019_remove_nth_node_from_end_of_list;
+package question0024_swap_nodes_in_pairs;
 
 public class ListNode {
     public int val;
