@@ -1,4 +1,4 @@
-package question0035;
+package question0035_search_insert_position;
 
 /**
  * floor()函数的实现，寻找nums数组中值小于target的最大值所在的索引。
@@ -11,7 +11,7 @@ public class Solution1 {
     public int searchInsert(int[] nums, int target) {
         int left = -1, right = nums.length - 1;
         while (left < right) {
-            int mid = left + (right - left + 1) / 2;
+            int mid = left + ((right - left + 1) >> 1);
             if (target <= nums[mid]) {
                 right = mid - 1;
             } else {

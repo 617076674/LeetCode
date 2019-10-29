@@ -1,4 +1,4 @@
-package question0300;
+package question0300_longest_increasing_subsequence;
 
 /**
  * @author qianyihui
@@ -9,7 +9,7 @@ package question0300;
  * 首先，我们需要一个n行的二维数组，其中第0行记录长度为1的一个"上升子序列"，第1行记录长度为2的一个"上升子序列"，...，
  * 第n - 1行记录长度为n的一个"上升子序列"。所有的这些子序列满足一个条件：它们的"结尾"是所有相同长度的"上升子序列"里面最小的。
  *
- * 以数组[10,9,2,5,3,7,101,18]为例进行说明：
+ * 以数组[10, 9, 2, 5, 3, 7, 101, 18]为例进行说明：
  *
  * 首先我们需要一个8行的数组，初始均为空：
  * [[], [], [], [], [], [], [], []]
@@ -62,9 +62,7 @@ public class Solution2 {
                         right = mid;
                     }
                 }
-                if (left - 1 >= 0 && tail[left - 1] == nums[i]) {  //如果nums[i]在tail数组的[0, end]范围内已经存在，什么都不做
-                    continue;
-                } else {
+                if (left - 1 < 0 || tail[left - 1] != nums[i]) {  //如果nums[i]在tail数组的[0, end]范围内已经存在，什么都不做
                     tail[left] = nums[i];   //更新tail[left]值为nums[i]
                 }
             }

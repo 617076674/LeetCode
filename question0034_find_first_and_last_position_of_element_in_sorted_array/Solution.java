@@ -1,4 +1,4 @@
-package question0034;
+package question0034_find_first_and_last_position_of_element_in_sorted_array;
 
 /**
  * floor()函数：寻找nums数组中值小于target的最大值所在的索引。
@@ -7,12 +7,16 @@ package question0034;
  *
  * 时间复杂度是O(logn)，其中n是nums数组的长度。空间复杂度是O(1)。
  *
- * 执行用时：1ms，击败99.30%。消耗内存：42.3MB，击败73.31%。
+ * 执行用时：0ms，击败100.00%。消耗内存：43MB，击败57.16%。
  */
 public class Solution {
     public int[] searchRange(int[] nums, int target) {
         int[] result = new int[2];
         result[0] = floor(nums, target);
+        if (result[0] == -1) {
+            result[1] = -1;
+            return result;
+        }
         result[1] = ceil(nums, target);
         return result;
     }

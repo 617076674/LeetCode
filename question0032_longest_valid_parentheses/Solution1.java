@@ -1,15 +1,19 @@
-package question032;
+package question0032_longest_valid_parentheses;
 
 import java.util.Stack;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82555851
+ *
+ * 栈的应用。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为字符串s的长度。
+ *
+ * 执行用时：8ms，击败49.85%。消耗内存：37.7MB，击败81.56%。
  */
 public class Solution1 {
-
     public int longestValidParentheses(String s) {
-        int result = 0;
-        int begin = 0;
+        int result = 0, begin = 0;
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {

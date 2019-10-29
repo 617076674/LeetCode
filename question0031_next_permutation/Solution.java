@@ -1,7 +1,7 @@
-package question0031;
+package question0031_next_permutation;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82491091
+ * https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode/
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
  *
@@ -9,8 +9,7 @@ package question0031;
  */
 public class Solution {
     public void nextPermutation(int[] nums) {
-        int n = nums.length;
-        int i = n - 1;
+        int n = nums.length, i = n - 1;
         for (; i >= 1; i--) {
             if (nums[i] > nums[i - 1]) {    //如果存在第i个数比第(i - 1)个数更大的情况，说明存在下一个更大的排列
                 break;

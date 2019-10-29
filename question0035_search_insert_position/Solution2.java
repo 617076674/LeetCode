@@ -1,4 +1,4 @@
-package question0035;
+package question0035_search_insert_position;
 
 /**
  * ceil()函数的实现，寻找nums数组中值大于target的最小值所在的索引。

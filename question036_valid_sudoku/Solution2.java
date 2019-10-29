@@ -1,4 +1,4 @@
-package question036;
+package question036_valid_sudoku;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,24 +19,24 @@ public class Solution2 {
         }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                char temp = board[i][j];
-                if (temp == '.') {
+                char tmp = board[i][j];
+                if (tmp == '.') {
                     continue;
                 }
-                if (rowFlags.get(i)[temp - '0' - 1] == 1) {
+                if (rowFlags.get(i)[tmp - '0' - 1] == 1) {
                     return false;
                 } else {
-                    rowFlags.get(i)[temp - '0' - 1] = 1;
+                    rowFlags.get(i)[tmp - '0' - 1] = 1;
                 }
-                if (columnFlags.get(j)[temp - '0' - 1] == 1) {
+                if (columnFlags.get(j)[tmp - '0' - 1] == 1) {
                     return false;
                 } else {
-                    columnFlags.get(j)[temp - '0' - 1] = 1;
+                    columnFlags.get(j)[tmp - '0' - 1] = 1;
                 }
-                if (palaceFlags.get((i / 3) * 3 + j / 3)[temp - '0' - 1] == 1) {
+                if (palaceFlags.get((i / 3) * 3 + j / 3)[tmp - '0' - 1] == 1) {
                     return false;
                 } else {
-                    palaceFlags.get((i / 3) * 3 + j / 3)[temp - '0' - 1] = 1;
+                    palaceFlags.get((i / 3) * 3 + j / 3)[tmp - '0' - 1] = 1;
                 }
             }
         }

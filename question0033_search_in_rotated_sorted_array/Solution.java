@@ -1,4 +1,4 @@
-package question0033;
+package question0033_search_in_rotated_sorted_array;
 
 /**
  * 二分法。
@@ -11,7 +11,7 @@ public class Solution {
     public int search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + ((right - left) >> 1);
             if (target > nums[left]) {
                 if (target > nums[mid]) {
                     if (nums[mid] >= nums[left]) {
@@ -42,5 +42,4 @@ public class Solution {
         }
         return -1;
     }
-
 }

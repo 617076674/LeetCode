@@ -1,21 +1,20 @@
-package question036;
+package question036_valid_sudoku;
 
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82585501
  */
 public class Solution1 {
-
     public boolean isValidSudoku(char[][] board) {
         //to ensure every row is valid
         for (int i = 0; i < 9; i++) {
             int[] flags = new int[9];
             for (int j = 0; j < 9; j++) {
-                char temp = board[i][j];
-                if (temp != '.') {
-                    if (flags[temp - '0' - 1] == 1) {
+                char tmp = board[i][j];
+                if (tmp != '.') {
+                    if (flags[tmp - '0' - 1] == 1) {
                         return false;
                     } else {
-                        flags[temp - '0' - 1] = 1;
+                        flags[tmp - '0' - 1] = 1;
                     }
                 }
             }
@@ -24,12 +23,12 @@ public class Solution1 {
         for (int j = 0; j < 9; j++) {
             int[] flags = new int[9];
             for (int i = 0; i < 9; i++) {
-                char temp = board[i][j];
-                if (temp != '.') {
-                    if (flags[temp - '0' - 1] == 1) {
+                char tmp = board[i][j];
+                if (tmp != '.') {
+                    if (flags[tmp - '0' - 1] == 1) {
                         return false;
                     } else {
-                        flags[temp - '0' - 1] = 1;
+                        flags[tmp - '0' - 1] = 1;
                     }
                 }
             }
@@ -40,12 +39,12 @@ public class Solution1 {
                 int[] flags = new int[9];
                 for (int i = p; i < p + 3; i++) {
                     for (int j = k; j < k + 3; j++) {
-                        char temp = board[i][j];
-                        if (temp != '.') {
-                            if (flags[temp - '0' - 1] == 1) {
+                        char tmp = board[i][j];
+                        if (tmp != '.') {
+                            if (flags[tmp - '0' - 1] == 1) {
                                 return false;
                             } else {
-                                flags[temp - '0' - 1] = 1;
+                                flags[tmp - '0' - 1] = 1;
                             }
                         }
                     }

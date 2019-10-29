@@ -1,4 +1,4 @@
-package question0300;
+package question0300_longest_increasing_subsequence;
 
 /**
  * @author qianyihui
