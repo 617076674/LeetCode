@@ -40,4 +40,3 @@ public class Solution4 {
         return list;
     }
 }
-

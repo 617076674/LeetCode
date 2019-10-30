@@ -1,9 +1,6 @@
-package question0263;
+package question0263_ugly_number;
 
 /**
- * @author qianyihui
- * @date 2019-07-07
- *
  * 时间复杂度是O(log(num))。空间复杂度是O(1)。
  *
  * 执行用时：4ms，击败99.26%。消耗内存：33.7MB，击败12.44%。

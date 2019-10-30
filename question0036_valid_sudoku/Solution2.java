@@ -1,17 +1,20 @@
-package question036_valid_sudoku;
+package question0036_valid_sudoku;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82585501
+ *
+ * 一次遍历，在遍历数组中每一个元素的时候同时更新九宫格中每一个元素对应列、对应行、对应3 * 3宫中的信息。
+ *
+ * 时间复杂度和空间复杂度均是O(1)。
+ *
+ * 执行用时：2ms，击败98.54%。消耗内存：41.8MB，击败84.41%。
  */
 public class Solution2 {
-
     public boolean isValidSudoku(char[][] board) {
-        List<int[]> rowFlags = new ArrayList<>();
-        List<int[]> columnFlags = new ArrayList<>();
-        List<int[]> palaceFlags = new ArrayList<>();
+        List<int[]> rowFlags = new ArrayList<>(), columnFlags = new ArrayList<>(), palaceFlags = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             rowFlags.add(new int[9]);
             columnFlags.add(new int[9]);

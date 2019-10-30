@@ -1,19 +1,17 @@
-package question0039;
+package question0039_combination_sum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * 回溯法。
  *
- * 执行用时：35ms，击败11.42%。消耗内存：40.1MB，击败77.62%。
+ * 执行用时：9ms，击败55.18%。消耗内存：37.2MB，击败96.62%。
  */
 public class Solution {
     private List<List<Integer>> listList = new ArrayList<>();
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        Arrays.sort(candidates);
         combinationSum(candidates, target, new ArrayList<>(), 0);
         return listList;
     }

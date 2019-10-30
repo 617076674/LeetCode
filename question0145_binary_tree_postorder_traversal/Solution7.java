@@ -2,6 +2,7 @@ package question0145_binary_tree_postorder_traversal;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Morris后序遍历算法。
  *
@@ -49,9 +50,9 @@ public class Solution7 {
         }
         int j = list.size() - 1;
         while (i < j) {
-            int temp = list.get(i);
+            int tmp = list.get(i);
             list.set(i, list.get(j));
-            list.set(j, temp);
+            list.set(j, tmp);
             i++;
             j--;
         }

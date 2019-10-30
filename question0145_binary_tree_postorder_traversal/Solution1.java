@@ -27,4 +27,3 @@ public class Solution1 {
         list.add(treeNode.val);
     }
 }
-
