@@ -1,4 +1,4 @@
-package question0280;
+package question0280_wiggle_sort;
 
 /**
  * @author qianyihui
@@ -12,10 +12,10 @@ package question0280;
  */
 public class Solution2 {
     public void wiggleSort(int[] nums) {
-        boolean less = true;
         for (int i = 0; i < nums.length - 1; i++) {
-            if (((i % 2 == 0) && nums[i] > nums[i + 1]) //如果i是偶数，需要满足nums[i] <= nums[i + 1]
-                    || ((i % 2 == 1) && nums[i] < nums[i + 1])) {   //如果i是奇数，需要满足nums[i] >= nums[i + 1]
+            //1-如果i是偶数，需要满足nums[i] <= nums[i + 1]
+            //2-如果i是奇数，需要满足nums[i] >= nums[i + 1]
+            if ((((i & 1) == 0) && nums[i] > nums[i + 1]) || (((i & 1) == 1) && nums[i] < nums[i + 1])) {
                 swap(nums, i, i + 1);
             }
         }

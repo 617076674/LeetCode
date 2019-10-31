@@ -1,4 +1,4 @@
-package question0102;
+package question0102_binary_tree_level_order_traversal;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -15,7 +15,7 @@ import java.util.Queue;
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> listList = new ArrayList<>();
-        if (root == null) {
+        if (null == root) {
             return listList;
         }
         Queue<TreeNode> queue = new LinkedList<>();
@@ -24,13 +24,13 @@ public class Solution {
             int qSize = queue.size();
             List<Integer> list = new ArrayList<>();
             for (int i = 0; i < qSize; i++) {
-                TreeNode tempNode = queue.poll();
-                list.add(tempNode.val);
-                if (tempNode.left != null) {
-                    queue.add(tempNode.left);
+                TreeNode tmp = queue.poll();
+                list.add(tmp.val);
+                if (null != tmp.left) {
+                    queue.add(tmp.left);
                 }
-                if (tempNode.right != null) {
-                    queue.add(tempNode.right);
+                if (null != tmp.right) {
+                    queue.add(tmp.right);
                 }
             }
             listList.add(list);

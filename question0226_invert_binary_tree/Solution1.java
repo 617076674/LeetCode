@@ -1,4 +1,4 @@
-package question0226;
+package question0226_invert_binary_tree;
 
 /**
  * 递归翻转即可。需要注意的是，由于新的左子树是由右子树翻转而来的，而新的右子树是由原左子树翻转而来的。

@@ -1,4 +1,4 @@
-package question0226;
+package question0226_invert_binary_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -13,7 +13,7 @@ import java.util.Queue;
 public class Solution2 {
     public TreeNode invertTree(TreeNode root) {
         if (null == root) {
-            return root;
+            return null;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);

@@ -1,11 +1,8 @@
-package question0280;
+package question0280_wiggle_sort;
 
 import java.util.Arrays;
 
 /**
- * @author qianyihui
- * @date 2019-08-07
- *
  * 排序后交换。
  *
  * 时间复杂度是O(nlogn)，其中n是nums数组的长度。空间复杂度是O(1)。

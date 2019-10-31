@@ -1,9 +1,6 @@
-package question0671;
+package question0671_second_minimum_node_in_a_binary_tree;
 
 /**
- * @author qianyihui
- * @date 2019-07-11
- *
  * 深度优先遍历算法。只要寻找到不等于min的节点就可以返回了！！！。
  *
  * 注意更新result值的过程，如果result为-1，即还没有找到第二小的节点，则将result直接置为当前节点的值。
@@ -19,7 +16,7 @@ public class Solution {
     private int result = -1;
 
     public int findSecondMinimumValue(TreeNode root) {
-        if (root == null) {
+        if (null == root) {
             return -1;
         }
         min = root.val;
@@ -29,7 +26,7 @@ public class Solution {
     }
 
     private void dfs(TreeNode treeNode) {
-        if (treeNode == null) {
+        if (null == treeNode) {
             return;
         }
         if (treeNode.val != min) {
