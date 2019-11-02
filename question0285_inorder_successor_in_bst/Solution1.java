@@ -1,9 +1,6 @@
-package question0285;
+package question0285_inorder_successor_in_bst;
 
 /**
- * @author qianyihui
- * @date 2019-08-01
- *
  * 中序遍历，递归实现。
  *
  * 时间复杂度是O(n)，其中n为树中的节点个数。空间复杂度是O(h)，其中h为树的高度。
@@ -11,9 +8,9 @@ package question0285;
  * 执行用时：6ms，击败67.50%。消耗内存：41.1MB，击败100.00%。
  */
 public class Solution1 {
-    private TreeNode pre = null;
+    private TreeNode pre;
 
-    private TreeNode result = null;
+    private TreeNode result;
 
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         inOrder(root, p);

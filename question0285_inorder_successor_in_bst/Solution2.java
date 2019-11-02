@@ -1,9 +1,6 @@
-package question0285;
+package question0285_inorder_successor_in_bst;
 
 /**
- * @author qianyihui
- * @date 2019-08-01
- *
  * 时间复杂度是O(n)，其中n为树中的节点个数。空间复杂度是O(h)，其中h为树的高度。
  *
  * 执行用时：3ms，击败100.00%。消耗内存：37.4MB，击败100.00%。
