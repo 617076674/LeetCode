@@ -1,4 +1,4 @@
-package question0146;
+package question0146_lru_cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -8,23 +8,22 @@ import java.util.Map;
  *
  * get()和put()的时间复杂度均是O(1)。空间复杂度是O(n)，其中n为缓存的键数。
  *
- * 执行用时：144ms，击败74.73%。消耗内存：62.3MB，击败67.95%。
+ * 执行用时：78ms，击败92.94%。消耗内存：49.5MB，击败99.78%。
  */
 public class LRUCache2 {
-
-    private int capacity;
-    private LRULinkedHashMap<Integer, Integer> lruLinkedHashMap = new LRULinkedHashMap<>();
-
     private class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
         @Override
         protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
             if (size() > capacity) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
     }
+
+    private int capacity;
+
+    private LRULinkedHashMap<Integer, Integer> lruLinkedHashMap = new LRULinkedHashMap<>();
 
     public LRUCache2(int capacity) {
         this.capacity = capacity;
@@ -46,5 +45,4 @@ public class LRUCache2 {
         }
         lruLinkedHashMap.put(key, value);
     }
-
 }

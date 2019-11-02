@@ -1,4 +1,4 @@
-package question0208;
+package question0208_implement_trie_prefix_tree;
 
 import java.util.HashMap;
 
@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class Trie {
     private class Node {
         private boolean isWord; //判断是否是一个单词
+
         private HashMap<Character, Node> next;  //指向next节点
 
         Node(boolean isWord) {
@@ -21,11 +22,11 @@ public class Trie {
     }
 
     private Node root;
+
     private int size;
 
     public Trie() {
         root = new Node();
-        size = 0;
     }
 
     public void insert(String word) {
@@ -33,7 +34,7 @@ public class Trie {
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             Node node = cur.next.get(c);
-            if (node == null) {
+            if (null == node) {
                 cur.next.put(c, new Node());
             }
             cur = cur.next.get(c);
@@ -46,7 +47,7 @@ public class Trie {
 
     public boolean search(String word) {
         Node node = find(word);
-        if (node == null) {
+        if (null == node) {
             return false;
         }
         return find(word).isWord;
@@ -61,7 +62,7 @@ public class Trie {
         for (int i = 0; i < string.length(); i++) {
             char c = string.charAt(i);
             Node node = cur.next.get(c);
-            if (node == null) {
+            if (null == node) {
                 return null;
             }
             cur = cur.next.get(c);

@@ -1,4 +1,4 @@
-package question0146;
+package question0146_lru_cache;
 
 import java.util.*;
 
@@ -9,29 +9,76 @@ import java.util.*;
  *
  * get()和put()的时间复杂度均是O(1)。空间复杂度是O(n)，其中n为缓存的键数。
  *
- * 执行用时：141ms，击败79.91%。消耗内存：55.7MB，击败96.89%。
+ * 执行用时：79ms，击败91.87%。消耗内存：60.7MB，击败81.81%。
  */
 class LRUCache1 {
     private class Node {
         private int key;
+
         private int value;
+
         private Node pre;
+
         private Node next;
 
-        public Node() {
-        }
+        Node() {}
 
-        public Node(int key, int value) {
+        Node(int key, int value) {
             this.key = key;
             this.value = value;
         }
     }
 
     private Node dummyHead = new Node();
+
     private Node dummyTail = new Node();
+
     private int capacity;
+
     private int size;
-    private HashMap<Integer, Node> hashMap = new HashMap<>();
+
+    private Map<Integer, Node> hashMap = new HashMap<>();
+
+    public LRUCache1(int capacity) {
+        dummyHead.next = dummyTail;
+        dummyTail.pre = dummyHead;
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        Node node = hashMap.get(key);
+        if (null == node) {
+            return -1;
+        }
+        updateState(node);
+        return node.value;
+    }
+
+    public void put(int key, int value) {
+        Node node = hashMap.get(key);
+        if (null != node) {
+            node.value = value;
+            updateState(node);
+        } else {
+            if (size < capacity) {
+                size++;
+            } else {
+                //删除链表尾节点
+                Node delNode = dummyTail.pre;
+                hashMap.remove(delNode.key);
+                del(delNode);
+            }
+            Node newNode = new Node(key, value);
+            add(newNode);
+            hashMap.put(key, newNode);
+        }
+    }
+
+    //调整节点的顺序
+    private void updateState(Node node) {
+        del(node);
+        add(node);
+    }
 
     //将节点添加到虚拟头节点之后
     private void add(Node node) {
@@ -50,43 +97,5 @@ class LRUCache1 {
         nextNode.pre = preNode;
         node.pre = null;
         node.next = null;
-    }
-
-    public LRUCache1(int capacity) {
-        dummyHead.next = dummyTail;
-        dummyTail.pre = dummyHead;
-        this.capacity = capacity;
-        size = 0;
-    }
-
-    public int get(int key) {
-        Node node = hashMap.get(key);
-        if (null == node) {
-            return -1;
-        }
-        del(node);
-        add(node);
-        return node.value;
-    }
-
-    public void put(int key, int value) {
-        Node node = hashMap.get(key);
-        if (null != node) {
-            node.value = value;
-            del(node);
-            add(node);
-        } else {
-            if (size < capacity) {
-                size++;
-            } else {
-                //删除链表尾节点
-                Node delNode = dummyTail.pre;
-                hashMap.remove(delNode.key);
-                del(delNode);
-            }
-            Node newNode = new Node(key, value);
-            add(newNode);
-            hashMap.put(key, newNode);
-        }
     }
 }
