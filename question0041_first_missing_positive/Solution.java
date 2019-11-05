@@ -1,4 +1,4 @@
-package question0041;
+package question0041_first_missing_positive;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82656191
@@ -11,26 +11,27 @@ package question0041;
  */
 public class Solution {
     public int firstMissingPositive(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
             if (nums[i] <= 0) {
                 continue;
             }
-            while (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] != nums[i]) {
+            while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
                 swap(nums, i, nums[i] - 1);
             }
         }
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
                 return i + 1;
             }
         }
         // 如果是[1, 2, 3]的情况，显然最小没有出现的最小正数是4
-        return nums.length + 1;
+        return n + 1;
     }
 
     private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        int tmp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = tmp;
     }
 }

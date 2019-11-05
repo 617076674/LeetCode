@@ -1,13 +1,11 @@
-package question043;
+package question0043_multiply_strings;
 
-/*
+/**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82710845
  */
-public class Solution3 {
-
+public class Solution1 {
     public String multiply(String num1, String num2) {
-        int n1 = num1.length();
-        int n2 = num2.length();
+        int n1 = num1.length(), n2 = num2.length();
         if (n1 == 1 && Integer.parseInt(num1) == 0) {
             return num1;
         }
@@ -27,14 +25,26 @@ public class Solution3 {
             if (flag > 0) {
                 stringBuilder.append(flag);
             }
-            stringBuilders[n2 - i - 1] = stringBuilder;
+            stringBuilders[n2 - i - 1] = stringBuilder.reverse();
+        }
+        for (int i = 0; i < n2; i++) {
+            for (int j = 0; j < i; j++) {
+                stringBuilders[i].append(0);
+            }
+        }
+        for (int i = 0; i < n2; i++) {
+            stringBuilders[i] = stringBuilders[i].reverse();
         }
         int flag = 0;
-        for (int i = 0; i < stringBuilders[n2 - 1].length() + n2 - 1; i++) {
+        int maxLen = 0;
+        for (int i = 0; i < n2; i++) {
+            maxLen = Math.max(maxLen, stringBuilders[i].length());
+        }
+        for (int i = 0; i < maxLen; i++) {
             int sum = 0;
             for (int j = 0; j < n2; j++) {
-                if (i - j < stringBuilders[j].length() && i - j >= 0) {
-                    sum += Integer.parseInt(stringBuilders[j].substring(i - j, i - j + 1));
+                if (i < stringBuilders[j].length()) {
+                    sum += Integer.parseInt(stringBuilders[j].substring(i, i + 1));
                 }
             }
             int num = (sum + flag) % 10;

@@ -1,4 +1,4 @@
-package question0042;
+package question0042_trapping_rain_water;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82682179

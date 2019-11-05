@@ -1,4 +1,4 @@
-package question0042;
+package question0042_trapping_rain_water;
 
 import java.util.Stack;
 

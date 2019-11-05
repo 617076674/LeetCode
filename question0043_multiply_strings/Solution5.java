@@ -1,4 +1,4 @@
-package question043;
+package question0043_multiply_strings;
 
 /*
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82710845

@@ -1,4 +1,4 @@
-package question0042;
+package question0042_trapping_rain_water;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82682179
@@ -13,10 +13,9 @@ public class Solution4 {
     public int trap(int[] height) {
         int n = height.length, result = 0;
         if (n == 0 || n == 1) {
-            return result;
+            return 0;
         }
-        int[] leftMax = new int[n];
-        int[] rightMax = new int[n];
+        int[] leftMax = new int[n], rightMax = new int[n];
         leftMax[0] = height[0];
         rightMax[n - 1] = height[n - 1];
         for (int i = 1; i < n; i++) {
