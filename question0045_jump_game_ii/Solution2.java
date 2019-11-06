@@ -1,4 +1,4 @@
-package question0045;
+package question0045_jump_game_ii;
 
 /**
  * 动态规划。

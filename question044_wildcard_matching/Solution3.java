@@ -1,14 +1,14 @@
-package question044;
+package question044_wildcard_matching;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82732623
+/**
+ * 递归。对Solution1的改进。
+ *
+ * 在递归过程中，如果字符串p的最后一个字符是'*'，我们只需要去判断字符串s能否与字符串p去除最后一个字符后的字符串相匹配或者字符串s去除最
+ * 后一个字符后的字符串能否与字符串p相匹配。这里的分类方法变成了不使用该最后一个字符'*'去匹配或者使用该最后一个字符'*'去匹配。
  */
 public class Solution3 {
-
-    //recursion realization2
     public boolean isMatch(String s, String p) {
-        int ns = s.length();
-        int np = p.length();
+        int ns = s.length(), np = p.length();
         if (np == 0) {
             return ns == 0;
         }

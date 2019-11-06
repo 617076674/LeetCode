@@ -1,4 +1,4 @@
-package question0045;
+package question0045_jump_game_ii;
 
 /**
  * See analysis: https://blog.csdn.net/qq_41231926/article/details/82751536

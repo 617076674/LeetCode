@@ -1,4 +1,4 @@
-package question0045;
+package question0045_jump_game_ii;
 
 /**
  * 回溯法。
@@ -18,15 +18,15 @@ public class Solution1 {
     /**
      * 现在在索引index处，从索引0到索引index已经跳了tempSteps步，求跳到数组末尾的最少步数
      */
-    private void jump(int[] nums, int index, int tempSteps) {
+    private void jump(int[] nums, int index, int tmpSteps) {
         if (index >= nums.length - 1) {
             if (index == nums.length - 1) {
-                steps = Math.min(steps, tempSteps);
+                steps = Math.min(steps, tmpSteps);
             }
             return;
         }
         for (int i = 1; i <= nums[index]; i++) {
-            jump(nums, index + i, tempSteps + 1);
+            jump(nums, index + i, tmpSteps + 1);
         }
     }
 }
