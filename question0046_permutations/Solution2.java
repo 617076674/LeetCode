@@ -1,4 +1,4 @@
-package question0046;
+package question0046_permutations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,6 @@ import java.util.List;
  * 执行用时：3ms，击败88.85%。消耗内存：38.7MB，击败60.19%。
  */
 public class Solution2 {
-
     private List<List<Integer>> listList = new ArrayList<>();
 
     public List<List<Integer>> permute(int[] nums) {
@@ -39,8 +38,8 @@ public class Solution2 {
     }
 
     private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        int tmp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = tmp;
     }
 }
