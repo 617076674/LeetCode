@@ -3,19 +3,16 @@ package question0002_add_two_numbers;
 /**
  * https://leetcode-cn.com/problems/add-two-numbers/
  *
- * https://leetcode-cn.com/problems/add-two-numbers/solution/liang-shu-xiang-jia-kao-lu-jin-wei-duo-she-zhi-zhe/
- *
- * 链表的操作，多设指针。
+ * 链表的操作，多设指针。把链表l2的值加到链表l1对应节点上
  *
  * 时间复杂度是O(n1 + n2)，其中n1为链表l1的长度，n2位链表l2的长度。空间复杂度是O(1)。
  *
  * 执行用时：10ms，击败80.37%。消耗内存：44.7MB，击败84.76%。
  */
-public class Solution {
+public class Solution1 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode cur1 = l1, cur2 = l2;
         int flag = 0;   //flag代表进位
-        //把链表l2的值加到链表l1对应节点上
         while (true) {
             cur1.val += cur2.val + flag;
             if (cur1.val >= 10) {
