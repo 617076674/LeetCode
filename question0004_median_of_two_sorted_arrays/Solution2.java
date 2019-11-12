@@ -3,8 +3,6 @@ package question0004_median_of_two_sorted_arrays;
 /**
  * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  *
- * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-sh-15/
- *
  * 二分查找法。
  *
  * 时间复杂度和空间复杂度均是O(log(n1 + n2))，其中n1是nums1数组的长度，n2是nums2数组的长度。

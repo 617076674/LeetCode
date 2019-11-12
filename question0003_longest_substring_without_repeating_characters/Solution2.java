@@ -3,8 +3,6 @@ package question0003_longest_substring_without_repeating_characters;
 /**
  * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  *
- * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-4chong-jie/
- *
  * 滑动窗口法。
  *
  * 将一个数组当作哈希表。
@@ -15,7 +13,10 @@ package question0003_longest_substring_without_repeating_characters;
  */
 public class Solution2 {
     public int lengthOfLongestSubstring(String s) {
-        int n = s.length();
+        int n;
+        if (null == s || (n = s.length()) == 0) {
+            return 0;
+        }
         boolean[] appear = new boolean[256];
         int left = 0, right = -1, result = 0; //滑动窗口范围是[left, right]
         while (right + 1 < n) {

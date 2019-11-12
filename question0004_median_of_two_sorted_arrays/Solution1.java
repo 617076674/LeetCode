@@ -3,9 +3,7 @@ package question0004_median_of_two_sorted_arrays;
 /**
  * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  *
- * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-sh-15/
- *
- * 寻找第k个数和第k - 1个数
+ * 寻找第k个数和第k - 1个数。
  *
  * 时间复杂度是O(n)，其中n为nums1数组的长度和nums2数组的长度总和。空间复杂度是O(1)。
  *
