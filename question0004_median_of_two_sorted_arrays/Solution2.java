@@ -21,7 +21,7 @@ public class Solution2 {
     }
 
     /**
-     * 在nums1数组[left1, right1]范围内，以及nums2数组[left2, right2]范围内，寻找第k小数
+     * 在nums1数组[left1, right1]范围内，以及nums2数组[left2, right2]范围内，寻找第k小数（k从1开始计数）
      */
     private int findKthInTwoArrays(int[] nums1, int left1, int right1, int[] nums2, int left2, int right2, int k) {
         //n1记录[left1, right1]范围内的元素个数，n2记录[left2, right2]范围内的元素个数
@@ -45,7 +45,7 @@ public class Solution2 {
             return findKthInTwoArrays(nums1, left1, right1, nums2, left2 + j, right2, k - j);
         }
         //nums[left1 + i - 1] <= nums2[left2 + j - 1]，[left1, left1 + i - 1]范围内的元素均小于等于nums2[left2 + j - 1]
-        //些元素已经不可能是第k小数，这些元素的个数有i个，在排除这些元素的范围内继续寻找第(k - i)小数
+        //这些元素已经不可能是第k小数，这些元素的个数有i个，在排除这些元素的范围内继续寻找第(k - i)小数
         return findKthInTwoArrays(nums1, left1 + i, right1, nums2, left2, right2, k - i);
     }
 }

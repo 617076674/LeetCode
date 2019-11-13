@@ -1,6 +1,8 @@
 package question0005_longest_palindromic_substring;
 
 /**
+ * https://leetcode-cn.com/problems/longest-palindromic-substring/
+ *
  * 动态规划。
  *
  * 状态定义：dp[i][j]表示字符串s中[i, j]范围内的子串是否是回文串

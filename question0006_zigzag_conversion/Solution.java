@@ -1,7 +1,7 @@
 package question0006_zigzag_conversion;
 
 /**
- * 增加一个zigZag标记位。
+ * 增加一个zigZag标记位来指示移动方向。
  *
  * 时间复杂度是O(n)，其中n为字符串s的长度。空间复杂度是O(numRows * n)。
  *
@@ -22,10 +22,10 @@ public class Solution {
             stringBuilders[row].append(s.charAt(i));
             row += zigZag;
             if (row == numRows - 1) {
-                zigZag = -1;
+                zigZag = -1;    //移动到底了，接下去将上移
             }
             if (row == 0) {
-                zigZag = 1;
+                zigZag = 1;     //移动到顶了，接下去将下移
             }
         }
         StringBuilder result = new StringBuilder();

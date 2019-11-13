@@ -1,6 +1,8 @@
 package question0005_longest_palindromic_substring;
 
 /**
+ * https://leetcode-cn.com/problems/longest-palindromic-substring/
+ *
  * 从某个点向两边扩展。
  *
  * 时间复杂度是O(n ^ 2)。空间复杂度是O(1)。
@@ -9,7 +11,11 @@ package question0005_longest_palindromic_substring;
  */
 public class Solution2 {
     public String longestPalindrome(String s) {
-        if (s.length() < 2) {
+        int n;
+        if (null == s || (n = s.length()) == 0) {
+            return "";
+        }
+        if (n < 2) {
             return s;
         }
         if (s.length() == 2) {
