@@ -1,6 +1,8 @@
 package question0006_zigzag_conversion;
 
 /**
+ * https://leetcode-cn.com/problems/zigzag-conversion/
+ *
  * 增加一个zigZag标记位来指示移动方向。
  *
  * 时间复杂度是O(n)，其中n为字符串s的长度。空间复杂度是O(numRows * n)。
