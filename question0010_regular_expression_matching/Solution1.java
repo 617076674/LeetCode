@@ -1,7 +1,7 @@
 package question0010_regular_expression_matching;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82010888
+ * https://leetcode-cn.com/problems/regular-expression-matching/
  *
  * 递归实现。
  *
