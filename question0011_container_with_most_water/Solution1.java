@@ -1,7 +1,9 @@
 package question0011_container_with_most_water;
 
 /**
- * 暴力破解法
+ * https://leetcode-cn.com/problems/container-with-most-water/
+ *
+ * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 2)，其中n为height数组的长度。空间复杂度是O(1)。
  *
