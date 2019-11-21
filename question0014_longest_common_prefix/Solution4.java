@@ -1,6 +1,8 @@
 package question0014_longest_common_prefix;
 
 /**
+ * https://leetcode-cn.com/problems/longest-common-prefix/
+ *
  * 二分查找法。
  *
  * 时间复杂度是O(n * log(m))，其中n为strs数组的大小，m为strs数组中最短字符串的长度。空间复杂度是O(1)。

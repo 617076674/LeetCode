@@ -1,6 +1,8 @@
 package question0014_longest_common_prefix;
 
 /**
+ * https://leetcode-cn.com/problems/longest-common-prefix/
+ *
  * 分治算法，递归实现。
  *
  * 时间复杂度是O(n * m)，其中n为strs数组的大小，m为结果的长度。空间复杂度是O(mlog(n))。
