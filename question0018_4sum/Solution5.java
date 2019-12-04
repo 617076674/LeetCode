@@ -3,6 +3,8 @@ package question0018_4sum;
 import java.util.*;
 
 /**
+ * https://leetcode-cn.com/problems/4sum/
+ *
  * 时间复杂度是O(n ^ 4)，其中n是nums数组的长度。空间复杂度是O(n ^ 2)。
  *
  * 执行用时：98ms，击败19.51%。消耗内存：53.5MB，击败11.70%。
@@ -48,10 +50,6 @@ public class Solution5 {
                 }
             }
         }
-        List<List<Integer>> listList = new ArrayList<>();
-        for (List<Integer> list : listSet) {
-            listList.add(list);
-        }
-        return listList;
+        return new ArrayList<>(listSet);
     }
 }

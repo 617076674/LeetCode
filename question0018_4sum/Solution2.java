@@ -3,7 +3,14 @@ package question0018_4sum;
 import java.util.*;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82177660
+ * https://leetcode-cn.com/problems/4sum/
+ *
+ * 四数之和为target可以分为以下几种情况：
+ * （1）4个数均相同。A A A A
+ * （2）3个数相同，1个数不相同。A A A B
+ * （3）2个数相同，2个数相同。A A B B
+ * （4）2个数相同，2个数不同。A A B C
+ * （5）4个数均不相同。A B C D
  *
  * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(n)。
  *
@@ -45,7 +52,7 @@ public class Solution2 {
         // 2个数相同+2个数相同
         for (int i = 0; i < list.size(); i++) {
             for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i) * 2 + list.get(j) * 2 == target && map.get(list.get(i)) >= 2 && map.get(list.get(j)) >= 2) {
+                if ((list.get(i) << 1) + (list.get(j) << 1) == target && map.get(list.get(i)) >= 2 && map.get(list.get(j)) >= 2) {
                     addToListList(list.get(i), list.get(i), list.get(j), list.get(j), listList);
                 }
             }

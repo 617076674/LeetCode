@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/4sum/
+ *
  * 和question0015的Solution3、question0016的Solution2同样的思路，内层循环采用双指针遍历的形式。
  *
  * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(1)。

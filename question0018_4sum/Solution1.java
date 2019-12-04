@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/4sum/
+ *
  * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 4)，其中n为nums数组的长度。空间复杂度是O(1)。
