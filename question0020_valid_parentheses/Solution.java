@@ -3,11 +3,13 @@ package question0020_valid_parentheses;
 import java.util.Stack;
 
 /**
+ * https://leetcode-cn.com/problems/valid-parentheses/
+ *
  * 栈的应用。
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为字符串s的长度。
  *
- * 执行用时：6ms，击败68.58%。消耗内存：35.3MB，击败79.64%。
+ * 执行用时：2ms，击败95.37%。消耗内存：34.1MB，击败87.62%。
  */
 public class Solution {
     public boolean isValid(String s) {
@@ -17,24 +19,15 @@ public class Solution {
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
             } else if (c == ')') {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                if (stack.pop() != '(') {
+                if (stack.isEmpty() || stack.pop() != '(') {
                     return false;
                 }
             } else if (c == ']') {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                if (stack.pop() != '[') {
+                if (stack.isEmpty() || stack.pop() != '[') {
                     return false;
                 }
             } else if (c == '}') {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                if (stack.pop() != '{') {
+                if (stack.isEmpty() || stack.pop() != '{') {
                     return false;
                 }
             }
