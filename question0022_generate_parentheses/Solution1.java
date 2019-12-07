@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/generate-parentheses/
+ *
  * 回溯法。
  *
  * 先生成出所有可能的括号组合，再筛选出有效的括号组合。
  *
  * 时间复杂度是O(n * (2 ^ n))。空间复杂度是O(n)。
  *
- * 执行用时：23ms，击败5.86%。消耗内存：44.9MB，击败5.02%。
+ * 执行用时：9ms，击败10.91%。消耗内存：38.1MB，击败59.5%。
  */
 public class Solution1 {
     private List<String> result = new ArrayList<>();
+
+    private char[] brackets = {'(', ')'};
 
     public List<String> generateParenthesis(int n) {
         generateParenthesis(new StringBuilder(), 0, n);
@@ -27,12 +31,11 @@ public class Solution1 {
             }
             return;
         }
-        sb.append('(');
-        generateParenthesis(sb, index + 1, n);
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(')');
-        generateParenthesis(sb, index + 1, n);
-        sb.deleteCharAt(sb.length() - 1);
+        for (int i = 0; i < brackets.length; i++) {
+            sb.append(brackets[i]);
+            generateParenthesis(sb, index + 1, n);
+            sb.deleteCharAt(sb.length() - 1);
+        }
     }
 
     private boolean isValidString(String string) {

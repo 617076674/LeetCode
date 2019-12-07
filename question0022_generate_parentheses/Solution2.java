@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/generate-parentheses/
+ *
  * 在Solution1的基础上添加剪枝操作。
  *
  * 时间复杂度是O(n * (2 ^ n))。空间复杂度是O(n)。

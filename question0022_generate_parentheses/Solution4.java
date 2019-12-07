@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/generate-parentheses/
+ *
  * 动态规划。
  *
  * 状态定义：

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * https://leetcode-cn.com/problems/generate-parentheses/
+ *
  * 递归实现（用记忆化搜索来优化）。
  *
  * 时间复杂度和空间复杂度的计算比较复杂，略。
@@ -24,8 +26,7 @@ public class Solution3 {
             list.add("");
         }
         for (int i = 0; i < n; i++) {
-            List<String> list1 = generateParenthesis(i);
-            List<String> list2 = generateParenthesis(n - i - 1);
+            List<String> list1 = generateParenthesis(i), list2 = generateParenthesis(n - i - 1);
             for (String s1 : list1) {
                 for (String s2 : list2) {
                     //写成这样也是可以的：list.add(s1 + "(" + s2 + ")");
