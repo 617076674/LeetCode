@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ * https://leetcode-cn.com/problems/merge-k-sorted-lists/
+ *
  * 优先队列，限制优先队列大小为n。
  *
  * 时间复杂度是O(mlogn)，其中m为lists数组中链表总节点个数，n为lists数组的长度。空间复杂度是O(n)。

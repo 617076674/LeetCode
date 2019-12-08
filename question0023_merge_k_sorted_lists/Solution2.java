@@ -3,6 +3,8 @@ package question0023_merge_k_sorted_lists;
 import java.util.PriorityQueue;
 
 /**
+ * https://leetcode-cn.com/problems/merge-k-sorted-lists/
+ *
  * 优先队列。
  *
  * 时间复杂度是O(mlogm)，其中m为lists数组中链表总节点个数。空间复杂度是O(m)。

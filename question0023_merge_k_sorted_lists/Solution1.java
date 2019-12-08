@@ -1,6 +1,8 @@
 package question0023_merge_k_sorted_lists;
 
 /**
+ * https://leetcode-cn.com/problems/merge-k-sorted-lists/
+ *
  * 暴力破解法。
  *
  * 时间复杂度是O(n * m)，其中n为lists数组的长度，m为lists数组中链表总节点个数。空间复杂度是O(1)。
