@@ -3,6 +3,8 @@ package question0047_permutations_ii;
 import java.util.*;
 
 /**
+ * https://leetcode-cn.com/problems/permutations-ii/
+ *
  * 将数组nums中的值存进一个map里，用回溯法求全排列。
  *
  * 时间复杂度是O(n!)，其中n为nums数组的长度。空间复杂度是O(n)。
@@ -14,16 +16,20 @@ public class Solution {
 
     private Map<Integer, Integer> map = new HashMap<>();
 
+    private List<Integer> list = new ArrayList<>();
+
     public List<List<Integer>> permuteUnique(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             addToHashMap(map, nums[i]);
         }
-        permuteUnique(new ArrayList<>());
+        permuteUnique();
         return listList;
     }
 
-    //we put the possible array in list, we are going to find next number
-    private void permuteUnique(List<Integer> list) {
+    /**
+     * we put the possible array in list, we are going to find next number
+     */
+    private void permuteUnique() {
         if (map.isEmpty()) {
             listList.add(new ArrayList<>(list));
             return;
@@ -31,7 +37,7 @@ public class Solution {
         for (int num : new HashSet<>(map.keySet())) {
             list.add(num);
             delFromHashMap(map, num);
-            permuteUnique(list);
+            permuteUnique();
             addToHashMap(map, num);
             list.remove(list.size() - 1);
         }
