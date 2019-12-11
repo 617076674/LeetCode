@@ -22,8 +22,8 @@ public class Solution {
 
     private int calculateGap(String s1, String s2) {
         int h1 = Integer.parseInt(s1.substring(0, 2)), m1 = Integer.parseInt(s1.substring(3, 5)),
-                h2 = Integer.parseInt(s2.substring(0, 2)), m2 = Integer.parseInt(s2.substring(3, 5));
-        int gap = Math.abs(h1 * 60 + m1 - h2 * 60 - m2);
+                h2 = Integer.parseInt(s2.substring(0, 2)), m2 = Integer.parseInt(s2.substring(3, 5)),
+                gap = Math.abs(h1 * 60 + m1 - h2 * 60 - m2);
         return Math.min(gap, 24 * 60 - gap);
     }
 }
