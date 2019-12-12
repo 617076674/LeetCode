@@ -23,11 +23,10 @@ public class Codec {
         List<String> result = new ArrayList<>();
         int i = 0;
         while (i < s.length()) {
-            int pos = s.indexOf(',', i),itemSize = Integer.parseInt(s.substring(i, pos)), start = pos + 1,
+            int pos = s.indexOf(',', i), itemSize = Integer.parseInt(s.substring(i, pos)), start = pos + 1,
                     end = pos + itemSize + 1;
             if (end <= s.length()) {
-                String item = s.substring(start, end);
-                result.add(item);
+                result.add(s.substring(start, end));
             }
             i = end;
         }

@@ -1,6 +1,8 @@
 package question0026_remove_duplicates_from_sorted_array;
 
 /**
+ * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+ *
  * 双指针遍历原数组。
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
