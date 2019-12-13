@@ -1,6 +1,8 @@
 package question0027_remove_element;
 
 /**
+ * https://leetcode-cn.com/problems/remove-element/
+ *
  * 和question0026同样的思路。
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
