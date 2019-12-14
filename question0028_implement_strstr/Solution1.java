@@ -1,6 +1,8 @@
 package question0028_implement_strstr;
 
 /**
+ * https://leetcode-cn.com/problems/implement-strstr/
+ *
  * 暴力破解法。
  *
  * 时间复杂度是O(n1 * n2)，其中n1为字符串haystack的长度，n2为字符串needle的长度。空间复杂度是O(1)。
