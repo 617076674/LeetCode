@@ -3,10 +3,10 @@ package question0029_divide_two_integers;
 /**
  * https://leetcode-cn.com/problems/divide-two-integers/
  *
- * 对Solution1的改进，倍增每次减去的数。
+ * 倍增每次减去的数。
  *
- * 对于思路一而言，其每次减少的数都是divisor，该数一直保持不变。我们可以想象，如果这个divisor绝对值很小，比如是1，
- * 而dividend的绝对值很大，比如是Integer.MAX_VALUE，那么就要进行Integer.MAX_VALUE次减法，这个时间复杂度是难以接受的。
+ * 如果每次减少的数都是divisor，我们可以想象，当这个divisor绝对值很小，比如是1，
+ * 而dividend的绝对值很大，比如是Integer.MAX_VALUE时，那么就要进行Integer.MAX_VALUE次减法，这个时间复杂度是难以接受的。
  *
  * 题目中要求不能用乘法和除法，但我们可以对减数进行倍增操作。对于dividend，如果dividend - divisor > 0，
  * 那么我们下一次减去的数不是divisor，而是divisor + divisor，
@@ -23,7 +23,7 @@ package question0029_divide_two_integers;
  *
  * 执行用时：3ms，击败92.24%。消耗内存：34.5MB，击败75.76%。
  */
-public class Solution2 {
+public class Solution {
     public int divide(int dividend, int divisor) {
         if (dividend == 0) {
             return 0;
