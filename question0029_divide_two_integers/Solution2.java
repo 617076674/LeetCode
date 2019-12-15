@@ -1,6 +1,8 @@
 package question0029_divide_two_integers;
 
 /**
+ * https://leetcode-cn.com/problems/divide-two-integers/
+ *
  * 对Solution1的改进，倍增每次减去的数。
  *
  * 对于思路一而言，其每次减少的数都是divisor，该数一直保持不变。我们可以想象，如果这个divisor绝对值很小，比如是1，
