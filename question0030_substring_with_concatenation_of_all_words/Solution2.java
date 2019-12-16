@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/
+ *
  * 滑动窗口+哈希表。
  *
  * 时间复杂度是O(m * len)，其中m为字符串s的长度，len为words数组中的单词长度。空间复杂度是O(n)。
@@ -22,11 +24,7 @@ public class Solution2 {
         int m = s.length(), len = words[0].length();
         Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (map.containsKey(words[i])) {
-                map.put(words[i], map.get(words[i]) + 1);
-            } else {
-                map.put(words[i], 1);
-            }
+            map.put(words[i], map.getOrDefault(words[i], 0) + 1);
         }
         for (int i = 0; i < len; i++) {
             Map<String, Integer> window = new HashMap<>();
@@ -39,11 +37,7 @@ public class Solution2 {
                     window.clear();
                     continue;
                 }
-                if (!window.containsKey(tmpRight)) {
-                    window.put(tmpRight, 1);
-                } else {
-                    window.put(tmpRight, window.get(tmpRight) + 1);
-                }
+                window.put(tmpRight, window.getOrDefault(tmpRight, 0) + 1);
                 right += len;
                 while (window.get(tmpRight) > map.get(tmpRight)) {
                     String tmpLeft = s.substring(left, left + len);
