@@ -1,7 +1,7 @@
 package question0031_next_permutation;
 
 /**
- * https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode/
+ * https://leetcode-cn.com/problems/next-permutation/
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
  *
@@ -39,8 +39,8 @@ public class Solution {
     }
 
     private void swap(int i, int j, int[] nums) {
-        int temp = nums[i];
+        int tmp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = tmp;
     }
 }
