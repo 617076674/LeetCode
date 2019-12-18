@@ -3,7 +3,7 @@ package question0032_longest_valid_parentheses;
 import java.util.Stack;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82555851
+ * https://leetcode-cn.com/problems/longest-valid-parentheses/
  *
  * 栈的应用。
  *
