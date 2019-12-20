@@ -1,6 +1,8 @@
 package question0034_find_first_and_last_position_of_element_in_sorted_array;
 
 /**
+ * https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+ *
  * floor()函数：寻找nums数组中值小于target的最大值所在的索引。
  *
  * ceil()函数：寻找nums数组中值大于target的最小值所在的索引。
@@ -24,7 +26,7 @@ public class Solution {
     private int floor(int[] nums, int target) {
         int left = -1, right = nums.length - 1;
         while (left < right) {
-            int mid = left + (right - left + 1) / 2;
+            int mid = left + ((right - left + 1) >> 1);
             if (target <= nums[mid]) {
                 right = mid - 1;
             } else {
@@ -40,7 +42,7 @@ public class Solution {
     private int ceil(int[] nums, int target) {
         int left = 0, right = nums.length;
         while (left < right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + ((right - left) >> 1);
             if (target >= nums[mid]) {
                 left = mid + 1;
             } else {
