@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82585501
+ * https://leetcode-cn.com/problems/valid-sudoku/
  *
  * 一次遍历，在遍历数组中每一个元素的时候同时更新九宫格中每一个元素对应列、对应行、对应3 * 3宫中的信息。
  *
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * 执行用时：2ms，击败98.54%。消耗内存：41.8MB，击败84.41%。
  */
-public class Solution2 {
+public class Solution {
     public boolean isValidSudoku(char[][] board) {
         List<int[]> rowFlags = new ArrayList<>(), columnFlags = new ArrayList<>(), palaceFlags = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
