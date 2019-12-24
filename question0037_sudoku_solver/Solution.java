@@ -21,7 +21,6 @@ public class Solution {
                 }
             }
         }
-
         try {
             fillNumber(board, 0);
         } catch (Exception e) {}

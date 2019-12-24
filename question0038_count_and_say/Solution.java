@@ -1,7 +1,7 @@
 package question0038_count_and_say;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82620708
+ * https://leetcode-cn.com/problems/count-and-say/
  *
  * 递归实现。
  *
