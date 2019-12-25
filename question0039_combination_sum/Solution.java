@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/combination-sum/
+ *
  * 回溯法。
  *
  * 执行用时：9ms，击败55.18%。消耗内存：37.2MB，击败96.62%。

@@ -1,11 +1,10 @@
-package question0200;
+package question0200_number_of_islands;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author qianyihui
- * @date 2019-07-18
+ * https://leetcode-cn.com/problems/number-of-islands/
  *
  * 并查集实现。
  *
@@ -18,18 +17,17 @@ import java.util.Set;
  * 时间复杂度和空间复杂度均是O(m * n)，其中m为grid数组的行数。n是grid数组的列数。
  */
 public class Solution3 {
-
     private int[] parent;   //并查集数组
 
     private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
+    private int m, n;
+
     public int numIslands(char[][] grid) {
-        int m = grid.length;
-        if (m == 0) {
+        if (null == grid || (m = grid.length) == 0) {
             return 0;
         }
-        int n = grid[0].length;
-        if (n == 0) {
+        if (null == grid[0] || (n = grid[0].length) == 0) {
             return 0;
         }
         //初始化我们的并查集
@@ -48,8 +46,7 @@ public class Solution3 {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
                     for (int k = 0; k < 4; k++) {
-                        int newX = i + directions[k][0];
-                        int newY = j + directions[k][1];
+                        int newX = i + directions[k][0], newY = j + directions[k][1];
                         if (newX >= 0 && newX < m && newY >= 0 && newY < n && grid[newX][newY] == '1') {
                             union(i * n + j, newX * n + newY);
                         }
@@ -88,5 +85,4 @@ public class Solution3 {
             parent[aFather] = bFather;
         }
     }
-
 }
