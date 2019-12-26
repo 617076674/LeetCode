@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/combination-sum-ii/
+ *
  * 回溯。
  *
  * 执行用时6ms，击败77.19%。消耗内存：37.4MB，击败89.90%。
@@ -26,7 +28,7 @@ public class Solution {
             return;
         }
         for (int i = begin; i < candidates.length; i++) {
-            if (i > begin && candidates[i] == candidates[i - 1]) {  //跳过非首次出现的数
+            if (i > begin && candidates[i] == candidates[i - 1]) {  //跳过非首次出现的数，避免重复
                 continue;
             }
             list.add(candidates[i]);
