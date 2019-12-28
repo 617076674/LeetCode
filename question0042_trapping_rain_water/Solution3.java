@@ -1,14 +1,18 @@
 package question0042_trapping_rain_water;
 
+import java.util.Stack;
+
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82682179
+ * https://leetcode-cn.com/problems/trapping-rain-water/
  *
- * 从整个数组的角度看来，如果找到某一索引i左侧的最大值leftMax，以及索引i右侧的最大值rightMax，
- * 就可以知道当前索引i的盛水高度为Math.min(leftMax, rightMax) - height[i]。
+ * 我们的栈stack中存储的是height数组的索引。如果指针cur指向的height数组中的值小于等于栈顶元素或者栈为空，
+ * 我们就一直入栈，因此我们栈顶元素索引对应的height数组的值是整个栈中最小的。一旦指针cur指向的height数组
+ * 中的值超过栈顶的元素索引对应的height数组的值，就代表栈顶元素有一个右边界。由于栈中的元素都是递减的，所以
+ * 如果存在一个比栈顶元素大的栈中元素，则一定可以确定该横向区域内的盛水量。
  *
- * 时间复杂度是O(n ^ 2)，其中n为height数组的长度。空间复杂度是O(1)。
+ * 时间复杂度和空间复杂度均是O(n)，其中n为height数组的长度。
  *
- * 执行用时：201ms，击败5.03%。消耗内存：48.9MB，击败5.15%。
+ * 执行用时：7ms，击败32.86%。消耗内存：36.4MB，击败90.64%。
  */
 public class Solution3 {
     public int trap(int[] height) {
@@ -16,19 +20,19 @@ public class Solution3 {
         if (n == 0 || n == 1) {
             return result;
         }
-        for (int i = 1; i < n - 1; i++) {
-            int leftMax = 0;
-            for (int j = 0; j < i; j++) {
-                leftMax = Math.max(leftMax, height[j]);
+        int cur = 0;
+        Stack<Integer> stack = new Stack<>();
+        while (cur < n) {
+            while (!stack.isEmpty() && height[cur] > height[stack.peek()]) {
+                int top = stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int distance = cur - stack.peek() - 1;
+                result += (Math.min(height[cur], height[stack.peek()]) - height[top]) * distance;
             }
-            int rightMax = 0;
-            for (int j = i + 1; j < n; j++) {
-                rightMax = Math.max(rightMax, height[j]);
-            }
-            int min = Math.min(leftMax, rightMax);
-            if (min > height[i]) {
-                result += min - height[i];
-            }
+            stack.push(cur);
+            cur++;
         }
         return result;
     }
