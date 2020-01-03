@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/permutations/
+ *
  * 回溯法。
  *
  * 时间复杂度是O(n!)，其中n是nums数组的长度。空间复杂度是O(n)。
