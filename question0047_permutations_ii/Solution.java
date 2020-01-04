@@ -9,52 +9,38 @@ import java.util.*;
  *
  * 时间复杂度是O(n!)，其中n为nums数组的长度。空间复杂度是O(n)。
  *
- * 执行用时：10ms，击败31.31%。消耗内存：37.7MB，击败97.14%。
+ * 执行用时：2ms，击败96.41%。消耗内存：39.7MB，击败91.28%。
  */
 public class Solution {
     private List<List<Integer>> listList = new ArrayList<>();
 
-    private Map<Integer, Integer> map = new HashMap<>();
+    private boolean[] used;
 
     private List<Integer> list = new ArrayList<>();
 
     public List<List<Integer>> permuteUnique(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            addToHashMap(map, nums[i]);
-        }
-        permuteUnique();
+        used = new boolean[nums.length];
+        Arrays.sort(nums);
+        dfs(nums);
         return listList;
     }
 
-    /**
-     * we put the possible array in list, we are going to find next number
-     */
-    private void permuteUnique() {
-        if (map.isEmpty()) {
+    private void dfs(int[] nums) {
+        if (list.size() == nums.length) {
             listList.add(new ArrayList<>(list));
             return;
         }
-        for (int num : new HashSet<>(map.keySet())) {
-            list.add(num);
-            delFromHashMap(map, num);
-            permuteUnique();
-            addToHashMap(map, num);
-            list.remove(list.size() - 1);
-        }
-    }
-
-    private void addToHashMap(Map<Integer, Integer> map, int num) {
-        if (map.containsKey(num)) {
-            map.put(num, map.get(num) + 1);
-        } else {
-            map.put(num, 1);
-        }
-    }
-
-    private void delFromHashMap(Map<Integer, Integer> map, int num) {
-        map.put(num, map.get(num) - 1);
-        if (map.get(num) == 0) {
-            map.remove(num);
+        for (int i = 0; i < nums.length; i++) {
+            if (!used[i]) {
+                if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                    continue;
+                }
+                used[i] = true;
+                list.add(nums[i]);
+                dfs(nums);
+                list.remove(list.size() - 1);
+                used[i] = false;
+            }
         }
     }
 }
