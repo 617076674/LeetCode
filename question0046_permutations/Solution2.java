@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/permutations/
+ *
  * 回溯法。采用swap()操作来代替Solution1中的list.contains()操作。
  *
  * 把nums数组分成两部分，一部分是数组中的第一个元素，另一个部分是数组中的其他元素，接下来求其他元素的全排列。

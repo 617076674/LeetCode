@@ -1,7 +1,7 @@
 package question0041_first_missing_positive;
 
 /**
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82656191
+ * https://leetcode-cn.com/problems/first-missing-positive/
  *
  * 让数组的第i个位置应该存放值i + 1。
  *

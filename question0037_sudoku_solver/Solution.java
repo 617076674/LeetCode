@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/sudoku-solver/
+ *
  * 回溯法。
  *
  * 执行用时：9ms，击败64.47%。消耗内存：35.4MB，击败70.78%。
@@ -38,22 +40,22 @@ public class Solution {
         }
     }
 
-    private boolean canFillThisNum(char[][] board, int i, int j, int num) {
-        if (board[i][j] != '.') {
+    private boolean canFillThisNum(char[][] board, int x, int y, int num) {
+        if (board[x][y] != '.') {
             return false;
         }
         for (int k = 0; k < 9; k++) {
-            if (board[i][k] != '.' && num == board[i][k] - '0') {
+            if (num == board[x][k] - '0') {
                 return false;
             }
-            if (board[k][j] != '.' && num == board[k][j] - '0') {
+            if (num == board[k][y] - '0') {
                 return false;
             }
         }
-        int top = (i / 3) * 3, bottom = top + 2, left = (j / 3) * 3, right = left + 2;
-        for (int k = top; k <= bottom; k++) {
-            for (int p = left; p <= right; p++) {
-                if (board[k][p] != '.' && num == board[k][p] - '0') {
+        int top = (x / 3) * 3, bottom = top + 2, left = (y / 3) * 3, right = left + 2;
+        for (int i = top; i <= bottom; i++) {
+            for (int j = left; j <= right; j++) {
+                if (num == board[i][j] - '0') {
                     return false;
                 }
             }
