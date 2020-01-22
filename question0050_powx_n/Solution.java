@@ -1,6 +1,8 @@
 package question0050_powx_n;
 
 /**
+ * https://leetcode-cn.com/problems/powx-n/
+ *
  * 递归实现。
  *
  * 时间复杂度和空间复杂度均是O(logn)。
@@ -13,13 +15,13 @@ public class Solution {
         if (n == 0) {
             return result;
         } else if (n > 0) {
-            double tmp = myPow(x, n / 2);
+            double tmp = myPow(x, n >> 1);
             if ((n & 1) == 0) {
                 return tmp * tmp;
             }
             return tmp * tmp * x;
         }
-        double tmp = myPow(x, n / 2);
+        double tmp = myPow(x, n >> 1);
         if ((n & 1) == 0) {
             return tmp * tmp;
         }

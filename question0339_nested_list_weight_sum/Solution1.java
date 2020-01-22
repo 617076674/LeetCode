@@ -9,7 +9,7 @@ import java.util.List;
  *
  * 执行用时：1ms，击败100.00%。消耗内存：34.4MB，击败100.00%。
  */
-public class Solution {
+public class Solution1 {
     public int depthSum(List<NestedInteger> nestedList) {
         return depthSum(nestedList, 1);
     }
