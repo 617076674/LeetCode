@@ -1,9 +1,11 @@
-package question0051;
+package question0051_n_queens;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode-cn.com/problems/n-queens/
+ *
  * 回溯法。先求出全排列，再判断每个排列是否符合规则。
  *
  * 时间复杂度是O(n ^ n)。空间复杂度是O(n ^ 2)。
@@ -27,7 +29,7 @@ public class Solution2 {
         permute(0);
         for (List<Integer> item : listList) {
             if (judge(item)) {
-                List<String> tempList = new ArrayList<>();
+                List<String> tmpList = new ArrayList<>();
                 for (int i = 0; i < n; i++) {
                     StringBuilder sb = new StringBuilder();
                     for (int j = 0; j < n; j++) {
@@ -37,9 +39,9 @@ public class Solution2 {
                             sb.append(".");
                         }
                     }
-                    tempList.add(sb.toString());
+                    tmpList.add(sb.toString());
                 }
-                result.add(tempList);
+                result.add(tmpList);
             }
         }
         return result;
@@ -60,9 +62,9 @@ public class Solution2 {
     }
 
     private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        int tmp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = tmp;
     }
 
     private boolean judge(List<Integer> list) {

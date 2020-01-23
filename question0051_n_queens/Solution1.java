@@ -1,14 +1,16 @@
-package question0051;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82781370
- */
+package question0051_n_queens;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode-cn.com/problems/n-queens/
+ *
+ * 回溯法。
+ *
+ * 执行用时：16ms，击败11.17%。消耗内存：39.9MB，击败14.72%。
+ */
 public class Solution1 {
-
     private List<List<String>> listList = new ArrayList<>();
 
     private int[] position;

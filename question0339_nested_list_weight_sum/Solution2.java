@@ -2,7 +2,6 @@ package question0339_nested_list_weight_sum;
 
 import question0364_nested_list_weight_sum_ii.NestedInteger;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
