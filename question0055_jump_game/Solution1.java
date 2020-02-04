@@ -1,8 +1,7 @@
-package question0055;
+package question0055_jump_game;
 
 /**
- * @author qianyihui
- * @date 2019-08-08
+ * https://leetcode-cn.com/problems/jump-game/
  *
  * 动态规划。
  *
@@ -14,9 +13,9 @@ package question0055;
  *
  * 时间复杂度是O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(n)。
  *
- * 执行用时：949ms，击败5.02%。消耗内存：42.4MB，击败66.09%。
+ * 执行用时：824ms，击败7.17%。消耗内存：41.5MB，击败13.89%。
  */
-public class Solution2 {
+public class Solution1 {
     public boolean canJump(int[] nums) {
         int n = nums.length;
         boolean[] dp = new boolean[n];
@@ -24,6 +23,9 @@ public class Solution2 {
         for (int i = n - 2; i >= 0; i--) {
             for (int j = 1; j <= nums[i] && i + j < n; j++) {
                 dp[i] |= dp[j + i];
+                if (dp[i]) {
+                    break;
+                }
             }
         }
         return dp[0];
