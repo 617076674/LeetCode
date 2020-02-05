@@ -1,11 +1,10 @@
-package question0056;
+package question0056_merge_intervals;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author qianyihui
- * @date 2019-08-18
+ * https://leetcode-cn.com/problems/merge-intervals/
  *
  * 并查集。
  *
