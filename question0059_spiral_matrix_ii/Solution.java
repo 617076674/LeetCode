@@ -1,7 +1,7 @@
-package question0059;
+package question0059_spiral_matrix_ii;
 
 /**
- * 和question0054一样的解法，只不过question0054是取数字，而本题是填数字。
+ * https://leetcode-cn.com/problems/spiral-matrix-ii/
  *
  * 时间复杂度是O(n ^ 2)。空间复杂度是O(1)。
  *
@@ -13,22 +13,22 @@ public class Solution {
         int num = 1, left = 0, right = n - 1, top = 0, bottom = n - 1;
         while (left <= right && top <= bottom) {
             for (int i = left; i <= right; i++) {
-                result[top][i] = num++;
+                result[top][i] = num++; //当前层的上边界
             }
             top++;
             for (int i = top; i <= bottom; i++) {
-                result[i][right] = num++;
+                result[i][right] = num++;   //当前层的右边界
             }
             right--;
             if (top <= bottom) {
                 for (int i = right; i >= left; i--) {
-                    result[bottom][i] = num++;
+                    result[bottom][i] = num++;  //当前层的下边界
                 }
                 bottom--;
             }
             if (left <= right) {
                 for (int i = bottom; i >= top; i--) {
-                    result[i][left] = num++;
+                    result[i][left] = num++;    //当前层的左边界
                 }
                 left++;
             }
