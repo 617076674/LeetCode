@@ -1,32 +1,33 @@
-package question061;
+package question0061_rotate_list;
 
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82834157
+/**
+ * https://leetcode-cn.com/problems/rotate-list/
+ *
+ * 时间复杂度是O(n)，其中n为链表中的节点个数。空间复杂度是O(1)。
+ *
+ * 执行用时：1ms，击败99.92%。消耗内存：37.9MB，击败7.14%。
  */
 public class Solution {
-
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
+        if (null == head || null == head.next) {
             return head;
         }
-        ListNode dummyHead = new ListNode(-1);
+        ListNode dummyHead = new ListNode(-1), cur = dummyHead;
         dummyHead.next = head;
-        ListNode cur = dummyHead;
         int len = 0;
         while (cur.next != null) {
             cur = cur.next;
             len++;
         }
-        k = k % len;
-        if (k == 0) {
+        k %= len;
+        if (0 == k) {
             return head;
         }
-        ListNode cur1 = dummyHead;
-        ListNode cur2 = dummyHead;
+        ListNode cur1 = dummyHead, cur2 = dummyHead;
         for (int i = 0; i < k; i++) {
             cur1 = cur1.next;
         }
-        while (cur1.next != null) {
+        while (null != cur1.next) {
             cur1 = cur1.next;
             cur2 = cur2.next;
         }
