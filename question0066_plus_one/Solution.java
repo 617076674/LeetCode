@@ -1,4 +1,4 @@
-package question0066;
+package question0066_plus_one;
 
 /**
  * 字符串加法。
@@ -16,6 +16,7 @@ public class Solution {
                 digits[i] -= 10;
             } else {
                 flag = 0;
+                break;
             }
         }
         if (flag == 1) {
