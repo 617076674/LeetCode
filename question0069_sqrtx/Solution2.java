@@ -1,6 +1,8 @@
-package question0069;
+package question0069_sqrtx;
 
 /**
+ * https://leetcode-cn.com/problems/sqrtx/
+ *
  * 二分法。
  *
  * 时间复杂度是O(logx)。空间复杂度是O(1)。
@@ -9,9 +11,9 @@ package question0069;
  */
 public class Solution2 {
     public int mySqrt(int x) {
-        int left = 0, right = x / 2 + 1;
+        int left = 0, right = (x >> 1) + 1;
         while (left <= right) {
-            long mid = left + (right - left) / 2;
+            long mid = left + ((right - left) >> 1);
             if (mid * mid == x) {
                 return (int) mid;
             } else if (mid * mid < x) {
