@@ -1,13 +1,17 @@
-package question071;
-
-/*
- * See analysis: https://blog.csdn.net/qq_41231926/article/details/82862721
- */
+package question0071_simplify_path;
 
 import java.util.Stack;
 
+/**
+ * https://leetcode-cn.com/problems/simplify-path/
+ *
+ * 栈的应用。
+ *
+ * 时间复杂度和空间复杂度均是O(n)，其中n为路径path的长度。
+ *
+ * 执行用时：8ms，击败31.38%。消耗内存：43.5MB，击败5.04%。
+ */
 public class Solution {
-
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] strings = path.split("/");
@@ -22,10 +26,10 @@ public class Solution {
                 stack.push(strings[i]);
             }
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         while (!stack.isEmpty()) {
-            result = "/" + stack.pop() + result;
+            result.insert(0, stack.pop()).insert(0, "/");
         }
-        return result.equals("") ? "/" : result;
+        return result.toString().equals("") ? "/" : result.toString();
     }
 }
