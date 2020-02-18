@@ -1,8 +1,6 @@
 package question0001_two_sum;
 
 /**
- * https://leetcode-cn.com/problems/two-sum/
- *
  * 时间复杂度O(n ^ 2)，其中n为nums数组的长度。空间复杂度是O(1)。
  *
  * 执行用时：31ms，击败42.91%。消耗内存：37.6MB，击败85.93%。

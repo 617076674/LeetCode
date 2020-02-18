@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * https://leetcode-cn.com/problems/two-sum/
- *
  * 时间复杂度是O(n)，其中n是nums数组的长度。空间复杂度是O(m)，其中m为nums数组中不同元素的数量。
  *
  * 执行用时：3ms，击败98.75%。消耗内存：37MB，击败92.85%。

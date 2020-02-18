@@ -3,8 +3,6 @@ package question0001_two_sum;
 import java.util.*;
 
 /**
- * https://leetcode-cn.com/problems/two-sum/
- *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度均是O(m)，其中m为nums数组中不同元素的数量。
  *
  * 执行用时：8ms，击败70.08%。消耗内存：38.5MB，击败62.24%。
