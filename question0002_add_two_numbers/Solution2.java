@@ -1,8 +1,6 @@
 package question0002_add_two_numbers;
 
 /**
- * https://leetcode-cn.com/problems/add-two-numbers/
- *
  * 时间复杂度是O(n1 + n2)，其中n1为链表l1的长度，n2位链表l2的长度。空间复杂度是O(1)。
  *
  * 执行用时：10ms，击败80.37%。消耗内存：44.7MB，击败84.76%。
