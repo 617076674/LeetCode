@@ -22,7 +22,7 @@ public class Solution2 {
         public void insert(int num) {
             TrieNode cur = root;
             for (int i = 31; i >= 0; i--) {
-                int bit = (num >> i) & 1;
+                int bit = (num >> i) & 1;   //bit代表num中的第i位值，最低位为第0位，最高位为第31位
                 if (bit == 0 && cur.zero == null) {
                     cur.zero = new TrieNode();
                 }
@@ -37,12 +37,12 @@ public class Solution2 {
     }
 
     public int findMaximumXOR(int[] nums) {
-        if (nums == null || nums.length <= 1) {
+        if (null == nums || nums.length < 2) {
             return 0;
         }
         TrieTree root = new TrieTree();
-        for (int n : nums) {
-            root.insert(n);
+        for (int num : nums) {
+            root.insert(num);
         }
         //获取真正需要开始判断的root
         //以题目所给示例[3, 10, 5, 25, 2, 8]说明，各个数字的二进制表示如下：
