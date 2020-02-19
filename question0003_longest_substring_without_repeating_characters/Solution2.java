@@ -1,8 +1,6 @@
 package question0003_longest_substring_without_repeating_characters;
 
 /**
- * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
- *
  * 滑动窗口法。
  *
  * 将一个数组当作哈希表。
@@ -24,7 +22,7 @@ public class Solution2 {
                 right++;
                 appear[s.charAt(right)] = true;
             } else {
-                appear[s.charAt(left)] = false;
+                appear[s.charAt(left)] = false; //因为滑动窗口中不可能包含重复字符，故去除left处的字符后，滑动窗口将不包含该字符
                 left++;
             }
             result = Math.max(result, right - left + 1);

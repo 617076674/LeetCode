@@ -1,8 +1,6 @@
 package question0003_longest_substring_without_repeating_characters;
 
 /**
- * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
- *
  * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 3)，其中n为字符串s的长度。空间复杂度是O(1)。

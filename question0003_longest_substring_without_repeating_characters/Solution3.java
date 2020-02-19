@@ -3,8 +3,6 @@ package question0003_longest_substring_without_repeating_characters;
 import java.util.Arrays;
 
 /**
- * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
- *
  * 对Solution2的优化。
  *
  * 执行用时：9ms，击败94.74%。消耗内存：39MB，击败84.02%。

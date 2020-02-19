@@ -3,8 +3,6 @@ package question0003_longest_substring_without_repeating_characters;
 import java.util.Arrays;
 
 /**
- * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
- *
  * 动态规划。
  *
  * 状态定义：
@@ -29,9 +27,8 @@ public class Solution4 {
         }
         int[] last = new int[256];
         Arrays.fill(last, -1);
-        int dp = 1;
+        int dp = 1, result = 1;
         last[s.charAt(0)] = 0;
-        int result = 1;
         for (int i = 1; i < n; i++) {
             char c = s.charAt(i);
             if (last[c] == -1) {
