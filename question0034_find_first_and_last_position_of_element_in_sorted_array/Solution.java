@@ -36,7 +36,7 @@ public class Solution {
         if (left + 1 < nums.length && nums[left + 1] == target) {
             return left + 1;
         }
-        return -1;
+        return left;
     }
 
     private int ceil(int[] nums, int target) {

@@ -16,7 +16,7 @@ public class Solution2 {
         private boolean isNum;
     }
 
-    private class TrieTree {
+    private class Trie {
         private TrieNode root = new TrieNode();
 
         public void insert(int num) {
@@ -40,7 +40,7 @@ public class Solution2 {
         if (null == nums || nums.length < 2) {
             return 0;
         }
-        TrieTree root = new TrieTree();
+        Trie root = new Trie();
         for (int num : nums) {
             root.insert(num);
         }
