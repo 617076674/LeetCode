@@ -1,16 +1,21 @@
 package question0005_longest_palindromic_substring;
 
 /**
- * https://leetcode-cn.com/problems/longest-palindromic-substring/
- *
  * 动态规划。
  *
- * 状态定义：dp[i][j]表示字符串s中[i, j]范围内的子串是否是回文串
+ * 状态定义：
+ *
+ * dp[i][j]表示字符串s中[i, j]范围内的子串是否是回文串
  *
  * 状态转移：
+ *
  * （1）当i == j时，[i, j]范围内只有一个字符，显然是回文串，dp[i][j] = true。
- * （2）当(j - i) ∈ (0, 2]时，[i, j]范围内有2个字符或3个字符，不管是2个字符还是3个字符，此时[i, j]范围内的子串是回文串的条件是s.charAt(i) == s.charAt(j)。
- * （3）当(j - i) > 2时，[i, j]范围内超出3个字符，此时[i, j]范围内的子串是回文串的条件是s.charAt(i) == s.charAt(j)且[i + 1, j - 1]范围内的子串是回文串。
+ *
+ * （2）当(j - i) ∈ (0, 2]时，[i, j]范围内有2个字符或3个字符，不管是2个字符还是3个字符，
+ * 此时[i, j]范围内的子串是回文串的条件是s.charAt(i) == s.charAt(j)。
+ *
+ * （3）当(j - i) > 2时，[i, j]范围内超出3个字符，
+ * 此时[i, j]范围内的子串是回文串的条件是s.charAt(i) == s.charAt(j)且[i + 1, j - 1]范围内的子串是回文串。
  *
  * 时间复杂度和空间复杂度均是O(n ^ 2)，其中n为输入字符串s的长度。
  *
@@ -19,17 +24,8 @@ package question0005_longest_palindromic_substring;
 public class Solution3 {
     public String longestPalindrome(String s) {
         int n;
-        if (null == s || (n = s.length()) == 0) {
-            return "";
-        }
-        if (n < 2) {
+        if (null == s || (n = s.length()) < 2) {
             return s;
-        }
-        if (n == 2) {
-            if (s.charAt(0) == s.charAt(1)) {
-                return s;
-            }
-            return s.substring(0, 1);
         }
         boolean[][] dp = new boolean[n][n];
         String result = "";

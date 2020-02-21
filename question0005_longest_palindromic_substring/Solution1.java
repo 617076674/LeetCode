@@ -1,8 +1,6 @@
 package question0005_longest_palindromic_substring;
 
 /**
- * https://leetcode-cn.com/problems/longest-palindromic-substring/
- *
  * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 3)，其中n为字符串s的长度。空间复杂度是O(1)。
@@ -12,8 +10,8 @@ package question0005_longest_palindromic_substring;
 public class Solution1 {
     public String longestPalindrome(String s) {
         int n;
-        if (null == s || (n = s.length()) == 0) {
-            return "";
+        if (null == s || (n = s.length()) < 2) {
+            return s;
         }
         String result = "";
         for (int i = 0; i < n - result.length(); i++) {
@@ -29,7 +27,7 @@ public class Solution1 {
     }
 
     private boolean isPalidrome(String s) {
-        for (int i = 0; i < s.length() / 2; i++) {
+        for (int i = 0; i < (s.length() >> 1); i++) {
             if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
                 return false;
             }
