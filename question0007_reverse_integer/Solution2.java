@@ -1,8 +1,6 @@
 package question0007_reverse_integer;
 
 /**
- * https://leetcode-cn.com/problems/reverse-integer/
- *
  * 利用long型变量来进行这整个计算过程。
  *
  * 时间复杂度是O(log(x))。空间复杂度是O(1)。

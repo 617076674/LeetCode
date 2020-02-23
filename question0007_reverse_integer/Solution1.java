@@ -1,8 +1,6 @@
 package question0007_reverse_integer;
 
 /**
- * https://leetcode-cn.com/problems/reverse-integer/
- *
  * 利用异常来处理溢出的情况。
  *
  * 时间复杂度是O(log(x))。空间复杂度是O(1)。
