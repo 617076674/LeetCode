@@ -1,8 +1,6 @@
 package question0008_string_to_integer_atoi;
 
 /**
- * https://leetcode-cn.com/problems/string-to-integer-atoi/
- *
  * 时间复杂度是O(n)，其中n为字符串str的长度。空间复杂度是O(1)。
  *
  * 执行用时：13ms，击败42.67%。消耗内存：36.8MB，击败83.10%。
