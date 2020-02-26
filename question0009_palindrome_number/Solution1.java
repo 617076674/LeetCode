@@ -1,8 +1,6 @@
 package question0009_palindrome_number;
 
 /**
- * https://leetcode-cn.com/problems/palindrome-number/
- *
  * 先将输入的x用字符串形式来表示，再遍历该字符串判断是否是回文串。
  *
  * 时间复杂度是O(n)，其中n为x转化为字符串的长度。空间复杂度是O(1)。

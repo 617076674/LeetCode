@@ -1,9 +1,9 @@
 package question0009_palindrome_number;
 
 /**
- * https://leetcode-cn.com/problems/palindrome-number/
- *
  * 将反转后得到的数字和原数字比较是否相等。这里不用考虑数据溢出问题，如果溢出，显然就不相等了。
+ *
+ * 时间复杂度是O(n)，其中n为x转化为字符串的长度。空间复杂度是O(1)。
  *
  * 执行用时：50ms，击败66.56%。消耗内存：37.6MB，击败87.01%。
  */
