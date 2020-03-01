@@ -1,8 +1,6 @@
 package question0011_container_with_most_water;
 
 /**
- * https://leetcode-cn.com/problems/container-with-most-water/
- *
  * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 2)，其中n为height数组的长度。空间复杂度是O(1)。
@@ -11,12 +9,12 @@ package question0011_container_with_most_water;
  */
 public class Solution1 {
     public int maxArea(int[] height) {
-        int n = height.length, area = 0;
+        int n = height.length, result = 0;
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
-                area = Math.max(area, (j - i) * Math.min(height[i], height[j]));
+                result = Math.max(result, (j - i) * Math.min(height[i], height[j]));
             }
         }
-        return area;
+        return result;
     }
 }

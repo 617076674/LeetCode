@@ -1,8 +1,6 @@
 package question0011_container_with_most_water;
 
 /**
- * https://leetcode-cn.com/problems/container-with-most-water/
- *
  * 设立两个指针，一个从头一个从尾，相向而行遍历数组，每次舍弃较短边
  * （1）计算面积最大值的初值，该初值以数组中的第一个元素和最后一个元素构成两边。
  * （2）设置首尾两个指针，首指针i指向数组中的第一个元素，尾指针j指向数组中的最后一个元素。
@@ -21,15 +19,15 @@ package question0011_container_with_most_water;
  */
 public class Solution2 {
     public int maxArea(int[] height) {
-        int n = height.length, i = 0, j = n - 1, area = (n - 1) * Math.min(height[i], height[j]);
+        int n = height.length, i = 0, j = n - 1, result = (n - 1) * Math.min(height[i], height[j]);
         while (i < j) {
-            area = Math.max(area, (j - i) * Math.min(height[i], height[j]));
+            result = Math.max(result, (j - i) * Math.min(height[i], height[j]));
             if (height[i] < height[j]) {
                 i++;
             } else {
                 j--;
             }
         }
-        return area;
+        return result;
     }
 }
