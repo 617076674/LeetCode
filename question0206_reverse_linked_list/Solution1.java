@@ -18,4 +18,3 @@ public class Solution1 {
         return newHead;
     }
 }
-

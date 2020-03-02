@@ -25,4 +25,3 @@ public class Solution2 {
         return dummyHead.next;
     }
 }
-
