@@ -14,30 +14,37 @@ import java.util.Queue;
  */
 public class Solution {
     public int orangesRotting(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
+        int m;
+        if (null == grid || (m = grid.length) == 0) {
+            return 0;
+        }
+        int n;
+        if (null == grid[0] || (n = grid[0].length) == 0) {
+            return 0;
+        }
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         Queue<Integer> queue = new LinkedList<>();
-        Map<Integer, Integer> depth = new HashMap();
+        Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 2) {
                     int code = i * n + j;
                     queue.add(code);
-                    depth.put(code, 0);
+                    map.put(code, 0);
                 }
             }
         }
         int result = 0;
         while (!queue.isEmpty()) {
             int code = queue.poll(), x = code / n, y = code % n;
-            for (int i = 0; i < 4; ++i) {
+            for (int i = 0; i < 4; i++) {
                 int newX = x + directions[i][0], newY = y + directions[i][1];
                 if (0 <= newX && newX < m && 0 <= newY && newY < n && grid[newX][newY] == 1) {
                     grid[newX][newY] = 2;
                     int newCode = newX * n + newY;
                     queue.add(newCode);
-                    depth.put(newCode, depth.get(code) + 1);
-                    result = depth.get(newCode);
+                    map.put(newCode, map.get(code) + 1);
+                    result = map.get(newCode);
                 }
             }
         }
