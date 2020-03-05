@@ -7,7 +7,7 @@ package question1103_distribute_candies_to_people;
  *
  * 执行用时：1ms，击败96.95%。消耗内存：33.7MB，击败100.00%。
  */
-public class Solution {
+public class Solution1 {
     public int[] distributeCandies(int candies, int num_people) {
         int[] result = new int[num_people];
         int index = 1;
@@ -17,8 +17,7 @@ public class Solution {
                 break;
             } else {
                 result[i % num_people] += index;
-                candies -= index;
-                index++;
+                candies -= index++;
             }
         }
         return result;
