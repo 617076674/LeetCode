@@ -1,9 +1,7 @@
-package question0121;
+package question0121_best_time_to_buy_and_sell_stock;
 
 /**
- * f(x)：当第x天卖出时能获得的最大利润。
- *
- * 只需用一个变量minPrice记录[0, x - 1]天的最小值即可。
+ * 记录[0, x - 1]天的最小值。
  *
  * 时间复杂度是O(n)，其中n是prices数组的长度。空间复杂度是O(1)。
  *

@@ -1,4 +1,4 @@
-package question0121;
+package question0121_best_time_to_buy_and_sell_stock;
 
 /**
  * 暴力破解法。
