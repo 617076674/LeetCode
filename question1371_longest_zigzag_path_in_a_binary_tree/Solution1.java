@@ -1,4 +1,4 @@
-package question5338_longest_zigzag_path_in_a_binary_tree;
+package question1371_longest_zigzag_path_in_a_binary_tree;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,6 @@
 package question0013_roman_to_integer;
 
 /**
- * https://leetcode-cn.com/problems/roman-to-integer/
- *
  * 繁琐而简单。
  *
  * 时间复杂度是O(n)，其中n为输入字符串s的长度。空间复杂度是O(1)。
