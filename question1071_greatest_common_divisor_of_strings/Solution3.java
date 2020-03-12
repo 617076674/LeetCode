@@ -3,11 +3,13 @@ package question1071_greatest_common_divisor_of_strings;
 /**
  * 字符串str1和字符串str2存在最大公因子的充要条件是(str1 + str2).equals(str2 + str1)。
  *
- * 当确定有解的情况下，最优解是长度为gcd(str1.length, str2.length)的字符串。
+ * 当确定有解的情况下，最优解是长度为gcd(n1, n2)的字符串，其中n1为字符串str1的长度，n2为字符串str2的长度。
+ *
+ * 时间复杂度和空间复杂度均是O(n1 + n2)。
  *
  * 执行用时：1ms，击败95.96%。消耗内存：42.8MB，击败5.26%。
  */
-public class Solution {
+public class Solution3 {
     public String gcdOfStrings(String str1, String str2) {
         if (!(str1 + str2).equals(str2 + str1)) {
             return "";
