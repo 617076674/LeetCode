@@ -1,12 +1,9 @@
-package question0169;
+package question0169_majority_element;
 
 /**
- * @author qianyihui
- * @date 2019-07-03
- *
  * 随机算法。
  *
- * 时间复杂度是O(♾)。空间复杂度是O(1)。
+ * 时间复杂度是O(∞)。空间复杂度是O(1)。
  *
  * 执行用时：5ms，击败44.55%。消耗内存：50.6MB，击败25.28%。
  */

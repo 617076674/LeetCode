@@ -1,4 +1,4 @@
-package question0169;
+package question0169_majority_element;
 
 /**
  * 摩尔投票法。
@@ -9,8 +9,7 @@ package question0169;
  */
 public class Solution4 {
     public int majorityElement(int[] nums) {
-        int result = nums[0];
-        int count = 1;
+        int result = nums[0], count = 1;
         for (int i = 1; i < nums.length; i++) {
             if (0 == count) {
                 count = 1;

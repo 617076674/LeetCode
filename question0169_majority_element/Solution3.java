@@ -1,4 +1,4 @@
-package question0169;
+package question0169_majority_element;
 
 /**
  * 分治算法。求左半区间和右半区间的众数。
@@ -16,14 +16,13 @@ public class Solution3 {
         if (left == right) {
             return nums[left];
         }
-        int mid = ((right - left) >> 1) + left;
-        int leftResult = majorityElementRec(nums, left, mid);
-        int rightResult = majorityElementRec(nums, mid + 1, right);
+        int mid = ((right - left) >> 1) + left, leftResult = majorityElementRec(nums, left, mid),
+                rightResult = majorityElementRec(nums, mid + 1, right);
         if (leftResult == rightResult) {
             return leftResult;
         }
-        int leftCount = countInRange(nums, leftResult, left, right);
-        int rightCount = countInRange(nums, rightResult, left, right);
+        int leftCount = countInRange(nums, leftResult, left, right),
+                rightCount = countInRange(nums, rightResult, left, right);
         return leftCount > rightCount ? leftResult : rightResult;
     }
 

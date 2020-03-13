@@ -1,4 +1,4 @@
-package question0169;
+package question0169_majority_element;
 
 /**
  * 位运算。依次确定结果数中每一位的值。

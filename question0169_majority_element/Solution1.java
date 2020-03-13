@@ -1,4 +1,4 @@
-package question0169;
+package question0169_majority_element;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class Solution1 {
             }
         }
         for (Integer integer : map.keySet()) {
-            if (map.get(integer) > nums.length / 2) {
+            if (map.get(integer) > (nums.length >> 1)) {
                 return integer;
             }
         }
