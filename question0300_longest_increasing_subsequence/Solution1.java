@@ -1,9 +1,6 @@
 package question0300_longest_increasing_subsequence;
 
 /**
- * @author qianyihui
- * @date 2019-07-23
- *
  * 动态规划。
  *
  * 状态定义：

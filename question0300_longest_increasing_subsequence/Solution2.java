@@ -1,9 +1,6 @@
 package question0300_longest_increasing_subsequence;
 
 /**
- * @author qianyihui
- * @date 2019-08-11
- *
  * 二分查找法。
  *
  * 首先，我们需要一个n行的二维数组，其中第0行记录长度为1的一个"上升子序列"，第1行记录长度为2的一个"上升子序列"，...，
