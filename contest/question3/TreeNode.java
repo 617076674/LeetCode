@@ -1,4 +1,4 @@
-package question0536_construct_binary_tree_from_string;
+package contest.question3;
 
 public class TreeNode {
     int val;
