@@ -1,9 +1,6 @@
-package question0409;
+package question0409_longest_palindrome;
 
 /**
- * @author qianyihui
- * @date 2019-08-17
- *
  * 统计每个字符出现的次数。
  *
  * 对于偶数个数的字符，全部都可加入回文串中。对于奇数个数的字符，其减1后的个数的字符可以加入回文串中。
