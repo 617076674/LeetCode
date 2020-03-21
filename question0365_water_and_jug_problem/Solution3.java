@@ -20,9 +20,6 @@ public class Solution3 {
      * 欧几里得最大公约数算法
      */
     private int gcd(int a, int b) {
-        if (a < b) {
-            return gcd(b, a);
-        }
         if (a % b == 0) {
             return b;
         }
