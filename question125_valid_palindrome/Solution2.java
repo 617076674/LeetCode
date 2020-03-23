@@ -1,4 +1,4 @@
-package question125;
+package question125_valid_palindrome;
 
 public class Solution2 {
     public boolean isPalindrome(String s) {
@@ -19,9 +19,7 @@ public class Solution2 {
     }
 
     private boolean isLetterOrNumber(char c) {
-        if (c >= 'a' && c <= 'z') {
-            return true;
-        } else if (c >= '0' && c <= '9') {
+        if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
             return true;
         }
         return false;

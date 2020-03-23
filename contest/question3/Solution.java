@@ -1,48 +1,89 @@
 package contest.question3;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Solution {
-    private List<Integer> inOrder = new ArrayList<>();
+    private boolean result;
 
-    public TreeNode balanceBST(TreeNode root) {
-        inOrderTraversal(root);
-        int[] nums = new int[inOrder.size()];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = inOrder.get(i);
-        }
-        return sortedArrayToBST(nums);
+    private boolean[][] visited;
+
+    private int m, n;
+
+    public boolean hasValidPath(int[][] grid) {
+        m = grid.length;
+        n = grid[0].length;
+        visited = new boolean[m][n];
+        dfs(grid, 0, 0);
+        return result;
     }
 
-    private void inOrderTraversal(TreeNode root) {
-        if (null == root) {
+    private void dfs(int[][] grid, int x, int y) {
+        if (result) {
             return;
         }
-        inOrderTraversal(root.left);
-        inOrder.add(root.val);
-        inOrderTraversal(root.right);
-    }
-
-    public TreeNode sortedArrayToBST(int[] nums) {
-        TreeNode treeNode = null;
-        if(nums.length == 0) {
-            return treeNode;
+        if (x == m - 1 && y == n - 1) {
+            result = true;
+            return;
         }
-        int mid = nums.length / 2;
-        treeNode = new TreeNode(nums[mid]);
-        int[] leftNums = new int[mid];
-        for (int i = 0; i < leftNums.length; i++) {
-            leftNums[i] = nums[i];
+        switch (grid[x][y]) {
+            case 1:
+                if (y + 1 < n && !visited[x][y + 1] && (grid[x][y + 1] == 1 || grid[x][y + 1] == 3 || grid[x][y + 1] == 5)) {
+                    visited[x][y + 1] = true;
+                    dfs(grid, x, y + 1);
+                }
+                if (y - 1 >= 0 && !visited[x][y - 1] && (grid[x][y - 1] == 1 || grid[x][y - 1] == 4 || grid[x][y - 1] == 6)) {
+                    visited[x][y - 1] = true;
+                    dfs(grid, x, y - 1);
+                }
+                break;
+            case 2:
+                if (x + 1 < m && !visited[x + 1][y] && (grid[x + 1][y] == 2 || grid[x + 1][y] == 5 || grid[x + 1][y] == 6)) {
+                    visited[x + 1][y] = true;
+                    dfs(grid, x + 1, y);
+                }
+                if (x - 1 >= 0 && !visited[x - 1][y] && (grid[x - 1][y] == 2 || grid[x - 1][y] == 3 || grid[x - 1][y] == 4)) {
+                    visited[x - 1][y] = true;
+                    dfs(grid, x - 1, y);
+                }
+                break;
+            case 3:
+                if (y - 1 >= 0 && !visited[x][y - 1] && (grid[x][y - 1] == 1 || grid[x][y - 1] == 4 || grid[x][y - 1] == 6)) {
+                    visited[x][y - 1] = true;
+                    dfs(grid, x, y - 1);
+                }
+                if (x + 1 < m && !visited[x + 1][y] && (grid[x + 1][y] == 2 || grid[x + 1][y] == 5 || grid[x + 1][y] == 6)) {
+                    visited[x + 1][y] = true;
+                    dfs(grid, x + 1, y);
+                }
+                break;
+            case 4:
+                if (x + 1 < m && !visited[x + 1][y] && (grid[x + 1][y] == 2 || grid[x + 1][y] == 5 || grid[x + 1][y] == 6)) {
+                    visited[x + 1][y] = true;
+                    dfs(grid, x + 1, y);
+                }
+                if (y + 1 < n && !visited[x][y + 1] && (grid[x][y + 1] == 1 || grid[x][y + 1] == 3 || grid[x][y + 1] == 5)) {
+                    visited[x][y + 1] = true;
+                    dfs(grid, x, y + 1);
+                }
+                break;
+            case 5:
+                if (x - 1 >= 0 && !visited[x - 1][y] && (grid[x - 1][y] == 2 || grid[x - 1][y] == 3 || grid[x - 1][y] == 4)) {
+                    visited[x - 1][y] = true;
+                    dfs(grid, x - 1, y);
+                }
+                if (y - 1 >= 0 && !visited[x][y - 1] && (grid[x][y - 1] == 1 || grid[x][y - 1] == 4 || grid[x][y - 1] == 6)) {
+                    visited[x][y - 1] = true;
+                    dfs(grid, x, y - 1);
+                }
+                break;
+            case 6:
+                if (x - 1 >= 0 && !visited[x - 1][y] && (grid[x - 1][y] == 2 || grid[x - 1][y] == 3 || grid[x - 1][y] == 4)) {
+                    visited[x - 1][y] = true;
+                    dfs(grid, x - 1, y);
+                }
+                if (y + 1 < n && !visited[x][y + 1] && (grid[x][y + 1] == 1 || grid[x][y + 1] == 3 || grid[x][y + 1] == 5)) {
+                    visited[x][y + 1] = true;
+                    dfs(grid, x, y + 1);
+                }
+                break;
         }
-        int[] rightNums = new int[nums.length- mid - 1];
-        for (int i = 0; i < rightNums.length; i++) {
-            rightNums[i] = nums[i + mid + 1];
-        }
-        treeNode.left = sortedArrayToBST(leftNums);
-        treeNode.right = sortedArrayToBST(rightNums);
-        return treeNode;
     }
 }

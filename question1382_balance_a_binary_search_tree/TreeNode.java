@@ -1,4 +1,4 @@
-package contest.question3;
+package question1382_balance_a_binary_search_tree;
 
 public class TreeNode {
     int val;

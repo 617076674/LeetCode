@@ -1,13 +1,11 @@
-package question125;
+package question125_valid_palindrome;
 
 public class Solution1 {
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
-                stringBuilder.append(s.charAt(i));
-            } else if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+            if ((s.charAt(i) >= 'a' && s.charAt(i) <= 'z') || (s.charAt(i) >= '0' && s.charAt(i) <= '9')) {
                 stringBuilder.append(s.charAt(i));
             }
         }
