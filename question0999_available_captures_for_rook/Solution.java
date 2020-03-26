@@ -7,44 +7,22 @@ package question0999_available_captures_for_rook;
  */
 public class Solution {
     public int numRookCaptures(char[][] board) {
+        int[][] directions = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j] == 'R') {
                     int result = 0;
-                    //往北走
-                    for (int k = i - 1; k >= 0; k--) {
-                        if (board[k][j] == 'B') {
-                            break;
-                        } else if (board[k][j] == 'p') {
-                            result++;
-                            break;
-                        }
-                    }
-                    //往东走
-                    for (int k = j + 1; k < 8; k++) {
-                        if (board[i][k] == 'B') {
-                            break;
-                        } else if (board[i][k] == 'p') {
-                            result++;
-                            break;
-                        }
-                    }
-                    //往南走
-                    for (int k = i + 1; k < 8; k++) {
-                        if (board[k][j] == 'B') {
-                            break;
-                        } else if (board[k][j] == 'p') {
-                            result++;
-                            break;
-                        }
-                    }
-                    //往西走
-                    for (int k = j - 1; k >= 0; k--) {
-                        if (board[i][k] == 'B') {
-                            break;
-                        } else if (board[i][k] == 'p') {
-                            result++;
-                            break;
+                    for (int k = 0; k < 4; k++) {
+                        int newI = i + directions[k][0], newJ = j + directions[k][1];
+                        while (newI >= 0 && newI < 8 && newJ >= 0 && newJ < 8) {
+                            if (board[newI][newJ] == 'B') {
+                                break;
+                            } else if (board[newI][newJ] == 'p') {
+                                result++;
+                                break;
+                            }
+                            newI += directions[k][0];
+                            newJ += directions[k][1];
                         }
                     }
                     return result;
