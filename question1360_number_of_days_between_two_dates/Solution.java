@@ -1,4 +1,4 @@
-package question5169_number_of_days_between_two_dates;
+package question1360_number_of_days_between_two_dates;
 
 /**
  * 计算各个时间距离1971年1月1日的天数，再相减即可。

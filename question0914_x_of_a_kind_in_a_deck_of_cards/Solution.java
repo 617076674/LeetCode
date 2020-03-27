@@ -13,8 +13,7 @@ import java.util.Set;
  */
 public class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int n;
-        if (null == deck || (n = deck.length) < 2) {
+        if (null == deck || deck.length < 2) {
             return false;
         }
         int[] map = new int[10000];
@@ -28,12 +27,7 @@ public class Solution {
             }
         }
         if (set.size() == 1) {
-            for (int num : set) {
-                if (num != 1) {
-                    return true;
-                }
-                return false;
-            }
+            return set.iterator().next() != 1;
         }
         int result = -1;
         for (int num : set) {
@@ -46,9 +40,6 @@ public class Solution {
         return result != 1;
     }
 
-    /**
-     * 欧几里得最大公约数算法
-     */
     private int gcd(int a, int b) {
         if (b == 0) {
             return a;
