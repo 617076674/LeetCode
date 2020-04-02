@@ -1,0 +1,4 @@
+package question1111_maximum_nesting_depth_of_two_valid_parentheses_strings;
+
+public class Solution2 {
+}
