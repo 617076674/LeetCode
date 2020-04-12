@@ -1,4 +1,4 @@
-package question_remove_duplicate_node_lcci;
+package question_delete_middle_node_lcci;
 
 public class ListNode {
     int val;

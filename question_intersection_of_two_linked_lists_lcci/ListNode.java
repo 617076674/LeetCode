@@ -1,4 +1,4 @@
-package question_palindrome_linked_list_lcci;
+package question_intersection_of_two_linked_lists_lcci;
 
 public class ListNode {
     int val;

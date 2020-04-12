@@ -1,11 +1,11 @@
-package question_sum_lists_lcci;
+package question0002_add_two_numbers;
 
 /**
  * 递归实现。
  *
  * 时间复杂度和空间复杂度均是O(n1 + n2)，其中n1为链表l1的长度，n2位链表l2的长度。
  *
- * 执行用时：2ms，击败100.00%。消耗内存：39.8MB，击败100.00%。
+ * 执行用时：2ms，击败99.95%。消耗内存：39.9MB，击败95.88%。
  */
 public class Solution3 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

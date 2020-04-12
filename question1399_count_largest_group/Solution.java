@@ -1,4 +1,4 @@
-package contest.question1;
+package question1399_count_largest_group;
 
 import java.util.HashMap;
 import java.util.Map;

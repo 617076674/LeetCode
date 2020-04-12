@@ -1,9 +1,6 @@
-package question0289;
+package question0289_game_of_life;
 
 /**
- * @author qianyihui
- * @date 2019-07-30
- *
  * 用一个二维数组记录哪些位置的状态要改变。
  *
  * 时间复杂度和空间复杂度均是O(mn)，其中m为board数组的行数，n为board数组的列数。
@@ -16,12 +13,12 @@ public class Solution1 {
     private boolean[][] needChange;
 
     public void gameOfLife(int[][] board) {
-        int m = board.length;
-        if (m == 0) {
+        int m;
+        if (null == board || (m = board.length) == 0) {
             return;
         }
-        int n = board[0].length;
-        if (n == 0) {
+        int n;
+        if (null == board[0] || (n = board[0].length) == 0) {
             return;
         }
         needChange = new boolean[m][n];
@@ -44,22 +41,14 @@ public class Solution1 {
     private boolean willChange(int[][] board, int x, int y) {
         int count = 0;
         for (int i = 0; i < directions.length; i++) {
-            int newX = x + directions[i][0];
-            int newY = y + directions[i][1];
+            int newX = x + directions[i][0], newY = y + directions[i][1];
             if (newX >= 0 && newX < board.length && newY >= 0 && newY < board[0].length && board[newX][newY] == 1) {
                 count++;
             }
         }
         if (board[x][y] == 1) {
-            if (count < 2 || count > 3) {
-                return true;
-            }
-            return false;
-        } else {
-            if (count == 3) {
-                return true;
-            }
-            return false;
+            return count < 2 || count > 3;
         }
+        return count == 3;
     }
 }

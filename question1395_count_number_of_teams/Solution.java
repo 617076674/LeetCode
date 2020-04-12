@@ -1,4 +1,4 @@
-package contest.question2;
+package question1395_count_number_of_teams;
 
 public class Solution {
     public int numTeams(int[] rating) {

@@ -1,4 +1,4 @@
-package question_remove_duplicate_node_lcci;
+package question_sum_lists_lcci;
 
 public class ListNode {
     int val;

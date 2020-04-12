@@ -1,5 +1,12 @@
-package contest.question3;
+package question1391_check_if_there_is_a_valid_path_in_a_grid;
 
+/**
+ * 深搜。
+ *
+ * 时间复杂度和空间复杂度均是O(m * n)。
+ *
+ * 执行用时：14ms，击败75.00%。消耗内存：63.5MB，击败100.00%。
+ */
 public class Solution {
     private boolean result;
 

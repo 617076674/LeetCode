@@ -23,9 +23,9 @@ import java.util.List;
  */
 public class Solution4 {
     public List<String> generateParenthesis(int n) {
-        List[] dp = new List[n + 1];
+        List<String>[] dp = new List[n + 1];
         for (int i = 0; i < n + 1; i++) {
-            dp[i] = new ArrayList();
+            dp[i] = new ArrayList<>();
         }
         dp[0].add("");
         for (int i = 1; i < n + 1; i++) {

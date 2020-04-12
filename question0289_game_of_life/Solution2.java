@@ -1,9 +1,6 @@
-package question0289;
+package question0289_game_of_life;
 
 /**
- * @author qianyihui
- * @date 2019-07-30
- *
  * 特殊标记法。如果原来是1，需要改变状态，则将其标记为-1。如果原来是0，需要改变状态，将其标记位-2。
  *
  * 最后统一遍历数组将-1转为0，将-2转为1。
@@ -16,12 +13,12 @@ public class Solution2 {
     private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
 
     public void gameOfLife(int[][] board) {
-        int m = board.length;
-        if (m == 0) {
+        int m;
+        if (null == board || (m = board.length) == 0) {
             return;
         }
-        int n = board[0].length;
-        if (n == 0) {
+        int n;
+        if (null == board[0] || (n = board[0].length) == 0) {
             return;
         }
         for (int i = 0; i < m; i++) {
@@ -49,22 +46,15 @@ public class Solution2 {
     private boolean willChange(int[][] board, int x, int y) {
         int count = 0;
         for (int i = 0; i < directions.length; i++) {
-            int newX = x + directions[i][0];
-            int newY = y + directions[i][1];
-            if (newX >= 0 && newX < board.length && newY >= 0 && newY < board[0].length && (board[newX][newY] == 1 || board[newX][newY] == -1)) {
+            int newX = x + directions[i][0], newY = y + directions[i][1];
+            if (newX >= 0 && newX < board.length && newY >= 0 && newY < board[0].length
+                    && (board[newX][newY] == 1 || board[newX][newY] == -1)) {
                 count++;
             }
         }
         if (board[x][y] == 1 || board[x][y] == -1) {
-            if (count < 2 || count > 3) {
-                return true;
-            }
-            return false;
-        } else {
-            if (count == 3) {
-                return true;
-            }
-            return false;
+            return count < 2 || count > 3;
         }
+        return count == 3;
     }
 }

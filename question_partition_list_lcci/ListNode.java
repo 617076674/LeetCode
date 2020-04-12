@@ -1,4 +1,4 @@
-package question_delete_middle_node_lcci;
+package question_partition_list_lcci;
 
 public class ListNode {
     int val;

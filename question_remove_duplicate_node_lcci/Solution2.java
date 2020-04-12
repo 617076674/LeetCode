@@ -3,25 +3,29 @@ package question_remove_duplicate_node_lcci;
 /**
  * 哈希表。
  *
- * 时间复杂度是O(n)，其中n为链表的节点个数。空间复杂度是O(20001)。
+ * 时间复杂度是O(n ^ 2)，其中n为链表的节点个数。空间复杂度是O(1)。
  *
- * 执行用时：2ms，击败99.00%。消耗内存：42.4MB，击败100.00%。
+ * 执行用时：386ms，击败13.62%。消耗内存：40.5MB，击败100.00%。
  */
-public class Solution1 {
+public class Solution2 {
     public ListNode removeDuplicateNodes(ListNode head) {
-        boolean[] exists = new boolean[20001];
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode cur = dummyHead;
         while (cur.next != null) {
-            if (exists[cur.next.val]) {
-                ListNode tmp = cur.next;
-                while (tmp != null && exists[tmp.val]) {
-                    tmp = tmp.next;
+            // 判断cur.next是否需要被删除
+            ListNode tmp = head;
+            boolean exists = false;
+            while (tmp != cur.next) {
+                if (tmp.val == cur.next.val) {
+                    exists = true;
+                    break;
                 }
-                cur.next = tmp;
+                tmp = tmp.next;
+            }
+            if (exists) {
+                cur.next = cur.next.next;
             } else {
-                exists[cur.next.val] = true;
                 cur = cur.next;
             }
         }

@@ -1,39 +1,27 @@
-package contest.question8;
+package question1388_pizza_with_3n_slices;
 
+import java.util.Arrays;
+
+/**
+ * 问题转化：给一个长度为 3n 的环状序列，你可以在其中选择 n 个数，并且任意两个数不能相邻，求这 n 个数的最大值。
+ *
+ * 时间复杂度和空间复杂度均是O(n ^ 2)，其中n为slices数组的长度。
+ *
+ * 执行用时：9ms，击败82.19%。消耗内存：40.4MB，击败100.00%。
+ */
 public class Solution {
-    private int result = Integer.MIN_VALUE;
-
-    private boolean[] choosed;
-
     public int maxSizeSlices(int[] slices) {
-        choosed = new boolean[slices.length];
-        dfs(slices, 0, 0);
-        return result;
+        return Math.max(help(Arrays.copyOfRange(slices, 0, slices.length - 1)),
+                help(Arrays.copyOfRange(slices, 1, slices.length)));
     }
 
-    private void dfs(int[] slices, int sum, int count) {
-        if (count == slices.length) {
-            result = Math.max(result, sum);
-            return;
-        }
-        for (int i = 0; i < slices.length; i++) {
-            if (!choosed[i]) {
-                choosed[i] = true;
-                int j = i;
-                while (choosed[(j + 1) % slices.length]) {
-                    j++;
-                }
-                choosed[(j + 1) % slices.length] = true;
-                int k = i;
-                while (choosed[(k - 1 + slices.length) % slices.length]) {
-                    k--;
-                }
-                choosed[(k - 1 + slices.length) % slices.length] = true;
-                dfs(slices, sum + slices[i], count + 3);
-                choosed[(k - 1 + slices.length) % slices.length] = false;
-                choosed[(j + 1) % slices.length] = false;
-                choosed[i] = false;
+    private int help(int[] slices) {
+        int[][] dp = new int[slices.length + 1][(slices.length + 1) / 3 + 1];
+        for (int i = 1; i < dp.length; i++) {
+            for (int j = 1; j < dp[0].length; j++) {
+                dp[i][j] = Math.max(dp[i - 1][j], (i - 2 >= 0 ? dp[i - 2][j - 1] : 0) + slices[i - 1]);
             }
         }
+        return dp[slices.length][(slices.length + 1) / 3];
     }
 }

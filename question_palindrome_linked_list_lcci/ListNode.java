@@ -1,4 +1,4 @@
-package question_partition_list_lcci;
+package question_palindrome_linked_list_lcci;
 
 public class ListNode {
     int val;

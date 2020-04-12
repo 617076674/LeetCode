@@ -1,4 +1,4 @@
-package contest.question1;
+package question1389_create_target_array_in_the_given_order;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package contest.question5;
+package question1404_number_of_steps_to_reduce_a_number_in_binary_representation_to_one;
 
 public class Solution {
     public int numSteps(String s) {

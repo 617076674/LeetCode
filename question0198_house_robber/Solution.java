@@ -1,15 +1,17 @@
-package question0198;
+package question0198_house_robber;
 
 /**
  * 动态规划。
  *
  * 状态定义：
- * dp[i]:在[0, i]范围内能偷取到的最大价值。
+ * dp[i]：在[0, i]范围内能偷取到的最大价值。
+ *
+ * 初始化：
+ * dp[0] = nums[0]
+ *
+ * dp[1] = Math.max(nums[0], nums[1])
  *
  * 状态转移：
- * dp[0] = nums[0]
- * dp[1] = Math.max(nums[0], nums[1])
- * 当n >= 2时，考虑两种情况
  * （1）偷取第i号房子，此时最大价值为dp[i - 2] + nums[i]
  * （2）不偷取第i号房子，此时最大价值为dp[i - 1]
  * 因此dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1])

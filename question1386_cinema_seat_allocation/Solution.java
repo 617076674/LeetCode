@@ -1,9 +1,14 @@
-package contest.question6;
+package question1386_cinema_seat_allocation;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 时间复杂度是O(mlogm)，其中m为reservedSeats数组的长度。空间复杂度是O(n)。
+ *
+ * 执行用时：58ms，击败26.07%。消耗内存：46MB，击败100.00%。
+ */
 public class Solution {
     public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
         int result = 0;
@@ -31,14 +36,8 @@ public class Solution {
             result += count(row);
             i = j;
         }
-        result += 2 * (n - set.size());
+        result += ((n - set.size()) << 1);
         return result;
-    }
-
-    public static void main(String[] args) {
-        int n = 3;
-        int[][] reservedSeats = {{1,2},{1,3},{1,8},{2,6},{3,1},{3,10}};
-        System.out.println(new Solution().maxNumberOfFamilies(n, reservedSeats));
     }
 
     private int count(int[] row) {

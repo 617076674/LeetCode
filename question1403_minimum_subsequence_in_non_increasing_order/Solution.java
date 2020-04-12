@@ -1,4 +1,4 @@
-package contest.question4;
+package question1403_minimum_subsequence_in_non_increasing_order;
 
 import java.util.ArrayList;
 import java.util.Arrays;
