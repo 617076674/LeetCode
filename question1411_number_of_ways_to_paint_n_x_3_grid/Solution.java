@@ -1,4 +1,4 @@
-package contest.question4;
+package question1411_number_of_ways_to_paint_n_x_3_grid;
 
 public class Solution {
     public int numOfWays(int n) {

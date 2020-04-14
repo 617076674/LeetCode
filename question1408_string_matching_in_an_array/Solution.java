@@ -1,4 +1,4 @@
-package contest.question1;
+package question1408_string_matching_in_an_array;
 
 import java.util.ArrayList;
 import java.util.List;
