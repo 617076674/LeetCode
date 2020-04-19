@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * https://leetcode-cn.com/problems/count-the-repetitions/solution/tong-ji-zhong-fu-ge-shu-by-leetcode-solution/
+ *
  * 时间复杂度是O(len1 * len2)，其中len1为字符串s1的长度，len2为字符串s2的长度。空间复杂度是O(len2)。
  *
  * 执行用时：5ms，击败78.05%。消耗内存：37.2MB，击败100.00%。
