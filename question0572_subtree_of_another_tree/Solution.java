@@ -1,9 +1,6 @@
-package question0572;
+package question0572_subtree_of_another_tree;
 
 /**
- * @author qianyihui
- * @date 2019-06-27
- *
  * 递归实现。
  *
  * 时间复杂度是O(mn)，其中m为s中的节点个数，n为t中的节点个数。

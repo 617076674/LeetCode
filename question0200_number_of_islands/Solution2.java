@@ -4,8 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://leetcode-cn.com/problems/number-of-islands/
- *
  * 图的广度优先遍历求连通分量。
  *
  * 时间复杂度是O(m * n)，其中m为grid数组的行数，n是grid数组的列数。空间复杂度是O(min(m, n))。
@@ -13,18 +11,17 @@ import java.util.Queue;
  * 执行用时：6ms，击败27.13%。消耗内存：41.2MB，击败84.22%。
  */
 public class Solution2 {
-    private int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-
-    private int m, n;
-
     public int numIslands(char[][] grid) {
+        int m;
         if (null == grid || (m = grid.length) == 0) {
             return 0;
         }
+        int n;
         if (null == grid[0] || (n = grid[0].length) == 0) {
             return 0;
         }
         int count = 0;
+        int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {

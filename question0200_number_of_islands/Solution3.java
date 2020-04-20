@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * https://leetcode-cn.com/problems/number-of-islands/
- *
  * 并查集实现。
  *
  * 如何将一个二维数组映射成一个一维数组呢？
@@ -19,14 +17,12 @@ import java.util.Set;
 public class Solution3 {
     private int[] parent;   //并查集数组
 
-    private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-    private int m, n;
-
     public int numIslands(char[][] grid) {
+        int m;
         if (null == grid || (m = grid.length) == 0) {
             return 0;
         }
+        int n;
         if (null == grid[0] || (n = grid[0].length) == 0) {
             return 0;
         }
@@ -42,6 +38,7 @@ public class Solution3 {
                 }
             }
         }
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
@@ -70,8 +67,7 @@ public class Solution3 {
         while (x != parent[x]) {
             x = parent[x];
         }
-        //路径压缩
-        while (a != parent[a]) {
+        while (a != parent[a]) {    //路径压缩
             int z = a;
             a = parent[a];
             parent[z] = x;

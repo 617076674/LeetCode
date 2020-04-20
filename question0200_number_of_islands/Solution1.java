@@ -1,8 +1,6 @@
 package question0200_number_of_islands;
 
 /**
- * https://leetcode-cn.com/problems/number-of-islands/
- *
  * 图的深度优先遍历求连通分量。
  *
  * 时间复杂度和空间复杂度均是O(m * n)，其中m为grid数组的行数，n是grid数组的列数。

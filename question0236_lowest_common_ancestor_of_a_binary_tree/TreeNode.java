@@ -1,4 +1,4 @@
-package question0236;
+package question0236_lowest_common_ancestor_of_a_binary_tree;
 
 public class TreeNode {
     int val;
