@@ -1,4 +1,4 @@
-package question0101;
+package question0101_symmetric_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

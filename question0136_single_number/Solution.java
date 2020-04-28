@@ -1,4 +1,4 @@
-package question0136;
+package question0136_single_number;
 
 /**
  * 异或位运算。
@@ -10,8 +10,8 @@ package question0136;
 public class Solution {
     public int singleNumber(int[] nums) {
         int result = 0;
-        for (int i = 0; i < nums.length; i++) {
-            result ^= nums[i];
+        for (int num : nums) {
+            result ^= num;
         }
         return result;
     }
