@@ -1,8 +1,11 @@
-package question0202;
+package question0202_happy_number;
 
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 执行用时：2ms，击败51.98%。消耗内存：36.3MB，击败8.33%。
+ */
 public class Solution {
     private Set<Integer> set = new HashSet<>();
 
