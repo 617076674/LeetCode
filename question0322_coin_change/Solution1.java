@@ -1,41 +1,37 @@
 package question0322_coin_change;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 /**
- * 记忆化搜索。
- *
  * 时间复杂度是O(coins.length * amount)。空间复杂度是O(amount)。
  *
- * 执行用时：205ms，击败5.05%。消耗内存：42.7MB，击败5.01%。
+ * 执行用时：30ms，击败20.38%。消耗内存：39.6MB，击败5.77%。
  */
 public class Solution1 {
-    private Map<Integer, Long> memo = new HashMap<>();
+    private int[] memo;
 
     public int coinChange(int[] coins, int amount) {
-        long result = dfs(coins, amount);
-        if (result == Integer.MAX_VALUE) {
-            return -1;
-        }
-        return (int) result;
+        memo = new int[amount + 1];
+        Arrays.fill(memo, -1);
+        memo[0] = 0;
+        dfs(coins, amount);
+        return memo[amount] == Integer.MAX_VALUE ? -1 : memo[amount];
     }
 
-    private long dfs(int[] coins, int amount) {
-        if (memo.containsKey(amount)) {
-            return memo.get(amount);
+    private int dfs(int[] coins, int amount) {
+        if (memo[amount] != -1) {
+            return memo[amount];
         }
-        if (amount == 0) {
-            memo.put(0, 0L);
-            return 0;
-        }
-        long result = Integer.MAX_VALUE;
+        int result = Integer.MAX_VALUE;
         for (int coin : coins) {
             if (coin <= amount) {
-                result = Math.min(result, 1 + dfs(coins, amount - coin));
+                int tmp = dfs(coins, amount - coin);
+                if (tmp != Integer.MAX_VALUE) {
+                    result = Math.min(result, 1 + tmp);
+                }
             }
         }
-        memo.put(amount, result);
+        memo[amount] = result;
         return result;
     }
 }

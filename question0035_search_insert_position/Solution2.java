@@ -1,8 +1,6 @@
 package question0035_search_insert_position;
 
 /**
- * https://leetcode-cn.com/problems/search-insert-position/
- *
  * 因为数组中无重复元素，故可用ceil()函数实现，寻找nums数组中值大于target的最小值所在的索引。
  *
  * 时间复杂度是O(logn)，其中n是nums数组的长度。空间复杂度是O(1)。
@@ -11,18 +9,20 @@ package question0035_search_insert_position;
  */
 public class Solution2 {
     public int searchInsert(int[] nums, int target) {
-        int left = 0, right = nums.length;
-        while (left < right) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
             int mid = left + ((right - left) >> 1);
-            if (target >= nums[mid]) {
+            if (target == nums[mid]) {
                 left = mid + 1;
-            } else {
-                right = mid;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            } else if (target > nums[mid]) {
+                left = mid + 1;
             }
         }
-        if (left - 1 >= 0 && nums[left - 1] == target) {
-            return left - 1;
+        if (right < 0 || nums[right] != target) {
+            return right + 1;
         }
-        return left;
+        return right;
     }
 }

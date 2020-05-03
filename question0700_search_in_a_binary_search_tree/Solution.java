@@ -1,9 +1,6 @@
-package question0700;
+package question0700_search_in_a_binary_search_tree;
 
 /**
- * @author qianyihui
- * @date 2019-07-29
- *
  * 递归。
  *
  * 时间复杂度是O(n)，其中n为树中的节点个数。空间复杂度是O(h)，其中h为树的高度。
@@ -21,4 +18,3 @@ public class Solution {
         return searchBST(root.right, val);
     }
 }
-

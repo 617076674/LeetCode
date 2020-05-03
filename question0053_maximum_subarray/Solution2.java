@@ -1,8 +1,6 @@
 package question0053_maximum_subarray;
 
 /**
- * https://leetcode-cn.com/problems/maximum-subarray/
- *
  * 分治算法。
  *
  * 时间复杂度和空间复杂度均是O(nlogn)，其中n是nums数组的长度。

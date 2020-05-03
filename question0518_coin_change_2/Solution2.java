@@ -1,21 +1,22 @@
 package question0518_coin_change_2;
 
 /**
- * 对Solution进行降维处理。
+ * 时间复杂度和空间复杂度均是O(coins.length * amount)。
  *
- * 时间复杂度是O(amount * coins.length)。空间复杂度是O(amount)。
- *
- * 执行用时：4ms，击败44.80%。消耗内存：37.4MB，击败6.20%。
+ * 执行用时：13ms，击败13.14%。消耗内存：44MB，击败8.33%。
  */
 public class Solution2 {
     public int change(int amount, int[] coins) {
-        int[] dp = new int[amount + 1];
-        dp[0] = 1;
-        for (int i = 0; i < coins.length; i++) {
-            for (int j = coins[i]; j < amount + 1; j++) {
-                dp[j] += dp[j - coins[i]];
+        int[][] dp = new int[amount + 1][coins.length + 1];
+        dp[0][coins.length] = 1;
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = coins.length - 1; j >= 0; j--) {
+                dp[i][j] = dp[i][j + 1];
+                if (coins[j] <= i) {
+                    dp[i][j] += dp[i - coins[j]][j];
+                }
             }
         }
-        return dp[amount];
+        return dp[amount][0];
     }
 }

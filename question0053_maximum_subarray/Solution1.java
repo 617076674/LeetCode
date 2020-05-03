@@ -1,8 +1,6 @@
 package question0053_maximum_subarray;
 
 /**
- * https://leetcode-cn.com/problems/maximum-subarray/
- *
  * 时间复杂度是O(n ^ 2)，其中n是nums数组的长度。空间复杂度是O(1)。
  *
  * 执行用时：182ms，击败5.11%。消耗内存：43.1MB，击败41.80%。
