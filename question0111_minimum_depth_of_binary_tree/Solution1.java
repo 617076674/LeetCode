@@ -1,9 +1,9 @@
-package question0111;
+package question0111_minimum_depth_of_binary_tree;
 
 /**
  * 递归实现。
  *
- * 时间复杂度是O(n)，其中n为树中的节点个数。空间复杂度是O(h)，其中h是树的高度。
+ * 时间复杂度和空间复杂度均是O(n)，其中n为树中的节点个数。
  *
  * 执行用时：1ms，击败99.73%。消耗内存：37.2MB，击败71.56%。
  */

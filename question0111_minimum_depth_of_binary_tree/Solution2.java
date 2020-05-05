@@ -1,4 +1,4 @@
-package question0111;
+package question0111_minimum_depth_of_binary_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -18,7 +18,7 @@ public class Solution2 {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int result = 1;
-        while (!queue.isEmpty()) {
+        while (true) {
             int qSize = queue.size();
             for (int i = 0; i < qSize; i++) {
                 TreeNode treeNode = queue.poll();
@@ -34,6 +34,5 @@ public class Solution2 {
             }
             result++;
         }
-        return -1;
     }
 }
