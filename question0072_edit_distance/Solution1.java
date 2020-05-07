@@ -45,7 +45,7 @@ package question0072_edit_distance;
  *
  * 执行用时：12ms，击败12.02%。消耗内存：45.9MB，击败5.03%。
  */
-public class Solution {
+public class Solution1 {
     public int minDistance(String word1, String word2) {
         int m = word1.length(), n = word2.length();
         int[][] dp = new int[m + 1][n + 1];

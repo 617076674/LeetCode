@@ -9,21 +9,10 @@ package question0572_subtree_of_another_tree;
  */
 public class Solution {
     public boolean isSubtree(TreeNode s, TreeNode t) {
-        //这个初始判断很重要。虽然题目规定了输入的两棵二叉树均为非空二叉树
-        //但是，在递归调用的过程中可能会出现s为null的情况
-        if (null == s && null != t) {
+        if (null == s && null != t) {   //虽然题目规定了输入的两棵二叉树均为非空二叉树，但在递归调用的过程中可能会出现s为null的情况
             return false;
         }
-        if (isSame(s, t)) {
-            return true;
-        }
-        if (isSubtree(s.left, t)) {
-            return true;
-        }
-        if (isSubtree(s.right, t)) {
-            return true;
-        }
-        return false;
+        return isSame(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
     }
 
     /**
@@ -33,12 +22,7 @@ public class Solution {
         if (node1 == null && node2 == null) {
             return true;
         }
-        if (node1 == null || node2 == null) {
-            return false;
-        }
-        if (node1.val != node2.val) {
-            return false;
-        }
-        return isSame(node1.left, node2.left) && isSame(node1.right, node2.right);
+        return node1 != null && node2 != null && node1.val == node2.val && isSame(node1.left, node2.left)
+                && isSame(node1.right, node2.right);
     }
 }

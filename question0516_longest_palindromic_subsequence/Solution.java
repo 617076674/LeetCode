@@ -1,15 +1,17 @@
-package question0516;
+package question0516_longest_palindromic_subsequence;
 
 /**
  * 动态规划。
  *
  * 状态定义：
- * dp[i][j]:字符串s中[i, j]范围内的子串中的最长回文序列长度。
+ * dp[i][j]表示字符串s中[i, j]范围内的子串中的最长回文序列长度。
  *
- * 状态转移：
+ * 初始化条件：
  * 当i == j时，dp[i][j] = 1。
- * 当i < j时，如果s.charAt(i) == s.charAt(j)，那么dp[i][j] = dp[i + 1][j - 1] + 2。
- *           如果s.charAt(i) != s.charAt(j)，那么dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])。
+ *
+ * 状态转移方程：
+ * （1）如果s.charAt(i) == s.charAt(j)，那么dp[i][j] = dp[i + 1][j - 1] + 2。
+ * （2）如果s.charAt(i) != s.charAt(j)，那么dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])。
  *
  * 时间复杂度和空间复杂度均是O(n ^ 2)，其中n为字符串s的长度。
  *
