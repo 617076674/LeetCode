@@ -1,24 +1,22 @@
-package question0435;
+package question0435_non_overlapping_intervals;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author qianyihui
- * @date 2019-08-19
- *
  * 首先对区间按左值由小到大进行排序。
  *
  * 动态规划。
  *
  * 状态定义：
- * dp[i]:考虑第[0, i]个区间，所能保留的最大区间数目。
+ * dp[i]表示考虑第[0, i]个区间，所能保留的最大区间数目。
+ *
+ * 初始化条件：
+ * 当 i == 0 时， dp[0] = 1。
  *
  * 状态转移：
- * 当i == 0时，dp[0] = 1。
- *
- * 当i > 0时，我们可以不考虑第i个区间，那么dp[i] = dp[i - 1]。
- *           我们也可以考虑第i个区间，那么dp[i] = max(dp[k] + 1, dp[i])，其中k∈[0, i - 1]，且第k个区间与第i个区间不重合
+ * （1）我们可以不考虑第i个区间，那么dp[i] = dp[i - 1]。
+ * （2）我们也可以考虑第i个区间，那么dp[i] = max(dp[k] + 1, dp[i])，其中k∈[0, i - 1]，且第k个区间与第i个区间不重合
  *
  * 时间复杂度是O(n ^ 2)，其中n为区间个数。空间复杂度是O(n)。
  *
@@ -33,7 +31,7 @@ public class Solution1 {
         Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
         int[] dp = new int[n];
         dp[0] = 1;
-        int max = 1;
+        int result = 1;
         for (int i = 1; i < n; i++) {
             dp[i] = dp[i - 1];   //不考虑第i个区间
             for (int k = 0; k < i; k++) {   //考虑第i个区间
@@ -41,8 +39,8 @@ public class Solution1 {
                     dp[i] = Math.max(dp[k] + 1, dp[i]);
                 }
             }
-            max = Math.max(dp[i], max);
+            result = Math.max(dp[i], result);
         }
-        return n - max;
+        return n - result;
     }
 }

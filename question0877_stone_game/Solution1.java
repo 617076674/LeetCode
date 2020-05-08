@@ -1,9 +1,6 @@
-package question0877;
+package question0877_stone_game;
 
 /**
- * @author qianyihui
- * @date 2019-08-19
- *
  * 记忆化搜索。
  *
  * 时间复杂度和空间复杂度均是O(n ^ 2)，其中n为piles数组的长度。
@@ -23,12 +20,8 @@ public class Solution1 {
         for (int i = 1; i < n; i++) {
             sum[i] = sum[i - 1] + piles[i];
         }
-        int first = stoneGame(piles, 0, n - 1);
-        int second = sum[n - 1] - first;
-        if (first > second) {
-            return true;
-        }
-        return false;
+        int score = stoneGame(piles, 0, n - 1);
+        return score > sum[n - 1] - score;
     }
 
     /**

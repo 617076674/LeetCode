@@ -1,14 +1,11 @@
-package question0877;
+package question0877_stone_game;
 
 /**
- * @author qianyihui
- * @date 2019-08-19
- *
- * 对Solution2的空间复杂度优化。
+ * 对Solution2进行状态压缩。
  *
  * 时间复杂度是O(n ^ 2)，其中n为piles数组的长度。空间复杂度是O(n)。
  *
- * 执行用时：20ms，击败29.17%。消耗内存：41.5MB，击败14.73%。
+ * 执行用时：6ms，击败54.83%。消耗内存：37.5MB，击败8.33%。
  */
 public class Solution3 {
     public boolean stoneGame(int[] piles) {
@@ -31,11 +28,6 @@ public class Solution3 {
                 dp[i] = Math.max(total - dp[i + 1], total - dp[i]);
             }
         }
-        int first = dp[0];
-        int second = sum[n - 1] - first;
-        if (first > second) {
-            return true;
-        }
-        return false;
+        return dp[0] > sum[n - 1] - dp[0];
     }
 }

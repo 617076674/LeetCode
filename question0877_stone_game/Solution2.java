@@ -1,25 +1,21 @@
-package question0877;
+package question0877_stone_game;
 
 /**
- * @author qianyihui
- * @date 2019-08-19
- *
  * 动态规划。
  *
  * 状态定义：
- * dp[i][j]:对piles数组[i, j]内的元素，先取的人能得到的最大石头数
+ * dp[i][j]表示对piles数组[i, j]内的元素，先取的人能得到的最大石子数。
+ *
+ * 初始化条件：
+ * 当 i == j 时，dp[i][j] = piles[i]
  *
  * 状态转移：
- * 当i == j时，dp[i][j] = piles[i]
- *
- * 当i < j时，
- *          当i == 0时，total = sum[j]
- *          当i > 0时，total = sum[j] - sum[i - 1]
- * dp[i][j] = max(total - dp[i + 1][j], total - dp[i][j - 1])。
+ * dp[i][j] = max(total - dp[i + 1][j], total - dp[i][j - 1])，
+ * 其中，当i == 0时，total = sum[j]；当i > 0时，total = sum[j] - sum[i - 1]
  *
  * 时间复杂度和空间复杂度均是O(n ^ 2)，其中n为piles数组的长度。
  *
- * 执行用时：20ms，击败29.17%。消耗内存：41.5MB，击败14.73%。
+ * 执行用时：9ms，击败44.86%。消耗内存：40.4MB，击败8.33%。
  */
 public class Solution2 {
     public boolean stoneGame(int[] piles) {
@@ -42,11 +38,6 @@ public class Solution2 {
                 dp[i][j] = Math.max(total - dp[i + 1][j], total - dp[i][j - 1]);
             }
         }
-        int first = dp[0][n - 1];
-        int second = sum[n - 1] - first;
-        if (first > second) {
-            return true;
-        }
-        return false;
+        return dp[0][n - 1] > sum[n - 1] - dp[0][n - 1];
     }
 }

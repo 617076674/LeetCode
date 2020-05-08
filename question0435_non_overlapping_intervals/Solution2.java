@@ -1,12 +1,9 @@
-package question0435;
+package question0435_non_overlapping_intervals;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author qianyihui
- * @date 2019-08-19
- *
  * 首先对区间按左值由小到大进行排序。
  *
  * 贪心算法。
@@ -27,7 +24,7 @@ import java.util.Comparator;
  *
  * 时间复杂度是O(nlogn)，其中n为区间个数。空间复杂度是O(1)。
  *
- * 执行用时：79ms，击败20.94%。消耗内存：39.2MB，击败48.17%。
+ * 执行用时：2ms，击败93.10%。消耗内存：39.8MB，击败8.33%。
  */
 public class Solution2 {
     public int eraseOverlapIntervals(int[][] intervals) {
@@ -35,7 +32,7 @@ public class Solution2 {
         if (null == intervals || (n = intervals.length) == 0) {
             return 0;
         }
-        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+        Arrays.sort(intervals, Comparator.comparingInt(interval -> interval[0]));
         int result = 0, pre = 0;
         for (int i = 1; i < n; i++) {
             if (intervals[pre][1] > intervals[i][0]) {
