@@ -1,4 +1,4 @@
-package question0214;
+package question0214_shortest_palindrome;
 
 /**
  * 递归实现。
@@ -7,7 +7,7 @@ package question0214;
  *
  * 执行用时：6ms，击败94.47%。消耗内存：37.9MB，击败58.82%。
  */
-public class Solution2 {
+public class Solution1 {
     public String shortestPalindrome(String s) {
         int i = 0;
         for (int j = s.length() - 1; j >= 0; j--) {

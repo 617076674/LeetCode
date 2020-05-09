@@ -2,34 +2,33 @@ package contest.kmp;
 
 public class KMP {
     private int[][] dp;
-    private String pat;
 
-    public KMP(String pat) {
-        this.pat = pat;
-        int M = pat.length();
-        // dp[状态][字符] = 下个状态
-        dp = new int[M][256];
-        // base case
-        dp[0][pat.charAt(0)] = 1;
-        // 影子状态 X 初始为 0
+    public KMP(String pattern) {
+        dp = new int[pattern.length()][256];
+        dp[0][pattern.charAt(0)] = 1;
         int X = 0;
-        // 当前状态 j 从 1 开始
-        for (int j = 1; j < M; j++) {
+        for (int i = 1; i < pattern.length(); i++) {
             for (int c = 0; c < 256; c++) {
-                if (pat.charAt(j) == c)
-                    dp[j][c] = j + 1;
-                else
-                    dp[j][c] = dp[X][c];
+                dp[i][c] = dp[X][c];
             }
-            // 更新影子状态
-            X = dp[X][pat.charAt(j)];
-            System.out.println(X);
+            dp[i][pattern.charAt(i)] = i + 1;
+            X = dp[X][pattern.charAt(i)];
         }
+    }
+
+    public int search(String text) {
+        int j = 0;
+        for (int i = 0; i < text.length(); i++) {
+            j = dp[j][text.charAt(i)];
+            if (j == dp.length) {
+                return i - j + 1;
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
         KMP kmp = new KMP("ABABC");
+        System.out.println(kmp.search("AABABC"));
     }
-
-//    public int search(String txt) {...}
 }

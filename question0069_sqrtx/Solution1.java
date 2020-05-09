@@ -1,8 +1,6 @@
 package question0069_sqrtx;
 
 /**
- * https://leetcode-cn.com/problems/sqrtx/
- *
  * 暴力破解法。
  *
  * 时间复杂度是O(x ^ 0.5)。空间复杂度是O(1)。

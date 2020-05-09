@@ -1,8 +1,6 @@
 package question0069_sqrtx;
 
 /**
- * https://leetcode-cn.com/problems/sqrtx/
- *
  * 牛顿迭代法。
  *
  * 时间复杂度是O(logx)。空间复杂度是O(1)。
