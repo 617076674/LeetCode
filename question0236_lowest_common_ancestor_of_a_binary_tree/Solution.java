@@ -13,18 +13,8 @@ public class Solution {
         if (root == null || root == p || root == q) {
             return root;
         }
-        //在左子树中寻找最近祖先
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        //在右子树中寻找最近祖先
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        TreeNode left = lowestCommonAncestor(root.left, p, q), right = lowestCommonAncestor(root.right, p, q);
         //左子树中没找到，说明左子树为null或者左子树中没有p也没有q
-        if (null == left) {
-            return right;
-        }
-        //右子树中没找到，说明右子树为null或者右子树中没有p也没有q
-        if (null == right) {
-            return left;
-        }
-        return root;
+        return null == left ? right : null == right ? left : root;
     }
 }

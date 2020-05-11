@@ -1,7 +1,7 @@
-package question0122;
+package question0122_best_time_to_buy_and_sell_stock_ii;
 
 /**
- * 神仙看不懂版。（Solution2的精简）
+ * 状态压缩。
  *
  * 时间复杂度是O(n)，其中n为prices数组的长度。空间复杂度是O(1)
  *
@@ -9,12 +9,8 @@ package question0122;
  */
 public class Solution3 {
     public int maxProfit(int[] prices) {
-        int result = 0, n = prices.length;
-        if (0 == n) {
-            return result;
-        }
         int state1 = 0, state2 = -prices[0];
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < prices.length; i++) {
             int newState1 = Math.max(state1, state2 + prices[i]);
             int newState2 = Math.max(state2, state1 - prices[i]);
             state1 = newState1;

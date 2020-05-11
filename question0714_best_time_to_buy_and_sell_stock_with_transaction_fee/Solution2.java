@@ -1,10 +1,7 @@
-package question0714;
+package question0714_best_time_to_buy_and_sell_stock_with_transaction_fee;
 
 /**
- * @author qianyihui
- * @date 2019-07-23
- *
- * 神仙看不懂版。（Solution1的精简）
+ * 状态压缩。
  *
  * 时间复杂度是O(n)，其中n为prices数组的长度。空间复杂度是O(1)。
  *

@@ -1,4 +1,4 @@
-package question0122;
+package question0122_best_time_to_buy_and_sell_stock_ii;
 
 /**
  * 贪心算法，只要遇到上升沿就买。

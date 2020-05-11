@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * 执行用时：3ms，击败61.38%。消耗内存：39.4MB，击败33.33%。
  */
-public class Solution {
+public class Solution1 {
     private Map<TreeNode, Integer> memo = new HashMap<>();
 
     public int rob(TreeNode root) {
