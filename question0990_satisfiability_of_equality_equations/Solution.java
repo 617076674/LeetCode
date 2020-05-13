@@ -1,43 +1,39 @@
-package question0990;
-
-import java.util.ArrayList;
-import java.util.List;
+package question0990_satisfiability_of_equality_equations;
 
 /**
- * @author qianyihui
- * @date 2019-07-19
- *
  * 并查集。
  *
  * 先将等式放入并查集中，再判断不等式的正确性。
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为equations数组的长度。
+ *
+ * 执行用时：1ms，击败100.00%。消耗内存：39.4MB，击败16.67%。
  */
 public class Solution {
     private int[] parent = new int[26];
 
-    public boolean equationsPossible(String[] equations) {
-        //初始化并查集
+    {
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
         }
-        List<String> needChecked = new ArrayList<>();
+    }
+
+    public boolean equationsPossible(String[] equations) {
         for (int i = 0; i < equations.length; i++) {
             if (equations[i].charAt(1) == '=') {
                 union(equations[i].charAt(0) - 'a', equations[i].charAt(3) - 'a');
-            } else {
-                needChecked.add(equations[i]);
             }
         }
-        for (String string : needChecked) {
-            if (findFather(string.charAt(0) - 'a') == findFather(string.charAt(3) - 'a')) {
+        for (int i = 0; i < equations.length; i++) {
+            if (equations[i].charAt(1) == '!' &&
+                    findParent(equations[i].charAt(0) - 'a') == findParent(equations[i].charAt(3) - 'a')) {
                 return false;
             }
         }
         return true;
     }
 
-    private int findFather(int x) {
+    private int findParent(int x) {
         int a = x;
         while (x != parent[x]) {
             x = parent[x];
@@ -51,7 +47,7 @@ public class Solution {
     }
 
     private void union(int a, int b) {
-        int aFather = findFather(a), bFather = findFather(b);
+        int aFather = findParent(a), bFather = findParent(b);
         if (aFather != bFather) {
             parent[aFather] = bFather;
         }

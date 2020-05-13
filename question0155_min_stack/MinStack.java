@@ -1,4 +1,4 @@
-package question0155;
+package question0155_min_stack;
 
 import java.util.LinkedList;
 
@@ -7,14 +7,12 @@ import java.util.LinkedList;
  *
  * push() top() pop() 和getMin()函数的时间复杂度都是O(1)。
  *
- * 执行用时：71ms，击败99.55%。消耗内存：40.3MB，击败95.44%。
+ * 执行用时：8ms，击败57.93%。消耗内存：41.5MB，击败14.46%。
  */
-public class MinStack2 {
-    private LinkedList<Integer> stack;
+public class MinStack {
+    private LinkedList<Integer> stack, auxStack;
 
-    private LinkedList<Integer> auxStack;
-
-    public MinStack2() {
+    public MinStack() {
         stack = new LinkedList<>();
         auxStack = new LinkedList<>();
     }
