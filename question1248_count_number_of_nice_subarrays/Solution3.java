@@ -19,7 +19,7 @@ public class Solution3 {
             if (countOdd >= k) {
                 result += map[countOdd - k];
             }
-            map[countOdd] += 1;
+            map[countOdd]++;
         }
         return result;
     }
