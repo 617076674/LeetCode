@@ -12,30 +12,28 @@ package question0680_valid_palindrome_ii;
  *
  * 执行用时：11ms，击败91.47%。消耗内存：38.6MB，击败92.37%。
  */
-public class Solution2 {
+public class Solution {
     public boolean validPalindrome(String s) {
-        int n;
-        if (null == s || (n = s.length()) == 0) {
-            return true;
-        }
-        int left = 0, right = n - 1;
+        int left = 0, right = s.length() - 1;
         while (left < right) {
-            if (s.charAt(left) == s.charAt(right)) {
-                left++;
-                right--;
-            } else {
+            if (s.charAt(left) != s.charAt(right)) {
                 return isPalindrome(s.substring(left + 1, right + 1)) || isPalindrome(s.substring(left, right));
+
             }
+            left++;
+            right--;
         }
         return true;
     }
 
     private boolean isPalindrome(String s) {
-        int n = s.length();
-        for (int i = 0; i <= n / 2; i++) {
-            if (s.charAt(i) != s.charAt(n - i - 1)) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
+            left++;
+            right--;
         }
         return true;
     }
