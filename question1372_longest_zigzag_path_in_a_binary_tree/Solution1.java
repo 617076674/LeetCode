@@ -1,4 +1,4 @@
-package question1371_longest_zigzag_path_in_a_binary_tree;
+package question1372_longest_zigzag_path_in_a_binary_tree;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,6 @@ public class Solution1 {
         return longestZigZag(root, 0) - 1;
     }
 
-    //last = -1代表上一步是往左走的，last = 1代表上一步是往右走的，last = 0表示这是路径中的第一个节点，没有上一步
     private int longestZigZag(TreeNode root, int last) {
         if (last == -1 && leftMap.containsKey(root)) {
             return leftMap.get(root);
