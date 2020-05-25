@@ -4,11 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 自定义一个雷LRULinedHashMap继承自LinkedHashMap，并重写其removeEldestEntry方法。
+ * 自定义一个类 LRULinedHashMap 继承自 LinkedHashMap，并重写其 removeEldestEntry 方法。
  *
- * get()和put()的时间复杂度均是O(1)。空间复杂度是O(n)，其中n为缓存的键数。
+ * get() 和 put() 的时间复杂度均是 O(1)。空间复杂度是 O(n)，其中 n 为缓存的键数。
  *
- * 执行用时：78ms，击败92.94%。消耗内存：49.5MB，击败99.78%。
+ * 执行用时：21ms，击败57.19%。消耗内存：47.6MB，击败100.00%。
  */
 public class LRUCache2 {
     private class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {

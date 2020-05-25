@@ -5,7 +5,7 @@ package question0004_median_of_two_sorted_arrays;
  *
  * 时间复杂度和空间复杂度均是O(log(n1 + n2))，其中n1是nums1数组的长度，n2是nums2数组的长度。
  *
- * 执行用时：13ms，击败71.43%。消耗内存：50.3MB，击败78.50%。
+ * 执行用时：2ms，击败100.00%。消耗内存：40.6MB，击败100.00%。
  */
 public class Solution2 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {

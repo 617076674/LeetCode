@@ -9,17 +9,13 @@ import java.util.*;
  *
  * get()和put()的时间复杂度均是O(1)。空间复杂度是O(n)，其中n为缓存的键数。
  *
- * 执行用时：79ms，击败91.87%。消耗内存：60.7MB，击败81.81%。
+ * 执行用时：20ms，击败66.67%。消耗内存：48.2MB，击败100.00%。
  */
-class LRUCache1 {
+public class LRUCache1 {
     private class Node {
-        private int key;
+        private int key, value;
 
-        private int value;
-
-        private Node pre;
-
-        private Node next;
+        private Node pre, next;
 
         Node() {}
 
@@ -29,15 +25,11 @@ class LRUCache1 {
         }
     }
 
-    private Node dummyHead = new Node();
+    private Node dummyHead = new Node(), dummyTail = new Node();
 
-    private Node dummyTail = new Node();
+    private int capacity, size;
 
-    private int capacity;
-
-    private int size;
-
-    private Map<Integer, Node> hashMap = new HashMap<>();
+    private Map<Integer, Node> map = new HashMap<>();
 
     public LRUCache1(int capacity) {
         dummyHead.next = dummyTail;
@@ -46,7 +38,7 @@ class LRUCache1 {
     }
 
     public int get(int key) {
-        Node node = hashMap.get(key);
+        Node node = map.get(key);
         if (null == node) {
             return -1;
         }
@@ -55,7 +47,7 @@ class LRUCache1 {
     }
 
     public void put(int key, int value) {
-        Node node = hashMap.get(key);
+        Node node = map.get(key);
         if (null != node) {
             node.value = value;
             updateState(node);
@@ -65,22 +57,26 @@ class LRUCache1 {
             } else {
                 //删除链表尾节点
                 Node delNode = dummyTail.pre;
-                hashMap.remove(delNode.key);
+                map.remove(delNode.key);
                 del(delNode);
             }
             Node newNode = new Node(key, value);
             add(newNode);
-            hashMap.put(key, newNode);
+            map.put(key, newNode);
         }
     }
 
-    //调整节点的顺序
+    /**
+     * 调整节点的顺序
+     */
     private void updateState(Node node) {
         del(node);
         add(node);
     }
 
-    //将节点添加到虚拟头节点之后
+    /**
+     * 将节点添加到虚拟头节点之后
+     */
     private void add(Node node) {
         Node originHead = dummyHead.next;
         dummyHead.next = node;
@@ -89,7 +85,9 @@ class LRUCache1 {
         originHead.pre = node;
     }
 
-    //删除某个节点
+    /**
+     * 删除某个节点
+     */
     private void del(Node node) {
         Node preNode = node.pre;
         Node nextNode = node.next;
