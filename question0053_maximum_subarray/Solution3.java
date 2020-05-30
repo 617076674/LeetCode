@@ -18,8 +18,8 @@ package question0053_maximum_subarray;
  */
 public class Solution3 {
     public int maxSubArray(int[] nums) {
-        int n = nums.length, result = Integer.MIN_VALUE, sum = 0;
-        for (int i = 0; i < n; i++) {
+        int result = Integer.MIN_VALUE, sum = 0;
+        for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             result = Math.max(result, sum);
             if (sum < 0) {

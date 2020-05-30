@@ -3,7 +3,7 @@ package question0042_trapping_rain_water;
 import java.util.Stack;
 
 /**
- * https://leetcode-cn.com/problems/trapping-rain-water/
+ * 单调递减栈。
  *
  * 我们的栈stack中存储的是height数组的索引。如果指针cur指向的height数组中的值小于等于栈顶元素或者栈为空，
  * 我们就一直入栈，因此我们栈顶元素索引对应的height数组的值是整个栈中最小的。一旦指针cur指向的height数组
@@ -16,23 +16,21 @@ import java.util.Stack;
  */
 public class Solution3 {
     public int trap(int[] height) {
-        int n = height.length, result = 0;
-        if (n == 0 || n == 1) {
-            return result;
+        int n;
+        if (null == height || (n = height.length) <= 2) {
+            return 0;
         }
-        int cur = 0;
+        int result = 0;
         Stack<Integer> stack = new Stack<>();
-        while (cur < n) {
-            while (!stack.isEmpty() && height[cur] > height[stack.peek()]) {
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
                 int top = stack.pop();
                 if (stack.isEmpty()) {
                     break;
                 }
-                int distance = cur - stack.peek() - 1;
-                result += (Math.min(height[cur], height[stack.peek()]) - height[top]) * distance;
+                result += (i - stack.peek() - 1) * (Math.min(height[i], height[stack.peek()]) - height[top]);
             }
-            stack.push(cur);
-            cur++;
+            stack.push(i);
         }
         return result;
     }
