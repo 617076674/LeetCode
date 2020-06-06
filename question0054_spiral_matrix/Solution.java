@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/spiral-matrix/
- *
  * 用top、bottom、left、right这4个变量来控制旋转。
  *
  * 时间复杂度是O(p)，其中p为矩阵中的元素个数。空间复杂度是O(1)。
