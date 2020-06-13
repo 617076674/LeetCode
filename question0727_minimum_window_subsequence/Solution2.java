@@ -7,7 +7,7 @@ package question0727_minimum_window_subsequence;
  *
  * 执行用时：10ms，击败78.85%。消耗内存：39.7MB，击败100.00%。
  */
-public class Solution {
+public class Solution2 {
     public String minWindow(String S, String T) {
         String result = "";
         int j = 0, minLen = S.length() + 1;
@@ -24,7 +24,7 @@ public class Solution {
                         i--;
                     }
                     i++;
-                    j++;
+                    j = 0;
                     if (end - i < minLen) {
                         minLen = end - i;
                         result = S.substring(i, end);

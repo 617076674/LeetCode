@@ -1,9 +1,7 @@
 package question0070_climbing_stairs;
 
 /**
- * https://leetcode-cn.com/problems/climbing-stairs/
- *
- * 用一个数组来保存前面的所有值。
+ * 动态规划。
  *
  * 时间复杂度和空间复杂度均是O(n)。
  *
@@ -11,10 +9,10 @@ package question0070_climbing_stairs;
  */
 public class Solution1 {
     public int climbStairs(int n) {
-        int[] path = new int[n];
-        if (n == 1 || n == 2) {
+        if (n <= 2) {
             return n;
         }
+        int[] path = new int[n];
         path[0] = 1;
         path[1] = 2;
         for (int i = 2; i < n; i++) {
