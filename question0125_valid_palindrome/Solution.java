@@ -1,6 +1,13 @@
-package question125_valid_palindrome;
+package question0125_valid_palindrome;
 
-public class Solution2 {
+/**
+ * 双指针。
+ *
+ * 时间复杂度是 O(n)，其中 n 为字符串 s 的长度。空间复杂度是 O(1)。
+ *
+ * 执行用时：3ms，击败93.04%。消耗内存：40MB，击败7.14%。
+ */
+public class Solution {
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
         int left = 0, right = s.length() - 1;

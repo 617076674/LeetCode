@@ -20,7 +20,7 @@ package question0010_regular_expression_matching;
  *
  * 时间复杂度和空间复杂度均是O(ns * np)，其中ns是字符串s的长度，np是字符串p的长度。
  *
- * 执行用时：8ms，击败87.43%。消耗内存：35.8MB，击败89.46%。
+ * 执行用时：2ms，击败99.68%。消耗内存：38.5MB，击败35.29%。
  */
 public class Solution2 {
     public boolean isMatch(String s, String p) {

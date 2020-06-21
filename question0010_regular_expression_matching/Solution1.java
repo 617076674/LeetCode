@@ -3,6 +3,8 @@ package question0010_regular_expression_matching;
 /**
  * 递归实现。
  *
+ * 时间复杂度和
+ *
  * 执行用时：6ms，击败63.04%。消耗内存：40.3MB，击败26.47%。
  */
 public class Solution1 {
@@ -19,10 +21,10 @@ public class Solution1 {
                 return false;
             }
             int i = 1;
-            while (i < p.length() && p.charAt(i) == '*') {  //当s为空串时，只有当p是"a*b*c*"的形式时，才有可能匹配
+            while (i < np && p.charAt(i) == '*') {  //当s为空串时，只有当p是"a*b*c*"的形式时，才有可能匹配
                 i += 2;
             }
-            return i == p.length() + 1;
+            return i == np + 1;
         }
         //当s中最后一个字符和p中最后一个字符相匹配（有两种情形：1-s中最后一个字符和p中最后一个字符相等；2-p中最后一个字符是'.'）时，
         //去看s中除去最后一个字符的子串能否和p中除去最后一个字符的子串相匹配
