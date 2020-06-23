@@ -1,52 +1,47 @@
 package question0067_add_binary;
 
 /**
- * https://leetcode-cn.com/problems/add-binary/
- *
  * 时间复杂度是O(max(na, nb))，其中na是字符串a的长度，nb是字符串b的长度。
  *
- * 执行用时：4ms，击败27.60%。消耗内存：42.4MB，击败5.01%。
+ * 执行用时：2ms，击败98.52%。消耗内存：38.5MB，击败7.69%。
  */
 public class Solution {
+    private int flag;
+
     public String addBinary(String a, String b) {
-        int na = a.length(), nb = b.length(), flag = 0, i = na - 1, j = nb - 1;
+        int nA = a.length(), nB = b.length(), indexA = nA - 1, indexB = nB - 1;
         StringBuilder result = new StringBuilder();
-        for (; i >= 0 && j >= 0; i--, j--) {
-            int num = a.charAt(i) - '0' + b.charAt(j) - '0' + flag;
+        while (indexA >= 0 && indexB >= 0) {
+            int num = a.charAt(indexA) - '0' + b.charAt(indexB) - '0' + flag;
             if (num >= 2) {
                 num -= 2;
                 flag = 1;
             } else {
                 flag = 0;
             }
-            result.insert(0, num);
+            result.append(num);
+            indexA--;
+            indexB--;
         }
-        if (i != -1) {
-            for (; i >= 0; i--) {
-                int num = a.charAt(i) - '0' + flag;
-                if (num >= 2) {
-                    num -= 2;
-                    flag = 1;
-                } else {
-                    flag = 0;
-                }
-                result.insert(0, num);
+        if (indexA != -1) {
+            append(a, indexA, result);
+        } else if (indexB != -1) {
+            append(b, indexB, result);
+        }
+        return flag == 1 ? result.append(1).reverse().toString() : result.reverse().toString();
+    }
+
+    private void append(String s, int index, StringBuilder sb) {
+        while (index >= 0) {
+            int num = s.charAt(index) - '0' + flag;
+            if (num >= 2) {
+                num -= 2;
+                flag = 1;
+            } else {
+                flag = 0;
             }
-        } else if (j != -1) {
-            for (; j >= 0; j--) {
-                int num = b.charAt(j) - '0' + flag;
-                if (num >= 2) {
-                    num -= 2;
-                    flag = 1;
-                } else {
-                    flag = 0;
-                }
-                result.insert(0, num);
-            }
+            sb.append(num);
+            index--;
         }
-        if (flag == 1) {
-            return result.insert(0, 1).toString();
-        }
-        return result.toString();
     }
 }
