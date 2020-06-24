@@ -1,13 +1,11 @@
 package question0016_3sum_closest;
 
 /**
- * https://leetcode-cn.com/problems/3sum-closest/
- *
  * 暴力破解法。
  *
  * 时间复杂度是O(n ^ 3)，其中n为nums数组的长度。空间复杂度是O(1)。
  *
- * 执行用时：188ms，击败5.23%。消耗内存：36.9MB，击败83.68%。
+ * 执行用时：12ms，击败12.61%。消耗内存：39.1MB，击败6.82%。
  */
 public class Solution1 {
     public int threeSumClosest(int[] nums, int target) {
@@ -15,10 +13,13 @@ public class Solution1 {
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 for (int k = j + 1; k < n; k++) {
-                    int tmp = Math.abs(nums[i] + nums[j] + nums[k] - target);
-                    if (tmp < diff) {
-                        diff = tmp;
-                        result = nums[i] + nums[j] + nums[k];
+                    int sum = nums[i] + nums[j] + nums[k];
+                    if (sum == target) {
+                        return sum;
+                    }
+                    if (Math.abs(sum - target) < diff) {
+                        diff = Math.abs(sum - target);
+                        result = sum;
                     }
                 }
             }
