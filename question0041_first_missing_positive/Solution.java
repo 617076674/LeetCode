@@ -1,8 +1,6 @@
 package question0041_first_missing_positive;
 
 /**
- * https://leetcode-cn.com/problems/first-missing-positive/
- *
  * 让数组的第i个位置应该存放值i + 1。
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
@@ -11,11 +9,11 @@ package question0041_first_missing_positive;
  */
 public class Solution {
     public int firstMissingPositive(int[] nums) {
-        int n = nums.length;
+        int n;
+        if (null == nums || (n = nums.length) == 0) {
+            return 1;
+        }
         for (int i = 0; i < n; i++) {
-            if (nums[i] <= 0) {
-                continue;
-            }
             while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
                 swap(nums, i, nums[i] - 1);
             }
@@ -25,8 +23,7 @@ public class Solution {
                 return i + 1;
             }
         }
-        // 如果是[1, 2, 3]的情况，显然最小没有出现的最小正数是4
-        return n + 1;
+        return n + 1;   // 如果是[1, 2, 3]的情况，显然最小没有出现的最小正数是4
     }
 
     private void swap(int[] nums, int i, int j) {

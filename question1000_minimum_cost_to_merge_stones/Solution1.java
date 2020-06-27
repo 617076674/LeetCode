@@ -13,11 +13,11 @@ import java.util.Arrays;
  * dp[i][j][k] = min(dp[i][m][1] + dp[m + 1][j][k - 1]), m ∈ [i, j), k ∈ [2, K]。
  * dp[i][j][1] = dp[i][j][K] + A[i] + ... + A[j]。
  *
- * 时间复杂度是 O(K * n ^ 3)，其中 n 为数组 stones 的长度。空间复杂度是 O(n ^ 2)。
+ * 时间复杂度是 O(K * (n ^ 3))，其中 n 为数组 stones 的长度。空间复杂度是 O(K * (n ^ 2))。
  *
  * 执行用时：5ms，击败65.52%。消耗内存：39.4MB，击败100.00%。
  */
-public class Solution {
+public class Solution1 {
     public int mergeStones(int[] stones, int K) {
         int n = stones.length;
         if ((n - 1) % (K - 1) != 0) {
@@ -30,7 +30,7 @@ public class Solution {
         int[][][] dp = new int[n][n][K + 1];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                Arrays.fill(dp[i][j], Integer.MAX_VALUE);
+                Arrays.fill(dp[i][j], Integer.MAX_VALUE / 2 - 1);
             }
         }
         for (int i = 0; i < n; i++) {
@@ -40,10 +40,13 @@ public class Solution {
             for (int j = i + 1; j < n; j++) {
                 for (int k = 2; k <= K; k++) {
                     for (int m = i; m < j; m += K - 1) {
+                        // 必须要满足 (m - i) % (K - 1) != 0 才能将 [i, m] 范围内的元素合并为 1 个元素
                         dp[i][j][k] = Math.min(dp[i][j][k], dp[i][m][1] + dp[m + 1][j][k - 1]);
                     }
                 }
-                dp[i][j][1] = dp[i][j][K] + sum[j + 1] - sum[i];
+                if (dp[i][j][K] < Integer.MAX_VALUE / 2 - 1) {
+                    dp[i][j][1] = dp[i][j][K] + sum[j + 1] - sum[i];
+                }
             }
         }
         return dp[0][n - 1][1];

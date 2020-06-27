@@ -1,8 +1,6 @@
-package question_remove_duplicate_node_lcci;
+package lcci0201_remove_duplicate_node;
 
 /**
- * 哈希表。
- *
  * 时间复杂度是O(n ^ 2)，其中n为链表的节点个数。空间复杂度是O(1)。
  *
  * 执行用时：386ms，击败13.62%。消耗内存：40.5MB，击败100.00%。
