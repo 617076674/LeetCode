@@ -13,10 +13,11 @@ package question0718_maximum_length_of_repeated_subarray;
  * 当 A[i - 1] == B[j - 1] 时，dp[i][j] = dp[i - 1][j - 1] + 1。
  *
  * 时间复杂度和空间复杂度均是 O(na * nb)，其中 na 为数组 A 的长度，nb 为数组 B 的长度。
+ *
+ * 执行用时：45ms，击败89.54%。消耗内存：48.9MB，击败100.00%。
  */
 public class Solution {
     public int findLength(int[] A, int[] B) {
-        // dp[i][j] 表示数组A [0, i - 1]范围内，数组B [0, j - 1]范围内公共的最长子数组的长度
         int[][] dp = new int[A.length + 1][B.length + 1];
         int result = 0;
         for (int i = 1; i < A.length + 1; i++) {
@@ -28,11 +29,5 @@ public class Solution {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] A = {1, 2, 3, 2, 1};
-        int[] B = {3, 2, 1, 4, 7};
-        System.out.println(new Solution().findLength(A, B));
     }
 }

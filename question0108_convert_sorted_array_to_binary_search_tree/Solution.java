@@ -1,11 +1,11 @@
-package question0108;
+package question0108_convert_sorted_array_to_binary_search_tree;
 
 /**
  * 递归。
  *
- * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(logn)。
+ * 时间复杂度是 O(n)，其中n为nums数组的长度。空间复杂度是 O(logn)。
  *
- * 执行用时：2ms，击败81.12%。消耗内存：38.8MB，击败42.87%。
+ * 执行用时：0ms，击败100.00%。消耗内存：39.7MB，击败8.70%。
  */
 public class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
