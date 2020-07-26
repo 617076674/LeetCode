@@ -1,9 +1,16 @@
 package question0064_minimum_path_sum;
 
 /**
- * https://leetcode-cn.com/problems/minimum-path-sum/
- *
  * 动态规划。
+ *
+ * 状态定义：
+ * dp[i][j] 表示从左上角 (0, 0) 位置到达 (i, j) 路径位置上数字总和的最小值。
+ *
+ * 初始化条件：
+ * dp[0][0] = grid[0][0]。
+ *
+ * 状态转移方程：
+ * dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]。
  *
  * 时间复杂度和空间复杂度均是O(mn)，其中m是obstacleGrid的行数，n是obstacleGrid的列数。
  *
