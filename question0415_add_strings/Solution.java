@@ -10,15 +10,9 @@ package question0415_add_strings;
 public class Solution {
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
-        int flag = 0;
-        int index1 = num1.length() - 1, index2 = num2.length() - 1;
-        while (true) {
-            if (index1 < 0 && index2 < 0){
-                if (flag != 0) {
-                    sb.append(flag);
-                }
-                return sb.reverse().toString();
-            } else if (index1 >= 0 && index2 < 0) {
+        int flag = 0, index1 = num1.length() - 1, index2 = num2.length() - 1;
+        while (index1 >= 0 || index2 >= 0) {
+            if (index1 >= 0 && index2 < 0) {
                 int num = num1.charAt(index1) - '0' + flag;
                 if (num >= 10) {
                     num -= 10;
@@ -28,7 +22,7 @@ public class Solution {
                 }
                 sb.append(num);
                 index1--;
-            } else if (index1 < 0 && index2 >= 0) {
+            } else if (index1 < 0) {
                 int num = num2.charAt(index2) - '0' + flag;
                 if (num >= 10) {
                     num -= 10;
@@ -51,5 +45,9 @@ public class Solution {
                 index2--;
             }
         }
+        if (flag != 0) {
+            sb.append(flag);
+        }
+        return sb.reverse().toString();
     }
 }
