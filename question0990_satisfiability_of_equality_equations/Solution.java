@@ -12,13 +12,10 @@ package question0990_satisfiability_of_equality_equations;
 public class Solution {
     private int[] parent = new int[26];
 
-    {
+    public boolean equationsPossible(String[] equations) {
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
         }
-    }
-
-    public boolean equationsPossible(String[] equations) {
         for (int i = 0; i < equations.length; i++) {
             if (equations[i].charAt(1) == '=') {
                 union(equations[i].charAt(0) - 'a', equations[i].charAt(3) - 'a');
