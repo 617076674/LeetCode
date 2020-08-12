@@ -1,13 +1,13 @@
 package question0337_house_robber_iii;
 
 public class TreeNode {
-    int val;
+  int val;
 
-    TreeNode left;
+  TreeNode left;
 
-    TreeNode right;
+  TreeNode right;
 
-    TreeNode(int x) {
-        val = x;
-    }
+  TreeNode(int x) {
+    val = x;
+  }
 }

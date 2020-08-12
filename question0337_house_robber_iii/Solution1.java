@@ -15,28 +15,28 @@ import java.util.Map;
  * 执行用时：3ms，击败61.38%。消耗内存：39.4MB，击败33.33%。
  */
 public class Solution1 {
-    private Map<TreeNode, Integer> memo = new HashMap<>();
+  private Map<TreeNode, Integer> memo = new HashMap<>();
 
-    public int rob(TreeNode root) {
-        if (null == root) {
-            return 0;
-        }
-        if (root.left == null && root.right == null) {
-            return root.val;
-        }
-        if (memo.containsKey(root)) {
-            return memo.get(root);
-        }
-        int result;
-        if (root.left == null) {
-            result = Math.max(root.val + rob(root.right.left) + rob(root.right.right), rob(root.right));
-        } else if (root.right == null) {
-            result = Math.max(root.val + rob(root.left.left) + rob(root.left.right), rob(root.left));
-        } else {
-            result = Math.max(root.val + rob(root.left.left) + rob(root.left.right) + rob(root.right.left)
-                    + rob(root.right.right), rob(root.left) + rob(root.right));
-        }
-        memo.put(root, result);
-        return result;
+  public int rob(TreeNode root) {
+    if (null == root) {
+      return 0;
     }
+    if (root.left == null && root.right == null) {
+      return root.val;
+    }
+    if (memo.containsKey(root)) {
+      return memo.get(root);
+    }
+    int result;
+    if (root.left == null) {
+      result = Math.max(root.val + rob(root.right.left) + rob(root.right.right), rob(root.right));
+    } else if (root.right == null) {
+      result = Math.max(root.val + rob(root.left.left) + rob(root.left.right), rob(root.left));
+    } else {
+      result = Math.max(root.val + rob(root.left.left) + rob(root.left.right) + rob(root.right.left)
+          + rob(root.right.right), rob(root.left) + rob(root.right));
+    }
+    memo.put(root, result);
+    return result;
+  }
 }

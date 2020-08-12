@@ -1,4 +1,4 @@
-package question0100;
+package question0100_same_tree;
 
 /**
  * 递归实现。

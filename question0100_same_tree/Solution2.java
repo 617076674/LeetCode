@@ -1,4 +1,4 @@
-package question0100;
+package question0100_same_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
