@@ -3,8 +3,6 @@ package question0020_valid_parentheses;
 import java.util.Stack;
 
 /**
- * https://leetcode-cn.com/problems/valid-parentheses/
- *
  * 栈的应用。
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为字符串s的长度。
