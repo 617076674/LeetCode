@@ -1,4 +1,4 @@
-package question0733;
+package question0733_flood_fill;
 
 /**
  * 深搜。
@@ -14,29 +14,21 @@ public class Solution {
 
     private boolean[][] visited;
 
-    private int[][] result;
-
     private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         m = image.length;
         n = image[0].length;
         visited = new boolean[m][n];
-        result = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                result[i][j] = image[i][j];
-            }
-        }
         dfs(image, sr, sc);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (visited[i][j]) {
-                    result[i][j] = newColor;
+                    image[i][j] = newColor;
                 }
             }
         }
-        return result;
+        return image;
     }
 
     private void dfs(int[][] image, int x, int y) {
