@@ -1,8 +1,10 @@
-package question0110;
+package question0110_balanced_binary_tree;
 
 public class TreeNode {
     int val;
+
     TreeNode left;
+
     TreeNode right;
 
     TreeNode(int x) {
