@@ -1,11 +1,10 @@
 package question0051_n_queens;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/n-queens/
- *
  * 回溯法。
  *
  * 执行用时：16ms，击败11.17%。消耗内存：39.9MB，击败14.72%。
@@ -42,22 +41,19 @@ public class Solution1 {
         for (int i = 0; i < n; i++) {
             if (!visited[m][i]) {
                 position[m] = i;
-                boolean[][] tempVisited = new boolean[n][n];
+                boolean[][] tmpVisited = new boolean[n][n];
                 for (int j = 0; j < n; j++) {
-                    for (int k = 0; k < n; k++) {
-                        tempVisited[j][k] = visited[j][k];
-                    }
+                    tmpVisited[j] = Arrays.copyOf(visited[j], n);
                 }
                 for (int j = 0; j < n; j++) {
-                    tempVisited[j][i] = true;
-                    tempVisited[m][j] = true;
+                    tmpVisited[j][i] = tmpVisited[m][j] = true;
                     for (int k = 0; k < n; k++) {
                         if ((Math.abs(j - m) == Math.abs(k - i))) {
-                            tempVisited[j][k] = true;
+                            tmpVisited[j][k] = true;
                         }
                     }
                 }
-                solveNQueens(m + 1, n, tempVisited);
+                solveNQueens(m + 1, n, tmpVisited);
                 position[m] = -1;
             }
         }

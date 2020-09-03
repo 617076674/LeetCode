@@ -1,4 +1,4 @@
-package question0486;
+package question0486_predict_the_winner;
 
 /**
  * 递归。
@@ -8,8 +8,8 @@ package question0486;
  * 执行用时：63ms，击败10.74%。消耗内存：34.8MB，击败84.42%。
  */
 public class Solution1 {
-    //sums[i]表示nums数组中[0, i - 1]范围内元素总和，那么sum[i] - sum[j]代表nums数组中[j, i - 1]范围内的元素和
-    private int[] sums;
+
+    private int[] sums; // sums[i] 表示 nums 数组中 [0, i - 1] 范围内元素总和，那么 sums[i] - sums[j] 代表 nums 数组中 [j, i - 1] 范围内的元素和
 
     public boolean PredictTheWinner(int[] nums) {
         int n = nums.length;
@@ -18,11 +18,7 @@ public class Solution1 {
             sums[i] = sums[i - 1] + nums[i - 1];
         }
         int first = maxScoreOfFirst(nums, 0, n - 1);
-        int second = sums[n] - first;
-        if (first >= second) {
-            return true;
-        }
-        return false;
+        return first >= sums[n] - first;
     }
 
     /**

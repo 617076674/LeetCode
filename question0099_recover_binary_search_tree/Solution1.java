@@ -1,4 +1,4 @@
-package question0099;
+package question0099_recover_binary_search_tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,19 +15,19 @@ import java.util.List;
  * 执行用时：88ms，击败5.25%。消耗内存：43.8MB，击败72.46%。
  */
 public class Solution1 {
-    private List<TreeNode> list = new ArrayList<>();
+    private List<TreeNode> inOrder = new ArrayList<>();
 
     public void recoverTree(TreeNode root) {
         inorderTraversal(root);
-        List<TreeNode> tempList = new ArrayList<>(list);
-        Collections.sort(tempList, Comparator.comparingInt(treeNode -> treeNode.val));
+        List<TreeNode> tmpList = new ArrayList<>(inOrder);
+        Collections.sort(tmpList, Comparator.comparingInt(treeNode -> treeNode.val));
         List<Integer> wrongList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).val != tempList.get(i).val) {
+        for (int i = 0; i < inOrder.size(); i++) {
+            if (inOrder.get(i).val != tmpList.get(i).val) {
                 wrongList.add(i);
             }
         }
-        swap(list, wrongList.get(0), wrongList.get(1));
+        swap(inOrder, wrongList.get(0), wrongList.get(1));
     }
 
     private void inorderTraversal(TreeNode root) {
@@ -35,13 +35,13 @@ public class Solution1 {
             return;
         }
         inorderTraversal(root.left);
-        list.add(root);
+        inOrder.add(root);
         inorderTraversal(root.right);
     }
 
     private void swap(List<TreeNode> list, int i, int j) {
-        Integer temp = list.get(i).val;
+        int tmp = list.get(i).val;
         list.get(i).val = list.get(j).val;
-        list.get(j).val = temp;
+        list.get(j).val = tmp;
     }
 }

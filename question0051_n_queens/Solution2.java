@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/n-queens/
- *
  * 回溯法。先求出全排列，再判断每个排列是否符合规则。
  *
  * 时间复杂度是O(n ^ n)。空间复杂度是O(n ^ 2)。

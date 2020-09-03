@@ -1,4 +1,4 @@
-package question0099;
+package question0099_recover_binary_search_tree;
 
 /**
  * 参考Solution2的思路，既然我们的目的仅仅寻找到中序遍历序列的下降沿，没必要用一个list来保存中序遍历的结果，只需要在中序遍历时保存前驱节点。
@@ -14,13 +14,13 @@ public class Solution3 {
 
     private TreeNode pre = null;
 
-    private int countDown = 0;
+    private int countDown;
 
     public void recoverTree(TreeNode root) {
         inorderTraversal(root);
-        int temp = wrongTreeNode1.val;
+        int tmp = wrongTreeNode1.val;
         wrongTreeNode1.val = wrongTreeNode2.val;
-        wrongTreeNode2.val = temp;
+        wrongTreeNode2.val = tmp;
     }
 
     /**

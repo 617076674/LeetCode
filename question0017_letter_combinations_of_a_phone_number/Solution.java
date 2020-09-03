@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
- *
  * 回溯法。
  *
  * 时间复杂度是O(4 ^ n)，其中n为字符串digits的长度。空间复杂度是O(n)。
@@ -21,7 +19,10 @@ public class Solution {
 
     private int n;
 
-    {
+    public List<String> letterCombinations(String digits) {
+        if (null == digits || (n = digits.length()) == 0) {
+            return list;
+        }
         map.put('2', "abc");
         map.put('3', "def");
         map.put('4', "ghi");
@@ -30,12 +31,6 @@ public class Solution {
         map.put('7', "pqrs");
         map.put('8', "tuv");
         map.put('9', "wxyz");
-    }
-
-    public List<String> letterCombinations(String digits) {
-        if (null == digits || (n = digits.length()) == 0) {
-            return list;
-        }
         letterCombinations(digits, 0, new StringBuilder());
         return list;
     }
@@ -49,8 +44,8 @@ public class Solution {
             return;
         }
         char[] nextChar = map.get(digits.charAt(index)).toCharArray();
-        for (int i = 0; i < nextChar.length; i++) {
-            sb.append(nextChar[i]);
+        for (char c : nextChar) {
+            sb.append(c);
             letterCombinations(digits, index + 1, sb);
             sb.deleteCharAt(sb.length() - 1);
         }

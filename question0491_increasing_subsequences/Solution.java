@@ -13,7 +13,7 @@ public class Solution {
 
     public List<List<Integer>> findSubsequences(int[] nums) {
         dfs(nums, new ArrayList<>(), 0);
-        return new ArrayList<>(result);
+        return result;
     }
 
     private void dfs(int[] nums, List<Integer> list, int index) {
