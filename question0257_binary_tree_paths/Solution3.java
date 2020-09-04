@@ -1,4 +1,4 @@
-package question0257;
+package question0257_binary_tree_paths;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,6 @@ import java.util.Stack;
 
 
 /**
- * @author qianyihui
- * @date 2019-06-30
- *
  * 用栈实现。
  *
  * 时间复杂度是O(n)，其中n是树中的节点个数。空间复杂度是O(h)，其中h是树的高度。

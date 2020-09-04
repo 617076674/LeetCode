@@ -1,12 +1,9 @@
-package question0257;
+package question0257_binary_tree_paths;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author qianyihui
- * @date 2019-06-30
- *
  * 递归实现。
  *
  * 时间复杂度是O(n)，其中n是树中的节点个数。空间复杂度是O(h)，其中h是树的高度。
@@ -26,15 +23,13 @@ public class Solution2 {
         List<String> leftResult = binaryTreePaths(root.left);
         for (String s : leftResult) {
             StringBuilder sb = new StringBuilder(String.valueOf(root.val));
-            sb.append("->");
-            sb.append(s);
+            sb.append("->").append(s);
             list.add(sb.toString());
         }
         List<String> rightResult = binaryTreePaths(root.right);
         for (String s : rightResult) {
             StringBuilder sb = new StringBuilder(String.valueOf(root.val));
-            sb.append("->");
-            sb.append(s);
+            sb.append("->").append(s);
             list.add(sb.toString());
         }
         return list;

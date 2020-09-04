@@ -1,4 +1,4 @@
-package question0257;
+package question0257_binary_tree_paths;
 
 public class TreeNode {
     int val;

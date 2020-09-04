@@ -1,12 +1,9 @@
-package question0257;
+package question0257_binary_tree_paths;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author qianyihui
- * @date 2019-06-30
- *
  * 回溯法。
  *
  * 时间复杂度是O(n)，其中n是树中的节点个数。空间复杂度是O(h)，其中h是树的高度。
@@ -25,8 +22,7 @@ public class Solution1 {
         if (null == root) {
             return;
         }
-        sb.append(root.val);
-        sb.append("->");
+        sb.append(root.val).append("->");
         if (root.left == null && root.right == null) {
             list.add(sb.substring(0, sb.length() - 2));
             return;
