@@ -1,8 +1,6 @@
 package question0060_permutation_sequence;
 
 /**
- * https://leetcode-cn.com/problems/permutation-sequence/
- *
  * 对数组{1, 2, 3, ..., n}进行重新排列。
  *
  * 以n = 4, k = 14的情况来举例说明。
@@ -55,16 +53,15 @@ public class Solution {
         if (k == 1) {
             return;
         }
-        int i = index, level = factorial(array.length - index - 1);
-        for (; i < array.length; i++) {
-            if (k - level < 1) {
-                break;
-            }
-            k -= level;
+        int level = factorial(array.length - index - 1), i = k / level + index;
+        k %= level;
+        if (k == 0) {
+            i--;
+            k = level;
         }
         int tmp = array[i];
-        for (int j = i - 1; j >= index; j--) {
-            array[j + 1] = array[j];
+        if (i - index >= 0) {
+            System.arraycopy(array, index, array, index + 1, i - index);
         }
         array[index] = tmp;
         getPermutation(array, index + 1, k);
