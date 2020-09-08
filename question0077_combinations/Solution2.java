@@ -1,4 +1,4 @@
-package question0077;
+package question0077_combinations;
 
 import java.util.ArrayList;
 import java.util.List;
