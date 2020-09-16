@@ -9,6 +9,7 @@ package question0226_invert_binary_tree;
  * 执行用时：1ms，击败82.20%。消耗内存：34.7MB，击败38.99%。
  */
 public class Solution1 {
+
     public TreeNode invertTree(TreeNode root) {
         if (null == root) {
             return root;
@@ -18,4 +19,5 @@ public class Solution1 {
         root.right = invertTree(tmp);
         return root;
     }
+
 }

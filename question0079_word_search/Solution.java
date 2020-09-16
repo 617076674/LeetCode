@@ -8,6 +8,7 @@ package question0079_word_search;
  * 执行用时：8ms，击败37.82%。消耗内存：41.9MB，击败100.00%。
  */
 public class Solution {
+
     private boolean result;
 
     private int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -38,8 +39,8 @@ public class Solution {
             result = true;
             return;
         }
-        for (int i = 0; i < directions.length; i++) {
-            int newX = x + directions[i][0], newY = y + directions[i][1];
+        for (int[] direction : directions) {
+            int newX = x + direction[0], newY = y + direction[1];
             if (newX >= 0 && newX < m && newY >= 0 && newY < n && board[newX][newY] == word.charAt(index)) {
                 char tmp = board[newX][newY];
                 board[newX][newY] = '-';
@@ -48,4 +49,5 @@ public class Solution {
             }
         }
     }
+
 }

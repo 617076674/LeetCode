@@ -12,6 +12,7 @@ import java.util.Stack;
  * 执行用时：3ms，击败55.16%。消耗内存：35.3MB，击败39.36%。
  */
 public class Solution2 {
+
     private class WrapperNode {
         boolean visited;        //go, print
 
@@ -51,4 +52,5 @@ public class Solution2 {
         }
         return list;
     }
+
 }

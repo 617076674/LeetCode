@@ -1,9 +1,15 @@
-package question216;
+package question0216_combination_sum_iii;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 回溯。
+ *
+ * 执行用时：1ms，击败69.81%。消耗内存：37.3MB，击败17.32%。
+ */
 public class Solution {
+
     private List<List<Integer>> retListList = new ArrayList<>();
 
     public List<List<Integer>> combinationSum3(int k, int n) {
@@ -27,4 +33,5 @@ public class Solution {
             }
         }
     }
+
 }

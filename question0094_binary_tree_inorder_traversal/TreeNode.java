@@ -1,6 +1,7 @@
 package question0094_binary_tree_inorder_traversal;
 
 public class TreeNode {
+
     int val;
 
     TreeNode left;
@@ -10,4 +11,5 @@ public class TreeNode {
     TreeNode(int x) {
         val = x;
     }
+
 }

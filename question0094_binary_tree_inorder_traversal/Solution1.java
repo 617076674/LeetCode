@@ -11,6 +11,7 @@ import java.util.List;
  * 执行用时：1ms，击败99.01%。消耗内存：35.1MB，击败39.36%。
  */
 public class Solution1 {
+
     private List<Integer> list = new ArrayList<>();
 
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -26,4 +27,5 @@ public class Solution1 {
         list.add(treeNode.val);
         inorder(treeNode.right);
     }
+
 }

@@ -11,6 +11,7 @@ import java.util.List;
  * 执行用时：1ms，击败99.01%。消耗内存：35.2MB，击败39.36%。
  */
 public class Solution4 {
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (null == root) {
@@ -38,4 +39,5 @@ public class Solution4 {
         }
         return list;
     }
+
 }

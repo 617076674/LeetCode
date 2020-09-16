@@ -11,6 +11,7 @@ import java.util.Queue;
  * 执行用时：1ms，击败82.20%。消耗内存：35.3MB，击败38.67%。
  */
 public class Solution2 {
+
     public TreeNode invertTree(TreeNode root) {
         if (null == root) {
             return null;
@@ -31,4 +32,5 @@ public class Solution2 {
         }
         return root;
     }
+
 }

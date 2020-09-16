@@ -12,6 +12,7 @@ import java.util.Stack;
  * 执行用时：2ms，击败55.16%。消耗内存：35.6MB，击败39.23%。
  */
 public class Solution3 {
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (null == root) {
@@ -31,4 +32,5 @@ public class Solution3 {
         }
         return list;
     }
+
 }

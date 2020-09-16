@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/combination-sum/
- *
  * 回溯法。
  *
  * 执行用时：9ms，击败55.18%。消耗内存：37.2MB，击败96.62%。
  */
 public class Solution {
+
     private List<List<Integer>> listList = new ArrayList<>();
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -28,12 +27,13 @@ public class Solution {
             }
             return;
         }
-        for (int i = 0; i < candidates.length; i++) {
-            if (list.size() == 0 || candidates[i] >= list.get(list.size() - 1)) {   //list中值是升序排列，防重复
-                list.add(candidates[i]);
-                combinationSum(candidates, target, list, sum + candidates[i]);
+        for (int candidate : candidates) {
+            if (list.isEmpty() || candidate >= list.get(list.size() - 1)) {   //list中值是升序排列，防重复
+                list.add(candidate);
+                combinationSum(candidates, target, list, sum + candidate);
                 list.remove(list.size() - 1);   //注意变量的回溯
             }
         }
     }
+
 }
