@@ -3,9 +3,7 @@ package question0047_permutations_ii;
 import java.util.*;
 
 /**
- * https://leetcode-cn.com/problems/permutations-ii/
- *
- * 将数组nums中的值存进一个map里，用回溯法求全排列。
+ * 回溯。
  *
  * 时间复杂度是O(n!)，其中n为nums数组的长度。空间复杂度是O(n)。
  *
