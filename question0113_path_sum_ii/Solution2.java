@@ -1,18 +1,23 @@
-package question113;
+package question0113_path_sum_ii;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 深度优先遍历。
+ *
+ * 执行用时：1ms，击败100.00%。消耗内存：39.5MB，击败19.50%。
+ */
 public class Solution2 {
-    List<List<Integer>> listList;
-    List<Integer> list;
+
+    private List<List<Integer>> listList = new ArrayList<>();
+
+    private List<Integer> list = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        listList = new ArrayList<>();
         if (null == root) {
             return listList;
         }
-        list = new ArrayList<>();
         dfs(root, sum);
         return listList;
     }
@@ -35,4 +40,5 @@ public class Solution2 {
         }
         list.remove(list.size() - 1);
     }
+
 }

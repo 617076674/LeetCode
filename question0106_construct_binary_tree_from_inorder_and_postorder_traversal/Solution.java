@@ -1,4 +1,4 @@
-package question0106;
+package question0106_construct_binary_tree_from_inorder_and_postorder_traversal;
 
 /**
  * 递归实现。
@@ -15,13 +15,12 @@ package question0106;
  * 执行用时：32ms，击败44.95%。消耗内存：38.1MB，击败67.56%。
  */
 public class Solution {
+
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        TreeNode root = create(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
-        return root;
+        return create(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
     }
 
     private TreeNode create(int[] inorder, int[] postorder, int inLeft, int inRight, int postLeft, int postRight) {
-        //递归终止条件
         if (postLeft > postRight) {
             return null;
         }
@@ -40,4 +39,5 @@ public class Solution {
         treeNode.right = create(inorder, postorder, k + 1, inRight, postLeft + numLeft, postRight - 1);
         return treeNode;
     }
+
 }

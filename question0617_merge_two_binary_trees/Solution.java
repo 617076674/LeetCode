@@ -9,6 +9,7 @@ package question0617_merge_two_binary_trees;
  * 执行用时：1ms，击败99.72%。消耗内存：40MB，击败95.85%。
  */
 public class Solution {
+
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (null == t1 && null == t2) {
             return null;
@@ -24,4 +25,5 @@ public class Solution {
         treeNode.right = mergeTrees(t1.right, t2.right);
         return treeNode;
     }
+
 }

@@ -1,47 +1,66 @@
 package question0685_redundant_connection_ii;
 
+/**
+ * 并查集。
+ *
+ * 执行用时：1ms，击败99.71%。消耗内存：39.1MB，击败46.52%。
+ */
 public class Solution {
 
     private int[] parent;
 
+    private int n;
+
     public int[] findRedundantDirectedConnection(int[][] edges) {
-        parent = new int[edges.length];
-        for (int i = 0; i < parent.length; i++) {
-            parent[i] = i;
-        }
-        int result = edges.length - 1;
-        while (result > 0) {
-            // 判断删除掉第 result 条边后是不是一棵有根树
-            for (int i = 0; i < edges.length; i++) {
-                if (i != result) {
-                    unionTwo(edges[i][0] - 1, edges[i][1] - 1);
+        n = edges.length;
+        parent = new int[n];
+        init();
+        // 1 - 有节点存在多个父亲节点的情况
+        for (int i = 0; i < n; i++) {
+            int node1 = edges[i][0] - 1, node2 = edges[i][1] - 1;
+            if (findParent(node2) != node2) {
+                // hasLoop 用以标记除去第 i 条边，剩余的边是否构成环
+                boolean hasLoop = false;
+                init();
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        int node3 = edges[j][0] - 1, node4 = edges[j][1] - 1;
+                        if (findParent(node3) == node4) {
+                            hasLoop = true;
+                            break;
+                        }
+                        unionTwo(node4, node3);
+                    }
                 }
-            }
-            int root = -1;
-            for (int i = 0; i < parent.length; i++) {
-                if (parent[i] == i) {
-                    root = i;
-                    break;
-                }
-            }
-            boolean flag = true;
-            if (root != -1) {
-                for (int i = 0; i < parent.length; i++) {
-                    if (root != i) {
-                        if (findParent(i) != root) {
-                            flag = false;
+                // 如果除去第 i 条边，剩余的边构成环，则去除构成环且和第 i 条边冲突导致出现 2 个父节点的那条边
+                if (hasLoop) {
+                    for (int j = 0; j < n; j++) {
+                        if (j != i && edges[j][1] == edges[i][1]) {
+                            return edges[j];
                         }
                     }
                 }
-            } else {
-                flag = false;
+                // 如果除去第 i 条边，剩余的边不构成环，则去除第 i 条边
+                return edges[i];
             }
-            if (flag) {
-                break;
-            }
-            result--;
+            unionTwo(node2, node1);
         }
-        return edges[result];
+        // 2 - 没有节点存在多个父亲节点的情况，看有没有环
+        init();
+        for (int[] edge : edges) {
+            int node1 = edge[0] - 1, node2 = edge[1] - 1;
+            if (findParent(node1) == node2) {
+                return edge;
+            }
+            unionTwo(node2, node1);
+        }
+        return null;
+    }
+
+    private void init() {
+        for (int j = 0; j < n; j++) {
+            parent[j] = j;
+        }
     }
 
     private int findParent(int x) {

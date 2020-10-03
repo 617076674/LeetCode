@@ -1,4 +1,4 @@
-package question0235;
+package question0235_lowest_common_ancestor_of_a_binary_search_tree;
 
 /**
  * 递归实现。
@@ -11,9 +11,11 @@ public class Solution1 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (p.val <= root.val && q.val >= root.val) {
             return root;
-        } else if (p.val >= root.val && q.val <= root.val) {
+        }
+        if (p.val >= root.val && q.val <= root.val) {
             return root;
-        } else if (p.val <= root.val) {
+        }
+        if (p.val <= root.val) {
             return lowestCommonAncestor(root.left, p, q);
         }
         return lowestCommonAncestor(root.right, p, q);

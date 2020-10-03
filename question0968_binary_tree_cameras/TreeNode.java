@@ -1,6 +1,7 @@
 package question0968_binary_tree_cameras;
 
 public class TreeNode {
+
     int val;
 
     TreeNode left;
@@ -10,4 +11,5 @@ public class TreeNode {
     TreeNode(int x) {
         val = x;
     }
+
 }

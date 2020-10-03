@@ -1,9 +1,15 @@
-package question113;
+package question0113_path_sum_ii;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 递归。
+ *
+ * 执行用时：4ms，击败6.47%。消耗内存：39.6MB，击败11.89%。
+ */
 public class Solution1 {
+
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> listList = new ArrayList<>();
         if (root == null) {
@@ -17,14 +23,15 @@ public class Solution1 {
         }
         List<List<Integer>> leftListList = pathSum(root.left, sum - root.val);
         List<List<Integer>> rightListList = pathSum(root.right, sum - root.val);
-        for (List<Integer> tempList : leftListList) {
-            tempList.addAll(0, list);
-            listList.add(tempList);
+        for (List<Integer> tmpList : leftListList) {
+            tmpList.addAll(0, list);
+            listList.add(tmpList);
         }
-        for (List<Integer> tempList : rightListList) {
-            tempList.addAll(0, list);
-            listList.add(tempList);
+        for (List<Integer> tmpList : rightListList) {
+            tmpList.addAll(0, list);
+            listList.add(tmpList);
         }
         return listList;
     }
+
 }

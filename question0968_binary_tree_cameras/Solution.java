@@ -8,6 +8,7 @@ package question0968_binary_tree_cameras;
  * 执行用时：1ms，击败57.68%。消耗内存：39.6MB，击败50.00%。
  */
 public class Solution {
+
     private enum Status {
         NEED,   // 该节点需要监视器来监视
         NO_NEED,    // 该节点不需要监视器来监视
@@ -37,4 +38,5 @@ public class Solution {
         }
         return Status.NEED;
     }
+
 }
