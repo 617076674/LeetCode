@@ -17,16 +17,13 @@ public class Solution2 {
             return null;
         }
         ListNode cur1 = head, cur2 = head;  //这里不能设立虚拟头节点，需要以head为起点
-        while (true) {
+        do {
             if (null == cur2.next || null == cur2.next.next) {
                 return null;
             }
             cur1 = cur1.next;   //慢指针cur1一次走一步
             cur2 = cur2.next.next;  //快指针cur2一次走两步
-            if (cur1 == cur2) {
-                break;
-            }
-        }
+        } while (cur1 != cur2);
         cur1 = head;
         while (cur1 != cur2) {
             cur1 = cur1.next;

@@ -1,14 +1,15 @@
-package question116;
+package question0116_populating_next_right_pointers_in_each_node;
 
 public class Solution3 {
-    public void connect(TreeLinkNode root) {
+
+    public Node connect(Node root) {
         if (null == root) {
-            return;
+            return null;
         }
-        TreeLinkNode first = root;
+        Node first = root;
         while (null != first) {
-            TreeLinkNode p = first;
-            TreeLinkNode cur = null;
+            Node p = first;
+            Node cur = null;
             first = p.left;
             while (null != p) {
                 if (null != cur) {
@@ -24,6 +25,7 @@ public class Solution3 {
                 p = p.next;
             }
         }
+        return root;
     }
-}
 
+}

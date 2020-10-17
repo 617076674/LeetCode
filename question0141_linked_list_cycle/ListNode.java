@@ -1,6 +1,7 @@
 package question0141_linked_list_cycle;
 
 public class ListNode {
+
     int val;
 
     ListNode next;
@@ -9,4 +10,5 @@ public class ListNode {
         val = x;
         next = null;
     }
+
 }

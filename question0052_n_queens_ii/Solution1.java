@@ -1,8 +1,6 @@
 package question0052_n_queens_ii;
 
 /**
- * https://leetcode-cn.com/problems/n-queens-ii/
- *
  * 回溯法。
  *
  * 时间复杂度是O(n ^ n)。空间复杂度是O(n ^ 2)。

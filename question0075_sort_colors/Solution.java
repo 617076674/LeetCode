@@ -1,8 +1,6 @@
 package question0075_sort_colors;
 
 /**
- * https://leetcode-cn.com/problems/sort-colors/
- *
  * 快排。
  *
  * 时间复杂度是O(n)，其中n是数组nums的长度。空间复杂度是O(1)。

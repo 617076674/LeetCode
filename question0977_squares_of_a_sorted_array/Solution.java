@@ -1,9 +1,6 @@
-package question0977;
+package question0977_squares_of_a_sorted_array;
 
 /**
- * @author qianyihui
- * @date 2019-08-21
- *
  * 双指针。
  *
  * 时间复杂度是O(n)，其中n为数组A的长度。空间复杂度是O(1)。
@@ -22,22 +19,13 @@ public class Solution {
         int[] result = new int[n];
         int index = 0, index1 = min - 1, index2 = min + 1;
         result[index++] = A[min] * A[min];
-        while (true) {
-            if (index1 < 0 && index2 >= n) {
-                break;
-            }
-            if (index1 < 0) {
+        while (index1 >= 0 || index2 < n) {
+            if (index1 < 0 || (index2 < n && Math.abs(A[index1]) > Math.abs(A[index2]))) {
                 result[index++] = A[index2] * A[index2];
                 index2++;
-            } else if (index2 >= n) {
-                result[index++] = A[index1] * A[index1];
-                index1--;
-            } else if (Math.abs(A[index1]) <= Math.abs(A[index2])) {
-                result[index++] = A[index1] * A[index1];
-                index1--;
             } else {
-                result[index++] = A[index2] * A[index2];
-                index2++;
+                result[index++] = A[index1] * A[index1];
+                index1--;
             }
         }
         return result;
