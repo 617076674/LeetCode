@@ -12,6 +12,7 @@ import java.util.Stack;
  * 执行用时：15ms，击败74.70%。消耗内存：42.3MB，击败21.43%。
  */
 public class Codec {
+
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         Stack<TreeNode> stack = new Stack<>();
@@ -48,4 +49,5 @@ public class Codec {
         root.right = deserialize(stack);
         return root;
     }
+
 }

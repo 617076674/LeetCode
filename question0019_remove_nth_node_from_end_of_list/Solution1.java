@@ -1,8 +1,6 @@
 package question0019_remove_nth_node_from_end_of_list;
 
 /**
- * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
- *
  * 两次扫描。第一趟扫描目的是得到链表的总节点个数。第二趟扫描的目的是找到待删除节点的前一个节点。
  *
  * 时间复杂度是O(m)，其中m为链表的长度。空间复杂度是O(1)。

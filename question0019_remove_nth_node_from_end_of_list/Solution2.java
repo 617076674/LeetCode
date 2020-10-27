@@ -1,8 +1,6 @@
 package question0019_remove_nth_node_from_end_of_list;
 
 /**
- * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
- *
  * 一趟扫描，双指针，让一个指针先走n步。
  *
  * 时间复杂度是O(m)，其中m为链表的长度。空间复杂度是O(1)。

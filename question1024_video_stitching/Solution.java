@@ -12,6 +12,7 @@ import java.util.Arrays;
  * 执行用时：1ms，击败74.47%。消耗内存：37.3MB，击败100.00%。
  */
 public class Solution {
+
     public int videoStitching(int[][] clips, int T) {
         Arrays.sort(clips, (clip1, clip2) -> {
             if (clip1[0] == clip2[0]) {
@@ -27,10 +28,10 @@ public class Solution {
             if (clips[i][0] <= end) {
                 int candidate = i, j = i;
                 while (j + 1 < clips.length && clips[j + 1][0] <= end) {
-                    if (clips[j + 1][1] > clips[candidate][1]) {
-                        candidate = j + 1;
-                    }
                     j++;
+                    if (clips[j][1] > clips[candidate][1]) {
+                        candidate = j;
+                    }
                 }
                 result++;
                 if (clips[candidate][1] >= T) {
@@ -44,4 +45,5 @@ public class Solution {
         }
         return result;
     }
+
 }
