@@ -8,14 +8,15 @@ package question0050_powx_n;
  * 执行用时：1ms，击败99.95%。消耗内存：33.4MB，击败75.61%。
  */
 public class Solution {
-    public double myPow(double x, int n) {
-        if (n == 0) {
-            return 1;
-        } else if (n > 0) {
-            double tmp = myPow(x, n / 2);
-            return (n & 1) == 0 ? tmp * tmp : tmp * tmp * x;
-        }
-        double tmp = myPow(x, n / 2);
-        return (n & 1) == 0 ? tmp * tmp : tmp * tmp / x;
+  public double myPow(double x, int n) {
+    if (n == 0) {
+      return 1;
     }
+    if (n > 0) {
+      double tmp = myPow(x, n / 2);
+      return (n & 1) == 0 ? tmp * tmp : tmp * tmp * x;
+    }
+    double tmp = myPow(x, n / 2);
+    return (n & 1) == 0 ? tmp * tmp : tmp * tmp / x;
+  }
 }

@@ -1,8 +1,6 @@
 package question0057_insert_interval;
 
 /**
- * https://leetcode-cn.com/problems/insert-interval/
- *
  * 时间复杂度是O(n)，其中n是数组intervals的长度。空间复杂度是O(1)。
  *
  * 执行用时：2ms，击败80.91%。消耗内存：41.1MB，击败55.60%。

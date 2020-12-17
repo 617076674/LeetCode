@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author qianyihui
- * @date 2019-07-07
- *
  * 先将原数组根据子数组第一个元素进行降序排序，得到一个身高从高到矮的列表。
  * 从头开始遍历，以子数组的第二个元素作为索引插入到列表中相应位置（插队），直到遍历完成，则队列重建完毕。
  *

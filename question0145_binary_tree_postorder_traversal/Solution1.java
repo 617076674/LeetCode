@@ -11,11 +11,12 @@ import java.util.List;
  * 执行用时：1ms，击败99.18%。消耗内存：34.9MB，击败37.05%。
  */
 public class Solution1 {
-    private List<Integer> list = new ArrayList<>();
+
+    private List<Integer> result = new ArrayList<>();
 
     public List<Integer> postorderTraversal(TreeNode root) {
         postorder(root);
-        return list;
+        return result;
     }
 
     private void postorder(TreeNode treeNode) {
@@ -24,6 +25,7 @@ public class Solution1 {
         }
         postorder(treeNode.left);
         postorder(treeNode.right);
-        list.add(treeNode.val);
+        result.add(treeNode.val);
     }
+
 }

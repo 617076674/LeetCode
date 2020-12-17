@@ -54,7 +54,7 @@ public class Solution2 {
     private void dijkstra() {
         Arrays.fill(distance, Integer.MAX_VALUE);
         distance[begin] = 0;
-        for (int i = 0; i < distance.length; i++) {
+        for (int i = 0; i < distance.length - 1; i++) {
             int u = -1, min = Integer.MAX_VALUE;
             for (int j = 0; j < distance.length; j++) {
                 if (!visited[j] && distance[j] < min) {

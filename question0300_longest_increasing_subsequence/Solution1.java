@@ -1,5 +1,8 @@
 package question0300_longest_increasing_subsequence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 动态规划。
  *
@@ -17,22 +20,35 @@ package question0300_longest_increasing_subsequence;
  * 执行用时：36ms，击败5.39%。消耗内存：37.6MB，击败7.14%。
  */
 public class Solution1 {
+
+    private Map<Integer, Integer> memo = new HashMap<>();
+
     public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        if (n == 0) {
-            return 0;
-        }
-        int[] dp = new int[n];
-        int result = dp[0] = 1;
-        for (int i = 1; i < n; i++) {
-            dp[i] = 1;
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[j] + 1, dp[i]);
-                }
-                result = Math.max(result, dp[i]);
-            }
+        int result = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            result = Math.max(result, lengthOfLTS(nums, i));
         }
         return result;
     }
+
+    /**
+     * 计算以 nums[right] 结尾的最长上升子序列长度
+     */
+    private int lengthOfLTS(int[] nums, int right) {
+        if (right == 0) {
+            return 1;
+        }
+        if (memo.containsKey(right)) {
+            return memo.get(right);
+        }
+        int result = 1;
+        for (int i = 0; i < right; i++) {
+            if (nums[right] > nums[i]) {
+                result = Math.max(result, lengthOfLTS(nums, i) + 1);
+            }
+        }
+        memo.put(right, result);
+        return result;
+    }
+
 }

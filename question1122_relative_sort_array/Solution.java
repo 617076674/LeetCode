@@ -11,7 +11,9 @@ import java.util.Map;
  * 执行用时：5ms，击败55.04%。消耗内存：36.7MB，击败100.00%。
  */
 public class Solution {
+
     private Map<Integer, Integer> map = new HashMap<>();
+
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         for (int i = 0; i < arr2.length; i++) {
             map.put(arr2[i], i);
@@ -63,4 +65,5 @@ public class Solution {
         }
         return num1 - num2;
     }
+
 }

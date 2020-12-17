@@ -18,6 +18,7 @@ import java.util.Stack;
  * 执行用时：19ms，击败39.55%。消耗内存：45MB，击败5.02%。
  */
 public class Solution {
+
     public String removeKdigits(String num, int k) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < num.length(); i++) {
@@ -38,9 +39,7 @@ public class Solution {
         while (sb.length() > 0 && sb.charAt(0) == '0') {
             sb.deleteCharAt(0);
         }
-        if (sb.length() == 0) {
-            return "0";
-        }
-        return sb.toString();
+        return sb.length() == 0 ? "0" : sb.toString();
     }
+
 }

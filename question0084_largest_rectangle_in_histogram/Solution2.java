@@ -1,5 +1,6 @@
 package question0084_largest_rectangle_in_histogram;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -18,18 +19,19 @@ import java.util.Stack;
  */
 public class Solution2 {
     public int largestRectangleArea(int[] heights) {
-        int n = heights.length, result = 0;
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
-                int index = stack.pop(), left = stack.isEmpty() ? -1 : stack.peek();
-                result = Math.max(result, heights[index] * (i - left - 1));
+        int result = 0;
+        int[] newHeights = new int[heights.length + 2];
+        newHeights[0] = newHeights[heights.length + 1] = -1;
+        for (int i = 0; i < heights.length; i++) {
+            newHeights[i + 1] = heights[i];
+        }
+        LinkedList<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < newHeights.length; i++) {
+            while (!stack.isEmpty() && newHeights[i] < newHeights[stack.peek()]) {
+                int index = stack.pop();
+                result = Math.max(result, newHeights[index] * (i - stack.peek() - 1));
             }
             stack.push(i);
-        }
-        while (!stack.isEmpty()) {
-            int index = stack.pop(), left = stack.isEmpty() ? -1 : stack.peek();
-            result = Math.max(result, heights[index] * (n - left - 1));
         }
         return result;
     }

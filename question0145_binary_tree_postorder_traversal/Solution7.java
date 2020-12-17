@@ -57,4 +57,70 @@ public class Solution7 {
             j--;
         }
     }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 2, 2, 2};
+        System.out.println(new Solution7().binarySearch(nums, 2));
+        System.out.println(new Solution7().binarySearch(nums, 9));
+        System.out.println(new Solution7().binarySearchLeft(nums, 2));
+    }
+
+    // 在有序数组 nums 中找到一个和 target 相等的索引
+    public int binarySearch(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+            if (target == nums[mid]) {
+                return mid;
+            } else if (target > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    // 在有序数组 nums 中找到第一个索引，其和 target 相等，如果找不到，则取比 target 小的最大元素的索引
+    public int binarySearchLeft(int[] nums, int target) {
+        if (nums.length == 0) {
+            return -1;
+        }
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+            if (target == nums[mid]) {
+                right = mid - 1;
+            } else if (target > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        if (left < nums.length && nums[left] == target) {
+            return left;
+        }
+        return -1;
+    }
+
+    public int binarySearchRight(int[] nums, int target) {
+        if (nums.length == 0) {
+            return -1;
+        }
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+            if (target == nums[mid]) {
+                left = mid + 1;
+            } else if (target > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        if (right >= 0 && nums[right] == target) {
+            return right;
+        }
+        return -1;
+    }
 }

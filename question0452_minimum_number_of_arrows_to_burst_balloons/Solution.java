@@ -19,6 +19,7 @@ import java.util.Comparator;
  * 执行用时：25ms，击败80.31%。消耗内存：46.4MB，击败79.63%。
  */
 public class Solution {
+
     public int findMinArrowShots(int[][] points) {
         if (null == points || points.length == 0) {
             return 0;
@@ -33,4 +34,5 @@ public class Solution {
         }
         return result;
     }
+
 }

@@ -39,4 +39,5 @@ public class Solution1 {
         memo[K][N] = result;
         return result;
     }
+
 }

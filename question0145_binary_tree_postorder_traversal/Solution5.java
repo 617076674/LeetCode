@@ -24,7 +24,7 @@ public class Solution5 {
                 stack.push(cur);
                 cur = cur.left;
             } else {
-                cur = stack.pop();
+                cur = stack.peek();
                 //当前节点没有右孩子时，因为已经是第二次访问该节点，因此可以记录该值
                 //或者pre节点就是当前节点的右孩子时，说明已经是第三次访问该节点，可以记录该值
                 if (cur.right == null || pre == cur.right) {

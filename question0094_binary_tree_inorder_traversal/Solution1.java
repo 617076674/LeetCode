@@ -12,11 +12,11 @@ import java.util.List;
  */
 public class Solution1 {
 
-    private List<Integer> list = new ArrayList<>();
+    private List<Integer> result = new ArrayList<>();
 
     public List<Integer> inorderTraversal(TreeNode root) {
         inorder(root);
-        return list;
+        return result;
     }
 
     private void inorder(TreeNode treeNode) {
@@ -24,7 +24,7 @@ public class Solution1 {
             return;
         }
         inorder(treeNode.left);
-        list.add(treeNode.val);
+        result.add(treeNode.val);
         inorder(treeNode.right);
     }
 
