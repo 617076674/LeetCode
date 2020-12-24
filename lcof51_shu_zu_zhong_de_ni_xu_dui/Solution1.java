@@ -1,6 +1,6 @@
 package lcof51_shu_zu_zhong_de_ni_xu_dui;
 
-public class Solution {
+public class Solution1 {
     private int result;
 
     public int reversePairs(int[] nums) {

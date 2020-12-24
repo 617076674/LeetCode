@@ -5,92 +5,71 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class LFUCache {
-    private class Node {
-        private int key;
 
-        private int value;
-
+    private static class Node {
         private int freq;
 
-        public Node(int key, int value) {
-            this.key = key;
-            this.value = value;
-            freq = 1;
-        }
+        private int key;
+
+        private int val;
     }
 
-    private Map<Integer, Node> key2Node;
+    private Map<Integer, Node> key2Node = new HashMap<>();
 
-    private Map<Integer, LinkedHashSet<Node>> freq2Nodes;
-
-    private int capacity;
+    private Map<Integer, LinkedHashSet<Node>> freq2NodeSet = new HashMap<>();
 
     private int min;
 
+    private int capacity;
+
     public LFUCache(int capacity) {
-        key2Node = new HashMap<>(capacity);
-        freq2Nodes = new HashMap<>();
         this.capacity = capacity;
     }
 
     public int get(int key) {
-        if (!key2Node.containsKey(key)) {
+        Node node = key2Node.get(key);
+        if (null == node) {
             return -1;
         }
-        Node node = key2Node.get(key);
-        freqInc(node);
-        return node.value;
+        freq2NodeSet.get(node.freq).remove(node);
+        freq2NodeSet.computeIfAbsent(node.freq + 1, k -> new LinkedHashSet<>());
+        freq2NodeSet.get(node.freq + 1).add(node);
+        if (freq2NodeSet.get(node.freq).isEmpty() && min == node.freq) {
+            min++;
+        }
+        node.freq++;
+        return node.val;
     }
 
     public void put(int key, int value) {
         if (capacity == 0) {
             return;
         }
-        if (!key2Node.containsKey(key)) {
+        Node node = key2Node.get(key);
+        if (node == null) {
             if (key2Node.size() == capacity) {
-                Node deadNode = removeNode();
-                key2Node.remove(deadNode.key);
+                Node removedNode = freq2NodeSet.get(min).iterator().next();
+                key2Node.remove(removedNode.key);
+                freq2NodeSet.get(min).remove(removedNode);
             }
-            Node newNode = new Node(key, value);
+            Node newNode = new Node();
+            newNode.key = key;
+            newNode.val = value;
+            newNode.freq = 1;
+            min = 1;
             key2Node.put(key, newNode);
-            addNode(newNode);
+            freq2NodeSet.computeIfAbsent(1, k -> new LinkedHashSet<>());
+            freq2NodeSet.get(1).add(newNode);
         } else {
-            Node node = key2Node.get(key);
-            node.value = value;
-            freqInc(node);
+            node.val = value;
+            freq2NodeSet.get(node.freq).remove(node);
+            freq2NodeSet.computeIfAbsent(node.freq + 1, k -> new LinkedHashSet<>());
+            freq2NodeSet.get(node.freq + 1).add(node);
+            if (freq2NodeSet.get(node.freq).isEmpty() && min == node.freq) {
+                min++;
+            }
+            node.freq++;
         }
     }
 
-    private void freqInc(Node node) {
-        int freq = node.freq;
-        LinkedHashSet<Node> set = freq2Nodes.get(freq);
-        set.remove(node);
-        if (freq == min && set.isEmpty()) {
-            min++;
-        }
-        node.freq++;
-        LinkedHashSet<Node> newSet = freq2Nodes.get(freq + 1);
-        if (newSet == null) {
-            newSet = new LinkedHashSet<>();
-            freq2Nodes.put(freq + 1, newSet);
-        }
-        newSet.add(node);
-    }
-
-    private void addNode(Node node) {
-        LinkedHashSet<Node> set = freq2Nodes.get(1);
-        if (null == set) {
-            set = new LinkedHashSet<>();
-            freq2Nodes.put(1, set);
-        }
-        set.add(node);
-        min = 1;
-    }
-
-    private Node removeNode() {
-        LinkedHashSet<Node> set = freq2Nodes.get(min);
-        Node deadNode = set.iterator().next();
-        set.remove(deadNode);
-        return deadNode;
-    }
 }

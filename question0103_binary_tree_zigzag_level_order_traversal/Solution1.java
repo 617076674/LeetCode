@@ -1,4 +1,4 @@
-package question0103;
+package question0103_binary_tree_zigzag_level_order_traversal;
 
 import java.util.*;
 
@@ -10,6 +10,7 @@ import java.util.*;
  * 执行用时：3ms，击败61.52%。消耗内存：36.3MB，击败40.11%。
  */
 public class Solution1 {
+
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> listList = new ArrayList<>();
         if (root == null) {
@@ -39,4 +40,5 @@ public class Solution1 {
         }
         return listList;
     }
+
 }

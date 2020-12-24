@@ -10,19 +10,29 @@ public class Solution {
     private List<Integer> list = new ArrayList<>();
 
     public int pseudoPalindromicPaths (TreeNode root) {
-        return -1;
+        if (null == root) {
+            return result;
+        }
+        dfs(root);
+        return result;
     }
 
     private void dfs(TreeNode treeNode) {
-        if (null == treeNode) {
+        if (null == treeNode.left && treeNode.right == null) {
+            list.add(treeNode.val);
             if (isPreudoPalindromicPath(list)) {
                 result++;
             }
+            list.remove(list.size() - 1);
             return;
         }
         list.add(treeNode.val);
-        dfs(treeNode.left);
-        dfs(treeNode.right);
+        if (null != treeNode.left) {
+            dfs(treeNode.left);
+        }
+        if (null != treeNode.right) {
+            dfs(treeNode.right);
+        }
         list.remove(list.size() - 1);
     }
 
