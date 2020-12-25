@@ -14,12 +14,6 @@ public class Solution2 {
         return result;
     }
 
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 1, 3};
-        System.out.println(new Solution2().reversePairs(nums));
-        System.out.println(Arrays.toString(nums));
-    }
-
     private void mergeSort(int[] nums, int left, int right) {
         if (left == right) {
             return;

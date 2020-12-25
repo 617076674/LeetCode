@@ -1,6 +1,6 @@
 package question0739_daily_temperatures;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 单调栈。
@@ -10,15 +10,17 @@ import java.util.Stack;
  * 执行用时：23ms，击败65.00%。消耗内存：47.5MB，击败6.45%。
  */
 public class Solution2 {
+
     public int[] dailyTemperatures(int[] T) {
         int[] result = new int[T.length];
-        Stack<Integer> stack = new Stack<>();
+        LinkedList<Integer> stack = new LinkedList<>();
         for (int i = 0; i < T.length; i++) {
-            while (!stack.isEmpty() && T[stack.peek()] < T[i]) {
+            while (!stack.isEmpty() && T[i] > T[stack.peek()]) {
                 result[stack.peek()] = i - stack.pop();
             }
             stack.push(i);
         }
         return result;
     }
+
 }

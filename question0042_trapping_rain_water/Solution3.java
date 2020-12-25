@@ -1,5 +1,6 @@
 package question0042_trapping_rain_water;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -15,13 +16,14 @@ import java.util.Stack;
  * 执行用时：7ms，击败32.86%。消耗内存：36.4MB，击败90.64%。
  */
 public class Solution3 {
+
     public int trap(int[] height) {
         int n;
         if (null == height || (n = height.length) <= 2) {
             return 0;
         }
         int result = 0;
-        Stack<Integer> stack = new Stack<>();
+        LinkedList<Integer> stack = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
                 int top = stack.pop();
@@ -34,4 +36,5 @@ public class Solution3 {
         }
         return result;
     }
+
 }

@@ -8,6 +8,7 @@ package question0004_median_of_two_sorted_arrays;
  * 执行用时：2ms，击败100.00%。消耗内存：40.6MB，击败100.00%。
  */
 public class Solution2 {
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int n1 = nums1.length, n2 = nums2.length, n = n1 + n2, target = (n >> 1) + 1;
         //如果n是一个奇数，比如n1 = 1，n2 = 2，那么中位数是索引为1的数，如果从1开始计数，那就是第2小数
@@ -47,4 +48,5 @@ public class Solution2 {
         //这些元素已经不可能是第k小数，这些元素的个数有i个，在排除这些元素的范围内继续寻找第(k - i)小数
         return findKthInTwoArrays(nums1, left1 + i, right1, nums2, left2, right2, k - i);
     }
+
 }
