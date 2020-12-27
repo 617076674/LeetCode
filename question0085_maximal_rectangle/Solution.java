@@ -16,9 +16,7 @@ public class Solution {
         }
         for (int i = 1; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == '0') {
-                    heights[i][j] = 0;
-                } else {
+                if (matrix[i][j] != '0') {
                     heights[i][j] = heights[i - 1][j] + 1;
                 }
             }
@@ -37,9 +35,7 @@ public class Solution {
         int result = 0;
         int[] newHeights = new int[heights.length + 2];
         newHeights[0] = newHeights[heights.length + 1] = -1;
-        for (int i = 0; i < heights.length; i++) {
-            newHeights[i + 1] = heights[i];
-        }
+        System.arraycopy(heights, 0, newHeights, 1, heights.length);
         LinkedList<Integer> stack = new LinkedList<>();
         for (int i = 0; i < newHeights.length; i++) {
             while (!stack.isEmpty() && newHeights[i] < newHeights[stack.peek()]) {

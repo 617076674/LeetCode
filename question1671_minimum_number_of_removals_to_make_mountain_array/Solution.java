@@ -6,8 +6,6 @@ public class Solution {
 
     private int[] down;
 
-    // [9,8,1,7,6,5,4,3,2,1]
-
     public int minimumMountainRemovals(int[] nums) {
         rise = new int[nums.length];
         rise[0] = 1;
@@ -36,12 +34,6 @@ public class Solution {
             }
         }
         return nums.length - len;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {9,8,1,7,6,5,4,3,2,1};
-        Solution solution = new Solution();
-        System.out.println(solution.minimumMountainRemovals(nums));
     }
 
 }
