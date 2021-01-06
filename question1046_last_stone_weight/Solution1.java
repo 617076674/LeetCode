@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
  * 执行用时：58ms，击败7.25%。消耗内存：34.3MB，击败100.00%。
  */
 public class Solution1 {
+
     public int lastStoneWeight(int[] stones) {
         PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> o2 - o1);
         for (int num : stones) {
@@ -21,9 +22,7 @@ public class Solution1 {
                 pq.add(num1 - num2);
             }
         }
-        if (pq.size() == 0) {
-            return 0;
-        }
-        return pq.poll();
+        return pq.isEmpty() ? 0 : pq.poll();
     }
+
 }

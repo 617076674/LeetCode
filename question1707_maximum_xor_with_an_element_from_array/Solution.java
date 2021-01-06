@@ -1,4 +1,4 @@
-package contest12_27.question4;
+package question1707_maximum_xor_with_an_element_from_array;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -29,14 +29,6 @@ public class Solution {
       cur.val = n;
     }
 
-    private String integer2BinaryString(int n) {
-      StringBuilder sb = new StringBuilder(Integer.toBinaryString(n));
-      while (sb.length() < 32) {
-        sb.insert(0, '0');
-      }
-      return sb.toString();
-    }
-
     private int search(int n) {
       String s = integer2BinaryString(n);
       TrieNode cur = root;
@@ -58,16 +50,22 @@ public class Solution {
       }
       return cur.val ^ n;
     }
+
+    private String integer2BinaryString(int n) {
+      StringBuilder sb = new StringBuilder(Integer.toBinaryString(n));
+      while (sb.length() < 32) {
+        sb.insert(0, '0');
+      }
+      return sb.toString();
+    }
   }
 
   private static class TrieNode {
-
     int val;
 
     TrieNode left;
 
     TrieNode right;
-
   }
 
   private Trie trie = new Trie();

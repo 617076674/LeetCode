@@ -7,31 +7,38 @@ package question0327_count_of_range_sum;
  */
 public class Solution2 {
 
+  private long[] sums;
+
+  private int lower;
+
+  private int upper;
+
   public int countRangeSum(int[] nums, int lower, int upper) {
-    long[] sum = new long[nums.length + 1];   // sum[i] = nums[0] + ... + nums[i - 1]
+    sums = new long[nums.length + 1];   // sum[i] = nums[0] + ... + nums[i - 1]
     for (int i = 1; i <= nums.length; i++) {
-      sum[i] = sum[i - 1] + nums[i - 1];
+      sums[i] = sums[i - 1] + nums[i - 1];
     }
-    return countRangeSum(sum, lower, upper, 0, sum.length - 1);
+    this.lower = lower;
+    this.upper = upper;
+    return countRangeSum(0, sums.length - 1);
   }
 
   // sum[left] = nums[0] + ... + nums[left - 1]
   // sum[right] = nums[0] + ... + nums[right - 1]
-  // 在 [left, right] 范围内的下标 (i,j) 对数，和为 nums[i] + ... + nums[j - 1] 在 [lower, upper] 范围内
-  private int countRangeSum(long[] sum, int lower, int upper, int left, int right) {
+  // 在 [left, right] 范围内的下标 (i,j) 对数，和为 nums[i] + ... + nums[j - 1] = sum[j] - sum[i]
+  // 在 [lower, upper] 范围内
+  private int countRangeSum(int left, int right) {
     if (left >= right) {
       return 0;
     }
     int mid = left + ((right - left) >> 1);
-    int resultLeft = countRangeSum(sum, lower, upper, left, mid);
-    int resultRight = countRangeSum(sum, lower, upper, mid + 1, right);
-    int result = resultLeft + resultRight;
+    int result = countRangeSum(left, mid) + countRangeSum(mid + 1, right);
     int i = left, j = mid + 1, k = mid + 1;
     while (i <= mid) {
-      while (j <= right && sum[j] - sum[i] < lower) {
+      while (j <= right && sums[j] - sums[i] < lower) {
         j++;
       }
-      while (k <= right && sum[k] - sum[i] <= upper) {
+      while (k <= right && sums[k] - sums[i] <= upper) {
         k++;
       }
       result += k - j;
@@ -41,17 +48,17 @@ public class Solution2 {
     int index1 = left, index2 = mid + 1, index = 0;
     while (index1 <= mid || index2 <= right) {
       if (index1 > mid) {
-        sorted[index++] = sum[index2++];
+        sorted[index++] = sums[index2++];
       } else if (index2 > right) {
-        sorted[index++] = sum[index1++];
-      } else if (sum[index1] < sum[index2]) {
-        sorted[index++] = sum[index1++];
+        sorted[index++] = sums[index1++];
+      } else if (sums[index1] < sums[index2]) {
+        sorted[index++] = sums[index1++];
       } else {
-        sorted[index++] = sum[index2++];
+        sorted[index++] = sums[index2++];
       }
     }
     for (int l = 0; l < sorted.length; l++) {
-      sum[left + l] = sorted[l];
+      sums[left + l] = sorted[l];
     }
     return result;
   }

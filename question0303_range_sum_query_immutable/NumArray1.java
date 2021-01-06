@@ -8,18 +8,18 @@ package question0303_range_sum_query_immutable;
  * 执行用时：75ms，击败84.99%。消耗内存：41.2MB，击败98.46%。
  */
 public class NumArray1 {
-    //sum{i]中存储[0, i - 1]的值
-    private int[] sum;
+
+    private int[] sums;
 
     public NumArray1(int[] nums) {
-        sum = new int[nums.length + 1];
-        for (int i = 1; i < sum.length; i++) {
-            sum[i] = sum[i - 1] + nums[i - 1];
+        sums = new int[nums.length + 1];
+        for (int i = 1; i < sums.length; i++) {
+            sums[i] = sums[i - 1] + nums[i - 1];
         }
     }
 
-    //[i, j] = [0, j] - [0, i - 1]
     public int sumRange(int i, int j) {
-        return sum[j + 1] - sum[i];
+        return sums[j + 1] - sums[i];
     }
+
 }

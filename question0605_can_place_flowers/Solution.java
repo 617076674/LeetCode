@@ -1,9 +1,6 @@
-package question0605;
+package question0605_can_place_flowers;
 
 /**
- * @author qianyihui
- * @date 2019-07-12
- *
  * 贪心算法。
  *
  * 时间复杂度是O(m)，其中m为flowered数组的长度。空间复杂度是O(1)。
@@ -11,6 +8,7 @@ package question0605;
  * 执行用时：3ms，击败91.63%。消耗内存：47.8MB，击败68.53%。
  */
 public class Solution {
+
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
         int i = 0, count = 0;
         while (i < flowerbed.length) {
@@ -26,4 +24,5 @@ public class Solution {
         }
         return false;
     }
+
 }

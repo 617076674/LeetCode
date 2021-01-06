@@ -10,6 +10,7 @@ import java.util.*;
  * 执行用时：84ms，击败47.96%。消耗内存：43.5MB，击败95.19%。
  */
 public class Solution {
+
     public List<List<Integer>> getSkyline(int[][] buildings) {
         List<List<Integer>> result = new ArrayList<>();
         Map<Integer, List<Integer>> map = new TreeMap<>();
@@ -27,23 +28,20 @@ public class Solution {
         }
         //保留当前位置的所有高度 重定义排序：从大到小
         Map<Integer, Integer> heights = new TreeMap<>((o1, o2) -> o2 - o1);
-        int last = 0;    //保留上一个位置的高度
-        for (int key : map.keySet()) {
-            List<Integer> list = map.get(key);
-            Collections.sort(list);
-            for (int y : list) {
-                //左端点,高度入队
+        int lastHeight = 0;    //保留上一个位置的高度
+        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+            Collections.sort(entry.getValue());
+            for (int y : entry.getValue()) {
+                //左端点，高度入队
                 if (y < 0) {
-                    if (heights.containsKey(-y)) {
-                        heights.put(-y, heights.get(-y) + 1);
-                    } else {
-                        heights.put(-y, 1);
-                    }
+                    heights.put(-y, heights.getOrDefault(-y, 0) + 1);
                 } else {
                     //右端点移除高度
-                    heights.put(y, heights.get(y) - 1);
-                    if (heights.get(y) == 0) {
+                    int origin = heights.get(y);
+                    if (origin == 1) {
                         heights.remove(y);
+                    } else {
+                        heights.put(y, origin - 1);
                     }
                 }
                 //获取heights的最大值:就是第一个值
@@ -52,13 +50,14 @@ public class Solution {
                     maxHeight = heights.keySet().iterator().next();
                 }
                 //如果当前最大高度不同于上一个高度，说明其为转折点
-                if (last != maxHeight) {
+                if (lastHeight != maxHeight) {
                     //更新last，并加入结果集
-                    last = maxHeight;
-                    result.add(Arrays.asList(key, maxHeight));
+                    lastHeight = maxHeight;
+                    result.add(Arrays.asList(entry.getKey(), maxHeight));
                 }
             }
         }
         return result;
     }
+
 }

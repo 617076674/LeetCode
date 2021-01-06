@@ -10,11 +10,9 @@ import java.util.Arrays;
  * 执行用时：1ms，击败99.65%。消耗内存：34.3MB，击败100.00%。
  */
 public class Solution2 {
+
     public int lastStoneWeight(int[] stones) {
         int n = stones.length;
-        if (n == 1) {
-            return stones[0];
-        }
         for (int i = n - 1; i > 0; i--) {
             Arrays.sort(stones);
             stones[n - 1] = stones[n - 1] - stones[n - 2];
@@ -22,4 +20,5 @@ public class Solution2 {
         }
         return stones[n - 1];
     }
+
 }

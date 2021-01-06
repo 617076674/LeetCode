@@ -9,16 +9,15 @@ package question0307_range_sum_query_mutable;
  * 执行用时：92ms，击败97.18%。消耗内存：46.1MB，击败99.18%。
  */
 public class NumArray {
-    private class SegmentTree {
+
+    private static class SegmentTree {
+
         private int[] tree;
 
         private int[] data;
 
         public SegmentTree(int[] arr) {
-            data = new int[arr.length];
-            for (int i = 0; i < arr.length; i++) {
-                data[i] = arr[i];
-            }
+            data = arr;
             tree = new int[arr.length << 2];
             buildSegmentTree(0, 0, data.length - 1);
         }
@@ -28,7 +27,8 @@ public class NumArray {
                 tree[treeIndex] = data[left];
                 return;
             }
-            int leftTreeIndex = 2 * treeIndex + 1, rightTreeIndex = 2 * treeIndex + 2, mid = left + ((right - left) >> 1);            //为了防止数据越界！！！
+            int leftTreeIndex = leftChild(treeIndex), rightTreeIndex = rightChild(treeIndex);
+            int mid = left + ((right - left) >> 1);
             buildSegmentTree(leftTreeIndex, left, mid);
             buildSegmentTree(rightTreeIndex, mid + 1, right);
             tree[treeIndex] = tree[leftTreeIndex] + tree[rightTreeIndex];
@@ -42,54 +42,64 @@ public class NumArray {
             if (left == queryL && right == queryR) {
                 return tree[treeIndex];
             }
-            int mid = left + ((right - left) >> 1), leftTreeIndex = 2 * treeIndex + 1, rightTreeIndex = 2 * treeIndex + 2;
+            int leftTreeIndex = leftChild(treeIndex), rightTreeIndex = rightChild(treeIndex);
+            int mid = left + ((right - left) >> 1);
             if (queryL >= mid + 1) {
                 return query(rightTreeIndex, mid + 1, right, queryL, queryR);
             }
             if (queryR <= mid) {
                 return query(leftTreeIndex, left, mid, queryL, queryR);
             }
-            return query(leftTreeIndex, left, mid, queryL, mid) + query(rightTreeIndex, mid + 1, right, mid + 1, queryR);
+            return query(leftTreeIndex, left, mid, queryL, mid) +
+                query(rightTreeIndex, mid + 1, right, mid + 1, queryR);
         }
 
-        public void update(int i, int val) {
-            data[i] = val;
-            update(0, 0, data.length - 1, i, val);
+        public void update(int index, int val) {
+            data[index] = val;
+            update(0, 0, data.length - 1, index, val);
         }
 
-        private void update(int treeIndex, int left, int right, int index, int e) {
+        private void update(int treeIndex, int left, int right, int index, int val) {
             if (left == right) {
-                tree[treeIndex] = e;
+                tree[treeIndex] = val;
                 return;
             }
-            int mid = left + ((right - left) >> 1), leftTreeIndex = 2 * treeIndex + 1, rightTreeIndex = 2 * treeIndex + 2;
+            int leftTreeIndex = leftChild(treeIndex), rightTreeIndex = rightChild(treeIndex);
+            int mid = left + ((right - left) >> 1);
             if (index >= mid + 1) {
-                update(rightTreeIndex, mid + 1, right, index, e);
+                update(rightTreeIndex, mid + 1, right, index, val);
             } else {
-                update(leftTreeIndex, left, mid, index, e);
+                update(leftTreeIndex, left, mid, index, val);
             }
             tree[treeIndex] = tree[leftTreeIndex] + tree[rightTreeIndex];
         }
+
+        private static int leftChild(int treeIndex) {
+            return 2 * treeIndex + 1;
+        }
+
+        private static int rightChild(int treeIndex) {
+            return 2 * treeIndex + 2;
+        }
+
     }
 
     private SegmentTree segmentTree;
 
     public NumArray(int[] nums) {
-        int n = nums.length;
-        if (n > 0) {
-            int[] data = new int[n];    //int[]是不能自动包装转换为Integer[]的！！！
-            for (int i = 0; i < n; i++) {
-                data[i] = nums[i];
-            }
-            segmentTree = new SegmentTree(data);
+        if (nums.length > 0) {
+            segmentTree = new SegmentTree(nums);
         }
     }
 
     public void update(int i, int val) {
-        segmentTree.update(i, val);
+        if (null != segmentTree) {
+            segmentTree.update(i, val);
+        }
     }
 
     public int sumRange(int i, int j) {
-        return segmentTree.query(i, j);
+        return null == segmentTree ? 0 : segmentTree.query(i, j);
     }
+
 }

@@ -1,12 +1,11 @@
-package contest12_27.question2;
+package question1705_maximum_number_of_eaten_apples;
 
 import java.util.PriorityQueue;
 
 public class Solution {
 
   public int eatenApples(int[] apples, int[] days) {
-    PriorityQueue<Integer> pq =
-        new PriorityQueue<>((index1, index2) -> index1 + days[index1] - index2 - days[index2]);
+    PriorityQueue<Integer> pq = new PriorityQueue<>((index1, index2) -> index1 + days[index1] - index2 - days[index2]);
     int result = 0;
     for (int i = 0; i < apples.length || !pq.isEmpty(); i++) {
       while (!pq.isEmpty()) {

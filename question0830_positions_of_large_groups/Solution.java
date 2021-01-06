@@ -11,6 +11,7 @@ import java.util.List;
  * 执行用时：1ms，击败100.00%。消耗内存：36.5MB，击败94.94%。
  */
 public class Solution {
+
     public List<List<Integer>> largeGroupPositions(String S) {
         List<List<Integer>> result = new ArrayList<>();
         int n = S.length();
@@ -30,4 +31,5 @@ public class Solution {
         }
         return result;
     }
+
 }

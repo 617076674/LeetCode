@@ -19,6 +19,7 @@ package question0188_best_time_to_buy_and_sell_stock_iv;
  * 执行用时：10ms，击败55.94%。消耗内存：42MB，击败11.11%。
  */
 public class Solution {
+
     public int maxProfit(int k, int[] prices) {
         int result = 0, n = prices.length;
         if (0 == n || k == 0) {
@@ -50,4 +51,5 @@ public class Solution {
         }
         return dp[n - 1][k - 1][0];
     }
+
 }
