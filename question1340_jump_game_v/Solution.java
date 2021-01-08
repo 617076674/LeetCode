@@ -8,6 +8,7 @@ package question1340_jump_game_v;
  * 执行用时：12ms，击败95.69%。消耗内存：39.8MB，击败59.32%。
  */
 public class Solution {
+
     private int[] memo;
 
     private int n;
@@ -26,14 +27,14 @@ public class Solution {
         if (memo[now] != 0) {
             return memo[now];
         }
-        int result = 0;
+        memo[now] = 1;
         for (int i = now - 1; i >= 0 && now - i <= d && arr[now] > arr[i]; i--) {
-            result = Math.max(result, maxJumps(arr, d, i));
+            memo[now] = Math.max(memo[now], 1 + maxJumps(arr, d, i));
         }
         for (int i = now + 1; i < n && i - now <= d && arr[now] > arr[i]; i++) {
-            result = Math.max(result, maxJumps(arr, d, i));
+            memo[now] = Math.max(memo[now], 1 + maxJumps(arr, d, i));
         }
-        memo[now] = result + 1;
-        return result + 1;
+        return memo[now];
     }
+
 }

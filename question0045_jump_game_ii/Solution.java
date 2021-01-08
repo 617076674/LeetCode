@@ -39,19 +39,19 @@ package question0045_jump_game_ii;
  */
 public class Solution {
     public int jump(int[] nums) {
-        int n = nums.length, steps = 0, i = 0;
-        while (i < n - 1) {
+        int n = nums.length, steps = 0, now = 0;
+        while (now < n - 1) {
             steps++;
-            if (i + nums[i] >= n - 1) {
+            if (now + nums[now] >= n - 1) {
                 return steps;
             }
-            int k = i + 1;
-            for (int j = i + 1; j <= i + nums[i]; j++) {
+            int k = now + 1;
+            for (int j = now + 1; j <= now + nums[now]; j++) {
                 if (j + nums[j] > k + nums[k]) {    //选取k的原则是i + k + nums[k]达到最大
                     k = j;
                 }
             }
-            i = k;  //下一步是索引k
+            now = k;  //下一步是索引k
         }
         return steps;
     }

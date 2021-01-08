@@ -1,4 +1,4 @@
-package question0189;
+package question0189_rotate_array;
 
 /**
  * 对于[1, 2, 3, 4, 5, 6, 7]，其右移3位的结果是[5, 6, 7, 1, 2, 3, 4]。

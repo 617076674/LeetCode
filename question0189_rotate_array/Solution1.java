@@ -1,4 +1,4 @@
-package question0189;
+package question0189_rotate_array;
 
 /**
  * 暴力法。向右移动k次，每次移动1位。

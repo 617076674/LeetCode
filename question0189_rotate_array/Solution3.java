@@ -1,4 +1,4 @@
-package question0189;
+package question0189_rotate_array;
 
 /**
  * 还是以数组[1, 2, 3, 4, 5, 6, 7]向右移动3位为例，其结果是[5, 6, 7, 1, 2, 3, 4]。
@@ -10,6 +10,7 @@ package question0189;
  * 执行用时：1ms，击败97.82%。消耗内存：35.8MB，击败96.71%。
  */
 public class Solution3 {
+
     public void rotate(int[] nums, int k) {
         if (0 == nums.length) {
             return;
@@ -21,9 +22,9 @@ public class Solution3 {
             int prev = nums[start];
             do {
                 int next = (current + k) % nums.length;
-                int temp = nums[next];
+                int tmp = nums[next];
                 nums[next] = prev;
-                prev = temp;
+                prev = tmp;
                 current = next;
                 count++;
             } while (start != current);
