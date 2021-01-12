@@ -1,4 +1,4 @@
-package question0228;
+package question0228_summary_ranges;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.List;
  * 执行用时：1ms，击败94.55%。消耗内存：34.9MB，击败80.77%。
  */
 public class Solution {
+
     public List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<>();
         int n;
@@ -34,4 +35,5 @@ public class Solution {
         }
         return result;
     }
+
 }
