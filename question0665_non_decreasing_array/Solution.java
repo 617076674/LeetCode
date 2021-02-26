@@ -6,6 +6,7 @@ package question0665_non_decreasing_array;
  * 执行用时：2ms，击败92.22%。消耗内存：45.8MB，击败79.34%。
  */
 public class Solution {
+
     public boolean checkPossibility(int[] nums) {
         int n;
         if (null == nums || (n = nums.length) == 0) {
@@ -33,16 +34,12 @@ public class Solution {
             if (i == index) {
                 continue;
             }
-            int num1 = nums[i], num2;
-            if (i + 1 == index) {
-                num2 = nums[i + 2];
-            } else {
-                num2 = nums[i + 1];
-            }
+            int num1 = nums[i], num2 = i + 1 == index ? nums[i + 2] : nums[i + 1];
             if (num1 > num2) {
                 return false;
             }
         }
         return true;
     }
+
 }

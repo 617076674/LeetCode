@@ -10,6 +10,7 @@ import java.util.Arrays;
  * 执行用时：56ms，击败13.41%。消耗内存：56.1MB，击败100.00%。
  */
 public class Solution1 {
+
     public int numEquivDominoPairs(int[][] dominoes) {
         int n = dominoes.length;
         for (int i = 0; i < n; i++) {
@@ -36,4 +37,5 @@ public class Solution1 {
         }
         return result;
     }
+
 }

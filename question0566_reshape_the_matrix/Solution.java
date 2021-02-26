@@ -12,7 +12,7 @@ public class Solution {
             return nums;
         }
         int n;
-        if (null == nums || (n = nums[0].length) == 0) {
+        if ((n = nums[0].length) == 0) {
             return nums;
         }
         if (m * n != r * c) {

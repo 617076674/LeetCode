@@ -8,6 +8,7 @@ package question0643_maximum_average_subarray_i;
  * 执行用时：8ms，击败56.16%。消耗内存：41MB，击败91.74%。
  */
 public class Solution {
+
     public double findMaxAverage(int[] nums, int k) {
         int n = nums.length;
         int[] sum = new int[n + 1];
@@ -25,4 +26,5 @@ public class Solution {
         }
         return result;
     }
+
 }

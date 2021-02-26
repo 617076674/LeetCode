@@ -1,5 +1,8 @@
 package question0959_regions_cut_by_slashes;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 并查集。
  *
@@ -8,6 +11,7 @@ package question0959_regions_cut_by_slashes;
  * 执行用时：9ms，击败48.81%。消耗内存：38.1MB，击败100.00%。
  */
 public class Solution {
+
     private int[] parent;
 
     public int regionsBySlashes(String[] grid) {
@@ -47,13 +51,11 @@ public class Solution {
                 }
             }
         }
-        int result = 0;
+        Set<Integer> parentSet = new HashSet<>();
         for (int i = 0; i < parent.length; i++) {
-            if (findParent(i) == i) {
-                result++;
-            }
+            parentSet.add(findParent(i));
         }
-        return result;
+        return parentSet.size();
     }
 
     private void union(int a, int b) {
@@ -69,10 +71,11 @@ public class Solution {
             x = parent[x];
         }
         while (a != parent[a]) {
-            int z = a;
-            a = parent[a];
-            parent[z] = x;
+            int z = parent[a];
+            parent[a] = x;
+            a = z;
         }
         return x;
     }
+
 }

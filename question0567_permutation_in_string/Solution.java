@@ -8,6 +8,7 @@ package question0567_permutation_in_string;
  * 执行用时：10ms，击败57.67%。消耗内存：39.6MB，击败18.75%。
  */
 public class Solution {
+
     public boolean checkInclusion(String s1, String s2) {
         int[] window = new int[26], s1Map = new int[26];
         for (int i = 0; i < s1.length(); i++) {
@@ -35,4 +36,5 @@ public class Solution {
         }
         return false;
     }
+
 }

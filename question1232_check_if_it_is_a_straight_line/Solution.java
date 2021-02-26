@@ -6,6 +6,7 @@ package question1232_check_if_it_is_a_straight_line;
  * 执行用时：0ms，击败100.00%。消耗内存：39.4MB，击败96.49%。
  */
 public class Solution {
+
     public boolean checkStraightLine(int[][] coordinates) {
         int dx = coordinates[1][0] - coordinates[0][0], dy = coordinates[1][1] - coordinates[0][1], gcd = gcd(dx, dy);
         dx /= gcd;
@@ -15,7 +16,7 @@ public class Solution {
                     tmpGcd = gcd(tmpDx, tmpDy);
             tmpDx /= tmpGcd;
             tmpDy /= tmpGcd;
-            if (!(tmpDx == dx && tmpDy == dy)) {
+            if (tmpDx != dx || tmpDy != dy) {
                 return false;
             }
         }
@@ -28,4 +29,5 @@ public class Solution {
         }
         return gcd(b, a % b);
     }
+
 }

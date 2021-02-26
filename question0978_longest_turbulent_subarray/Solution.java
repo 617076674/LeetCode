@@ -8,6 +8,7 @@ package question0978_longest_turbulent_subarray;
  * 执行用时：8ms，击败40.82%。消耗内存：42.9MB，击败100.00%。
  */
 public class Solution {
+
     public int maxTurbulenceSize(int[] A) {
         int n;
         if (null == A || (n = A.length) == 0) {
@@ -25,4 +26,5 @@ public class Solution {
         }
         return Math.max(result, n - left);
     }
+
 }

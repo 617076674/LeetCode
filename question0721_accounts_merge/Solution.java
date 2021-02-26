@@ -1,6 +1,10 @@
 package question0721_accounts_merge;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 并查集。
@@ -10,6 +14,7 @@ import java.util.*;
  * 执行用时：49ms，击败61.32%。消耗内存：43.7MB，击败100.00%。
  */
 public class Solution {
+
     private Map<String, Integer> email2Id = new HashMap<>();
 
     private Map<String, String> email2Name = new HashMap<>();
@@ -18,8 +23,7 @@ public class Solution {
 
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         int index = 0;
-        for (int i = 0; i < accounts.size(); i++) {
-            List<String> account = accounts.get(i);
+        for (List<String> account : accounts) {
             for (int j = 1; j < account.size(); j++) {
                 String s = account.get(j);
                 if (!email2Id.containsKey(s)) {
@@ -71,4 +75,5 @@ public class Solution {
         }
         return x;
     }
+
 }

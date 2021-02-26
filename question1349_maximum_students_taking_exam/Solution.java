@@ -19,44 +19,41 @@ package question1349_maximum_students_taking_exam;
  * 执行用时：74ms，击败7.21%。消耗内存：37.5MB，击败21.74%。
  */
 public class Solution {
+
     public int maxStudents(char[][] seats) {
-        int m = seats.length, n = seats[0].length;
+        int m = seats.length, n = seats[0].length, result = Integer.MIN_VALUE;
         int[][] dp = new int[m + 1][1 << n];
         for (int i = 1; i <= m; i++) {   // i = 0，代表的其实是前 0 行
-            for (int j = 0; j < (1 << n); j++) {    // 枚举第 i 行的状态
-                for (int k = 0; k < (1 << n); k++) {    // 枚举第 (i + 1) 行的状态
-                    boolean flag = true;    // 标志状态 k 是否合法
-                    for (int l = 0; l < n && flag; l++) {
-                        if ((k & (1 << l)) == 0) {  // 没有坐人，显然合法
+            for (int preStatus = 0; preStatus < (1 << n); preStatus++) {    // 枚举当前行的状态
+                for (int curStatus = 0; curStatus < (1 << n); curStatus++) {    // 枚举下一行行的状态
+                    boolean flag = true;    // 标志状态 curStatus 是否合法
+                    for (int j = 0; j < n; j++) {
+                        if ((curStatus & (1 << j)) == 0) {  // 没有坐人，显然合法
                             continue;
                         }
-                        if (seats[i - 1][l] == '#') {
+                        if (seats[i - 1][j] == '#' // 当前位置不合法
+                            || (j != 0 && (curStatus & (1 << (j - 1))) != 0)    // 左边有人
+                            || (j != n - 1 && (curStatus & (1 << (j + 1))) != 0)   // 右边有人
+                            || (j != 0 && (preStatus & (1 << (j - 1))) != 0)    // 左上角有人
+                            || (j != n - 1 && (preStatus & (1 << (j + 1))) != 0)) { // 右上角有人
                             flag = false;
-                        }
-                        boolean lt = l == 0 ? false : (k & (1 << (l - 1))) != 0;    // 左边是否不合法
-                        boolean rt = l == n - 1 ? false : (k & (1 << (l + 1))) != 0;    // 右边是否不合法
-                        boolean ul = (l == 0 || i == 0) ? false : (j & (1 << (l - 1))) != 0;    // 前一行左边是否不合法
-                        boolean ur = (l == n - 1 || i == 0) ? false : (j & (1 << (l + 1))) != 0;    // 前一行右边是否不合法
-                        if (lt || rt || ul || ur) { // 只要有任意一个位置不合法，状态 k 就不合法
-                            flag = false;
+                            break;
                         }
                     }
                     if (flag) {
                         int count = 0;
                         for (int l = 0; l < 32; l++) {
-                            if (((k >> l) & 1) == 1) {
+                            if (((curStatus >> l) & 1) == 1) {
                                 count++;
                             }
                         }
-                        dp[i][k] = Math.max(dp[i][k], dp[i - 1][j] + count);
+                        dp[i][curStatus] = Math.max(dp[i][curStatus], dp[i - 1][preStatus] + count);
+                        result = Math.max(result, dp[i][curStatus]);
                     }
                 }
             }
         }
-        int result = Integer.MIN_VALUE;
-        for (int i = 0; i < (1 << n); i++) {
-            result = Math.max(result, dp[m][i]);
-        }
         return result;
     }
+
 }

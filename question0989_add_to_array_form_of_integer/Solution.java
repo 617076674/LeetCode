@@ -12,6 +12,7 @@ import java.util.List;
  * 执行用时：9ms，击败79.43%。消耗内存：40.7MB，击败90.88%。
  */
 public class Solution {
+
     public List<Integer> addToArrayForm(int[] A, int K) {
         List<Integer> list = new ArrayList<>();
         int flag = 0;
@@ -40,4 +41,5 @@ public class Solution {
         Collections.reverse(list);
         return list;
     }
+
 }

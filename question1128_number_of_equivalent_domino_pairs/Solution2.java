@@ -8,6 +8,7 @@ package question1128_number_of_equivalent_domino_pairs;
  * 执行用时：2ms，击败99.82%。消耗内存：55.1MB，击败100.00%。
  */
 public class Solution2 {
+
     public int numEquivDominoPairs(int[][] dominoes) {
         int[] map = new int[100];
         for (int i = 0; i < dominoes.length; i++) {
@@ -25,4 +26,5 @@ public class Solution2 {
         }
         return result;
     }
+
 }

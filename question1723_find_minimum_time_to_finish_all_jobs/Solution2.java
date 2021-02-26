@@ -7,24 +7,22 @@ public class Solution2 {
 
   public int minimumTimeRequired(int[] jobs, int k) {
     int n = jobs.length;
-    int[] tot = new int[1 << n];
-    for (int status = 1; status < (1 << n); status++) {
-      for (int i = 0; i < n; i++) {
-        if ((status & (1 << i)) != 0) {
-          tot[status] = tot[(status - (1 << i))] + jobs[i];
-          break;
+    int[][] dp = new int[k][1 << n];
+    for (int i = 0; i < dp[0].length; i++) {
+      for (int j = 0; j < n; j++) {
+        if ((i & (1 << j)) != 0) {
+          dp[0][i] += jobs[j];
         }
       }
-    }
-    int[][] dp = new int[k][1 << n];
-    for (int i = 0; i < (1 << n); i++) {
-      dp[0][i] = tot[i];
     }
     for (int i = 1; i < k; i++) {
       for (int status = 0; status < (1 << n); status++) {
         dp[i][status] = Integer.MAX_VALUE / 2;
         for (int j = status; j > 0; j = (j - 1) & status) {
-          dp[i][status] = Math.min(dp[i][status], Math.max(dp[i - 1][status - j], tot[j]));
+          if (j == status) {
+            continue;
+          }
+          dp[i][status] = Math.min(dp[i][status], Math.max(dp[i - 1][status - j], dp[0][j]));
         }
       }
     }

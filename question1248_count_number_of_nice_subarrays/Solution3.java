@@ -12,8 +12,8 @@ public class Solution3 {
         int result = 0, countOdd = 0;
         int[] map = new int[nums.length + 1];
         map[0] = 1;
-        for (int i = 0; i < nums.length; i++) {
-            if ((nums[i] & 1) == 1) {
+        for (int num : nums) {
+            if ((num & 1) == 1) {
                 countOdd++;
             }
             if (countOdd >= k) {

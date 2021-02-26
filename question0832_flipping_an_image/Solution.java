@@ -8,6 +8,7 @@ package question0832_flipping_an_image;
  * 执行用时：1ms，击败95.63%。消耗内存：36.8MB，击败99.21%。
  */
 public class Solution {
+
     public int[][] flipAndInvertImage(int[][] A) {
         int m;
         if (A == null || (m = A.length) == 0) {
@@ -26,4 +27,5 @@ public class Solution {
         }
         return A;
     }
+
 }

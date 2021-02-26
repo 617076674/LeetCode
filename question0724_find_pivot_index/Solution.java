@@ -8,6 +8,7 @@ package question0724_find_pivot_index;
  * 执行用时：2ms，击败99.91%。消耗内存：39.4MB，击败96.53%。
  */
 public class Solution {
+
     public int pivotIndex(int[] nums) {
         int n;
         if (null == nums || (n = nums.length) == 0) {
@@ -24,4 +25,5 @@ public class Solution {
         }
         return -1;
     }
+
 }

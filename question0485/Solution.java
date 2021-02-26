@@ -1,9 +1,6 @@
 package question0485;
 
 /**
- * @author qianyihui
- * @date 2019-08-09
- *
  * 用pre指针记录前一个0出现的位置。
  *
  * 时间复杂度是O(n)，其中n为nums数组的长度。空间复杂度是O(1)。
@@ -11,6 +8,7 @@ package question0485;
  * 执行用时：6ms，击败47.49%。消耗内存：51.1MB，击败37.07%。
  */
 public class Solution {
+
     public int findMaxConsecutiveOnes(int[] nums) {
         int pre = -1, result = 0, n = nums.length;
         for (int i = 0; i < n; i++) {
@@ -31,4 +29,5 @@ public class Solution {
         }
         return result;
     }
+
 }

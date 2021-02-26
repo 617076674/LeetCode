@@ -11,6 +11,7 @@ import java.util.Set;
  * 执行用时：15ms，击败97.07%。消耗内存：40.7MB，击败94.35%。
  */
 public class Solution {
+
     public int[] fairCandySwap(int[] A, int[] B) {
         int sum1 = 0, sum2 = 0;
         for (int num : A) {
@@ -32,4 +33,5 @@ public class Solution {
         }
         return null;
     }
+
 }

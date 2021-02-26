@@ -6,6 +6,7 @@ package question0766_toeplitz_matrix;
  * 执行用时：2ms，击败93.07%。消耗内存：39.4MB，击败98.25%。
  */
 public class Solution {
+
     private int m;
 
     private int n;
@@ -40,4 +41,5 @@ public class Solution {
         }
         return true;
     }
+
 }
