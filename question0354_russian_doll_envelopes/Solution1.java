@@ -19,6 +19,7 @@ import java.util.Arrays;
  * 执行用时：296ms，击败35.66%。消耗内存：40.7MB，击败100.00%。
  */
 public class Solution1 {
+
     public int maxEnvelopes(int[][] envelopes) {
         Arrays.sort(envelopes, (envelop1, envelop2) -> {
             if (envelop1[0] == envelop2[0]) {
@@ -39,4 +40,5 @@ public class Solution1 {
         }
         return result;
     }
+
 }

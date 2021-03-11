@@ -10,6 +10,7 @@ import java.util.Stack;
  * 执行用时：66ms，击败42.05%。消耗内存：42.4MB，击败5.62%。
  */
 public class Solution {
+
     public String removeDuplicates(String S) {
         int n;
         if (null == S || (n = S.length()) == 0) {
@@ -30,4 +31,5 @@ public class Solution {
         }
         return result.toString();
     }
+
 }

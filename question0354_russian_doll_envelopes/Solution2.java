@@ -14,6 +14,7 @@ import java.util.Arrays;
  * 执行用时：13ms，击败86.44%。消耗内存：40.7MB，击败100.00%。
  */
 public class Solution2 {
+
     public int maxEnvelopes(int[][] envelopes) {
         int n;
         if (null == envelopes || (n = envelopes.length) == 0) {
@@ -63,4 +64,5 @@ public class Solution2 {
         }
         return piles;
     }
+
 }
