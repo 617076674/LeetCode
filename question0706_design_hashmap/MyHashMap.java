@@ -6,6 +6,7 @@ package question0706_design_hashmap;
  * 执行用时：85ms，击败99.14%。消耗内存：64.4MB，击败58.10%。
  */
 public class MyHashMap {
+
     private Integer[] table;
 
     /** Initialize your data structure here. */
@@ -27,4 +28,5 @@ public class MyHashMap {
     public void remove(int key) {
         table[key] = null;
     }
+
 }

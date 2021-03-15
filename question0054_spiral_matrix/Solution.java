@@ -11,6 +11,7 @@ import java.util.List;
  * 执行用时：0ms，击败100%。消耗内存：35.4MB，击败41.86%。
  */
 public class Solution {
+
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         int m;
@@ -46,4 +47,5 @@ public class Solution {
         }
         return list;
     }
+
 }

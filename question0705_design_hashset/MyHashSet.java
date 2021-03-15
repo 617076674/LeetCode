@@ -6,6 +6,7 @@ package question0705_design_hashset;
  * 执行用时：69ms，击败99.43%。消耗内存：57.4MB，击败90.43%。
  */
 public class MyHashSet {
+
     private boolean[] table;
 
     /** Initialize your data structure here. */
@@ -25,4 +26,5 @@ public class MyHashSet {
     public boolean contains(int key) {
         return table[key];
     }
+
 }
