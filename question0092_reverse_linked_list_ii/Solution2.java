@@ -8,6 +8,7 @@ package question0092_reverse_linked_list_ii;
  * 执行用时：0ms，击败100.00%。消耗内存：34.1MB，击败89.26%。
  */
 public class Solution2 {
+
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
@@ -46,4 +47,5 @@ public class Solution2 {
         }
         return cur;
     }
+
 }

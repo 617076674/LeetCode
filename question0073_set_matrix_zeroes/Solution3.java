@@ -1,8 +1,6 @@
 package question0073_set_matrix_zeroes;
 
 /**
- * https://leetcode-cn.com/problems/set-matrix-zeroes/
- *
  * 如果矩阵matrix的每一行都包含0，我们把整个矩阵都置为0。
  *
  * 如果并不是每一行都包含0，基于Solution2的思路，我们需要用一些标记来标识某一行或是某一列是否存在0。其实Solution2的思路可以进一步改进。

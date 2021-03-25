@@ -1,8 +1,6 @@
 package question0073_set_matrix_zeroes;
 
 /**
- * https://leetcode-cn.com/problems/set-matrix-zeroes/
- *
  * 用一个m * n的矩阵记录哪些位置是0。
  *
  * 时间复杂度和空间复杂度均是O(mn)，其中m是矩阵matrix的行数，n是矩阵matrix的列数。

@@ -3,13 +3,14 @@ package question0456_132_pattern;
 import java.util.Stack;
 
 /**
- * 栈的应用。
+ * 单调栈。
  *
  * 时间复杂度和空间复杂度均是O(n)，其中n为nums数组的长度。
  *
  * 执行用时：8ms，击败95.87%。消耗内存：42.4MB，击败5.45%。
  */
 public class Solution {
+
     public boolean find132pattern(int[] nums) {
         int n;
         if (null == nums || (n = nums.length) < 3) {
@@ -37,4 +38,5 @@ public class Solution {
         }
         return false;
     }
+
 }

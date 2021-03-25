@@ -1,8 +1,6 @@
 package question0073_set_matrix_zeroes;
 
 /**
- * https://leetcode-cn.com/problems/set-matrix-zeroes/
- *
  * 记录哪些行和列应该置为0。
  *
  * 时间复杂度为O(mn)，其中m是矩阵matrix的行数，n是矩阵matrix的列数。空间复杂度为O(m + n)。
