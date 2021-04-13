@@ -1,13 +1,12 @@
 package question0061_rotate_list;
 
 /**
- * https://leetcode-cn.com/problems/rotate-list/
- *
  * 时间复杂度是O(n)，其中n为链表中的节点个数。空间复杂度是O(1)。
  *
  * 执行用时：1ms，击败99.92%。消耗内存：37.9MB，击败7.14%。
  */
 public class Solution {
+
     public ListNode rotateRight(ListNode head, int k) {
         if (null == head || null == head.next) {
             return head;
@@ -36,4 +35,5 @@ public class Solution {
         cur2.next = null;
         return dummyHead.next;
     }
+
 }

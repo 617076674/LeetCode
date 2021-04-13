@@ -1,8 +1,6 @@
 package question0074_search_a_2d_matrix;
 
 /**
- * https://leetcode-cn.com/problems/search-a-2d-matrix/
- *
  * 先对每行第一列的数据用floor函数进行查找。
  *
  * 再对找到的那一行进行二分查找法。
