@@ -8,6 +8,7 @@ package question0007_reverse_integer;
  * 执行用时：4ms，击败82.92%。消耗内存：34.2MB，击败78.22%。
  */
 public class Solution1 {
+
     public int reverse(int x) {
         StringBuilder sb = new StringBuilder();
         if (x < 0) {
@@ -24,4 +25,5 @@ public class Solution1 {
             return 0;
         }
     }
+
 }

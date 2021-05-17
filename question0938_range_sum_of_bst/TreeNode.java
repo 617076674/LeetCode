@@ -1,4 +1,4 @@
-package question0938;
+package question0938_range_sum_of_bst;
 
 public class TreeNode {
     int val;

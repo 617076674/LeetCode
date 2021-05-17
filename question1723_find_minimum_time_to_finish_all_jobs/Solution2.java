@@ -1,8 +1,5 @@
 package question1723_find_minimum_time_to_finish_all_jobs;
 
-/**
- * https://leetcode-cn.com/problems/find-minimum-time-to-finish-all-jobs/submissions/
- */
 public class Solution2 {
 
   public int minimumTimeRequired(int[] jobs, int k) {
