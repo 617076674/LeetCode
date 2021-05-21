@@ -27,8 +27,4 @@ public class Solution {
         return memo[index1][index2];
     }
 
-    public static void main(String[] args) {
-        int[] A = {1,3,7,1,7,5}, B = {1,9,2,5,1};
-        System.out.println(new Solution().maxUncrossedLines(A, B));
-    }
 }
