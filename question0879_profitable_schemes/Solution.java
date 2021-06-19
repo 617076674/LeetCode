@@ -17,13 +17,14 @@ package question0879_profitable_schemes;
  * 执行用时：58ms，击败54.84%。消耗内存：48.8MB，击败14.29%。
  */
 public class Solution {
-    public int profitableSchemes(int G, int P, int[] group, int[] profit) {
+
+    public int profitableSchemes(int n, int minProfit, int[] group, int[] profit) {
         int MOD = 1000000007;
-        int[][][] dp = new int[group.length + 1][G + 1][P + 1];
+        int[][][] dp = new int[group.length + 1][n + 1][minProfit + 1];
         dp[0][0][0] = 1;
         for (int i = 1; i < group.length + 1; i++) {
-            for (int j = 0; j < G + 1; j++) {
-                for (int k = 0; k < P + 1; k++) {
+            for (int j = 0; j < n + 1; j++) {
+                for (int k = 0; k < minProfit + 1; k++) {
                     dp[i][j][k] = dp[i - 1][j][k];
                     if (j - group[i - 1] >= 0) {
                         dp[i][j][k] += dp[i - 1][j - group[i - 1]][Math.max(0, k - profit[i - 1])];
@@ -33,10 +34,11 @@ public class Solution {
             }
         }
         int result = 0;
-        for (int i = 0; i < G + 1; i++) {
-            result += dp[group.length][i][P];
+        for (int i = 0; i < n + 1; i++) {
+            result += dp[group.length][i][minProfit];
             result %= MOD;
         }
         return result;
     }
+
 }

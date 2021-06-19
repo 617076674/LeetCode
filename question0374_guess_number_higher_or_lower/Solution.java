@@ -8,6 +8,7 @@ package question0374_guess_number_higher_or_lower;
  * 执行用时：1ms，击败90.28%。消耗内存：33.3MB，击败67.19%。
  */
 public class Solution extends GuessGame {
+
     public int guessNumber(int n) {
         int left = 1, right = n;
         while (true) {
@@ -21,4 +22,5 @@ public class Solution extends GuessGame {
             }
         }
     }
+
 }

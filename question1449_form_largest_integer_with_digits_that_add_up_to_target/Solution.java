@@ -10,6 +10,7 @@ import java.util.Arrays;
  * 执行用时：54ms，击败71.05%。消耗内存：62.3MB，击败48.28%。
  */
 public class Solution {
+
     private static final String UNSET = "unset";
 
     private String[] memo;
@@ -43,4 +44,5 @@ public class Solution {
         memo[target] = result;
         return result;
     }
+
 }

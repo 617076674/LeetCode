@@ -1,9 +1,6 @@
 package question0664;
 
 /**
- * @author qianyihui
- * @date 2019-08-15
- *
  * 动态规划。
  *
  * 状态定义：
@@ -27,6 +24,7 @@ package question0664;
  * 执行用时：45ms，击败61.29%。内存消耗：37.3MB，击败81.25%。
  */
 public class Solution {
+
     public int strangePrinter(String s) {
         int n;
         if (s == null || (n = s.length()) == 0) {
@@ -48,11 +46,12 @@ public class Solution {
                     }
                 }
                 if (s.charAt(i) == s.charAt(j)) {
-                    //dp[i + 1][j]代表将i放入[j + 1, i]一起打印
+                    //dp[i + 1][j]代表将i放入[i + 1, j]一起打印
                     dp[i][j] = Math.min(dp[i][j], dp[i + 1][j]);
                 }
             }
         }
         return dp[0][n - 1];
     }
+
 }

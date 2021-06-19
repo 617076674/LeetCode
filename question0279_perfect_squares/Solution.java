@@ -8,6 +8,7 @@ package question0279_perfect_squares;
  * 执行用时：39ms，击败75.96%。消耗内存：39.3MB，击败10.53%。
  */
 public class Solution {
+
     public int numSquares(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 0;
@@ -19,4 +20,5 @@ public class Solution {
         }
         return dp[n];
     }
+
 }

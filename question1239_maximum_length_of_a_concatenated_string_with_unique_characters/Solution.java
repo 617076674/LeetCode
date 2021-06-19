@@ -12,6 +12,7 @@ import java.util.Set;
  * 执行用时：40ms，击败35.91%。消耗内存：45MB，击败100.00%。
  */
 public class Solution {
+
     private int result;
 
     private Set<Integer> set = new HashSet<>();
@@ -54,4 +55,5 @@ public class Solution {
         dfs(arr, index + 1);
         set.addAll(tmpSet);
     }
+
 }
