@@ -8,6 +8,7 @@ import java.util.*;
  * 执行用时：39ms，击败93.92%。消耗内存：40.4MB，击败33.33%。
  */
 public class Solution2 {
+
     private Set<String> visited = new HashSet<>(), deadSet = new HashSet<>();
 
     public int openLock(String[] deadends, String target) {
@@ -65,4 +66,5 @@ public class Solution2 {
         }
         return result;
     }
+
 }
