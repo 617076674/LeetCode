@@ -2,7 +2,10 @@ package question1622_fancy_sequence;
 
 import java.util.Arrays;
 
-public class Fancy {
+/**
+ * 懒更新的线段树。
+ */
+public class Fancy1 {
 
   private static final int MOD = 1000000007;
 
@@ -110,7 +113,7 @@ public class Fancy {
 
   private int index;
 
-  public Fancy() {
+  public Fancy1() {
 
   }
 

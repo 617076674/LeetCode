@@ -8,6 +8,7 @@ package question0645_set_mismatch;
  * 执行用时：3ms，击败97.36%。消耗内存：39.3MB，击败95.14%。
  */
 public class Solution {
+
     public int[] findErrorNums(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
@@ -30,4 +31,5 @@ public class Solution {
         nums[i] = nums[j];
         nums[j] = tmp;
     }
+
 }

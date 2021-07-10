@@ -1,10 +1,12 @@
-package question168;
+package question0168_excel_sheet_column_title;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
+
     public String convertToTitle(int n) {
-        HashMap<Integer, Character> hashMap = new HashMap<>();
+        Map<Integer, Character> hashMap = new HashMap<>();
         for (int i = 0; i < 26; i++) {
             hashMap.put(i, (char) ('A' + i));
         }
@@ -18,4 +20,5 @@ public class Solution {
         }
         return stringBuilder.reverse().toString();
     }
+
 }

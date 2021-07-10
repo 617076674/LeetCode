@@ -16,7 +16,8 @@ package question0718_maximum_length_of_repeated_subarray;
  *
  * 执行用时：45ms，击败89.54%。消耗内存：48.9MB，击败100.00%。
  */
-public class Solution {
+public class Solution1 {
+
     public int findLength(int[] A, int[] B) {
         int[][] dp = new int[A.length + 1][B.length + 1];
         int result = 0;
@@ -30,4 +31,5 @@ public class Solution {
         }
         return result;
     }
+
 }
