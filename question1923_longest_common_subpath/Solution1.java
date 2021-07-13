@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution {
+public class Solution1 {
 
   private static final int MOD1 = 1000000007;
 
