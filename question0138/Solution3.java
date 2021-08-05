@@ -11,6 +11,7 @@ package question0138;
  * 执行用时：2ms，击败57.28%。消耗内存：36.6MB，击败12.96%。
  */
 public class Solution3 {
+
     public Node copyRandomList(Node head) {
         if (null == head) {
             return null;
@@ -27,8 +28,7 @@ public class Solution3 {
     private Node doubleRandomList(Node head) {
         Node cur = head;
         while (cur != null) {
-            Node node = new Node(), tmp = cur.next;
-            node.val = cur.val;
+            Node node = new Node(cur.val), tmp = cur.next;
             cur.next = node;
             node.next = tmp;
             cur = tmp;
@@ -68,4 +68,5 @@ public class Solution3 {
         }
         return cloneHead;
     }
+
 }

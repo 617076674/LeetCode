@@ -32,7 +32,7 @@ public class Solution {
     }
     color[now] = 1;
     for (int next : graph[now]) {
-      if (color[next] == 1 || !dfs(next, graph)) {
+      if (!dfs(next, graph)) {
         return false;
       }
     }

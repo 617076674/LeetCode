@@ -28,12 +28,13 @@ import java.util.*;
  * 执行用时：6ms，击败100.00%。消耗内存：43.7MB，击败68.63%。
  */
 public class Solution {
+
     private Map<String, PriorityQueue<String>> graph = new HashMap<>();
 
     private List<String> result = new LinkedList<>();
 
     public List<String> findItinerary(List<List<String>> tickets) {
-        if (null == tickets || tickets.size() == 0) {
+        if (null == tickets || tickets.isEmpty()) {
             return result;
         }
         //构建图
@@ -50,10 +51,11 @@ public class Solution {
     // DFS方式遍历图，当走到不能走为止，再将节点加入到答案
     private void dfs(String begin) {
         PriorityQueue<String> pq = graph.get(begin);
-        while (null != pq && pq.size() > 0) {
+        while (null != pq && !pq.isEmpty()) {
             String destination = pq.poll();
             dfs(destination);
         }
         result.add(0, begin); // 逆序插入
     }
+    
 }

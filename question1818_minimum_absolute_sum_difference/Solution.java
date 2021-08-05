@@ -38,10 +38,4 @@ public class Solution {
         return (int) (result % MOD);
     }
 
-    public static void main(String[] args) {
-        int[] nums1 = {1,28,21};
-        int[] nums2 = {9,21,20};
-        System.out.println(new Solution().minAbsoluteSumDiff(nums1, nums2));
-    }
-
 }

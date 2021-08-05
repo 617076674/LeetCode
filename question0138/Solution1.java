@@ -12,12 +12,10 @@ public class Solution1 {
         if (null == head) {
             return null;
         }
-        Node newHead = new Node();
-        newHead.val = head.val;
+        Node newHead = new Node(head.val);
         Node cur1 = head.next, cur2 = newHead;
         while (cur1 != null) {
-            Node node = new Node();
-            node.val = cur1.val;
+            Node node = new Node(cur1.val);
             cur2.next = node;
             cur2 = node;
             cur1 = cur1.next;

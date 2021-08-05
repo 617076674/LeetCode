@@ -19,8 +19,7 @@ public class Solution2 {
         }
         Node cur = head;
         while (null != cur) {
-            Node node = new Node();
-            node.val = cur.val;
+            Node node = new Node(cur.val);
             map.put(cur, node);
             cur = cur.next;
         }

@@ -11,6 +11,7 @@ import java.util.List;
  * 执行用时：3ms，击败71.58%。消耗内存：51.3MB，击败100.00%。
  */
 public class Solution {
+
     public int[] kWeakestRows(int[][] mat, int k) {
         int m;
         if (null == mat || (m = mat.length) == 0) {
@@ -34,14 +35,11 @@ public class Solution {
         for (int i = 0; i < m; i++) {
             indexList.add(i);
         }
-        Collections.sort(indexList, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                if (countOne[o1] == countOne[o2]) {
-                    return o1 - o2;
-                }
-                return countOne[o1] - countOne[o2];
+        Collections.sort(indexList, (o1, o2) -> {
+            if (countOne[o1] == countOne[o2]) {
+                return o1 - o2;
             }
+            return countOne[o1] - countOne[o2];
         });
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
@@ -49,4 +47,5 @@ public class Solution {
         }
         return result;
     }
+
 }

@@ -1,4 +1,4 @@
-package question171;
+package question0171_excel_sheet_column_number;
 
 public class Solution {
     public int titleToNumber(String s) {
