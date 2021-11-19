@@ -1,13 +1,9 @@
 package lcci0207_intersection_of_two_linked_lists;
 
 /**
- * https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/
- *
  * 分别计算两个链表的长度。让长链表的指针先走链表长度差值的步数。
  *
  * 时间复杂度是O(lenA + lenB)，其中LenA为链表headA的长度，LenB为链表headB的长度。
- *
- * 执行用时：1ms，击败100.00%。消耗内存：42.7MB，击败100.00%。
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

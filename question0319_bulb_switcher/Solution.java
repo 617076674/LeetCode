@@ -28,7 +28,9 @@ package question0319_bulb_switcher;
  * 执行用时：0ms，击败100.00%。消耗内存：34.1MB，击败11.38%。
  */
 public class Solution {
+
     public int bulbSwitch(int n) {
         return (int) Math.sqrt(n);
     }
+
 }

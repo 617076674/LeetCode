@@ -20,12 +20,14 @@ public class Solution {
 
     public int pickIndex() {
         int num = rand.nextInt(sum), left = 0, right = preSum.length - 1;
-        while (left < right) {
+        while (left <= right) {
             int mid = left + ((right - left) >> 1);
-            if (num >= preSum[mid]) {
+            if (num == preSum[mid]) {
+                left = mid + 1;
+            } else if (num > preSum[mid]) {
                 left = mid + 1;
             } else {
-                right = mid;
+                right = mid - 1;
             }
         }
         return left;

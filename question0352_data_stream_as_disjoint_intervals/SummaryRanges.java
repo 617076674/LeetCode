@@ -73,7 +73,7 @@ public class SummaryRanges {
       int mid = left + ((right - left) >> 1);
       if (nums.get(mid) == target) {
         left = mid + 1;
-      } else if (nums.get(mid) > target) {
+      } else if (nums.get(mid) < target) {
         right = mid - 1;
       } else {
         left = mid + 1;

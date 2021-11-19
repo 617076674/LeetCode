@@ -18,6 +18,7 @@ package question0516_longest_palindromic_subsequence;
  * 执行用时：61ms，击败28.97%。消耗内存：54.3MB，击败6.00%。
  */
 public class Solution {
+
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
         int[][] dp = new int[n][n];
@@ -36,4 +37,5 @@ public class Solution {
         }
         return dp[0][n - 1];
     }
+
 }

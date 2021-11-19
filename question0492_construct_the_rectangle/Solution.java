@@ -8,6 +8,7 @@ package question0492_construct_the_rectangle;
  * 执行用时：1ms，击败99.73%。消耗内存：33.6MB，击败77.91%。
  */
 public class Solution {
+
     public int[] constructRectangle(int area) {
         int mid = (int) Math.sqrt(area);
         if (mid * mid == area) {
@@ -22,4 +23,5 @@ public class Solution {
         }
         return null;
     }
+
 }

@@ -21,6 +21,7 @@ import java.util.Map;
  * 执行用时：174ms，击败65.71%。消耗内存：69.8MB，击败20.83%。
  */
 public class Solution {
+
     public int numberOfArithmeticSlices(int[] A) {
         int n, result = 0;
         if (null == A || (n = A.length) < 3) {
@@ -41,4 +42,5 @@ public class Solution {
         }
         return result;
     }
+
 }

@@ -1,5 +1,7 @@
 package question0526_beautiful_arrangement;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * 回溯法。
  *
@@ -8,6 +10,7 @@ package question0526_beautiful_arrangement;
  * 执行用时：80ms，击败41.70%。消耗内存：33.1MB，击败63.89%。
  */
 public class Solution {
+
     private boolean[] used;
 
     private int result;
@@ -31,4 +34,5 @@ public class Solution {
             }
         }
     }
+
 }

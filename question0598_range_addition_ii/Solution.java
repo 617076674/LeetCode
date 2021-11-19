@@ -8,6 +8,7 @@ package question0598_range_addition_ii;
  * 执行用时：1ms，击败97.83%。消耗内存：36.9MB，击败91.60%。
  */
 public class Solution {
+
     public int maxCount(int m, int n, int[][] ops) {
         int minR = m, minC = n;
         for (int[] nums : ops) {
@@ -16,4 +17,5 @@ public class Solution {
         }
         return minR * minC;
     }
+
 }

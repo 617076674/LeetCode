@@ -93,9 +93,4 @@ public class Solution {
     return result;
   }
 
-  public static void main(String[] args) {
-    int[][] grid = {{1, 0}, {1, 1}};
-    System.out.println(new Solution().largestIsland(grid));
-  }
-
 }

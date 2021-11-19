@@ -16,15 +16,17 @@ package question0650_2_keys_keyboard;
  * 执行用时：0ms，击败100.00%。消耗内存：36.2MB，击败33.33%。
  */
 public class Solution {
-    public int minSteps(int n) {
-        if (n == 1) {
-            return 0;
-        }
-        for (int i = n - 1; i >= 1; i--) {
-            if (n % i == 0) {
-                return minSteps(i) + n / i;
-            }
-        }
-        return -1;  //这一步不可能到达
+
+  public int minSteps(int n) {
+    if (n == 1) {
+      return 0;
     }
+    for (int i = n - 1; i >= 1; i--) {
+      if (n % i == 0) {
+        return minSteps(i) + n / i;
+      }
+    }
+    return -1;  //这一步不可能到达
+  }
+
 }

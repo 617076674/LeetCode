@@ -3,11 +3,6 @@ package question0677_map_sum_pairs;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 字典树。
- *
- * 执行用时：64ms，击败78.93%。消耗内存：35.7MB，击败90.59%。
- */
 public class MapSum {
     private class Node {
         private int val;
@@ -57,4 +52,5 @@ public class MapSum {
         }
         return sum;
     }
+
 }

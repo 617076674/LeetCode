@@ -10,6 +10,7 @@ import java.util.Arrays;
  * 执行用时：17ms，击败86.32%。消耗内存：35.5MB，击败43.82%。
  */
 public class Solution {
+
     public int nthSuperUglyNumber(int n, int[] primes) {
         int len = primes.length;
         int[] superUglies = new int[n];
@@ -30,4 +31,5 @@ public class Solution {
         }
         return superUglies[n - 1];
     }
+
 }
