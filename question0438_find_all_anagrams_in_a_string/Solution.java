@@ -3,13 +3,6 @@ package question0438_find_all_anagrams_in_a_string;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 滑动窗口法。
- *
- * 时间复杂度是O(n1 + n2)，其中n1为字符串s的长度，n2为字符串p的长度。
- *
- * 执行用时：12ms，击败65.27%。消耗内存：41MB，击败5.88%。
- */
 public class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         int[] window = new int[26], pMap = new int[26];

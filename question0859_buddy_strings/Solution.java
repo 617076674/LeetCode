@@ -6,6 +6,7 @@ package question0859_buddy_strings;
  * 执行用时：2ms，击败92.53%。消耗内存：37.4MB，击败80.28%。
  */
 public class Solution {
+
     public boolean buddyStrings(String A, String B) {
         int n1 = A.length(), n2 = B.length();
         if (n1 != n2) {
@@ -26,21 +27,19 @@ public class Solution {
         }
         int index1 = -1, index2 = -1;
         for (int i = 0; i < n1; i++) {
-            char c1 = A.charAt(i), c2 = B.charAt(i);
-            if (c1 != c2) {
+            if (A.charAt(i) != B.charAt(i)) {
                 if (index1 == -1) {
                     index1 = i;
-                } else {
+                } else if (index2 == -1){
                     index2 = i;
+                } else {
+                    return false;
                 }
             }
         }
         if (index1 == -1 || index2 == -1) {
             return false;
         }
-        if (A.charAt(index1) != B.charAt(index2) || A.charAt(index2) != B.charAt(index1)) {
-            return false;
-        }
-        return true;
+        return A.charAt(index1) == B.charAt(index2) && A.charAt(index2) == B.charAt(index1);
     }
 }

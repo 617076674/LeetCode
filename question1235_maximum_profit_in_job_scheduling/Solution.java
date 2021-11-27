@@ -10,6 +10,7 @@ import java.util.Objects;
  * 执行用时：25ms，击败54.55%。消耗内存：50.1MB，击败10.71%。
  */
 public class Solution {
+
     private Integer[] indexes;
 
     private Integer[] memo;
@@ -22,28 +23,28 @@ public class Solution {
         }
         Arrays.sort(indexes, Comparator.comparingInt(index -> startTime[index]));
         memo = new Integer[n];
-        return jobScheduling(startTime, endTime, profit, 0, 0);
+        return jobScheduling(startTime, endTime, profit, 0);
     }
 
     /**
-     * 当前考虑第 index 个任务，上一个任务的结束时间是 lastEndTime
+     * 在 [index, n - 1] 中选取任务，当前考虑第 index 个任务，
      */
-    private int jobScheduling(int[] startTime, int[] endTime, int[] profit, int index, int lastEndTime) {
+    private int jobScheduling(int[] startTime, int[] endTime, int[] profit, int index) {
         if (index >= startTime.length) {
             return 0;
         }
-        if (!Objects.isNull(memo[index])) {
+        if (null != memo[index]) {
             return memo[index];
         }
         memo[index] = Math.max(
             // 做第 index 个任务
-            profit[indexes[index]] + jobScheduling(startTime, endTime, profit, findNextJob(startTime, endTime, index, endTime[indexes[index]]), endTime[indexes[index]]),
+            profit[indexes[index]] + jobScheduling(startTime, endTime, profit, findNextJob(startTime, index, endTime[indexes[index]])),
             // 不做第 index 个任务
-            jobScheduling(startTime, endTime, profit, index + 1, lastEndTime));
+            jobScheduling(startTime, endTime, profit, index + 1));
         return memo[index];
     }
 
-    private int findNextJob(int[] startTime, int[] endTime, int index, int lastEndTime) {
+    private int findNextJob(int[] startTime, int index, int lastEndTime) {
         if (startTime[indexes[indexes.length - 1]] < lastEndTime) {
             return startTime.length;
         }
@@ -61,4 +62,5 @@ public class Solution {
         }
         return left;
     }
+
 }
