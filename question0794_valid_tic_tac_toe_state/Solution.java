@@ -19,10 +19,7 @@ public class Solution {
       return false;
     }
     boolean xWin = win(tempBoard, 'X'), oWin = win(tempBoard, 'O');
-    if ((xWin && oWin) || (xWin && countO == countX) || (oWin && countX == countO + 1)) {
-      return false;
-    }
-    return true;
+    return (!xWin || !oWin) && (!xWin || countO != countX) && (!oWin || countX != countO + 1);
   }
 
   private boolean win(char[][] board, char c) {

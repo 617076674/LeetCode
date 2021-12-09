@@ -1,96 +1,73 @@
 package question0805_split_array_with_same_average;
 
-import java.awt.*;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Solution {
 
-  public boolean splitArraySameAverage(int[] A) {
-    int n = A.length;
-    if (n == 1) {
-      return false;
+  public boolean splitArraySameAverage(int[] nums) {
+    int total = 0;
+    for (int num : nums) {
+      total += num;
     }
-    int sum = 0;
-    for (int x : A) {
-      sum += x;
-    }
-    int g = gcd(sum, n);
-    Point mu = new Point(-(sum / g), n / g);
-    List<Point> A2 = new ArrayList<>();
-    for (int x : A) {
-      A2.add(fracAdd(new Point(x, 1), mu));
-    }
-    // A2 的平均值为 0
-    Set<Point> left = new HashSet<>();
-    left.add(A2.get(0));
-    for (int i = 1; i < n / 2; i++) {
-      Set<Point> left2 = new HashSet<>();
-      Point z = A2.get(i);
-      left2.add(z);
-      for (Point p : left) {
-        left2.add(p);
-        left2.add(fracAdd(p, z));
-      }
-      left = left2;
-    }
-    if (left.contains(new Point(0, 1))) {
-      return true;
-    }
-    Set<Point> right = new HashSet<>();
-    right.add(A2.get(n - 1));
-    for (int i = n / 2; i < n - 1; i++) {
-      Set<Point> right2 = new HashSet<>();
-      Point z = A2.get(i);
-      right2.add(z);
-      for (Point p : right) {
-        right2.add(p);
-        right2.add(fracAdd(p, z));
-      }
-      right = right2;
-    }
-    if (right.contains(new Point(0, 1))) {
-      return true;
-    }
-    Point sleft = new Point(0, 1);
-    for (int i = 0; i < n / 2; ++i) {
-      sleft = fracAdd(sleft, A2.get(i));
-    }
-    Point sright = new Point(0, 1);
-    for (int i = n / 2; i < n; ++i) {
-      sright = fracAdd(sright, A2.get(i));
-    }
-    for (Point ha : left) {
-      Point ha2 = new Point(-ha.x, ha.y);
-      if (right.contains(ha2) && (!ha.equals(sleft) || !ha2.equals(sright))) {
-        return true;
+    int mid = nums.length / 2;
+    dfs1(nums, 0, mid - 1, 0, 0, 0);
+    dfs2(nums, mid, nums.length - 1, mid, 0, 0);
+    for (Map.Entry<Integer, Set<Integer>> entry1 : map1.entrySet()) {
+      for (Map.Entry<Integer, Set<Integer>> entry2 : map2.entrySet()) {
+        if (entry1.getKey() + entry2.getKey() == nums.length || entry1.getKey() + entry2.getKey() == 0) {
+          continue;
+        }
+        Set<Integer> set1 = entry1.getValue(), set2 = entry2.getValue();
+        for (int sum1 : set1) {
+          if (total * (entry1.getKey() + entry2.getKey()) % nums.length == 0) {
+            int sum2 = total * (entry1.getKey() + entry2.getKey()) / nums.length - sum1;
+            if (set2.contains(sum2)) {
+              return true;
+            }
+          }
+        }
       }
     }
     return false;
   }
 
-  public Point fracAdd(Point A, Point B) {
-    int numer = A.x * B.y + B.x * A.y;
-    int denom = A.y * B.y;
-    int g = gcd(numer, denom);
-    numer /= g;
-    denom /= g;
+  private Map<Integer, Set<Integer>> map1 = new HashMap<>();
 
-    if (denom < 0) {
-      numer *= -1;
-      denom *= -1;
+  private Map<Integer, Set<Integer>> map2 = new HashMap<>();
+
+  private void dfs1(int[] nums, int left, int right, int index, int count, int sum) {
+    if (index == right + 1) {
+      Set<Integer> set = map1.get(count);
+      if (null == set) {
+        set = new HashSet<>();
+        set.add(sum);
+        map1.put(count, set);
+      } else {
+        set.add(sum);
+      }
+      return;
     }
-
-    return new Point(numer, denom);
+    dfs1(nums, left, right, index + 1, count + 1, sum + nums[index]);
+    dfs1(nums, left, right, index + 1, count, sum);
   }
 
-  public int gcd(int a, int b) {
-    if (b == 0) {
-      return a;
+  private void dfs2(int[] nums, int left, int right, int index, int count, int sum) {
+    if (index == right + 1) {
+      Set<Integer> set = map2.get(count);
+      if (null == set) {
+        set = new HashSet<>();
+        set.add(sum);
+        map2.put(count, set);
+      } else {
+        set.add(sum);
+      }
+      return;
     }
-    return gcd(b, a % b);
+    dfs2(nums, left, right, index + 1, count + 1, sum + nums[index]);
+    dfs2(nums, left, right, index + 1, count, sum);
   }
 
 }

@@ -2,13 +2,6 @@ package question1005_maximize_sum_of_array_after_k_negations;
 
 import java.util.Arrays;
 
-/**
- * https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/
- *
- * 时间复杂度是O(nlogn)，其中n为数组A的长度。空间复杂度是O(1)。
- *
- * 执行用时：2ms，击败78.97%。消耗内存43.2MB，击败5.37%。
- */
 public class Solution {
     public int largestSumAfterKNegations(int[] A, int K) {
         int n;

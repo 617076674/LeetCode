@@ -2,7 +2,7 @@ package question1034_coloring_a_border;
 
 public class Solution {
 
-  private static int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+  private static int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
   private int m, n;
 
@@ -41,7 +41,7 @@ public class Solution {
 
   private void dfs(int[][] grid, int r, int c) {
     grid[r][c] = -grid[r][c];
-    for (int[] direction : directions) {
+    for (int[] direction : DIRECTIONS) {
       int nextR = r + direction[0], nextC = c + direction[1];
       if (nextR >= 0 && nextR < m && nextC >= 0 && nextC < n && grid[nextR][nextC] == -grid[r][c]) {
         dfs(grid, nextR, nextC);
