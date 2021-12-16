@@ -1,4 +1,4 @@
-package question1610;
+package question1610_maximum_number_of_visible_points;
 
 import java.util.ArrayList;
 import java.util.Collections;
