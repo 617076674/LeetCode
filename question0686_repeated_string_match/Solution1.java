@@ -5,7 +5,7 @@ package question0686_repeated_string_match;
  * （1）n1 >= n2，如果A中包含了B，直接返回1。如果(A + A)中包含了B，直接返回2。否则，返回-1。
  * （2）n1 < n2，在(A + A)中寻找B.substring(0, n1)字符串的匹配位置，开始循环匹配。
  */
-public class Solution {
+public class Solution1 {
     public int repeatedStringMatch(String A, String B) {
         int n1 = A.length(), n2 = B.length(), result = 0, index1 = 0, index2 = 0;
         String tmp = A + A;

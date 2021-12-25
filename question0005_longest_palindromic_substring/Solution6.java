@@ -1,11 +1,9 @@
 package question0005_longest_palindromic_substring;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
-public class Solution4 {
+/**
+ * 后缀数组：罗穗骞
+ */
+public class Solution6 {
 
   public String longestPalindrome(String s) {
     StringBuilder sb = new StringBuilder(s);
@@ -14,12 +12,67 @@ public class Solution4 {
       sb.append(s.charAt(i));
     }
     String doubleS = sb.toString();
-    int[] rankArray = getRankArray(doubleS);
-    int[] sufArray = getSufArray(rankArray);
+    int n = doubleS.length() + 1;
+    int[] r = new int[n];
+    int m = 0, i, j, p;
+    for (i = 0; i < n - 1; i++) {
+      r[i] = doubleS.charAt(i);
+      m = Math.max(m, r[i]);
+    }
+    m++;
+    int[] wv = new int[n], ws = new int[m], x = new int[n], y = new int[n], t, sa = new int[n];
+    for (i = 0; i < n; i++) {
+      x[i] = r[i];
+      ws[x[i]]++;
+    }
+    for (i = 1; i < m; i++) {
+      ws[i] += ws[i - 1];
+    }
+    for (i = n - 1; i >= 0; i--) {
+      sa[--ws[x[i]]] = i;
+    }
+    for (j = 1, p = 1; p < n; j *= 2, m = p) {
+      for (p = 0, i = n - j; i < n; i++) {
+        y[p++] = i;
+      }
+      for (i = 0; i < n; i++) {
+        if (sa[i] >= j) {
+          y[p++] = sa[i] - j;
+        }
+      }
+      for (i = 0; i < n; i++) {
+        wv[i] = x[y[i]];
+      }
+      ws = new int[m];
+      for (i = 0; i < n; i++) {
+        ws[wv[i]]++;
+      }
+      for (i = 1; i < m; i++) {
+        ws[i] += ws[i - 1];
+      }
+      for (i = n - 1; i >= 0; i--) {
+        sa[--ws[wv[i]]] = y[i];
+      }
+      for (t = x, x = y, y = t, p = 1, x[sa[0]] = 0, i = 1; i < n; i++) {
+        x[sa[i]] = cmp(y, sa[i - 1], sa[i], j) ? p - 1 : p++;
+      }
+    }
+    int[] rankArray = new int[doubleS.length()];
+    int index = 0;
+    for (i = 0; i < x.length; i++) {
+      if (x[i] == 0) {
+        continue;
+      }
+      rankArray[index++] = x[i] - 1;
+    }
+    int[] sufArray = new int[rankArray.length];
+    for (i = 0; i < sufArray.length; i++) {
+      sufArray[rankArray[i]] = i;
+    }
     int[] height = getHeight(doubleS, rankArray, sufArray);
     int[][] dp = getDP(height);
     String result = s.substring(0, 1);
-    for (int i = 0; i < s.length(); i++) {
+    for (i = 0; i < s.length(); i++) {
       // 以 s.charAt(i) 为中心的奇数长度回文串的长度
       if (i + 1 < s.length() && i - 1 >= 0) {
         int rank1 = rankArray[i + 1], rank2 = rankArray[sb.length() - i];
@@ -63,12 +116,8 @@ public class Solution4 {
     return Math.min(dp[left][k], dp[right - (1 << k) + 1][k]);
   }
 
-  private static int[] getSufArray(int[] rankArray) {
-    int[] sufArray = new int[rankArray.length];
-    for (int i = 0; i < sufArray.length; i++) {
-      sufArray[rankArray[i]] = i;
-    }
-    return sufArray;
+  private static boolean  cmp(int[] r, int a, int b, int l) {
+    return r[a] == r[b] && r[a + l] == r[b + l];
   }
 
   private static int[] getHeight(String s, int[] rankArray, int[] sufArray) {
@@ -85,45 +134,6 @@ public class Solution4 {
       }
     }
     return height;
-  }
-
-  private static int[] getRankArray(String s) {
-    Set<Integer> set = new TreeSet<>();
-    for (int i = 0; i < s.length(); i++) {
-      set.add((int) s.charAt(i));
-    }
-    int index = 1;
-    Map<Integer, Integer> map = new HashMap<>();
-    for (int num : set) {
-      map.put(num, index++);
-    }
-    int[] rankArray = new int[s.length()];
-    for (int i = 0; i < rankArray.length; i++) {
-      rankArray[i] = map.get((int) s.charAt(i));
-    }
-    for (int len = 1; len < s.length(); len *= 2) {
-      set = new TreeSet<>();
-      map = new HashMap<>();
-      int[] temp = new int[s.length()];
-      for (int i = 0; i < s.length(); i++) {
-        temp[i] = rankArray[i] * (s.length() + 1);
-        if (i + len < s.length()) {
-          temp[i] += rankArray[i + len];
-        }
-        set.add(temp[i]);
-      }
-      index = 1;
-      for (int num : set) {
-        map.put(num, index++);
-      }
-      for (int i = 0; i < temp.length; i++) {
-        rankArray[i] = map.get(temp[i]);
-      }
-    }
-    for (int i = 0; i < rankArray.length; i++) {
-      rankArray[i]--;
-    }
-    return rankArray;
   }
 
 }

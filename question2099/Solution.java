@@ -1,7 +1,6 @@
-package contest_12_11.question1;
+package question2099;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -24,13 +23,6 @@ public class Solution {
       result[i] = nums[list.get(i)];
     }
     return result;
-  }
-
-
-  public static void main(String[] args) {
-    int[] nums = {3,4,3,3};
-    int k = 2;
-    System.out.println(Arrays.toString(new Solution().maxSubsequence(nums, k)));
   }
 
 }

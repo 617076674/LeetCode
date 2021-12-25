@@ -1,4 +1,4 @@
-package contest_12_12.question3;
+package question2105;
 
 public class Solution {
 
@@ -34,13 +34,6 @@ public class Solution {
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) {
-    int[] plants = {7,7,7,7,7,7,7};
-    int capacityA = 7;
-    int capacityB = 8;
-    System.out.println(new Solution().minimumRefill(plants, capacityA, capacityB));
   }
 
 }

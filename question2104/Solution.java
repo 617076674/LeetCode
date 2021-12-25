@@ -1,4 +1,4 @@
-package contest_12_12.question2;
+package question2104;
 
 public class Solution {
 
@@ -13,11 +13,6 @@ public class Solution {
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) {
-    int[] nums = {4,-2,-3,4,1};
-    System.out.println(new Solution().subArrayRanges(nums));
   }
 
 }

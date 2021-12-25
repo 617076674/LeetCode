@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution {
+public class Solution1 {
 
   private static final long MOD = 1L << 32;
 

@@ -1,4 +1,4 @@
-package contest_12_12.question4;
+package question2106;
 
 public class Solution {
 
@@ -28,13 +28,6 @@ public class Solution {
       result = Math.max(result, sums[ceilIndex + 1] - sums[floorIndex]);
     }
     return (int) result;
-  }
-
-  public static void main(String[] args) {
-    int[][] fruits = {{0,3},{6,4},{8,5}};
-    int startPos = 3;
-    int k = 2;
-    System.out.println(new Solution().maxTotalFruits(fruits, startPos, k));
   }
 
   private static int ceil(int[][] fruits, int target) {

@@ -1,4 +1,4 @@
-package contest_12_11.question3;
+package question2101;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -43,11 +43,6 @@ public class Solution {
     long distance2 =
         (bomb1[0] - bomb2[0]) * 1L * (bomb1[0] - bomb2[0]) + (bomb1[1] - bomb2[1]) * 1L * (bomb1[1] - bomb2[1]);
     return bomb1[2] * 1L * bomb1[2] >= distance2;
-  }
-
-  public static void main(String[] args) {
-    int[][] bombs = {{1,1,100000},{100000,100000,1}};
-    System.out.println(new Solution().maximumDetonation(bombs));
   }
 
 }

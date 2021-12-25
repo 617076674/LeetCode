@@ -13,6 +13,7 @@ package question0300_longest_increasing_subsequence;
  * 执行用时：1ms，击败99.58%。消耗内存：36.2MB，击败34.62%。
  */
 public class Solution2 {
+
     public int lengthOfLIS(int[] nums) {
         int n;
         if (nums == null || (n = nums.length) == 0) {

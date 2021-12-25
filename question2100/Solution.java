@@ -1,4 +1,4 @@
-package contest_12_11.question2;
+package question2100;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,12 +52,6 @@ public class Solution {
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) {
-    int[] security = {1};
-    int time = 5;
-    System.out.println(new Solution().goodDaysToRobBank(security, time));
   }
 
 }
