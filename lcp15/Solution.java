@@ -13,12 +13,6 @@ public class Solution {
     return vector1[0] * vector2[1] - vector2[0] * vector1[1];
   }
 
-  public static void main(String[] args) {
-    int[][] points = {{1,3},{2,4},{3,3},{2,1}};
-    String direction = "LR";
-    System.out.println(Arrays.toString(new Solution().visitOrder(points, direction)));
-  }
-
   public int[] visitOrder(int[][] points, String direction) {
     int begin = 0;
     for (int i = 1; i < points.length; i++) {

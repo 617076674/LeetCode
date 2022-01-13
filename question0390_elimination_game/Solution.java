@@ -13,15 +13,18 @@ package question0390_elimination_game;
  */
 public class Solution {
     public int lastRemaining(int n) {
-        int result = 1, remain = n, step = 1, flag = 1;
-        while (remain > 1) {
-            if (flag == 1 || (remain & 1) == 1) {
-                result += step;
+        int begin = 1, gap = 1, end = n, step = 0, count = n;
+        while (count > 1) {
+            if (step % 2 == 0 || count % 2 != 0) {
+                begin += gap;
             }
-            flag *= -1;
-            step <<= 1;
-            remain >>= 1;
+            if (step % 2 != 0 || count % 2 != 0) {
+                end -= gap;
+            }
+            gap *= 2;
+            count = (end - begin) / gap + 1;
+            step++;
         }
-        return result;
+        return begin;
     }
 }

@@ -1,35 +1,43 @@
 package question0071_simplify_path;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
-/**
- * https://leetcode-cn.com/problems/simplify-path/
- *
- * 栈的应用。
- *
- * 时间复杂度和空间复杂度均是O(n)，其中n为路径path的长度。
- *
- * 执行用时：8ms，击败31.38%。消耗内存：43.5MB，击败5.04%。
- */
 public class Solution {
-    public String simplifyPath(String path) {
-        Stack<String> stack = new Stack<>();
-        String[] strings = path.split("/");
-        for (int i = 0; i < strings.length; i++) {
-            if (".".equals(strings[i])) {
-                continue;
-            } else if ("..".equals(strings[i])) {
-                if (!stack.isEmpty()) {
-                    stack.pop();
-                }
-            } else if (!"".equals(strings[i])) {
-                stack.push(strings[i]);
-            }
+
+  private static final char FILE_SEPARATOR = '/';
+
+  public String simplifyPath(String path) {
+    LinkedList<String> linkedList = new LinkedList<>();
+    for (int i = 0; i < path.length(); ) {
+      while (i < path.length() && path.charAt(i) == FILE_SEPARATOR) {
+        i++;
+      }
+      StringBuilder sb = new StringBuilder();
+      while (i < path.length() && path.charAt(i) != FILE_SEPARATOR) {
+        sb.append(path.charAt(i));
+        i++;
+      }
+      if (sb.length() == 0) {
+        continue;
+      }
+      if (".".equals(sb.toString())) {
+
+      } else if ("..".equals(sb.toString())) {
+        if (!linkedList.isEmpty()) {
+          linkedList.removeLast();
         }
-        StringBuilder result = new StringBuilder();
-        while (!stack.isEmpty()) {
-            result.insert(0, stack.pop()).insert(0, "/");
-        }
-        return result.toString().equals("") ? "/" : result.toString();
+      } else {
+        linkedList.addLast(sb.toString());
+      }
     }
+    if (linkedList.isEmpty()) {
+      return "" + FILE_SEPARATOR;
+    }
+    StringBuilder result = new StringBuilder();
+    while (!linkedList.isEmpty()) {
+      result.append(FILE_SEPARATOR).append(linkedList.removeFirst());
+    }
+    return result.toString();
+  }
+
 }

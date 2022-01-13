@@ -18,13 +18,6 @@ public class Solution {
         && isEscapePossibleHelper(blocked, target, source);
   }
 
-  public static void main(String[] args) {
-    int[][] blocked = {};
-    int[] source = {0,0};
-    int[] target = {999999,999999};
-    System.out.println(new Solution().isEscapePossible(blocked, source, target));
-  }
-
   private boolean isEscapePossibleHelper(int[][] blocked, int[] source, int[] target) {
     int cnt = 0;
     Queue<Long> queue = new LinkedList<>();
