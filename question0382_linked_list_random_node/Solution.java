@@ -19,18 +19,17 @@ import java.util.Random;
  * 时间复杂度是O(n)。空间复杂度是O(1)。
  */
 public class Solution {
+
     private ListNode head;
 
-    /** @param head The linked list's head.
-        Note that the head is guaranteed to be not null, so it contains at least one node. */
     public Solution(ListNode head) {
         this.head = head;
     }
     
     /** Returns a random node's value. */
     public int getRandom() {
-        ListNode cur = head.next;
-        int result = head.val, i = 2;
+        ListNode cur = head;
+        int result = 0, i = 1;
         Random random = new Random();
         while (null != cur) {
             if (random.nextInt(i) == 0) {
@@ -41,4 +40,5 @@ public class Solution {
         }
         return result;
     }
+
 }

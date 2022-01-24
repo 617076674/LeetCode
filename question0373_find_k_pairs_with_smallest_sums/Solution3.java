@@ -30,11 +30,11 @@ public class Solution3 {
     return result;
   }
 
-  // flag 是 0，上一次移动的不是 num2，此次可以移动 num1 或 num2；flag 是 1，上一次移动的是 num2，此次只能移动 num2
-  private static List<Integer> getList(int num1, int num2, int flag) {
+  // flag 是 0，上一次移动的不是 index2，此次可以移动 index1 或 index2；flag 是 1，上一次移动的是 index2，此次只能移动 index2
+  private static List<Integer> getList(int index1, int index2, int flag) {
     List<Integer> list = new ArrayList<>();
-    list.add(num1);
-    list.add(num2);
+    list.add(index1);
+    list.add(index2);
     list.add(flag);
     return list;
   }
