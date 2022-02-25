@@ -1,0 +1,103 @@
+package lcci1010_rank_from_stream;
+
+public class StreamRank {
+
+  private static class SegmentTree {
+
+    private int[] tree;
+
+    private int[] lazy;
+
+    private int n;
+
+    public SegmentTree(int n) {
+      this.n = n;
+      this.tree = new int[n << 2];
+      this.lazy = new int[n << 2];
+    }
+
+    public int query(int i, int j) {
+      return querySegmentTree(0, 0, n - 1, i, j);
+    }
+
+    private int querySegmentTree(int treeIndex, int left, int right, int i, int j) {
+      if (i > right || j < left) {
+        return 0;
+      }
+      if (lazy[treeIndex] != 0) {
+        tree[treeIndex] = (int) ((right - left + 1L) * lazy[treeIndex] + tree[treeIndex]);
+        if (left != right) {
+          lazy[leftChild(treeIndex)] += lazy[treeIndex];
+          lazy[rightChild(treeIndex)] += lazy[treeIndex];
+        }
+        lazy[treeIndex] = 0;
+      }
+      if (i <= left && j >= right) {
+        return tree[treeIndex];
+      }
+      int mid = left + ((right - left) >> 1);
+      if (i > mid) {
+        return querySegmentTree(rightChild(treeIndex), mid + 1, right, i, j);
+      }
+      if (j <= mid) {
+        return querySegmentTree(leftChild(treeIndex), left, mid, i, j);
+      }
+      int leftResult = querySegmentTree(leftChild(treeIndex), left, mid, i, mid);
+      int rightResult = querySegmentTree(rightChild(treeIndex), mid + 1, right, mid + 1, j);
+      return leftResult + rightResult;
+    }
+
+    public void update(int i, int j, int val) {
+      update(0, 0, n - 1, i, j, val);
+    }
+
+    private void update(int treeIndex, int left, int right, int i, int j, int val) {
+      if (lazy[treeIndex] != 0) {
+        tree[treeIndex] = (int) ((right - left + 1L) * lazy[treeIndex] + tree[treeIndex]);
+        if (left != right) {
+          lazy[leftChild(treeIndex)] += lazy[treeIndex];
+          lazy[rightChild(treeIndex)] += lazy[treeIndex];
+        }
+        lazy[treeIndex] = 0;
+      }
+      if (left > right || i > right || j < left) {
+        return;
+      }
+      if (i <= left && j >= right) {
+        tree[treeIndex] = (int) ((right - left + 1L) * val + tree[treeIndex]);
+        if (left != right) {
+          lazy[leftChild(treeIndex)] += val;
+          lazy[rightChild(treeIndex)] += val;
+        }
+        return;
+      }
+      int mid = left + ((right - left) >> 1);
+      update(leftChild(treeIndex), left, mid, i, j, val);
+      update(rightChild(treeIndex), mid + 1, right, i, j, val);
+      tree[treeIndex] = tree[leftChild(treeIndex)] + tree[rightChild(treeIndex)];
+    }
+
+    private static int leftChild(int index) {
+      return 2 * index + 1;
+    }
+
+    private static int rightChild(int index) {
+      return 2 * index + 2;
+    }
+
+  }
+
+  private SegmentTree segmentTree = new SegmentTree(50001);
+
+  public StreamRank() {
+  }
+
+  public void track(int x) {
+    segmentTree.update(x, x, 1);
+  }
+
+  public int getRankOfNumber(int x) {
+    return segmentTree.query(0, x);
+  }
+
+}

@@ -17,14 +17,6 @@ public class Solution {
     return result;
   }
 
-  public static void main(String[] args) {
-    Solution solution = new Solution();
-    System.out.println(solution.simplifiedFractions(2));
-    System.out.println(solution.simplifiedFractions(3));
-    System.out.println(solution.simplifiedFractions(4));
-    System.out.println(solution.simplifiedFractions(1));
-  }
-
   private static int gcd(int a, int b) {
     if (b == 0) {
       return a;
