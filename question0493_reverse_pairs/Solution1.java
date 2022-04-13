@@ -1,6 +1,6 @@
 package question0493_reverse_pairs;
 
-public class Solution {
+public class Solution1 {
 
   public int reversePairs(int[] nums) {
     if (nums.length == 0) {
@@ -13,9 +13,9 @@ public class Solution {
     if (left == right) {
       return 0;
     }
-    int mid = left + ((right - left) >> 1), resultLeft = reversePairsRecursive(nums, left, mid),
-        resultRight = reversePairsRecursive(nums, mid + 1, right),
-        result = resultLeft + resultRight;
+    int mid = left + ((right - left) >> 1);
+    int result =
+        reversePairsRecursive(nums, left, mid) + reversePairsRecursive(nums, mid + 1, right);
     // 首先统计下标对的数量
     int i = left, j = mid + 1;
     while (i <= mid) {

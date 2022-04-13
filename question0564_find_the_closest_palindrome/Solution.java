@@ -2,56 +2,64 @@ package question0564_find_the_closest_palindrome;
 
 public class Solution {
 
-  public String mirroring(String s) {
-    String x = s.substring(0, (s.length()) / 2);
-    return x + (s.length() % 2 == 1 ? s.charAt(s.length() / 2) : "") + new StringBuilder(x).reverse().toString();
-  }
+  private String n;
+
+  private long result;
+
+  private long target;
+
+  private int[] cur;
 
   public String nearestPalindromic(String n) {
-    if ("1".equals(n)) {
-      return "0";
+    this.n = n;
+    this.target = Long.parseLong(n);
+    cur = new int[n.length()];
+    for (int i = 0; i < n.length() - 1; i++) {
+      result = result * 10 + 9;
     }
-    String a = mirroring(n);
-    long diff1;
-    diff1 = Math.abs(Long.parseLong(n) - Long.parseLong(a));
-    if (diff1 == 0) {
-      diff1 = Long.MAX_VALUE;
+    long temp = (long) Math.pow(10, n.length()) + 1;
+    if (Math.abs(temp - target) < Math.abs(result - target)) {
+      result = temp;
     }
-    StringBuilder s = new StringBuilder(n);
-    int i = (s.length() - 1) / 2;
-    while (i >= 0 && s.charAt(i) == '0') {
-      s.replace(i, i + 1, "9");
-      i--;
+    dfs(0, 0);
+    return String.valueOf(result);
+  }
+
+  private void dfs(int index, int status) {
+    if (index == (cur.length + 1) / 2) {
+      long temp = 0L;
+      for (int i = 0; i < cur.length; i++) {
+        temp = temp * 10 + cur[i];
+      }
+      if (temp == target) {
+        return;
+      }
+      if (Math.abs(temp - target) < Math.abs(result - target)
+          || (Math.abs(temp - target) == Math.abs(result - target) && temp < result)) {
+        result = temp;
+      }
+      return;
     }
-    if (i == 0 && s.charAt(i) == '1') {
-      s.delete(0, 1);
-      int mid = (s.length() - 1) / 2;
-      s.replace(mid, mid + 1, "9");
+    if (status == 1) {
+      // 第 index 位置应该取得尽量小，即都取为 0
+      cur[index] = cur[cur.length - index - 1] = 0;
+      dfs(index + 1, 1);
+    } else if (status == -1) {
+      // 第 index 位置应该取得尽量大，即都取为 9
+      cur[index] = cur[cur.length - index - 1] = 9;
+      dfs(index + 1, -1);
     } else {
-      s.replace(i, i + 1, "" + (char) (s.charAt(i) - 1));
+      cur[index] = cur[cur.length - index - 1] = n.charAt(index) - '0';
+      dfs(index + 1, 0);
+      if (n.charAt(index) != '9') {
+        cur[index] = cur[cur.length - index - 1] = n.charAt(index) - '0' + 1;
+        dfs(index + 1, 1);
+      }
+      if (n.charAt(index) != '0' && !(index == 0 && n.charAt(index) == '1')) {
+        cur[index] = cur[cur.length - index - 1] = n.charAt(index) - '0' - 1;
+        dfs(index + 1, -1);
+      }
     }
-    String b = mirroring(s.toString());
-    long diff2 = Math.abs(Long.parseLong(n) - Long.parseLong(b));
-    s = new StringBuilder(n);
-    i = (s.length() - 1) / 2;
-    while (i >= 0 && s.charAt(i) == '9') {
-      s.replace(i, i + 1, "0");
-      i--;
-    }
-    if (i < 0) {
-      s.insert(0, "1");
-    } else {
-      s.replace(i, i + 1, "" + (char) (s.charAt(i) + 1));
-    }
-    String c = mirroring(s.toString());
-    long diff3 = Math.abs(Long.parseLong(n) - Long.parseLong(c));
-    if (diff2 <= diff1 && diff2 <= diff3) {
-      return b;
-    }
-    if (diff1 <= diff3) {
-      return a;
-    }
-    return c;
   }
 
 }

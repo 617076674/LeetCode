@@ -1,42 +1,50 @@
 package question0968_binary_tree_cameras;
 
-/**
- * 深度优先遍历。
- *
- * 时间复杂度和空间复杂度均是 O(n)，其中 n 为树中的节点个数。
- *
- * 执行用时：1ms，击败57.68%。消耗内存：39.6MB，击败50.00%。
- */
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
 
-    private enum Status {
-        NEED,   // 该节点需要监视器来监视
-        NO_NEED,    // 该节点不需要监视器来监视
-        MONITOR // 该节点本身就是一个监视器
-    }
-
-    private int result;
+    private Map<TreeNode, Integer[]> memo = new HashMap<>();
 
     public int minCameraCover(TreeNode root) {
-        if (dfs(root) == Status.NEED) {
-            result++;
-        }
-        return result;
+      return minCameraCoverHelper(root, 1);
     }
 
-    private Status dfs(TreeNode root) {
-        if (root == null)  {
-            return Status.NO_NEED;
+    private int minCameraCoverHelper(TreeNode cur, int parentStatus) {
+      if (null == cur) {
+        return 0;
+      }
+      Integer[] res = memo.get(cur);
+      if (null != res && res[parentStatus] != null) {
+        return res[parentStatus];
+      }
+      int result;
+      if (parentStatus == 0) {
+        result = 1 + minCameraCoverHelper(cur.left, 2) + minCameraCoverHelper(cur.right, 2);
+      } else if (parentStatus == 1) {
+        if (cur.left == null && cur.right == null) {
+          result = 1;
+        } else {
+          result = 1 + minCameraCoverHelper(cur.left, 2) + minCameraCoverHelper(cur.right, 2);
+          if (cur.left == null) {
+            result = Math.min(result, 1 + minCameraCoverHelper(cur.right.left, 2) + minCameraCoverHelper(cur.right.right, 2));
+          } else if (cur.right == null) {
+            result = Math.min(result, 1 + minCameraCoverHelper(cur.left.left, 2) + minCameraCoverHelper(cur.left.right, 2));
+          } else {
+            result = Math.min(result, 1 + minCameraCoverHelper(cur.right.left, 2) + minCameraCoverHelper(cur.right.right, 2) + minCameraCoverHelper(cur.left, 1));
+            result = Math.min(result, 1 + minCameraCoverHelper(cur.left.left, 2) + minCameraCoverHelper(cur.left.right, 2) + minCameraCoverHelper(cur.right, 1));
+          }
         }
-        Status left = dfs(root.left), right = dfs(root.right);
-        if (left == Status.NEED || right == Status.NEED) {
-            result++;
-            return Status.MONITOR;
-        }
-        if (left == Status.MONITOR || right == Status.MONITOR) {
-            return Status.NO_NEED;
-        }
-        return Status.NEED;
+      } else {
+        result = Math.min(minCameraCoverHelper(cur.left, 1) + minCameraCoverHelper(cur.right, 1), 1 + minCameraCoverHelper(cur.left, 2) + minCameraCoverHelper(cur.right, 2));
+      }
+      if (null == res) {
+        res = new Integer[3];
+        memo.put(cur, res);
+      }
+      res[parentStatus] = result;
+      return result;
     }
 
 }

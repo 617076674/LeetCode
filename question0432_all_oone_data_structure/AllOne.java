@@ -7,171 +7,119 @@ import java.util.Set;
 
 public class AllOne {
 
-  private static class Node {
-    int value;
-    Node prev;
-    Node next;
-    Set<String> keys = new HashSet<>();
-  }
+  private static class ListNode {
 
-  private Map<String, Node> map = new HashMap<>();
+    Set<String> keySet = new HashSet<>();
 
-  private Node head;
+    int cnt;
 
-  private Node tail;
+    ListNode pre, next;
 
-  /**
-   * Initialize your data structure here.
-   */
-  public AllOne() {
-
-  }
-
-  /**
-   * Inserts a new key <Key> with value 1. Or increments an existing key by 1.
-   */
-  public void inc(String key) {
-    Node node = map.get(key);
-    if (node == null) {
-      if (head == null) {
-        head = tail = new Node();
-        head.value = 1;
-        head.keys.add(key);
-      } else if (head.value == 1) {
-        head.keys.add(key);
-      } else {
-        Node newHead = new Node();
-        newHead.next = head;
-        head.prev = newHead;
-        newHead.value = 1;
-        newHead.keys.add(key);
-        head = newHead;
-      }
-      map.put(key, head);
-    } else {
-      if (node == tail) {
-        if (node.keys.size() == 1) {
-          node.value++;
-        } else {
-          Node newTail = new Node();
-          tail.keys.remove(key);
-          newTail.value = node.value + 1;
-          newTail.keys.add(key);
-          newTail.prev = node;
-          node.next = newTail;
-          tail = newTail;
-        }
-        map.put(key, tail);
-      } else if (node.next.value == node.value + 1) {
-        if (node.keys.size() == 1) {
-          node.next.keys.add(key);
-          map.put(key, node.next);
-          if (node == head) {
-            head = node.next;
-            node.next.prev = null;
-            node.next = null;
-          } else {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-            node.next = null;
-            node.prev = null;
-          }
-        } else {
-          node.keys.remove(key);
-          node.next.keys.add(key);
-          map.put(key, node.next);
-        }
-      } else {
-        if (node.keys.size() == 1) {
-          node.value++;
-        } else {
-          Node tmp = new Node();
-          tmp.value = node.value + 1;
-          tmp.keys.add(key);
-          tmp.prev = node;
-          tmp.next = node.next;
-          node.next.prev = tmp;
-          node.next = tmp;
-          map.put(key, tmp);
-        }
-      }
+    public ListNode(int cnt) {
+      this.cnt = cnt;
     }
+
+    public void insertAfter(ListNode node) {
+      node.next = this.next;
+      this.next.pre = node;
+      this.next = node;
+      node.pre = this;
+    }
+
+    public void insertBefore(ListNode node) {
+      node.pre = this.pre;
+      this.pre.next = node;
+      this.pre = node;
+      node.next = this;
+    }
+
   }
 
-  /**
-   * Decrements an existing key by 1. If Key's value is 1, remove it from the data structure.
-   */
-  public void dec(String key) {
-    Node node = map.get(key);
-    if (null == node) {
+  private Map<String, ListNode> key2ListNode = new HashMap<>();
+
+  private ListNode dummyHead = new ListNode(Integer.MAX_VALUE);
+
+  private ListNode dummyTail = new ListNode(0);
+
+  public AllOne() {
+    dummyHead.next = dummyTail;
+    dummyTail.pre = dummyHead;
+  }
+
+  public void inc(String key) {
+    ListNode curNode = key2ListNode.get(key);
+    if (null == curNode) {
+      if (dummyTail.pre.cnt == 1) {
+        dummyTail.pre.keySet.add(key);
+        key2ListNode.put(key, dummyTail.pre);
+      } else {
+        curNode = new ListNode(1);
+        curNode.keySet.add(key);
+        key2ListNode.put(key, curNode);
+        dummyTail.insertBefore(curNode);
+      }
       return;
     }
-    if (node.value == 1) {
-      map.remove(key);
-      if (node.keys.size() == 1) {
-        head = node.next;
-      } else {
-        node.keys.remove(key);
-      }
+    curNode.keySet.remove(key);
+    ListNode preNode = curNode.pre;
+    ListNode nextNode = curNode.next;
+    if (curNode.keySet.isEmpty()) {
+      preNode.next = nextNode;
+      nextNode.pre = preNode;
+    }
+    int keyCnt = curNode.cnt + 1;
+    if (keyCnt == preNode.cnt) {
+      preNode.keySet.add(key);
+      key2ListNode.put(key, preNode);
     } else {
-      if (node == head) {
-        if (node.keys.size() == 1) {
-          node.value--;
-        } else {
-          node.keys.remove(key);
-          head = new Node();
-          head.value = node.value - 1;
-          head.keys.add(key);
-          head.next = node;
-          node.prev = head;
-          map.put(key, head);
-        }
-      } else if (node.prev.value == node.value - 1) {
-        node.prev.keys.add(key);
-        map.put(key, node.prev);
-        if (node.keys.size() == 1) {
-          if (node == tail) {
-            tail = node.prev;
-            node.prev.next = null;
-            node.prev = null;
-          } else {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-            node.next = null;
-            node.prev = null;
-          }
-        } else {
-          node.keys.remove(key);
-        }
-      } else {
-        if (node.keys.size() == 1) {
-          node.value--;
-        } else {
-          Node tmp = new Node();
-          tmp.value = node.value - 1;
-          tmp.keys.add(key);
-          tmp.prev = node.prev;
-          tmp.next = node;
-          node.prev.next = tmp;
-          node.prev = tmp;
-          map.put(key, tmp);
-        }
-      }
+      // 在 preNode 之后插入一个新的 ListNode
+      ListNode newListNode = new ListNode(keyCnt);
+      newListNode.keySet.add(key);
+      preNode.insertAfter(newListNode);
+      key2ListNode.put(key, newListNode);
     }
   }
 
-  /**
-   * Returns one of the keys with maximal value.
-   */
+  public void dec(String key) {
+    ListNode curNode = key2ListNode.get(key);
+    curNode.keySet.remove(key);
+    ListNode preNode = curNode.pre;
+    ListNode nextNode = curNode.next;
+    if (curNode.keySet.isEmpty()) {
+      preNode.next = nextNode;
+      nextNode.pre = preNode;
+    }
+    int keyCnt = curNode.cnt - 1;
+    if (keyCnt == 0) {
+      key2ListNode.remove(key);
+      return;
+    }
+    if (keyCnt == nextNode.cnt) {
+      nextNode.keySet.add(key);
+      key2ListNode.put(key, nextNode);
+    } else {
+      // 在 nextNode 之前插入一个新的 ListNode
+      ListNode newListNode = new ListNode(keyCnt);
+      newListNode.keySet.add(key);
+      nextNode.insertBefore(newListNode);
+      key2ListNode.put(key, newListNode);
+    }
+  }
+
   public String getMaxKey() {
-    return tail == null ? "" : tail.keys.iterator().next();
+    ListNode head = dummyHead.next;
+    if (head.keySet.isEmpty()) {
+      return "";
+    }
+    return head.keySet.iterator().next();
   }
 
-  /**
-   * Returns one of the keys with Minimal value.
-   */
   public String getMinKey() {
-    return head == null ? "" : head.keys.iterator().next();
+    ListNode tail = dummyTail.pre;
+    if (tail.keySet.isEmpty()) {
+      return "";
+    }
+    return tail.keySet.iterator().next();
   }
-
+  
 }
